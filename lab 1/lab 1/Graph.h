@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-using std::vector;
+using namespace std;
 
 template<typename T>
 struct Tvertex{
