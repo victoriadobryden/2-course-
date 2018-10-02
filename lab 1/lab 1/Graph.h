@@ -95,7 +95,7 @@ void Graph<T>::output()
 	{
 		cout << "Vertex #" << i << ", neighbours: ";
 		for (size_t j = 0;j < vertex[i]->neighbours.size(); ++j)
-			cout << "{ " << vertex[i]->neighbours[j].first->ind << ',' << vertex[i]->neighbours[j].second << "} ";
+			cout << "{ " << vertex[i]->neighbours[j].first->ind << ',' << vertex[i]->neighbours[j].second << " } ";
 		cout << '\n';
 	}
 }

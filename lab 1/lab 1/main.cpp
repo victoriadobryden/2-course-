@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 #include "Graph.h"
+#include "Tree.h"
 //using namespace std;
 int main()
 {
@@ -24,5 +25,8 @@ int main()
 	mas.add_edge(x, y, x*y+1);
 	mas.output();
 	cout << mas.size_gr();
+
+	Tree<int> tree;
+
 	system("pause");
 }
