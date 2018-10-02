@@ -8,7 +8,7 @@ Triangle::Triangle()
 		points[i].x = points[i].y = 0;
 }
 
-void Triangle::set_points(int x1, int y1, int x2, int y2, int x3, int y3)
+void Triangle::set_points(double x1, double y1, double x2, double y2, double x3, double y3)
 {
 	points[0].x = x1;
 	points[1].x = x2;
@@ -16,9 +16,8 @@ void Triangle::set_points(int x1, int y1, int x2, int y2, int x3, int y3)
 	points[0].y = y1;
 	points[1].y = y2;
 	points[2].y = y3;
-	side[0] = size_of_side(points[0], points[1]);
-	side[1] = size_of_side(points[1], points[2]);
-	side[2] = size_of_side(points[2], points[0]);
+	for (int i = 0; i < 3; ++i)
+		side[i] = size_of_side(points[i], points[(i + 1) % 3]);
 }
 
 void Triangle::set_points(pair<double, double> p[3])
@@ -30,7 +29,7 @@ void Triangle::set_points(pair<double, double> p[3])
 	}
 }
 
-Triangle::Triangle(int x1, int y1, int x2, int y2, int x3, int y3)
+Triangle::Triangle(double x1, double y1, double x2, double y2, double x3, double y3)
 {
 	set_points(x1, y1, x2, y2, x3, y3);
 }

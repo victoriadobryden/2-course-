@@ -1,11 +1,13 @@
 #pragma once
 #include <string>
 #include <cmath>
+#include <iostream>
 
 struct Tpoint { double x, y; };
 
 using std::string;
 using std::pair;
+using std::cout;
 
 class Polygon
 {

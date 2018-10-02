@@ -10,9 +10,9 @@ class Tetragon : public Polygon
 public:
 	Tetragon();
 	Tetragon(pair<double, double> p[4]);
-	Tetragon(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);
+	Tetragon(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4);
 	void set_points(pair<double, double> p[4]);
-	void set_points(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);
+	void set_points(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4);
 	double square();
 	double perimetr();
 	string regular();

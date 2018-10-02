@@ -5,6 +5,7 @@
 #include "Tree.h"
 #include "Triangle.h"
 #include "Tetragon.h"
+#include "Pentagon.h"
 //using namespace std;
 int main()
 {
@@ -42,6 +43,8 @@ int main()
 	Tetragon *B = new Tetragon(0, 0, 3, 0, 3, 4, 0, 3);
 	cout << "Tetragon\nPerimetr: " << B->perimetr() << "\nSquare: " << B->square() << "\nType: " << B->regular() << '\n';
 	
+	Pentagon *C = new Pentagon(0, 0, 2, 0, 2, 2, 1, 3, 0, 2);
+	cout << "Pentagon\nPerimetr: " << C->perimetr() << "\nSquare: " << C->square() << "\nType: " << C->regular() << '\n';
 		
 	system("pause");
 }

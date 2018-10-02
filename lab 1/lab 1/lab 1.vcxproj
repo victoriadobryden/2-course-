@@ -116,11 +116,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Pentagon.cpp" />
     <ClCompile Include="Tetragon.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="Pentagon.h" />
     <ClInclude Include="Polygon.h" />
     <ClInclude Include="Tetragon.h" />
     <ClInclude Include="Tree.h" />
