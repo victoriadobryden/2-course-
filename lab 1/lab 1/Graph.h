@@ -32,6 +32,7 @@ public:
 	void add_edge(int index1, int index2, T value);
 	void output();
 	int size_gr();
+	vector<Tvertex<T> *> vertexes();
 	~Graph();
 };
 
@@ -45,23 +46,24 @@ Graph<T>::Graph()
 template<typename T>
 Graph<T>::Graph(int n)
 {
-	vertex.resize(n);
+	vertex.clear();
 	length = n;
+	for (int i = 0; i < n; ++i) {
+		Tvertex<T> *cur = new Tvertex<T>(i);
+		vertex.push_back(cur);
+	}
 }
 
 template<typename T>
 void Graph<T>::add_vertex(vector<pair<int, T> > neighb)
 {
 	Tvertex<T> *new_vertex = new Tvertex<T>(length);
-	cout << length << '\n';
 	++length;
 	for (size_t i = 0; i < neighb.size(); ++i)	
 	{
-		cout << neighb[i].first << ' ';
 		new_vertex->neighbours.push_back({vertex[neighb[i].first], neighb[i].second});
 		vertex[neighb[i].first]->neighbours.push_back({ new_vertex, neighb[i].second});
 	}
-	cout << '\n';
 	vertex.push_back(new_vertex);
 }
 
@@ -107,9 +109,34 @@ int Graph<T>::size_gr()
 }
 
 template<typename T>
+vector<Tvertex<T> *> Graph<T>::vertexes()
+{
+	vector<Tvertex<T> *> temp;
+	for (size_t i = 0;i < vertex.size(); ++i)
+	{
+		Tvertex<T> *cur = new Tvertex<T>(i);
+		for (size_t j = 0; j < vertex[i]->neighbours.size(); ++j)
+		{
+			size_t to = vertex[i]->neighbours[j].first->ind;
+			T val = vertex[i]->neighbours[j].second;
+			if (to < i)
+			{
+				cur->neighbours.push_back({ temp[to],val });
+				temp[to]->neighbours.push_back({ cur,val });
+			}
+			else if (to == i)
+				cur->neighbours.push_back({ cur,val });
+
+		}
+		temp.push_back(cur);
+	}
+	return temp;
+}
+
+template<typename T>
 Graph<T>::~Graph()
 {
-	for (int i = 0; i < length; ++i)
+	for (int i = 0; i < vertex.size(); ++i)
 		delete vertex[i];
 	vertex.clear();
 }
