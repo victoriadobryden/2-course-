@@ -2,6 +2,7 @@
 #include "Tetragon.h"
 #include "Triangle.h"
 
+using namespace std;
 
 
 Pentagon::Pentagon()
@@ -75,4 +76,12 @@ string Pentagon::regular()
 
 Pentagon::~Pentagon()
 {
+}
+
+ostream & operator<<(ostream & os, const Pentagon *value)
+{
+	os << "( " << value->points[0].x << ";" << value->points[0].y << " )";
+	for (int i = 1; i < 5; ++i)
+		os << ",( " << value->points[i].x << ";" << value->points[i].y << " )";
+	return os;
 }

@@ -82,6 +82,16 @@ string Triangle::regular()
 		return "Simple";
 }
 
+
+ostream & operator<<(ostream & os, const Triangle * value)
+{
+	os << "( " << value->points[0].x << ";" << value->points[0].y << " )";
+	for (int i = 1; i < 3; ++i)
+		os << ",( " << value->points[i].x << ";" << value->points[i].y << " )";
+	return os;
+}
+
+
 Triangle::~Triangle()
 {
 }

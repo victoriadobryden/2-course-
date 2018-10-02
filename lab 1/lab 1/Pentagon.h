@@ -17,6 +17,7 @@ public:
 	double square();
 	double perimetr();
 	string regular();
+	friend ostream& operator<<(ostream& os, const Pentagon* value);
 	~Pentagon();
 };
 

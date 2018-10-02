@@ -8,6 +8,7 @@ struct Tpoint { double x, y; };
 using std::string;
 using std::pair;
 using std::cout;
+using std::ostream;
 
 class Polygon
 {

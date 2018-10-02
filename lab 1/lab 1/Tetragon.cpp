@@ -89,3 +89,11 @@ string Tetragon::regular()
 Tetragon::~Tetragon()
 {
 }
+
+ostream & operator<<(ostream & os, const Tetragon * value)
+{
+	os << "( " << value->points[0].x << ";" << value->points[0].y << " )";
+	for (int i = 1; i < 4; ++i)
+		os << ",( " << value->points[i].x << ";" << value->points[i].y << " )";
+	return os;
+}

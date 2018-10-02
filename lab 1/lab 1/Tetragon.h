@@ -16,6 +16,7 @@ public:
 	double square();
 	double perimetr();
 	string regular();
+	friend ostream& operator<<(ostream& os, const Tetragon* value);
 	~Tetragon();
 };
 
