@@ -81,7 +81,6 @@ int Tree<T>::find_ostov(Graph<T> &graph)
 }
 template<typename T>
 Tree<T>::~Tree()
-
 {
 	for (int i = 0; i < vertex.size(); ++i)
 		delete vertex[i];
