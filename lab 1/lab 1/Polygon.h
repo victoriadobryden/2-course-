@@ -8,8 +8,8 @@ using std::string;
 class Polygon
 {
 public:
-	virtual long square() = 0;
-	virtual long perimetr() = 0;
+	virtual double square() = 0;
+	virtual double perimetr() = 0;
 	virtual string regular() = 0;
 };
 

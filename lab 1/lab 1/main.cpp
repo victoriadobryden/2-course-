@@ -3,9 +3,11 @@
 #include <ctime>
 #include "Graph.h"
 #include "Tree.h"
+#include "Triangle.h"
 //using namespace std;
 int main()
 {
+	//-----------------------------GRAPH---------------------------C
 	Graph<int> mas;
 	vector<pair<int,int> > temp;
 	temp.clear();
@@ -32,6 +34,8 @@ int main()
 	else
 		cout << "It's consist of several trees\n";
 	tree.output();
-
+	cout << "-----------------------------POLYGON---------------------------\n";
+	Triangle *A = new Triangle(1, 0, 0, 1, 0, 0);
+	cout << A->perimetr() << '\n' << A->square() << '\n';
 	system("pause");
 }
