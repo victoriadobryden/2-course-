@@ -55,9 +55,32 @@ double Triangle::perimetr()
 	return side[0] + side[1] + side[2];
 }
 
+bool Triangle::check_for_90(int x)
+{
+	if ((points[(x + 2) % 3].x - points[x].x)*(points[(x + 1) % 3].x - points[x].x) +
+		(points[(x + 2) % 3].x - points[x].x)*(points[(x + 1) % 3].x - points[x].x) == 0)
+		return 1;
+	return 0;
+}
+
 string Triangle::regular()
 {
-	return "123";
+	if (side[1] + side[2] == side[0] ||
+		side[2] + side[0] == side[1] ||
+		side[0] + side[1] == side[2])
+		return "Degenerated";
+	else if (side[0] == side[1] && side[1] == side[2])
+		return "Equilateral";
+	else if (side[0] == side[1] && check_for_90(1) ||
+		side[1] == side[2] && check_for_90(2) ||
+		side[2] == side[0] && check_for_90(0) == 0)
+		return "Isosceles Right";
+	else if (side[0] == side[1] || side[1] == side[2] || side[2] == side[0])
+		return "Isosceles";
+	else if (check_for_90(0) || check_for_90(1) || check_for_90(2))
+		return "Right";
+	else 
+		return "Simple";
 }
 
 Triangle::~Triangle()

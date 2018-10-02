@@ -35,7 +35,7 @@ int main()
 		cout << "It's consist of several trees\n";
 	tree.output();
 	cout << "-----------------------------POLYGON---------------------------\n";
-	Triangle *A = new Triangle(1, 0, 0, 1, 0, 0);
-	cout << A->perimetr() << '\n' << A->square() << '\n';
+	Triangle *A = new Triangle(1, 0, 3, 0, 2, 0);
+	cout << A->perimetr() << '\n' << A->square() << '\n' << A->regular();
 	system("pause");
 }

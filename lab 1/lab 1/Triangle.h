@@ -8,6 +8,7 @@ class Triangle: public Polygon
 	Tpoint points[3];
 	double side[3];
 	double size_of_side(Tpoint a, Tpoint b);
+	bool check_for_90(int x);
 public:
 	Triangle();
 	Triangle(pair<double, double> p[3]);
