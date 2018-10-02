@@ -8,11 +8,6 @@ Triangle::Triangle()
 		points[i].x = points[i].y = 0;
 }
 
-double Triangle::size_of_side(Tpoint a, Tpoint b)
-{
-	return sqrt((a.x - b.x)*(a.x - b.x) + (a.y - b.y)*(a.y - b.y));
-}
-
 void Triangle::set_points(int x1, int y1, int x2, int y2, int x3, int y3)
 {
 	points[0].x = x1;
@@ -55,10 +50,15 @@ double Triangle::perimetr()
 	return side[0] + side[1] + side[2];
 }
 
+double Triangle::size_of_side(Tpoint a, Tpoint b)
+{
+	return sqrt((a.x - b.x)*(a.x - b.x) + (a.y - b.y)*(a.y - b.y));
+}
+
 bool Triangle::check_for_90(int x)
 {
 	if ((points[(x + 2) % 3].x - points[x].x)*(points[(x + 1) % 3].x - points[x].x) +
-		(points[(x + 2) % 3].x - points[x].x)*(points[(x + 1) % 3].x - points[x].x) == 0)
+		(points[(x + 2) % 3].y - points[x].y)*(points[(x + 1) % 3].y - points[x].y) == 0)
 		return 1;
 	return 0;
 }

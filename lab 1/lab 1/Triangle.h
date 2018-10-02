@@ -1,7 +1,5 @@
 #pragma once
 #include "Polygon.h"
-#include <cmath>
-using std::pair;
 
 class Triangle: public Polygon
 {

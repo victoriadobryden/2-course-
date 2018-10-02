@@ -136,7 +136,7 @@ vector<Tvertex<T> *> Graph<T>::vertexes()
 template<typename T>
 Graph<T>::~Graph()
 {
-	for (int i = 0; i < vertex.size(); ++i)
+	for (size_t i = 0; i < vertex.size(); ++i)
 		delete vertex[i];
 	vertex.clear();
 }

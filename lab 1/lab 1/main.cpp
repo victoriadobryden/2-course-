@@ -4,6 +4,7 @@
 #include "Graph.h"
 #include "Tree.h"
 #include "Triangle.h"
+#include "Tetragon.h"
 //using namespace std;
 int main()
 {
@@ -12,7 +13,7 @@ int main()
 	vector<pair<int,int> > temp;
 	temp.clear();
 	srand(time(NULL));
-	for (int i = 0; i <= 3; ++i)
+	for (size_t i = 0; i <= 3; ++i)
 	{
 		for (size_t j = 0; j < i; ++j) {
 			if (rand() % 2 == 1)
@@ -36,6 +37,11 @@ int main()
 	tree.output();
 	cout << "-----------------------------POLYGON---------------------------\n";
 	Triangle *A = new Triangle(1, 0, 3, 0, 2, 0);
-	cout << A->perimetr() << '\n' << A->square() << '\n' << A->regular();
+	cout << "Triangle:\nPerimetr: " << A->perimetr() << "\nSquare: " << A->square() << "\nType: " << A->regular() << '\n';
+
+	Tetragon *B = new Tetragon(0, 0, 3, 0, 3, 4, 0, 3);
+	cout << "Tetragon\nPerimetr: " << B->perimetr() << "\nSquare: " << B->square() << "\nType: " << B->regular() << '\n';
+	
+		
 	system("pause");
 }
