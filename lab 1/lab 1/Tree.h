@@ -9,8 +9,7 @@ private:
 	using Graph<T>::vertex;
 	int root;
 	static const int NMAX = 100001;
-	bool used[NMAX];
-	void dfs(int v,int p, vector<Tvertex<T> *> &vert);
+	void dfs(int v,int p, vector<Tvertex<T> *> &vert, bool used[]);
 public:
 	Tree();
 	Tree(int n);
@@ -23,7 +22,7 @@ public:
 
 
 template<typename T>
-void Tree<T>::dfs(int v, int p, vector<Tvertex<T> *> &vert)
+void Tree<T>::dfs(int v, int p, vector<Tvertex<T> *> &vert, bool used[])
 {
 	used[v] = true;
 	for (size_t i = 0; i < vert[v]->neighbours.size(); ++i)
@@ -32,7 +31,7 @@ void Tree<T>::dfs(int v, int p, vector<Tvertex<T> *> &vert)
 		T cur = vert[v]->neighbours[i].second;
 		if (!used[to]) {
 			add_edge(v, to, cur);
-			dfs(to, v, vert);
+			dfs(to, v, vert, used);
 		}
 	}
 }
@@ -65,12 +64,13 @@ int Tree<T>::find_ostov(Graph<T> &graph)
 		Tvertex<T> *cur = new Tvertex<T>(i);
 		vertex.push_back(cur);
 	}
+	bool used[NMAX];
 	for (int i = 0; i < length; ++i)
 		used[i] = false;
 	int counter = 0;
 	for (int i = 0; i < length; ++i) {
 		if (!used[i]) {
-			dfs(i, -1, vert);
+			dfs(i, -1, vert, used);
 			++counter;
 		}
 	}
