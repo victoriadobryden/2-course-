@@ -2,6 +2,7 @@
 #include <vector>
 
 using std::vector;
+using std::cout;
 
 template<typename T>
 struct Tvertex{
@@ -30,6 +31,8 @@ public:
 	Graph(int n);
 	void add_vertex(T value, vector<int> neigbours);
 	void add_edge(int index1, int index2);
+	void output();
+	int size_gr();
 	~Graph();
 };
 
@@ -50,14 +53,17 @@ Graph<T>::Graph(int n)
 template<typename T>
 void Graph<T>::add_vertex(T value, vector<int> neighb)
 {
-	Tvertex<T> *new_vertex = new Tvertex(value,length);
+	Tvertex<T> *new_vertex = new Tvertex<T>(value,length);
 	++length;
-	for (int i = 0; i < neighb.size(); ++i)
+	cout << value << '\n';
+	for (size_t i = 0; i < neighb.size(); ++i)	
 	{
+		cout << neighb[i] << ' ';
 		new_vertex->neighbours.push_back(vertex[neighb[i]]);
 		vertex[neighb[i]]->neighbours.push_back(new_vertex);
 	}
-	vertex.push_back(vertex);
+	cout << '\n';
+	vertex.push_back(new_vertex);
 }
 
 template<typename T>
@@ -76,6 +82,25 @@ void Graph<T>::add_edge(int index1, int index2)
 		vertex[index1]->neighbours.push_back(vertex[index2]);
 		vertex[index2]->neighbours.push_back(vertex[index1]);
 	}
+}
+
+template<typename T>
+void Graph<T>::output()
+{
+	cout << "Size of graph: " << length << "\n";
+	for (int i = 0; i < length; ++i)
+	{
+		cout << "Vertex #" << i << ", value = " << vertex[i]->value << ", neighbours: ";
+		for (int j = 0;j < vertex[i]->neighbours.size(); ++j)
+			cout << vertex[i]->neighbours[j]->ind << ' ';
+		cout << '\n';
+	}
+}
+
+template<typename T>
+int Graph<T>::size_gr()
+{
+	return length;
 }
 
 template<typename T>
