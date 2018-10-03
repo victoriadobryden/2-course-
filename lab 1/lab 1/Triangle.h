@@ -7,6 +7,7 @@ class Triangle: public Polygon
 	double side[3];
 	double size_of_side(Tpoint a, Tpoint b);
 	bool check_for_90(int x);
+	Polygon::eps;
 public:
 	Triangle();
 	Triangle(pair<double, double> p[3]);
@@ -18,6 +19,7 @@ public:
 	string regular();
 	void my_rand();
 	friend ostream& operator<<(ostream& os, const Triangle* value);
+	friend istream& operator>>(istream& is, Triangle* value);
 	~Triangle();
 };
 

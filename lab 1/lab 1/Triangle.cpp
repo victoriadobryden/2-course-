@@ -25,8 +25,10 @@ void Triangle::set_points(pair<double, double> p[3])
 	for (int i = 0; i < 3; ++i) {
 		points[i].x = p[i].first;
 		points[i].y = p[i].second;
-		side[i] = size_of_side(points[i], points[(i+1)%3]);
 	}
+	for (int i = 0; i < 3; ++i)
+		side[i] = size_of_side(points[i], points[(i + 1) % 3]);
+	
 }
 
 Triangle::Triangle(double x1, double y1, double x2, double y2, double x3, double y3)
@@ -57,24 +59,24 @@ double Triangle::size_of_side(Tpoint a, Tpoint b)
 bool Triangle::check_for_90(int x)
 {
 	if ((points[(x + 2) % 3].x - points[x].x)*(points[(x + 1) % 3].x - points[x].x) +
-		(points[(x + 2) % 3].y - points[x].y)*(points[(x + 1) % 3].y - points[x].y) == 0)
+		(points[(x + 2) % 3].y - points[x].y)*(points[(x + 1) % 3].y - points[x].y) < eps)
 		return 1;
 	return 0;
 }
 
 string Triangle::regular()
 {
-	if (side[1] + side[2] == side[0] ||
-		side[2] + side[0] == side[1] ||
-		side[0] + side[1] == side[2])
+	if (abs(side[1] + side[2] - side[0]) < eps ||
+		abs(side[2] + side[0] - side[1]) < eps ||
+		abs(side[0] + side[1] - side[2]) < eps)
 		return "Degenerated";
-	else if (side[0] == side[1] && side[1] == side[2])
+	else if (abs(side[0] - side[1]) < eps && abs(side[1] == side[2]) < eps)
 		return "Equilateral";
-	else if (side[0] == side[1] && check_for_90(1) ||
-		side[1] == side[2] && check_for_90(2) ||
-		side[2] == side[0] && check_for_90(0) == 0)
+	else if (abs(side[0] - side[1]) < eps && check_for_90(1) ||
+		abs(side[1] - side[2]) < eps && check_for_90(2) ||
+		abs(side[2] - side[0]) < eps && check_for_90(0))
 		return "Isosceles Right";
-	else if (side[0] == side[1] || side[1] == side[2] || side[2] == side[0])
+	else if (abs(side[0] - side[1]) < eps || abs(side[1] - side[2]) < eps || abs(side[2] - side[0]) < eps)
 		return "Isosceles";
 	else if (check_for_90(0) || check_for_90(1) || check_for_90(2))
 		return "Right";
@@ -88,8 +90,9 @@ void Triangle::my_rand()
 	for (int i = 0; i < 3; ++i) {
 		points[i].x = (double)rand() / RAND_MAX * 100.0;
 		points[i].y = (double)rand() / RAND_MAX * 100.0;
-		side[i] = size_of_side(points[i], points[(i + 1) % 3]);
 	}
+	for (int i = 0;i < 3; ++i)
+		side[i] = size_of_side(points[i], points[(i + 1) % 3]);
 }
 
 
@@ -99,6 +102,15 @@ ostream & operator<<(ostream & os, const Triangle * value)
 	for (int i = 1; i < 3; ++i)
 		os << ",( " << value->points[i].x << ";" << value->points[i].y << " )";
 	return os;
+}
+
+istream & operator>>(istream & is, Triangle * value)
+{
+	for (int i = 0; i < 3; ++i)
+		is >> value->points[i].x >> value->points[i].y;
+	for (int i = 0; i < 3; ++i)
+		value->side[i] = value->size_of_side(value->points[i], value->points[(i + 1) % 3]);
+	return is;
 }
 
 

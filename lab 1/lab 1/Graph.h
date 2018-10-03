@@ -109,6 +109,10 @@ void Graph<T>::help_output(T value)
 template<typename T>
 void Graph<T>::output()
 {
+	if (length == 0) {
+		cout << "Graph is empty!!! Fill it, please.)";
+		return;
+	}
 	cout << "Size of graph: " << length << "\n";
 	for (int i = 0; i < length; ++i)
 	{

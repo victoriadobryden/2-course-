@@ -27,8 +27,9 @@ void Pentagon::set_points(pair<double, double> p[5])
 	for (int i = 0; i < 5; ++i) {
 		points[i].x = p[i].first;
 		points[i].y = p[i].second;
-		side[i] = size_of_side(points[i], points[(i + 1) % 5]);
 	}
+	for (int i = 0;i < 5; ++i)
+		side[i] = size_of_side(points[i], points[(i + 1) % 5]);
 }
 
 Pentagon::Pentagon(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4, double x5,double y5)
@@ -61,10 +62,10 @@ double Pentagon::angle(int x)
 
 string Pentagon::regular()
 {
-	if (side[0] == side[1] && side[1] == side[2] && side[2] == side[3] &&
-		angle(0) == angle(1) && angle(1) == angle(2) && angle(2) == angle(3) &&
-		angle(3) == angle(4))
-		return "Convex";
+	if (abs(side[0] - side[1]) < eps && abs(side[1] - side[2]) < eps && abs(side[2] - side[3]) < eps &&
+		abs(side[3] - side[4]) < eps && abs(angle(0) - angle(1)) < eps && abs(angle(1) - angle(2)) < eps && 
+		abs(angle(2) - angle(3)) < eps && abs(angle(3) - angle(4)) < eps)
+		return "Equilateral";
 	else 
 		return "Other";
 }
@@ -131,4 +132,13 @@ ostream & operator<<(ostream & os, const Pentagon *value)
 	for (int i = 1; i < 5; ++i)
 		os << ",( " << value->points[i].x << ";" << value->points[i].y << " )";
 	return os;
+}
+
+istream & operator>>(istream & is, Pentagon * value)
+{
+	for (int i = 0; i < 5; ++i)
+		is >> value->points[i].x >> value->points[i].y;
+	for (int i = 0; i < 5; ++i)
+		value->side[i] = value->size_of_side(value->points[i], value->points[(i + 1) % 4]);
+	return is;
 }

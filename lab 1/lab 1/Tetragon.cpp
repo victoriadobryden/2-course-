@@ -30,8 +30,9 @@ void Tetragon::set_points(pair<double, double> p[4])
 	for (int i = 0; i < 4; ++i) {
 		points[i].x = p[i].first;
 		points[i].y = p[i].second;
-		side[i] = size_of_side(points[i], points[(i + 1) % 4]);
 	}
+	for (int i = 0;i < 4; ++i)
+		side[i] = size_of_side(points[i], points[(i + 1) % 4]);
 }
 
 Tetragon::Tetragon(double x1, double y1, double x2, double y2, double x3, double y3, double x4,double y4)
@@ -64,25 +65,27 @@ double Tetragon::angle(int x)
 
 string Tetragon::regular()
 {
-	if (side[1] + side[2] + side[3] == side[0] ||
-		side[2] + side[3] + side[0] == side[1] ||
-		side[3] + side[0] + side[1] == side[2] ||
-		side[0] + side[1] + side[2] == side[3])
+	if (abs(side[1] + side[2] + side[3] - side[0] < eps) ||
+		abs(side[2] + side[3] + side[0] - side[1] < eps) ||
+		abs(side[3] + side[0] + side[1] - side[2] < eps)||
+		abs(side[0] + side[1] + side[2] - side[3] < eps))
 		return "Degenerated";
-	else if (side[0] == side[1] && side[1] == side[2] && side[2] == side[3]) {
-		if (angle(0) == angle(1))
+	else if (abs(side[0] - side[1]) < eps && abs(side[1] - side[2]) < eps && abs(side[2] - side[3]) < eps)
+	{
+		if (abs(angle(0) - angle(1)) < eps)
 			return "Square";
 		else
 			return "Rhombus";
 	}
-	else if (side[0] == side[2] && side[1] == side[3]) {
-		if (angle(1) == 0)
+	else if (abs(side[0] - side[2]) < eps &&  abs(side[1] - side[3]) < eps)
+	{
+		if (abs(angle(1)) < eps)
 			return "Rectangle";
 		else
 			return "Parallelogram";
 	}
-	else if (angle(3) == -angle(4) && angle(1) == -angle(2) ||
-		angle(2) == -angle(3) && angle(0) == -angle(1))
+	else if (abs(angle(3) + angle(4)) < eps && abs(angle(1) + angle(2)) < eps ||
+		abs(angle(2) + angle(3)) < eps && abs(angle(0) + angle(1)) < eps)
 		return "Trapezoid";
 	return "Other";
 }
@@ -151,4 +154,13 @@ ostream & operator<<(ostream & os, const Tetragon * value)
 	for (int i = 1; i < 4; ++i)
 		os << ",( " << value->points[i].x << ";" << value->points[i].y << " )";
 	return os;
+}
+
+istream & operator>>(istream & is, Tetragon * value)
+{
+	for (int i = 0; i < 4; ++i)
+		is >> value->points[i].x >> value->points[i].y;
+	for (int i = 0; i < 4; ++i)
+		value->side[i] = value->size_of_side(value->points[i], value->points[(i + 1) % 4]);
+	return is;
 }

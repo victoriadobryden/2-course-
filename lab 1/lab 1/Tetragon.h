@@ -3,6 +3,7 @@
 
 class Tetragon : public Polygon
 {
+	Polygon::eps;
 	Tpoint points[4];
 	double side[4];
 	double angle(int x);
@@ -20,6 +21,7 @@ public:
 	string regular();
 	void my_rand();
 	friend ostream& operator<<(ostream& os, const Tetragon* value);
+	friend istream& operator>>(istream& is, Tetragon* value);
 	~Tetragon();
 };
 

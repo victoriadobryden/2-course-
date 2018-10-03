@@ -11,9 +11,12 @@ using std::string;
 using std::pair;
 using std::cout;
 using std::ostream;
+using std::istream;
 
 class Polygon
 {
+protected:
+	const double eps = 0.00001;
 public:
 	virtual double square() = 0;
 	virtual double perimetr() = 0;

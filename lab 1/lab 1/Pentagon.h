@@ -4,6 +4,7 @@
 class Pentagon :
 	public Polygon
 {
+	Polygon::eps;
 	Tpoint points[5];
 	double side[5];
 	double size_of_side(Tpoint a, Tpoint b);
@@ -21,6 +22,7 @@ public:
 	string regular();
 	void my_rand();
 	friend ostream& operator<<(ostream& os, const Pentagon* value);
+	friend istream& operator>>(istream& is, Pentagon* value);
 	~Pentagon();
 };
 
