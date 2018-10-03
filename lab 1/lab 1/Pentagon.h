@@ -8,6 +8,8 @@ class Pentagon :
 	double side[5];
 	double size_of_side(Tpoint a, Tpoint b);
 	double angle(int x);
+	bool crossed_line(int x, int w);
+	bool point_in_line_segment(int x, Tpoint p);
 public:
 	Pentagon();
 	Pentagon(pair<double, double> p[5]);
@@ -17,6 +19,7 @@ public:
 	double square();
 	double perimetr();
 	string regular();
+	void my_rand();
 	friend ostream& operator<<(ostream& os, const Pentagon* value);
 	~Pentagon();
 };

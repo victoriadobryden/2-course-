@@ -16,6 +16,7 @@ public:
 	double square();
 	double perimetr();
 	string regular();
+	void my_rand();
 	friend ostream& operator<<(ostream& os, const Triangle* value);
 	~Triangle();
 };

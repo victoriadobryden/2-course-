@@ -6,8 +6,7 @@
 #include "Triangle.h"
 #include "Tetragon.h"
 #include "Pentagon.h"
-//using namespace std;
-using namespace std;
+using std::cin;
 void graph_checker()
 {
 	cout << "You will work with Class Graph\n"; 
@@ -15,7 +14,6 @@ void graph_checker()
 	while (flag)
 	{
 		int x;
-		cout << "What data which graph";
 		cin >> x;
 	}
 }

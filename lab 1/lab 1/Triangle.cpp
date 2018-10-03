@@ -82,6 +82,16 @@ string Triangle::regular()
 		return "Simple";
 }
 
+void Triangle::my_rand()
+{
+	srand(time(NULL));
+	for (int i = 0; i < 3; ++i) {
+		points[i].x = (double)rand() / RAND_MAX * 100.0;
+		points[i].y = (double)rand() / RAND_MAX * 100.0;
+		side[i] = size_of_side(points[i], points[(i + 1) % 3]);
+	}
+}
+
 
 ostream & operator<<(ostream & os, const Triangle * value)
 {

@@ -7,6 +7,8 @@ class Tetragon : public Polygon
 	double side[4];
 	double angle(int x);
 	double size_of_side(Tpoint a, Tpoint b);
+	bool point_in_line_segment(int x, Tpoint p);
+	bool crossed_line(int x, int w);
 public:
 	Tetragon();
 	Tetragon(pair<double, double> p[4]);
@@ -16,6 +18,7 @@ public:
 	double square();
 	double perimetr();
 	string regular();
+	void my_rand();
 	friend ostream& operator<<(ostream& os, const Tetragon* value);
 	~Tetragon();
 };

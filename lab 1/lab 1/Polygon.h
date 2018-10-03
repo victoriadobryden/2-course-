@@ -2,6 +2,8 @@
 #include <string>
 #include <cmath>
 #include <iostream>
+#include <ctime>
+#include <random>
 
 struct Tpoint { double x, y; };
 
@@ -16,4 +18,5 @@ public:
 	virtual double square() = 0;
 	virtual double perimetr() = 0;
 	virtual string regular() = 0;
+	virtual void my_rand() = 0;
 };

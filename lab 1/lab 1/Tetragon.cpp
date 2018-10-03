@@ -45,8 +45,10 @@ Tetragon::Tetragon(pair<double, double> p[4])
 
 double Tetragon::square()
 {
-	double p = (side[0] + side[1] + side[2] + side[3]) / 2;
-	return sqrt((p - side[0])*(p - side[1])*(p - side[2])*(p-side[3]));
+	double sum = 0;
+	for (int i = 0; i < 4; ++i)
+		sum += points[i].x*points[(i + 1) % 4].y - points[i].y * points[(i + 1) % 4].x;
+	return abs(0.5*sum);
 }
 
 double Tetragon::perimetr()
@@ -83,6 +85,59 @@ string Tetragon::regular()
 		angle(2) == -angle(3) && angle(0) == -angle(1))
 		return "Trapezoid";
 	return "Other";
+}
+
+
+bool Tetragon::point_in_line_segment(int x, Tpoint p)
+{
+	return (points[x].x <= p.x && p.x <= points[(x + 1) % 5].x ||
+		points[(x + 1) % 5].x <= p.x && p.x <= points[x].x) &&
+		(points[x].y <= p.y && p.y <= points[(x + 1) % 5].y ||
+			points[(x + 1) % 5].y <= p.y && p.y <= points[x].y);
+}
+
+bool Tetragon::crossed_line(int x, int w)
+{
+	Tpoint temp;
+	double a1 = (points[(x + 1) % 5].y - points[x].y), b1 = (points[x].x - points[(x + 1) % 5].x), c1 = -a1 * points[x].x - b1 * points[x].y;
+	double a2 = (points[(x + 1) % 5].y - points[x].y), b2 = (points[x].x - points[(x + 1) % 5].x), c2 = -a2 * points[x].x - b2 * points[x].y;
+	temp.x = (b2*c1 - b1 * c2) / (a2*b1 - a1 * b2);
+	temp.y = (b1 != 0 ? (-a1 * temp.x - c1) / b1 : (-a2 * temp.x - c2) / b2);
+	return point_in_line_segment(x, temp) && point_in_line_segment(w, temp);
+}
+
+void Tetragon::my_rand()
+{
+	srand(time(NULL));
+	for (int i = 0; i < 4; ++i) 
+	{
+		points[i].x = (double)rand() / RAND_MAX * 100.0;
+		points[i].y = (double)rand() / RAND_MAX * 100.0;
+	}
+	bool flag = true;
+	while (flag)
+	{
+		flag = false;
+		for (int i = 0; i < 2; ++i)
+		{
+			for (int j = 0; j < 4; ++j)
+			{
+				if (j == i || j == (i + 1) % 4 || j == (i + 3) % 4)
+					continue;
+				if (crossed_line(i, j))
+				{
+					points[(j + 1) % 4].x = (double)rand() / RAND_MAX * 100.0;
+					points[(j + 1) % 4].y = (double)rand() / RAND_MAX * 100.0;
+					flag = true;
+					break;
+				}
+			}
+			if (flag)
+				break;
+		}
+	}
+	for (int i = 0; i < 4; ++i)
+		side[i] = size_of_side(points[i], points[(i + 1) % 4]);
 }
 
 
