@@ -1,9 +1,37 @@
 #pragma once
 #include <vector>
+#include <iostream>
+#include "Polygon.h"
 
 using std::vector;
 using std::cout;
 using std::pair;
+
+
+
+///for vector
+template<typename T>
+istream& operator>>(istream& is, vector<T>& v)
+{
+	int n;
+	is >> n;
+	v.resize(n);
+	for (int i = 0; i < n; ++i)
+		is >> v[i];
+	return is;
+}
+template<typename T>
+ostream& operator<<(ostream& os, const vector<T>& v)
+{
+	os << "( ";
+	if (v.size() != 0)
+		os << v[0];
+	for (size_t i = 1; i < v.size(); ++i)
+		os << ', ' << v[i];
+	os << " )";
+	return os;
+}
+
 
 template<typename T>
 struct Tvertex{
@@ -164,3 +192,4 @@ Graph<T>::~Graph()
 		delete vertex[i];
 	vertex.clear();
 }
+

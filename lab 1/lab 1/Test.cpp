@@ -6,7 +6,9 @@
 #include "Triangle.h"
 #include "Tetragon.h"
 #include "Pentagon.h"
+
 using std::cin;
+
 template<typename T>
 void check(Graph<T> &graph)
 {
@@ -21,15 +23,17 @@ void check(Graph<T> &graph)
 		if (x == 1)
 		{
 			cout << "There are " << graph.size_gr() << "vertexes. Input with which vertexes it has to be connected.\n";
-		//	cout << "First is number of vertex, next is data, end of inputing data and end of input is \"-1\":\n";
-		/*	int v;
-			vector<pair<int, T> > neigbours;
+			cout << "First is number of vertex, next is data, end of inputing data and end of input is \"-1\":\n";
+			int v;
+			vector<pair<int, T> > neighbours;
 			while (cin >> v)
 			{
 				if (v == -1)
 					break;
-				for (int i =)
-			}*/
+				T val;
+				cin >> val;
+				neighbours.push_back({ v,val });
+			}
 		}
 	}
 }
