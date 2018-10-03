@@ -53,8 +53,6 @@ class Graph
 protected:
 	vector<Tvertex<T> *> vertex;
 	int length;
-	template<typename T1>
-	void help_output(T value);
 public:
 	Graph();
 	Graph(int n);
@@ -120,21 +118,6 @@ void Graph<T>::add_edge(int index1, int index2, T value)
 }
 
 template<typename T>
-template<typename T1>
-void Graph<T>::help_output(T value)
-{
-	if (typeid(T) == typeid(vector<T1>))
-	{
-		cout << "(";
-		for (int i = 0; i < value.size(); ++i)
-			cout << value[i] << ' ';
-		cout << ")";
-	}
-	else 
-		cout << value;
-}
-
-template<typename T>
 void Graph<T>::output()
 {
 	if (length == 0) {
@@ -146,9 +129,7 @@ void Graph<T>::output()
 	{
 		cout << "Vertex #" << i << ", neighbours: ";
 		for (size_t j = 0; j < vertex[i]->neighbours.size(); ++j) {
-			cout << "{ " << vertex[i]->neighbours[j].first->ind << ';';
-			help_output(vertex[i]->neighbours[j].second);
-			cout << " } ";
+			cout << "{ " << vertex[i]->neighbours[j].first->ind << ';' << vertex[i]->neighbours[j].second << " } ";
 		}
 		cout << '\n';
 	}
