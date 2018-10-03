@@ -21,7 +21,7 @@ void check(Graph<T> &gr)
 			break;
 		else if (x == 1)
 		{
-			cout << "There are " << gr.size_gr() << "vertexes. Input with which vertexes it has to be connected.\n";
+			cout << "There are " << gr.size_gr() << " vertexes. Input with which vertexes it has to be connected.\n";
 			cout << "First is number of vertex, next is data, end of input is \"-1\":\n";
 			int v;
 			vector<pair<int, T> > neighbours;

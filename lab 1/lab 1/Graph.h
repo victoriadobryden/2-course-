@@ -14,11 +14,11 @@ template<typename T>
 istream& operator>>(istream& is, vector<T>& v)
 {
 	int n;
+	T cur;
 	is >> n;
 	for (int i = 0; i < n; ++i) {
-		T* cur = new T();
-		is >> *cur;
-		v.push_back(*cur);
+		is >> cur;
+		v.push_back(cur);
 	}
 	return is;
 }
@@ -29,7 +29,7 @@ ostream& operator<<(ostream& os, const vector<T>& v)
 	if (v.size() != 0)
 		os << v[0];
 	for (size_t i = 1; i < v.size(); ++i)
-		os << ', ' << v[i];
+		os << "; " << v[i];
 	os << " )";
 	return os;
 }

@@ -3,7 +3,7 @@
 int main()
 {
 	//-----------------------------GRAPH---------------------------
-	Graph<int> temp;
+	Graph<vector<Tetragon> > temp;
 	check(temp);
 	cout << "-----------------------------POLYGON---------------------------\n";
 	Triangle A(1, 0, 3, 0, 2, 0);
