@@ -115,9 +115,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Check_Graph.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pentagon.cpp" />
-    <ClCompile Include="Test.cpp" />
     <ClCompile Include="Tetragon.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>

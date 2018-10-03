@@ -1,7 +1,4 @@
 #pragma once
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
 #include "Graph.h"
 #include "Tree.h"
 #include "Triangle.h"
@@ -60,9 +57,9 @@ void check(Graph<T> &graph)
 			cin >> val;
 			graph.add_edge(x1, x2, val);
 		}
-		else if (x == 3) 
+		else if (x == 3)
 		{
-			cout << "Size is " << graph.size_gr() << "\n";
+			cout << "Size is " << graph.size_gr();
 		}
 		else if (x == 4)
 		{
@@ -77,10 +74,6 @@ void check(Graph<T> &graph)
 				cout << "Yeah we found a tree\n";
 			tree.output();
 		}
-
-
-		int y = 9;
-		cout << y*y << '\n';
 
 		cout << "\n --------------------------------------------------\n\n";
 	}
