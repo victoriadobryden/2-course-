@@ -21,8 +21,8 @@ public:
 	double perimetr();
 	string regular();
 	void my_rand();
-	friend ostream& operator<<(ostream& os, const Pentagon* value);
-	friend istream& operator>>(istream& is, Pentagon* value);
+	friend ostream& operator<<(ostream& os, const Pentagon& value);
+	friend istream& operator>>(istream& is, Pentagon& value);
 	~Pentagon();
 };
 

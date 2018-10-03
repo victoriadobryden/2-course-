@@ -20,8 +20,8 @@ public:
 	double perimetr();
 	string regular();
 	void my_rand();
-	friend ostream& operator<<(ostream& os, const Tetragon* value);
-	friend istream& operator>>(istream& is, Tetragon* value);
+	friend ostream& operator<<(ostream& os, const Tetragon& value);
+	friend istream& operator>>(istream& is, Tetragon& value);
 	~Tetragon();
 };
 

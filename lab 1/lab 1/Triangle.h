@@ -18,8 +18,8 @@ public:
 	double perimetr();
 	string regular();
 	void my_rand();
-	friend ostream& operator<<(ostream& os, const Triangle* value);
-	friend istream& operator>>(istream& is, Triangle* value);
+	friend ostream& operator<<(ostream& os, const Triangle& value);
+	friend istream& operator>>(istream& is, Triangle& value);
 	~Triangle();
 };
 

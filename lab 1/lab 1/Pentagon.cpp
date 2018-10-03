@@ -126,19 +126,19 @@ Pentagon::~Pentagon()
 {
 }
 
-ostream & operator<<(ostream & os, const Pentagon *value)
+ostream & operator<<(ostream & os, const Pentagon &value)
 {
-	os << "( " << value->points[0].x << ";" << value->points[0].y << " )";
+	os << "( " << value.points[0].x << ";" << value.points[0].y << " )";
 	for (int i = 1; i < 5; ++i)
-		os << ",( " << value->points[i].x << ";" << value->points[i].y << " )";
+		os << ",( " << value.points[i].x << ";" << value.points[i].y << " )";
 	return os;
 }
 
-istream & operator>>(istream & is, Pentagon * value)
+istream & operator>>(istream & is, Pentagon & value)
 {
 	for (int i = 0; i < 5; ++i)
-		is >> value->points[i].x >> value->points[i].y;
+		is >> value.points[i].x >> value.points[i].y;
 	for (int i = 0; i < 5; ++i)
-		value->side[i] = value->size_of_side(value->points[i], value->points[(i + 1) % 4]);
+		value.side[i] = value.size_of_side(value.points[i], value.points[(i + 1) % 4]);
 	return is;
 }
