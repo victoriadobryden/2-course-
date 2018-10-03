@@ -8,7 +8,7 @@
 using std::cin;
 
 template<typename T>
-void check(Graph<T> &graph)
+void check(Graph<T> &gr)
 {
 	cout << "You will work with Classes Graph and Tree.\n";
 	cout << "0 - exit\n1 - add vertex\n2 - add edge\n3 - size of graph\n4 - output graph\n5 - find spanning tree\n";
@@ -21,7 +21,7 @@ void check(Graph<T> &graph)
 			break;
 		else if (x == 1)
 		{
-			cout << "There are " << graph.size_gr() << "vertexes. Input with which vertexes it has to be connected.\n";
+			cout << "There are " << gr.size_gr() << "vertexes. Input with which vertexes it has to be connected.\n";
 			cout << "First is number of vertex, next is data, end of input is \"-1\":\n";
 			int v;
 			vector<pair<int, T> > neighbours;
@@ -29,16 +29,16 @@ void check(Graph<T> &graph)
 			{
 				if (v == -1)
 					break;
-				if (v >= graph.size_gr() || v < 0)
+				if (v >= gr.size_gr() || v < 0)
 				{
 					cout << "It's non existing vertex. Input other data!\n";
 					continue;
 				}
-				T val;
-				cin >> val;
-				neighbours.push_back({ v,val });
+				T cur;
+				cin >> cur;
+				neighbours.push_back({ v,cur });
 			}
-			graph.add_vertex(neighbours);
+			gr.add_vertex(neighbours);
 		}
 		else if (x == 2)
 		{
@@ -46,7 +46,7 @@ void check(Graph<T> &graph)
 			int x1, x2;
 			while (cin >> x1 >> x2)
 			{
-				if (x1 >= graph.size_gr() || x1 < 0 || x2 < 0 || x2 >= graph.size_gr())
+				if (x1 >= gr.size_gr() || x1 < 0 || x2 < 0 || x2 >= gr.size_gr())
 				{
 					cout << "This vertexes don't exist. Input other.\n";
 					continue;
@@ -55,20 +55,20 @@ void check(Graph<T> &graph)
 			}
 			T val;
 			cin >> val;
-			graph.add_edge(x1, x2, val);
+			gr.add_edge(x1, x2, val);
 		}
 		else if (x == 3)
 		{
-			cout << "Size is " << graph.size_gr();
+			cout << "Size is " << gr.size_gr();
 		}
 		else if (x == 4)
 		{
-			graph.output();
+			gr.output();
 		}
 		else if (x == 5)
 		{
 			Tree<T> tree;
-			if (tree.find_ostov(graph) == -1)
+			if (tree.find_ostov(gr) == -1)
 				cout << "There are several trees\n";
 			else
 				cout << "Yeah we found a tree\n";

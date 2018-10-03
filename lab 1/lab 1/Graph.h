@@ -15,9 +15,11 @@ istream& operator>>(istream& is, vector<T>& v)
 {
 	int n;
 	is >> n;
-	v.resize(n);
-	for (int i = 0; i < n; ++i)
-		is >> v[i];
+	for (int i = 0; i < n; ++i) {
+		T* cur = new T();
+		is >> *cur;
+		v.push_back(*cur);
+	}
 	return is;
 }
 template<typename T>
