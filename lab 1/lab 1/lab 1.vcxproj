@@ -115,7 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Check_Graph.cpp" />
+    <ClCompile Include="Check_Graph.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pentagon.cpp" />
     <ClCompile Include="Tetragon.cpp" />
@@ -125,9 +125,11 @@
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Pentagon.h" />
     <ClInclude Include="Polygon.h" />
+    <ClInclude Include="Random.h" />
     <ClInclude Include="Tetragon.h" />
     <ClInclude Include="Tree.h" />
     <ClInclude Include="Triangle.h" />
+    <ClInclude Include="Vector_overload.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

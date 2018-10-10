@@ -1,17 +1,24 @@
 #pragma once
+
 #include "Graph.h"
 #include "Tree.h"
 #include "Triangle.h"
 #include "Tetragon.h"
 #include "Pentagon.h"
+#include "Vector_overload.h"
+
+#include <iostream>
+
 
 using std::cin;
+using std::cout;
 
 template<typename T>
 void check(Graph<T> &gr)
 {
 	cout << "You will work with Classes Graph and Tree.\n";
 	cout << "0 - exit\n1 - add vertex\n2 - add edge\n3 - size of graph\n4 - output graph\n5 - find spanning tree\n";
+	cout << "6 - random filling\n";
 	int x;
 	while (true)
 	{
@@ -42,6 +49,11 @@ void check(Graph<T> &gr)
 		}
 		else if (x == 2)
 		{
+			if (gr.size_gr() == 0)
+			{
+				cout << "Sorry Graph has less than 2 vertexes. I can't add an edge :)\n";
+				continue;
+			}
 			cout << "Input vertexes that you want to connect. If they were connected before this operation, nothing would happen\n";
 			int x1, x2;
 			while (cin >> x1 >> x2)
@@ -73,6 +85,11 @@ void check(Graph<T> &gr)
 			else
 				cout << "Yeah we found a tree\n";
 			tree.output();
+		}
+		else if (x == 6)
+		{
+			gr.random();
+			output(gr);
 		}
 
 		cout << "\n --------------------------------------------------\n\n";

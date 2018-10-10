@@ -1,7 +1,7 @@
 #pragma once
+#include <iostream>
 #include <string>
 #include <cmath>
-#include <iostream>
 #include <ctime>
 #include <random>
 
@@ -22,4 +22,5 @@ public:
 	virtual double perimetr() = 0;
 	virtual string regular() = 0;
 	virtual void my_rand() = 0;
+	virtual ~Polygon() {}
 };

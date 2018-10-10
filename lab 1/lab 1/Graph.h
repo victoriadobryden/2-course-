@@ -1,38 +1,14 @@
 #pragma once
-#include <vector>
-#include <iostream>
 #include "Polygon.h"
+#include "Vector_overload.h"
+#include "Random.h"
+
+#include <iostream>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::pair;
-
-
-
-///for vector
-template<typename T>
-istream& operator>>(istream& is, vector<T>& v)
-{
-	int n;
-	T cur;
-	is >> n;
-	for (int i = 0; i < n; ++i) {
-		is >> cur;
-		v.push_back(cur);
-	}
-	return is;
-}
-template<typename T>
-ostream& operator<<(ostream& os, const vector<T>& v)
-{
-	os << "( ";
-	if (v.size() != 0)
-		os << v[0];
-	for (size_t i = 1; i < v.size(); ++i)
-		os << "; " << v[i];
-	os << " )";
-	return os;
-}
 
 
 template<typename T>
@@ -61,6 +37,7 @@ public:
 	void add_vertex(vector<pair<int, T> > neigb);
 	void add_edge(int index1, int index2, T value);
 	void output();
+	void random();
 	int size_gr();
 	vector<Tvertex<T> *> vertexes();
 	~Graph();
@@ -134,6 +111,23 @@ void Graph<T>::output()
 			cout << "{ " << vertex[i]->neighbours[j].first->ind << ';' << vertex[i]->neighbours[j].second << " } ";
 		}
 		cout << '\n';
+	}
+}
+
+template<typename T>
+void Graph<T>::random()
+{
+	length = rand() % 10;
+	for (int i = 1; i < length; ++i)
+	{
+		for (int j = 0; j <= i; ++j) {
+			if (rand() % 2 == 0)
+			{
+				T value;
+				value = getrand(value);
+				add_edge(i, j, value);
+			}
+		}
 	}
 }
 
