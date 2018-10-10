@@ -8,6 +8,8 @@
 #include "Vector_overload.h"
 
 #include <iostream>
+#include <time.h>
+#include <random>
 
 
 using std::cin;
@@ -20,6 +22,7 @@ void check(Graph<T> &gr)
 	cout << "0 - exit\n1 - add vertex\n2 - add edge\n3 - size of graph\n4 - output graph\n5 - find spanning tree\n";
 	cout << "6 - random filling\n";
 	int x;
+	srand(time(NULL));
 	while (true)
 	{
 
@@ -89,7 +92,7 @@ void check(Graph<T> &gr)
 		else if (x == 6)
 		{
 			gr.random();
-			output(gr);
+			gr.output();
 		}
 
 		cout << "\n --------------------------------------------------\n\n";

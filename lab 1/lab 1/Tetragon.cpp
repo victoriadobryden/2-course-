@@ -111,7 +111,6 @@ bool Tetragon::crossed_line(int x, int w)
 
 void Tetragon::my_rand()
 {
-	srand(time(NULL));
 	for (int i = 0; i < 4; ++i) 
 	{
 		points[i].x = (double)rand() / RAND_MAX * 100.0;

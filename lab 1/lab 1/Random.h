@@ -14,19 +14,19 @@ template<typename T>
 T getrandom(T value);
 
 template<>
-int getrandom(int value)
+inline int getrandom(int value)
 {
 	return rand() % 200 - 100;
 }
 
 template<>
-double getrandom(double value)
+inline double getrandom(double value)
 {
 	return (double)rand() / RAND_MAX * 200.0 - 100;
 }
 
 template<>
-string getrandom(string value)
+inline string getrandom(string value)
 {
 	int len = rand()%30;
 	value = "";
@@ -39,36 +39,35 @@ string getrandom(string value)
 }
 
 template<>
-Triangle getrandom(Triangle value)
+inline Triangle getrandom(Triangle value)
 {
 	value.my_rand();
 	return value;
 }
 
 template<>
-Tetragon getrandom(Tetragon value)
+inline Tetragon getrandom(Tetragon value)
 {
 	value.my_rand();
 	return value;
 }
 
 template<>
-Pentagon getrandom(Pentagon value)
+inline Pentagon getrandom(Pentagon value)
 {
 	value.my_rand();
 	return value;
 }
 
 template<typename T>
-vector<T> getrandom(vector<T> value)
+inline vector<T> getrandom(vector<T> value)
 {
 	int len = rand() % 30;
 	value.clear();
 	for (int i = 0; i < len; ++i)
 	{
-		T cur;
-		cur = getrandom(cur);
-		value.push_back(cur);
+		T *cur = new T;
+		value.push_back(getrandom(*cur));
 	}
 	return value;
 }

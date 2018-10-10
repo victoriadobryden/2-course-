@@ -106,9 +106,9 @@ void Graph<T>::output()
 	cout << "Size of graph: " << length << "\n";
 	for (int i = 0; i < length; ++i)
 	{
-		cout << "Vertex #" << i << ", neighbours: ";
+		cout << "Vertex #" << i << ", neighbours: \n";
 		for (size_t j = 0; j < vertex[i]->neighbours.size(); ++j) {
-			cout << "{ " << vertex[i]->neighbours[j].first->ind << ';' << vertex[i]->neighbours[j].second << " } ";
+			cout << "	{ #" << vertex[i]->neighbours[j].first->ind << ';' << vertex[i]->neighbours[j].second << " }\n";
 		}
 		cout << '\n';
 	}
@@ -117,15 +117,20 @@ void Graph<T>::output()
 template<typename T>
 void Graph<T>::random()
 {
-	length = rand() % 10;
-	for (int i = 1; i < length; ++i)
+	int temp_size = rand() % 10 + 1;
+	length = 0;
+	vertex.clear();
+	vector<pair<int, T> > temp;
+	temp.clear();
+	add_vertex(temp);
+	for (int i = 1; i < temp_size; ++i)
 	{
-		for (int j = 0; j <= i; ++j) {
+		add_vertex(temp);
+		for (int j = 0; j < i; ++j) {
 			if (rand() % 2 == 0)
 			{
-				T value;
-				value = getrand(value);
-				add_edge(i, j, value);
+				T *value = new T;
+				add_edge(i, j, getrandom(*value));
 			}
 		}
 	}

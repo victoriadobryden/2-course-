@@ -78,10 +78,10 @@ bool Pentagon::point_in_line_segment(int x, Tpoint p)
 			points[(x + 1) % 5].y <= p.y && p.y <= points[x].y);
 }
 
-bool Pentagon::crossed_line(int x,int w)
 {
 	Tpoint temp;
-	double a1 = (points[(x + 1) % 5].y - points[x].y), b1 = (points[x].x - points[(x + 1) % 5].x), c1 = -a1 * points[x].x - b1 * points[x].y;
+	double a1 = (points[(x + 1) % 5].y - points[x].y), b1 = (points[x].x - points[(x + 1) % 5].x), c1 = -a1 * points[x].x -
+bool Pentagon::crossed_line(int x,int w) b1 * points[x].y;
 	double a2 = (points[(x + 1) % 5].y - points[x].y), b2 = (points[x].x - points[(x + 1) % 5].x), c2 = -a2 * points[x].x - b2 * points[x].y;
 	temp.x = (b2*c1 - b1 * c2) / (a2*b1 - a1 * b2);
 	temp.y = (b1 != 0 ? (-a1 * temp.x - c1) / b1 : (-a2 * temp.x - c2) / b2);
@@ -90,7 +90,6 @@ bool Pentagon::crossed_line(int x,int w)
 
 void Pentagon::my_rand()
 {
-	srand(time(NULL));
 	for (int i = 0; i < 5; ++i) {
 		points[i].x = (double)rand() / RAND_MAX * 100.0;
 		points[i].y = (double)rand() / RAND_MAX * 100.0;

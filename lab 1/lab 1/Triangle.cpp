@@ -86,7 +86,6 @@ string Triangle::regular()
 
 void Triangle::my_rand()
 {
-	srand(time(NULL));
 	for (int i = 0; i < 3; ++i) {
 		points[i].x = (double)rand() / RAND_MAX * 100.0;
 		points[i].y = (double)rand() / RAND_MAX * 100.0;
