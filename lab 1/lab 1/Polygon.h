@@ -17,6 +17,8 @@ class Polygon
 {
 protected:
 	const double eps = 0.00001;
+	double side[5];
+	Tpoint points[5];
 public:
 	virtual double square() = 0;
 	virtual double perimetr() = 0;

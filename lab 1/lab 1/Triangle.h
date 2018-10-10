@@ -3,11 +3,11 @@
 
 class Triangle: public Polygon
 {
-	Tpoint points[3];
-	double side[3];
+	Polygon::eps;
+	Polygon::side;
+	Polygon::points;
 	double size_of_side(Tpoint a, Tpoint b);
 	bool check_for_90(int x);
-	Polygon::eps;
 public:
 	Triangle();
 	Triangle(pair<double, double> p[3]);

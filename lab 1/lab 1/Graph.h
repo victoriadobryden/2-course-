@@ -131,6 +131,7 @@ void Graph<T>::random()
 			{
 				T *value = new T;
 				add_edge(i, j, getrandom(*value));
+				delete value;
 			}
 		}
 	}

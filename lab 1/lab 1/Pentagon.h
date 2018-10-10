@@ -5,8 +5,8 @@ class Pentagon :
 	public Polygon
 {
 	Polygon::eps;
-	Tpoint points[5];
-	double side[5];
+	Polygon::points;
+	Polygon::side;
 	double size_of_side(Tpoint a, Tpoint b);
 	double angle(int x);
 	bool crossed_line(int x, int w);

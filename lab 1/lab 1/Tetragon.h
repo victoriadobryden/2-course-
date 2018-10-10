@@ -4,8 +4,8 @@
 class Tetragon : public Polygon
 {
 	Polygon::eps;
-	Tpoint points[4];
-	double side[4];
+	Polygon::points;
+	Polygon::side;
 	double angle(int x);
 	double size_of_side(Tpoint a, Tpoint b);
 	bool point_in_line_segment(int x, Tpoint p);

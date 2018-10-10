@@ -103,7 +103,7 @@ bool Tetragon::crossed_line(int x, int w)
 {
 	Tpoint temp;
 	double a1 = (points[(x + 1) % 5].y - points[x].y), b1 = (points[x].x - points[(x + 1) % 5].x), c1 = -a1 * points[x].x - b1 * points[x].y;
-	double a2 = (points[(x + 1) % 5].y - points[x].y), b2 = (points[x].x - points[(x + 1) % 5].x), c2 = -a2 * points[x].x - b2 * points[x].y;
+	double a2 = (points[(w + 1) % 5].y - points[w].y), b2 = (points[w].x - points[(w + 1) % 5].x), c2 = -a2 * points[w].x - b2 * points[w].y;
 	temp.x = (b2*c1 - b1 * c2) / (a2*b1 - a1 * b2);
 	temp.y = (b1 != 0 ? (-a1 * temp.x - c1) / b1 : (-a2 * temp.x - c2) / b2);
 	return point_in_line_segment(x, temp) && point_in_line_segment(w, temp);
