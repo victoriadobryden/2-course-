@@ -84,7 +84,7 @@ void check(Graph<T> &gr)
 		else if (x == 5)
 		{
 			Tree<T> tree;
-			if (tree.find_ostov(gr) == -1)
+			if (!tree.find_spanning_tree(gr))
 				cout << "There are several trees\n";
 			else
 				cout << "Yeah we found a tree\n";

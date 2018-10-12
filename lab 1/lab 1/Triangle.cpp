@@ -1,7 +1,5 @@
 #include "Triangle.h"
 
-
-
 Triangle::Triangle()
 {
 	for (int i = 0; i < 3; ++i)
@@ -59,16 +57,16 @@ string Triangle::regular()
 		return "Degenerated";
 	else if (abs(side[0] - side[1]) < eps && abs(side[1] == side[2]) < eps)
 		return "Equilateral";
-	else if (abs(side[0] - side[1]) < eps && angle(1,3) < eps||
-		abs(side[1] - side[2]) < eps && angle(2,3) < eps ||
-		abs(side[2] - side[0]) < eps && angle(0,3) < eps)
+	else if (abs(side[0] - side[1]) < eps && abs(angle(1,3)) < eps||
+		abs(side[1] - side[2]) < eps && abs(angle(2,3)) < eps ||
+		abs(side[2] - side[0]) < eps && abs(angle(0,3)) < eps)
 		return "Isosceles Right";
 	else if (abs(side[0] - side[1]) < eps || abs(side[1] - side[2]) < eps || abs(side[2] - side[0]) < eps)
 		return "Isosceles";
-	else if (angle(0,3) < eps || angle(1,3) < eps || angle(2,3) < eps)
+	else if (abs(angle(0,3)) < eps || abs(angle(1,3)) < eps || abs(angle(2,3)) < eps)
 		return "Right";
 	else 
-		return "Simple";
+		return "Common";
 }
 
 void Triangle::my_rand()
@@ -88,7 +86,7 @@ ostream & operator<<(ostream & os, const Triangle & value)
 	os << "( " << temp.points[0].x << ";" << temp.points[0].y << " )";
 	for (int i = 1; i < 3; ++i)
 		os << ",( " << temp.points[i].x << ";" << temp.points[i].y << " )";
-	os << " Square = " << temp.square() << ", Perimetr = " << temp.perimetr();
+	os << " Square = " << temp.square() << ", Perimetr = " << temp.perimetr() << ", Type = " << temp.regular();
 	return os;
 }
 

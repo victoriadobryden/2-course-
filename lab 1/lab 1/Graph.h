@@ -71,8 +71,8 @@ void Graph<T>::add_vertex(vector<pair<int, T> > neighb)
 	++length;
 	for (size_t i = 0; i < neighb.size(); ++i)	
 	{
-		new_vertex->neighbours.push_back({vertex[neighb[i].first], neighb[i].second});
-		vertex[neighb[i].first]->neighbours.push_back({ new_vertex, neighb[i].second});
+		new_vertex->neighbours.push_back({ vertex[neighb[i].first], neighb[i].second });
+		vertex[neighb[i].first]->neighbours.push_back({ new_vertex, neighb[i].second });
 	}
 	vertex.push_back(new_vertex);
 }

@@ -17,7 +17,7 @@ public:
 	using Graph<T>::add_edge;
 	using Graph<T>::add_vertex;
 	using Graph<T>::output;
-	int find_ostov(Graph<T> &graph);
+	int find_spanning_tree(Graph<T> &graph);
 	~Tree();
 };
 
@@ -56,7 +56,7 @@ Tree<T>::Tree(int n)
 }
 
 template<typename T>
-int Tree<T>::find_ostov(Graph<T> &graph)
+int Tree<T>::find_spanning_tree(Graph<T> &graph)
 {
 	vector<Tvertex<T> *> vert = graph.vertexes();
 	length = graph.size_gr();
@@ -76,7 +76,7 @@ int Tree<T>::find_ostov(Graph<T> &graph)
 		}
 	}
 	if (counter > 1)
-		return -1;
+		return 0;
 	else
 		return 1;
 }

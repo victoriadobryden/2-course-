@@ -101,7 +101,7 @@ ostream & operator<<(ostream & os, const Pentagon &value)
 	os << "( " << temp.points[0].x << ";" << temp.points[0].y << " )";
 	for (int i = 1; i < 5; ++i)
 		os << ",( " << temp.points[i].x << ";" << temp.points[i].y << " )";
-	os << " Square = " << temp.square() << ", Perimetr = " << temp.perimetr();	
+	os << " Square = " << temp.square() << ", Perimetr = " << temp.perimetr() << ", Type = " << temp.regular();
 	return os;
 }
 
