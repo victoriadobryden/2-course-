@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _PENTAGON_H_USED
+#define _PENTAGON_H_USED
+
 #include "Polygon.h"
 
 class Pentagon :
@@ -7,7 +9,7 @@ class Pentagon :
 	Polygon::eps;
 	Polygon::points;
 	Polygon::side;
-	double size_of_side(Tpoint a, Tpoint b);
+	//Polygon::size_of_side;
 	double angle(int x);
 	bool crossed_line(int x, int w);
 	bool point_in_line_segment(int x, Tpoint p);
@@ -26,3 +28,4 @@ public:
 	~Pentagon();
 };
 
+#endif

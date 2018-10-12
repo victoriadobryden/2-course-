@@ -1,4 +1,7 @@
-#pragma once
+#ifndef _GRAPH_H_USED
+#define _GRAPH_H_USED
+
+
 #include "Polygon.h"
 #include "Vector_overload.h"
 #include "Random.h"
@@ -176,3 +179,4 @@ Graph<T>::~Graph()
 	vertex.clear();
 }
 
+#endif

@@ -30,6 +30,9 @@
     <ClCompile Include="Check_Graph.h">
       <Filter>Файлы заголовков</Filter>
     </ClCompile>
+    <ClCompile Include="Polygon.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graph.h">

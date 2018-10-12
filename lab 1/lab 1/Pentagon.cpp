@@ -1,17 +1,10 @@
 #include "Pentagon.h"
-#include "Tetragon.h"
-#include "Triangle.h"
 
 
 Pentagon::Pentagon()
 {
 	for (int i = 0; i < 5; ++i)
 		points[i].x = points[i].y = 0;
-}
-
-double Pentagon::size_of_side(Tpoint a, Tpoint b)
-{
-	return sqrt((a.x - b.x)*(a.x - b.x) + (a.y - b.y)*(a.y - b.y));
 }
 
 void Pentagon::set_points(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4, double x5, double y5)

@@ -1,10 +1,11 @@
-#pragma once
+#ifndef _CHECK_GRAPH_H_USED
+#define _CHECK_GRAPH_H_USED
 
-#include "Graph.h"
-#include "Tree.h"
 #include "Triangle.h"
 #include "Tetragon.h"
 #include "Pentagon.h"
+#include "Graph.h"
+#include "Tree.h"
 #include "Vector_overload.h"
 
 #include <iostream>
@@ -98,3 +99,4 @@ void check(Graph<T> &gr)
 		cout << "\n --------------------------------------------------\n\n";
 	}
 }
+#endif

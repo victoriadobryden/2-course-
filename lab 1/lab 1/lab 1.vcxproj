@@ -118,6 +118,7 @@
     <ClCompile Include="Check_Graph.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pentagon.cpp" />
+    <ClCompile Include="Polygon.cpp" />
     <ClCompile Include="Tetragon.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>

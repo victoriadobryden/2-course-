@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _TETRAGON_H_USED
+#define _TETRAGON_H_USED
+
 #include "Polygon.h"
 
 class Tetragon : public Polygon
@@ -6,8 +8,8 @@ class Tetragon : public Polygon
 	Polygon::eps;
 	Polygon::points;
 	Polygon::side;
+	//Polygon::size_of_side;
 	double angle(int x);
-	double size_of_side(Tpoint a, Tpoint b);
 	bool point_in_line_segment(int x, Tpoint p);
 	bool crossed_line(int x, int w);
 public:
@@ -25,3 +27,4 @@ public:
 	~Tetragon();
 };
 
+#endif

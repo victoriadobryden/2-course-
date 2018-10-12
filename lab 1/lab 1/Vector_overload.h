@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _VECTOR_OVERLOAD_H_USED
+#define _VECTOR_OVERLOAD_H_USED
+
 #include <iostream>
 #include <vector>
 
@@ -30,3 +32,5 @@ ostream& operator<<(ostream& os, const vector<T>& v)
 	os << " )";
 	return os;
 }
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _TREE_H_USED
+#define _TREE_H_USED
 #include "Graph.h"
 
 template<typename T>
@@ -86,3 +87,5 @@ Tree<T>::~Tree()
 		delete vertex[i];
 	vertex.clear();
 }
+
+#endif

@@ -51,11 +51,6 @@ double Triangle::perimetr()
 	return side[0] + side[1] + side[2];
 }
 
-double Triangle::size_of_side(Tpoint a, Tpoint b)
-{
-	return sqrt((a.x - b.x)*(a.x - b.x) + (a.y - b.y)*(a.y - b.y));
-}
-
 bool Triangle::check_for_90(int x)
 {
 	if ((points[(x + 2) % 3].x - points[x].x)*(points[(x + 1) % 3].x - points[x].x) +

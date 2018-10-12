@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _TRIANGLE_H_USED
+#define _TRIANGLE_H_USED
+
 #include "Polygon.h"
 
 class Triangle: public Polygon
@@ -6,7 +8,7 @@ class Triangle: public Polygon
 	Polygon::eps;
 	Polygon::side;
 	Polygon::points;
-	double size_of_side(Tpoint a, Tpoint b);
+	//Polygon::size_of_side;
 	bool check_for_90(int x);
 public:
 	Triangle();
@@ -22,4 +24,6 @@ public:
 	friend istream& operator>>(istream& is, Triangle& value);
 	~Triangle();
 };
+
+#endif
 
