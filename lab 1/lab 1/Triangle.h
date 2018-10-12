@@ -5,11 +5,6 @@
 
 class Triangle: public Polygon
 {
-	Polygon::eps;
-	Polygon::side;
-	Polygon::points;
-	//Polygon::size_of_side;
-	bool check_for_90(int x);
 public:
 	Triangle();
 	Triangle(pair<double, double> p[3]);

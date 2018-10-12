@@ -51,14 +51,6 @@ double Triangle::perimetr()
 	return side[0] + side[1] + side[2];
 }
 
-bool Triangle::check_for_90(int x)
-{
-	if ((points[(x + 2) % 3].x - points[x].x)*(points[(x + 1) % 3].x - points[x].x) +
-		(points[(x + 2) % 3].y - points[x].y)*(points[(x + 1) % 3].y - points[x].y) < eps)
-		return 1;
-	return 0;
-}
-
 string Triangle::regular()
 {
 	if (abs(side[1] + side[2] - side[0]) < eps ||
@@ -67,13 +59,13 @@ string Triangle::regular()
 		return "Degenerated";
 	else if (abs(side[0] - side[1]) < eps && abs(side[1] == side[2]) < eps)
 		return "Equilateral";
-	else if (abs(side[0] - side[1]) < eps && check_for_90(1) ||
-		abs(side[1] - side[2]) < eps && check_for_90(2) ||
-		abs(side[2] - side[0]) < eps && check_for_90(0))
+	else if (abs(side[0] - side[1]) < eps && angle(1,3) < eps||
+		abs(side[1] - side[2]) < eps && angle(2,3) < eps ||
+		abs(side[2] - side[0]) < eps && angle(0,3) < eps)
 		return "Isosceles Right";
 	else if (abs(side[0] - side[1]) < eps || abs(side[1] - side[2]) < eps || abs(side[2] - side[0]) < eps)
 		return "Isosceles";
-	else if (check_for_90(0) || check_for_90(1) || check_for_90(2))
+	else if (angle(0,3) < eps || angle(1,3) < eps || angle(2,3) < eps)
 		return "Right";
 	else 
 		return "Simple";
@@ -92,9 +84,11 @@ void Triangle::my_rand()
 
 ostream & operator<<(ostream & os, const Triangle & value)
 {
-	os << "( " << value.points[0].x << ";" << value.points[0].y << " )";
+	Triangle temp = value;
+	os << "( " << temp.points[0].x << ";" << temp.points[0].y << " )";
 	for (int i = 1; i < 3; ++i)
-		os << ",( " << value.points[i].x << ";" << value.points[i].y << " )";
+		os << ",( " << temp.points[i].x << ";" << temp.points[i].y << " )";
+	os << " Square = " << temp.square() << ", Perimetr = " << temp.perimetr();
 	return os;
 }
 

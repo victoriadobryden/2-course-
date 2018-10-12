@@ -6,13 +6,6 @@
 class Pentagon :
 	public Polygon
 {
-	Polygon::eps;
-	Polygon::points;
-	Polygon::side;
-	//Polygon::size_of_side;
-	double angle(int x);
-	bool crossed_line(int x, int w);
-	bool point_in_line_segment(int x, Tpoint p);
 public:
 	Pentagon();
 	Pentagon(pair<double, double> p[5]);

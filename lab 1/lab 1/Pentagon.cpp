@@ -47,38 +47,15 @@ double Pentagon::perimetr()
 	return side[0] + side[1] + side[2] + side[3] + side[4];
 }
 
-double Pentagon::angle(int x)
-{
-	return (points[(x + 4) % 5].x - points[x].x)*(points[(x + 1) % 5].x - points[x].x) +
-		(points[(x + 4) % 5].y - points[x].y)*(points[(x + 1) % 5].y - points[x].y) / (side[x] * side[(x + 4) % 5]);
-}
 
 string Pentagon::regular()
 {
 	if (abs(side[0] - side[1]) < eps && abs(side[1] - side[2]) < eps && abs(side[2] - side[3]) < eps &&
-		abs(side[3] - side[4]) < eps && abs(angle(0) - angle(1)) < eps && abs(angle(1) - angle(2)) < eps && 
-		abs(angle(2) - angle(3)) < eps && abs(angle(3) - angle(4)) < eps)
+		abs(side[3] - side[4]) < eps && abs(angle(0,5) - angle(1,5)) < eps && abs(angle(1,5) - angle(2,5)) < eps && 
+		abs(angle(2,5) - angle(3,5)) < eps && abs(angle(3,5) - angle(4,5)) < eps)
 		return "Equilateral";
 	else 
 		return "Other";
-}
-
-bool Pentagon::point_in_line_segment(int x, Tpoint p)
-{
-	return (points[x].x <= p.x && p.x <= points[(x + 1) % 5].x ||
-		points[(x + 1) % 5].x <= p.x && p.x <= points[x].x) &&
-		(points[x].y <= p.y && p.y <= points[(x + 1) % 5].y ||
-			points[(x + 1) % 5].y <= p.y && p.y <= points[x].y);
-}
-
-bool Pentagon::crossed_line(int x,int w)
-{
-	Tpoint temp;
-	double a1 = (points[(x + 1) % 5].y - points[x].y), b1 = (points[x].x - points[(x + 1) % 5].x), c1 = -a1 * points[x].x - b1 * points[x].y;
-	double a2 = (points[(x + 1) % 5].y - points[x].y), b2 = (points[x].x - points[(x + 1) % 5].x), c2 = -a2 * points[x].x - b2 * points[x].y;
-	temp.x = (b2*c1 - b1 * c2) / (a2*b1 - a1 * b2);
-	temp.y = (b1 != 0 ? (-a1 * temp.x - c1) / b1 : (-a2 * temp.x - c2) / b2);
-	return point_in_line_segment(x, temp) && point_in_line_segment(w, temp);
 }
 
 void Pentagon::my_rand()
@@ -98,7 +75,7 @@ void Pentagon::my_rand()
 			{
 				if (j == i || j == (i + 1) % 5 || j == (i + 4) % 5)
 					continue;
-				if (crossed_line(i, j))
+				if (crossed_line(i, j, 5))
 				{
 					points[(j+1)%5].x = (double)rand() / RAND_MAX * 100.0;
 					points[(j+1)%5].y = (double)rand() / RAND_MAX * 100.0;
@@ -120,9 +97,11 @@ Pentagon::~Pentagon()
 
 ostream & operator<<(ostream & os, const Pentagon &value)
 {
-	os << "( " << value.points[0].x << ";" << value.points[0].y << " )";
+	Pentagon temp = value;
+	os << "( " << temp.points[0].x << ";" << temp.points[0].y << " )";
 	for (int i = 1; i < 5; ++i)
-		os << ",( " << value.points[i].x << ";" << value.points[i].y << " )";
+		os << ",( " << temp.points[i].x << ";" << temp.points[i].y << " )";
+	os << " Square = " << temp.square() << ", Perimetr = " << temp.perimetr();	
 	return os;
 }
 

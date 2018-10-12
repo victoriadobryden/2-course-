@@ -5,13 +5,6 @@
 
 class Tetragon : public Polygon
 {
-	Polygon::eps;
-	Polygon::points;
-	Polygon::side;
-	//Polygon::size_of_side;
-	double angle(int x);
-	bool point_in_line_segment(int x, Tpoint p);
-	bool crossed_line(int x, int w);
 public:
 	Tetragon();
 	Tetragon(pair<double, double> p[4]);
