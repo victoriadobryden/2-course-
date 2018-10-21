@@ -5,22 +5,20 @@ struct characteristic_of_button
 	int position_width, position_height;
 	int width, height;
 
-	bool is_released, is_pressed;
+	bool is_released, is_pressed, is_under_cursor;
 	characteristic_of_button();
 };
-
-characteristic_of_button::characteristic_of_button()
-{
-	position_height = position_width = width = height = is_pressed = is_released = 0;
-}
 
 
 class Button
 {
+
+protected:
 	characteristic_of_button button;
 
 public:
 	Button();
+	void set_values(int w, int h, int pos_w, int pos_h);
 	~Button();
 };
 
