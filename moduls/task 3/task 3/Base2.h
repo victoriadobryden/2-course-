@@ -1,14 +1,15 @@
 #pragma once
-#include "Base2.h"
+#include "Base1.h"
+int S = 0;
 
-class Base1
+class Base2
 {
 protected:
 	static int N;
 	Base1 *val_base1;
 	Base2 *x_val_base2, *y_val_base2;
 public:
-	Base1();
-	virtual ~Base1();
+	Base2();
+	virtual ~Base2();
 };
 

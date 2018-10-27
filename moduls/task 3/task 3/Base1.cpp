@@ -1,13 +1,14 @@
 #include "Base1.h"
 
-int Base1::n = 1;
+int Base1::N = 1;
 
 Base1::Base1()
 {
-	++n;
+	++N;
 }
 
 
 Base1::~Base1()
 {
+	S = 3 * S + N + 41;
 }
