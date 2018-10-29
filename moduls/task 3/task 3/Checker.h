@@ -16,11 +16,11 @@ bool dfs_to_add_help_bases(shared_ptr<T> &cur,const int &num,const int &where,co
 	if (cur.get() == nullptr || cur.get()->get_n() > num)
 		return false;
 	int cur_type = 1;
-	if (typeid(cur) == typeid(Beta))
+	if (typeid(*cur.get()) == typeid(Beta))
 		cur_type = 2;
-	else if (typeid(cur) == typeid(Gamma))
+	else if (typeid(*cur.get()) == typeid(Gamma))
 		cur_type = 3;
-	else if(typeid(cur) == typeid(Delta))
+	else if(typeid(*cur.get()) == typeid(Delta))
 		cur_type = 4;
 
 	if (num == cur.get()->get_n() && cur_type == where)
@@ -138,12 +138,40 @@ void shift(vector<pair<shared_ptr<T>, int> > &cur, int val)
 		cur.pop_back();
 }
 
+template <typename T>
+int dfs_to_delete(shared_ptr<T> &cur, int counter)
+{
+	if (cur.get() == nullptr)
+		return counter;
+	if (typeid(*cur.get()) == typeid(Alpha))
+		counter = counter - 2 * cur.get()->get_n() + 14;
+	else if (typeid(*cur.get()) == typeid(Beta))
+		counter = counter - cur.get()->get_n();
+	else if (typeid(*cur.get()) == typeid(Gamma))
+		counter = counter - cur.get()->get_n();
+	else if (typeid(*cur.get()) == typeid(Delta))
+		counter = counter + 3 * cur.get()->get_n() - 41;
+	shared_ptr<Base2> temp_b2 = cur.get()->get_x_val_base2();
+	counter = dfs_to_delete(temp_b2, counter);
+	temp_b2.reset();
+	temp_b2 = cur.get()->get_y_val_base2();
+	counter = dfs_to_delete(temp_b2, counter);
+	shared_ptr<Base1> temp_b1 = cur.get()->get_val_base1();
+	counter = dfs_to_delete(temp_b1, counter);
+	temp_b2.reset(); temp_b1.reset();
+	if (typeid(*cur.get()) == typeid(Alpha) || typeid(*cur.get()) == typeid(Beta))
+		counter = 3 * counter + cur.get()->get_n() + 41;
+ 	else if (typeid(*cur.get()) == typeid(Gamma) || typeid(*cur.get()) == typeid(Delta))
+		counter = counter / 2 - cur.get()->get_n();
+	return counter;
+}
+
 void checker()
 {
 	cout << "Choose how do you want to work with program:\n0 - exit\n1 - computer\n2 - user\n";
 	int inp;
 	cin >> inp;
-	int n = 0;
+	int n = 1;
 	vector<pair<shared_ptr<Base1>,int> > temp_base1;
 	vector<pair<shared_ptr<Base2>,int> > temp_base2;
 	if (inp == 2)
@@ -278,7 +306,17 @@ void checker()
 			}
 			else if (inp == 5)
 			{
+				cout << "current value of S = " << S << '\n';
+				int counter = S;
+				for (int i = 1, ind1 = 0, ind2 = 0; i <= n; ++i) 
+				{
+					if (ind1 < temp_base1.size() && temp_base1[ind1].second == i)
+						counter += dfs_to_delete(temp_base1[ind1].first,counter);
+					else if (ind2 < temp_base1.size() && temp_base2[ind2].second == i)
+						counter += dfs_to_delete(temp_base2[ind2].first,counter);
 
+				}
+				cout << "Future count of S = " << counter << '\n';
 			}
 		}
 	}
