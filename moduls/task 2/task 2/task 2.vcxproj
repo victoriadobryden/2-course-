@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Checker.h" />
+    <ClInclude Include="my_func.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
