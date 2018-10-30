@@ -77,8 +77,8 @@ bool Base1::add_base2(shared_ptr<Base2>& val, bool where)
 
 Base1::~Base1()
 {
-	S = 3 * S + N + 41;
 	x_val_base2.reset();
 	y_val_base2.reset();
 	val_base1.reset();
+	S = 3 * S + N + 41;
 }

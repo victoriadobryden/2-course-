@@ -165,161 +165,239 @@ int dfs_to_delete(shared_ptr<T> &cur, int counter)
 		counter = counter / 2 - cur.get()->get_n();
 	return counter;
 }
-
+/* it have to be for prediction
+//struct Thelp {
+//	int color, from, path;
+//};
+//
+//int global__counter = 0;
+//
+//int predict_s(Thelp mas[4], bool used[4][3], int k, int &counter)
+//{
+//
+//	for (int i = 0; i < 3; ++i)
+//		if (used[k][i])
+//		{
+//					
+//		}
+//}
+//
+////
+//void count_res_of_rec(Thelp mas[4], bool used[4][3], int n)
+//{
+//	++global__counter;
+//
+//	int counter = 0;
+//	counter = predict_s(mas, used, n, counter);	
+//	//cout << "----------------------------\n";
+//	//for (int i = 0; i < n; ++i)
+//	//	cout << mas[i].color << ' ' << mas[i].from << ' ' << mas[i].path << '\n'; 
+//}
+//
+//void counter_rec(Thelp mas[4], bool used[4][3], int n,int cur)
+//{
+//	if (cur == n) {
+//		count_res_of_rec(mas, used, n);
+//		return;
+//	}
+//	for (int i = 1; i <= 4; ++i) 
+//	{
+//		mas[cur].color = i;
+//		mas[cur].from = mas[cur].path = 0;
+//		if (cur > 0 && mas[cur-1].from == 0 || cur == 0)
+//			counter_rec(mas, used, n, cur + 1);	
+//		for (int j = cur-1; j >= 0; --j)
+//		{	
+//			for (int k = 2; k >= 0; --k)
+//			{
+//				if (!used[j][k]) 
+//				{
+//					used[j][k] = true;
+//					mas[cur].path = k + 1;
+//					mas[cur].from = j + 1;
+//					counter_rec(mas, used, n, cur + 1);
+//					used[j][k] = false;
+//				}
+//				else break;
+//			}
+//		}
+//	}
+//}
+*/
 void checker()
 {
-	cout << "Choose how do you want to work with program:\n0 - exit\n1 - computer\n2 - user\n";
-	int inp;
-	cin >> inp;
-	int n = 1;
+	int inp, n = 1;
 	vector<pair<shared_ptr<Base1>,int> > temp_base1;
 	vector<pair<shared_ptr<Base2>,int> > temp_base2;
-	if (inp == 2)
+	cout << "0 - exit\n1 - add Base1 to vector\n2 - add Base2 to vector\n3 - add to Class(Alpha, Beta, Gamma or Delta) instance with number N\n";
+	cout << "4 - delete an element from vector\n5 - show what S would be if we would delete all elements\n";///\n6 - all combinations of M elements\n";
+	while (true) 
 	{
-		cout << "0 - exit\n1 - add Base1 to vector\n2 - add Base2 to vector\n3 - add to Class(Alpha, Beta, Gamma or Delta) instance with number N\n";
-		cout << "4 - delete an element from vector\n5 - show what S would be if we would delete all elements\n6 - all combinations of M elements\n";
-		while (true) 
+		cin >> inp;
+		bool flag = false;
+		if (inp == 0)			//exit
 		{
-			cin >> inp;
-			bool flag = false;
-			if (inp == 0)			//exit
+			cout << "See you next time\n";
+			break;
+		}	 
+		else if (inp == 1)	//input in vector Base1
+		{
+			cout << "What do you want to add:\n   1 - Alpha\n   2 - Beta\n";
+			flag = false;
+			do 
 			{
-				cout << "See you next time\n";
-				break;
-			}	 
-			else if (inp == 1)	//input in vector Base1
+				if (flag)
+					cout << "Input please 1 or 2\n";
+				cin >> inp;
+				flag = true;
+			} while (inp > 2 || inp <= 0);  //input what'
+			shared_ptr<Base1> temp;
+			if (inp == 1) 
+			{ 
+				temp = shared_ptr<Base1>(new Alpha);
+				temp_base1.push_back({ temp,n });
+				temp.reset();
+			}
+			else 
 			{
-				cout << "What do you want to add:\n   1 - Alpha\n   2 - Beta\n";
+				temp = shared_ptr<Base1>(new Beta);
+				temp_base1.push_back({ temp,n });
+				temp.reset();
+			}
+			++n;
+			cout << "An element was added to vector\n";
+		}
+		else if (inp == 2)		//input in vector Base2
+		{
+			cout << "What do you want to add:\n   1 - Gamma\n   2 - Delta\n";
+			flag = false;
+			do
+			{
+				if (flag)
+					cout << "Input please 1 or 2\n";
+				cin >> inp;
+				flag = true;
+			} while (inp > 2 || inp <= 0);	// what input
+			shared_ptr<Base2> temp;
+			if (inp == 1) 
+			{
+				temp = shared_ptr<Base2>(new Gamma);
+				temp_base2.push_back({ temp,n });
+				temp.reset();
+			}
+			else 
+			{
+				temp = shared_ptr<Base2>(new Delta);
+				temp_base2.push_back({ temp,n });
+				temp.reset();
+			}
+			++n;
+			cout << "An element was added to vector\n";
+		}
+		else if (inp == 3)		//input in Base1 or Base2 in element N;
+		{
+			int what;
+			cout << "Input to which type of data do you want to add:\n";
+			cout << "   1 - Alpha\n   2 - Beta\n   3 - Gamma\n   4 - Delta\n";
+			flag = false;
+			do
+			{
+				if (flag)
+					cout << "Input please 1, 2, 3 or 4\n";
+				cin >> what;
+				flag = true;
+			} while (inp > 4 || inp <= 0);  //input what
+			cout << "Input the number where we have to add\n";
+			cin >> inp;								  //input number
+			int num = inp;
+			cout << "Input what type of data do you want to add:\n";
+			cout << "   1 - Alpha\n   2 - Beta\n   3 - Gamma\n   4 - Delta\n";
+			flag = false;
+			do
+			{
+				if (flag)
+					cout << "Input please 1, 2, 3 or 4\n";
+				cin >> inp;
+				flag = true;
+			} while (inp > 4 || inp <= 0);  //input where
+			if (inp == 4)
+				++inp;
+			if (inp > 2)
+			{
+				int a;
+				cout << "Input where in Base2(x,y) you want to add:\n   0 - x,\n   1 - y\n";
 				flag = false;
 				do 
 				{
 					if (flag)
 						cout << "Input please 1 or 2\n";
-					cin >> inp;
+					cin >> a;
 					flag = true;
-				} while (inp > 2 || inp <= 0);  //input what'
-				shared_ptr<Base1> temp;
-				if (inp == 1) 
-				{ 
-					temp = shared_ptr<Base1>(new Alpha);
-					temp_base1.push_back({ temp,n });
-					temp.reset();
-				}
-				else 
-				{
-					temp = shared_ptr<Base1>(new Beta);
-					temp_base1.push_back({ temp,n });
-					temp.reset();
-				}
-				++n;
-				cout << "An element was added to vector\n";
+				} while (a > 1 || a < 0);	  //input sub_where
+				inp += a;
 			}
-			else if (inp == 2)		//input in vector Base2
-			{
-				cout << "What do you want to add:\n   1 - Gamma\n   2 - Delta\n";
-				flag = false;
-				do
-				{
-					if (flag)
-						cout << "Input please 1 or 2\n";
-					cin >> inp;
-					flag = true;
-				} while (inp > 2 || inp <= 0);	// what input
-				shared_ptr<Base2> temp;
-				if (inp == 1) 
-				{
-					temp = shared_ptr<Base2>(new Gamma);
-					temp_base2.push_back({ temp,n });
-					temp.reset();
-				}
-				else 
-				{
-					temp = shared_ptr<Base2>(new Delta);
-					temp_base2.push_back({ temp,n });
-					temp.reset();
-				}
-				++n;
-				cout << "An element was added to vector\n";
-			}
-			else if (inp == 3)		//input in Base1 or Base2 in element N;
-			{
-				int what;
-				cout << "Input to which type of data do you want to add:\n";
-				cout << "   1 - Alpha\n   2 - Beta\n   3 - Gamma\n   4 - Delta\n";
-				flag = false;
-				do
-				{
-					if (flag)
-						cout << "Input please 1, 2, 3 or 4\n";
-					cin >> what;
-					flag = true;
-				} while (inp > 4 || inp <= 0);  //input what
-				cout << "Input the number where we have to add\n";
-				cin >> inp;								  //input number
-				int num = inp;
-				cout << "Input what type of data do you want to add:\n";
-				cout << "   1 - Alpha\n   2 - Beta\n   3 - Gamma\n   4 - Delta\n";
-				flag = false;
-				do
-				{
-					if (flag)
-						cout << "Input please 1, 2, 3 or 4\n";
-					cin >> inp;
-					flag = true;
-				} while (inp > 4 || inp <= 0);  //input where
-				if (inp == 4)
-					++inp;
-				if (inp > 2)
-				{
-					int a;
-					cout << "Input where in Base2(x,y) you want to add:\n	0 - x,\n   1 - y\n";
-					flag = false;
-					do 
-					{
-						if (flag)
-							cout << "Input please 1 or 2\n";
-						cin >> a;
-						flag = true;
-					} while (a > 1 || a < 0);	  //input sub_where
-					inp += a;
-				}
-				if (dfs_to_add(temp_base1, temp_base2, num, what, inp))
-					cout << "An element was added\n";
-				else
-					cout << "There were some trubles like n was more than maxindex of class or position was filled with other object\n";
-			}
-			else if (inp == 4)		//delete an element
-			{
-				cout << "What number of vector element do you want delete?\n";
-				do
-				{
-					cout << "Number have to be less than " << n << '\n';
-					cin >> inp;
-				} while (inp > n);  //input the number;
-				if (!bin_search(temp_base1, inp))	//bin_search of an element
-					bin_search(temp_base2, inp);
-				shift(temp_base1, inp);			//shift of vector
-				shift(temp_base2, inp);			//shift of vector
-				--n;
-				cout << "An element was deleted\n";
-				cout << "Current S is " << S << '\n';
-			}
-			else if (inp == 5)
-			{
-				cout << "current value of S = " << S << '\n';
-				int counter = S;
-				for (int i = 1, ind1 = 0, ind2 = 0; i <= n; ++i) 
-				{
-					if (ind1 < temp_base1.size() && temp_base1[ind1].second == i)
-						counter += dfs_to_delete(temp_base1[ind1].first,counter);
-					else if (ind2 < temp_base1.size() && temp_base2[ind2].second == i)
-						counter += dfs_to_delete(temp_base2[ind2].first,counter);
-
-				}
-				cout << "Future count of S = " << counter << '\n';
-			}
+			if (dfs_to_add(temp_base1, temp_base2, num, what, inp))
+				cout << "An element was added\n";
+			else
+				cout << "There were some trubles like n was more than maxindex of class or position was filled with other object\n";
 		}
+		else if (inp == 4)		//delete an element
+		{
+			if (n == 1)
+			{
+				cout << "Vector is empty! Add something please.\n";
+				continue;
+			}
+			cout << "What number of vector element do you want delete?\n";
+			do
+			{
+				cout << "Number have to be less than " << n << '\n';
+				cin >> inp;
+			} while (inp >= n);  //input the number;
+			if (!bin_search(temp_base1, inp))	//bin_search of an element
+				bin_search(temp_base2, inp);
+			shift(temp_base1, inp);			//shift of vector
+			shift(temp_base2, inp);			//shift of vector
+			--n;
+			cout << "An element was deleted\n";
+			cout << "Current S is " << S << '\n';
+		}
+		else if (inp == 5)		//prediction of S
+		{
+			cout << "current value of S = " << S << '\n';
+			int counter = S;
+			for (int i = 1, ind1 = 0, ind2 = 0; i < n; ++i)
+			{
+				if (ind1 < temp_base1.size() && temp_base1[ind1].second == i)
+				{
+					counter = dfs_to_delete(temp_base1[ind1].first, counter);
+					++ind1;
+				}
+				else if (ind2 < temp_base1.size() && temp_base2[ind2].second == i) {
+					counter = dfs_to_delete(temp_base2[ind2].first, counter);
+					++ind2;
+				}
+
+			}
+			cout << "Future count of S = " << counter << '\n';
+		}
+	/*	else if (inp == 6)
+		{
+			cout << "Input the number of elements\n";
+			do {
+				cout << "Value have to be from 1 to 4\n";
+				cin >> inp;
+			} while (inp > 5 || inp < 0);
+			Thelp mas[4];
+			bool used[4][3];
+			for (int i = 0; i < 4; ++i)
+				for (int j = 0; j < 3; ++j)
+					used[i][j] = 0;
+			counter_rec(mas, used, inp, 0);
+			cout << global__counter << '\n';
+		}*/
 	}
+
 	for (size_t i = 0; i < temp_base1.size(); ++i)
 		temp_base1[i].first.reset();
 	for (size_t i = 0; i < temp_base2.size(); ++i)

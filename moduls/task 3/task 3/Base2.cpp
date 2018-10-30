@@ -78,8 +78,8 @@ bool Base2::add_base2(shared_ptr<Base2>& val, bool where)
 
 Base2::~Base2()
 {
-	S = S / 2 - N;
 	x_val_base2.reset();
 	y_val_base2.reset();
 	val_base1.reset();
+	S = S / 2 - N;
 }
