@@ -5,6 +5,8 @@
 
 using std::string;
 
+const int RETURN_EXP = 8941;
+
 template <typename T>
 int my_func(T value);
 
@@ -20,15 +22,19 @@ template<>
 int my_func(int value)			//for integers
 {
 	int mod, ans;
-	if (value > 0) {
+	if (value > 0) 
+	{
 		mod = 141;
-		ans = (factorial(value, mod) + value + 1) % mod;
+		ans = (factorial(value, mod) + value - 1) % mod;
 	}
-	else {
+	else if (value < 0) 
+	{
 		mod = 241;
 		value %= mod;
 		ans = value * value * value % mod;
 	}
+	else 
+		return RETURN_EXP;
 	while (ans < 0)
 		ans += mod;
 	return ans;
@@ -55,5 +61,5 @@ int my_func(string value)
 template<typename T>
 int my_func(T value)
 {
-	return 8941;
+	return RETURN_EXP;
 }
