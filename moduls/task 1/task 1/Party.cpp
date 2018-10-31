@@ -45,7 +45,6 @@ Crowd Party::get_members()
 Party::Party()
 {
 	own_value = -1;
-	vote_against.clear();
 	vote_for.clear();
 	criterion.clear();
 }
@@ -53,7 +52,7 @@ Party::Party()
 Party::Party(Laws law, int x)
 {
 	own_value = x;
-	law.fill_vote_for_and_against(vote_for,vote_against,criterion);
+	law.fill_vote_for_and_against(vote_for,criterion);
 }
 
 void Party::add_the_most(Crowd &people, int n)
@@ -73,18 +72,15 @@ void Party::add_the_most(Crowd &people, int n)
 	
 }
 
-void Party::output()
+void Party::output(ofstream &fout)
 {
-	cout << "Party #" << own_value << '\n';
-	cout << "Members:\n";
-	members.output();
-	cout << "Vote for:\n";
+	fout << "Party #" << own_value << '\n';
+	fout << "Members:\n";
+	for (int i = 0; i < members.msize(); ++i)
+		fout << "\tPerson#" << members.get_person_in_arr(i).get_own_value() << '\n';
+	fout << "Vote for:\n";
 	for (size_t i = 0; i < vote_for.size(); ++i)
-		cout << "\tLaw #" << vote_for[i] << ", "  << criterion[vote_for[i]] << ";\n";
-	cout << "Vote against: \n";
-	for (size_t i = 0; i < vote_against.size(); ++i)
-		cout << "\tLaw #" << vote_against[i] << ", " << criterion[vote_against[i]] << ";\n";
-
+		fout << "\tLaw #" << vote_for[i] << ", Criterion: "  << criterion[vote_for[i]] << ";\n";
 }
 
 

@@ -21,11 +21,12 @@ protected:
 	int how_to_choose_law;
 	int part_of_votes;
 
-//	void rec(All_parties & temp_party, Crowd & people, vector<pair<int, int> > &cur_votes,int pos,int numb_of_membrs);
+
 public:
 	Parlament(int n, Laws law);
 	void election_to_Parlament(All_parties &all_parties, Crowd &people);
 	bool adopt_law(int cur_law);
+	int get_period();
 	void output();
 	~Parlament();
 };

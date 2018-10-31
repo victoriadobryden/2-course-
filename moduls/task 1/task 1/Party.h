@@ -4,6 +4,7 @@
 #include "Laws.h"
 
 #include <iostream>
+#include <fstream>
 #include <algorithm>
 
 using namespace std;
@@ -15,7 +16,6 @@ protected:
 	int own_value;
 
 	vector<int> vote_for;
-	vector<int> vote_against;
 	vector<int> criterion;
 public:
 	Party();
@@ -26,7 +26,7 @@ public:
 	int get_number_of_members();
 	vector<int> get_vote_for();
 	Crowd get_members();
-	void output();
+	void output(ofstream &fout);
 	~Party();
 };
 

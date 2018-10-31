@@ -3,6 +3,11 @@
 #include "Laws.h"
 #include "Crowd.h"
 
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
 class All_parties
 {
 	vector<Party> parties;
@@ -13,7 +18,7 @@ public:
 	Party get_party_in_arr(int index);
 	Party get_party_number_N(int index);
 	void add(Party temp);
-	void output();
+	void output(ofstream &fout);
 	~All_parties();
 };
 

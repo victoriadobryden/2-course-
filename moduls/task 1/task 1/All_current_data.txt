@@ -1,0 +1,3831 @@
+----------------------------------LAWS----------------------------------
+Law #0: 316, complexity: 6;
+Law #1: 282, complexity: 10;
+Law #2: 603, complexity: 7;
+Law #3: 118, complexity: 13;
+Law #4: 289, complexity: 32;
+Law #5: 926, complexity: 14;
+Law #6: 710, complexity: 16;
+Law #7: 520, complexity: 17;
+Law #8: 901, complexity: 45;
+Law #9: 433, complexity: 28;
+Law #10: 521, complexity: 28;
+Law #11: 199, complexity: 30;
+Law #12: 338, complexity: 47;
+Law #13: 618, complexity: 46;
+Law #14: 793, complexity: 50;
+Law #15: 582, complexity: 25;
+Law #16: 486, complexity: 26;
+Law #17: 801, complexity: 38;
+Law #18: 134, complexity: 46;
+Law #19: 873, complexity: 36;
+Law #20: 679, complexity: 50;
+Law #21: 132, complexity: 43;
+Law #22: 703, complexity: 48;
+Law #23: 709, complexity: 33;
+Law #24: 891, complexity: 48;
+Law #25: 475, complexity: 44;
+Law #26: 556, complexity: 56;
+Law #27: 832, complexity: 49;
+Law #28: 751, complexity: 58;
+Law #29: 844, complexity: 32;
+Law #30: 107, complexity: 64;
+Law #31: 929, complexity: 60;
+Law #32: 945, complexity: 63;
+Law #33: 955, complexity: 47;
+Law #34: 549, complexity: 60;
+Law #35: 704, complexity: 66;
+Law #36: 771, complexity: 55;
+Law #37: 320, complexity: 63;
+Law #38: 935, complexity: 61;
+Law #39: 616, complexity: 51;
+Law #40: 621, complexity: 61;
+Law #41: 906, complexity: 77;
+Law #42: 866, complexity: 78;
+Law #43: 414, complexity: 53;
+Law #44: 188, complexity: 65;
+Law #45: 283, complexity: 82;
+Law #46: 344, complexity: 69;
+Law #47: 474, complexity: 73;
+Law #48: 190, complexity: 73;
+Law #49: 528, complexity: 77;
+Law #50: 975, complexity: 75;
+Law #51: 520, complexity: 67;
+Law #52: 983, complexity: 77;
+Law #53: 376, complexity: 30;
+Law #54: 251, complexity: 4;
+Law #55: 583, complexity: 30;
+Law #56: 1001, complexity: 30;
+Law #57: 869, complexity: 23;
+Law #58: 534, complexity: 33;
+Law #59: 468, complexity: 36;
+Law #60: 257, complexity: 19;
+Law #61: 572, complexity: 32;
+Law #62: 636, complexity: 18;
+Law #63: 531, complexity: 24;
+Law #64: 61, complexity: 48;
+Law #65: 232, complexity: 21;
+Law #66: 653, complexity: 47;
+--------------------------------PEOPLE--------------------------------
+Person #0
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 109;
+	Law #2 Criterion: 739;
+	Law #4 Criterion: 1087;
+	Law #5 Criterion: 523;
+	Law #7 Criterion: 1867;
+	Law #8 Criterion: 281;
+	Law #11 Criterion: 1933;
+	Law #15 Criterion: 151;
+	Law #16 Criterion: 83;
+	Law #18 Criterion: 1913;
+	Law #20 Criterion: 239;
+	Law #23 Criterion: 547;
+	Law #25 Criterion: 271;
+	Law #26 Criterion: 1483;
+	Law #29 Criterion: 577;
+	Law #30 Criterion: 1481;
+	Law #31 Criterion: 349;
+	Law #34 Criterion: 863;
+	Law #39 Criterion: 457;
+	Law #46 Criterion: 709;
+	Law #47 Criterion: 1811;
+	Law #49 Criterion: 1213;
+	Law #51 Criterion: 1021;
+	Law #52 Criterion: 263;
+	Law #54 Criterion: 31;
+	Law #56 Criterion: 661;
+	Law #57 Criterion: 337;
+	Law #58 Criterion: 827;
+	Law #59 Criterion: 137;
+	Law #61 Criterion: 3;
+	Law #62 Criterion: 463;
+	Law #65 Criterion: 317;
+	Law #66 Criterion: 73;
+Person #1
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #0 Criterion: 59;
+	Law #1 Criterion: 1439;
+	Law #6 Criterion: 577;
+	Law #8 Criterion: 1559;
+	Law #10 Criterion: 769;
+	Law #12 Criterion: 1453;
+	Law #14 Criterion: 1831;
+	Law #15 Criterion: 1571;
+	Law #18 Criterion: 1013;
+	Law #19 Criterion: 859;
+	Law #20 Criterion: 1277;
+	Law #23 Criterion: 83;
+	Law #25 Criterion: 1021;
+	Law #27 Criterion: 1721;
+	Law #29 Criterion: 1579;
+	Law #31 Criterion: 1493;
+	Law #33 Criterion: 113;
+	Law #39 Criterion: 823;
+	Law #40 Criterion: 41;
+	Law #41 Criterion: 1063;
+	Law #42 Criterion: 1009;
+	Law #44 Criterion: 421;
+	Law #48 Criterion: 1871;
+	Law #50 Criterion: 1229;
+	Law #56 Criterion: 1249;
+	Law #57 Criterion: 643;
+	Law #58 Criterion: 1427;
+	Law #59 Criterion: 1567;
+	Law #60 Criterion: 751;
+	Law #63 Criterion: 1567;
+	Law #65 Criterion: 1579;
+	Law #66 Criterion: 1427;
+Person #2
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #2 Criterion: 109;
+	Law #3 Criterion: 641;
+	Law #4 Criterion: 137;
+	Law #8 Criterion: 23;
+	Law #10 Criterion: 151;
+	Law #12 Criterion: 1933;
+	Law #14 Criterion: 1487;
+	Law #18 Criterion: 811;
+	Law #20 Criterion: 827;
+	Law #21 Criterion: 1321;
+	Law #23 Criterion: 547;
+	Law #26 Criterion: 601;
+	Law #27 Criterion: 1303;
+	Law #28 Criterion: 373;
+	Law #29 Criterion: 907;
+	Law #30 Criterion: 1423;
+	Law #32 Criterion: 1097;
+	Law #34 Criterion: 1193;
+	Law #35 Criterion: 11;
+	Law #36 Criterion: 1039;
+	Law #37 Criterion: 1117;
+	Law #38 Criterion: 1231;
+	Law #39 Criterion: 1049;
+	Law #41 Criterion: 1489;
+	Law #45 Criterion: 241;
+	Law #46 Criterion: 823;
+	Law #47 Criterion: 1093;
+	Law #52 Criterion: 1163;
+	Law #54 Criterion: 1069;
+	Law #55 Criterion: 1973;
+	Law #57 Criterion: 1103;
+	Law #58 Criterion: 1709;
+	Law #61 Criterion: 1723;
+	Law #63 Criterion: 1279;
+	Law #65 Criterion: 1373;
+Person #3
+Wants to be in party: 0
+Strategy of voting: party_voting
+Votes for:
+	Law #0 Criterion: 601;
+	Law #1 Criterion: 41;
+	Law #3 Criterion: 1619;
+	Law #4 Criterion: 613;
+	Law #11 Criterion: 359;
+	Law #16 Criterion: 1489;
+	Law #18 Criterion: 1907;
+	Law #19 Criterion: 1571;
+	Law #22 Criterion: 5;
+	Law #24 Criterion: 739;
+	Law #28 Criterion: 1583;
+	Law #29 Criterion: 1163;
+	Law #34 Criterion: 373;
+	Law #39 Criterion: 701;
+	Law #40 Criterion: 1031;
+	Law #44 Criterion: 683;
+	Law #45 Criterion: 1493;
+	Law #48 Criterion: 1733;
+	Law #50 Criterion: 599;
+	Law #56 Criterion: 1487;
+	Law #58 Criterion: 1009;
+	Law #59 Criterion: 1447;
+	Law #63 Criterion: 79;
+Person #4
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #0 Criterion: 359;
+	Law #1 Criterion: 1523;
+	Law #2 Criterion: 1993;
+	Law #7 Criterion: 1567;
+	Law #8 Criterion: 881;
+	Law #9 Criterion: 389;
+	Law #11 Criterion: 1439;
+	Law #14 Criterion: 1607;
+	Law #16 Criterion: 1373;
+	Law #20 Criterion: 7;
+	Law #22 Criterion: 719;
+	Law #24 Criterion: 1163;
+	Law #26 Criterion: 1553;
+	Law #28 Criterion: 137;
+	Law #29 Criterion: 1783;
+	Law #31 Criterion: 151;
+	Law #32 Criterion: 607;
+	Law #33 Criterion: 797;
+	Law #35 Criterion: 809;
+	Law #36 Criterion: 1289;
+	Law #37 Criterion: 1429;
+	Law #38 Criterion: 1109;
+	Law #39 Criterion: 461;
+	Law #40 Criterion: 1283;
+	Law #42 Criterion: 449;
+	Law #43 Criterion: 397;
+	Law #44 Criterion: 109;
+	Law #50 Criterion: 5;
+	Law #51 Criterion: 37;
+	Law #53 Criterion: 1289;
+	Law #54 Criterion: 359;
+	Law #57 Criterion: 1933;
+	Law #58 Criterion: 937;
+	Law #60 Criterion: 929;
+	Law #64 Criterion: 509;
+	Law #65 Criterion: 1901;
+	Law #66 Criterion: 1669;
+Person #5
+Wants to be in party: 0
+Strategy of voting: random
+Votes for:
+	Law #1 Criterion: 457;
+	Law #2 Criterion: 1213;
+	Law #3 Criterion: 433;
+	Law #6 Criterion: 641;
+	Law #9 Criterion: 1873;
+	Law #11 Criterion: 1171;
+	Law #12 Criterion: 1301;
+	Law #21 Criterion: 1289;
+	Law #22 Criterion: 1879;
+	Law #26 Criterion: 1553;
+	Law #27 Criterion: 1559;
+	Law #31 Criterion: 617;
+	Law #32 Criterion: 599;
+	Law #36 Criterion: 1607;
+	Law #37 Criterion: 263;
+	Law #38 Criterion: 19;
+	Law #39 Criterion: 353;
+	Law #40 Criterion: 359;
+	Law #47 Criterion: 827;
+	Law #49 Criterion: 137;
+	Law #51 Criterion: 1601;
+	Law #55 Criterion: 2;
+	Law #56 Criterion: 479;
+	Law #57 Criterion: 277;
+	Law #60 Criterion: 41;
+	Law #62 Criterion: 1321;
+	Law #65 Criterion: 1553;
+	Law #66 Criterion: 1223;
+Person #6
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 823;
+	Law #2 Criterion: 179;
+	Law #4 Criterion: 263;
+	Law #5 Criterion: 1321;
+	Law #7 Criterion: 109;
+	Law #9 Criterion: 1423;
+	Law #10 Criterion: 937;
+	Law #11 Criterion: 677;
+	Law #14 Criterion: 1861;
+	Law #15 Criterion: 1009;
+	Law #21 Criterion: 127;
+	Law #24 Criterion: 1103;
+	Law #26 Criterion: 727;
+	Law #27 Criterion: 1697;
+	Law #32 Criterion: 79;
+	Law #33 Criterion: 1553;
+	Law #35 Criterion: 1447;
+	Law #37 Criterion: 877;
+	Law #42 Criterion: 1999;
+	Law #44 Criterion: 977;
+	Law #46 Criterion: 1861;
+	Law #48 Criterion: 1069;
+	Law #51 Criterion: 277;
+	Law #52 Criterion: 191;
+	Law #53 Criterion: 443;
+	Law #55 Criterion: 1153;
+	Law #56 Criterion: 167;
+	Law #58 Criterion: 23;
+	Law #59 Criterion: 191;
+	Law #60 Criterion: 1511;
+	Law #61 Criterion: 941;
+	Law #62 Criterion: 1259;
+	Law #65 Criterion: 1571;
+	Law #66 Criterion: 773;
+Person #7
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #5 Criterion: 1823;
+	Law #10 Criterion: 157;
+	Law #14 Criterion: 1447;
+	Law #16 Criterion: 967;
+	Law #18 Criterion: 1987;
+	Law #22 Criterion: 107;
+	Law #23 Criterion: 1021;
+	Law #26 Criterion: 929;
+	Law #27 Criterion: 1759;
+	Law #28 Criterion: 613;
+	Law #30 Criterion: 211;
+	Law #31 Criterion: 13;
+	Law #32 Criterion: 1801;
+	Law #36 Criterion: 307;
+	Law #37 Criterion: 1019;
+	Law #39 Criterion: 1361;
+	Law #42 Criterion: 149;
+	Law #45 Criterion: 1013;
+	Law #46 Criterion: 929;
+	Law #48 Criterion: 919;
+	Law #49 Criterion: 1447;
+	Law #53 Criterion: 1709;
+	Law #54 Criterion: 461;
+	Law #56 Criterion: 109;
+	Law #57 Criterion: 1021;
+	Law #58 Criterion: 11;
+	Law #60 Criterion: 191;
+	Law #61 Criterion: 1723;
+	Law #64 Criterion: 7;
+	Law #66 Criterion: 313;
+Person #8
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 1867;
+	Law #2 Criterion: 937;
+	Law #3 Criterion: 509;
+	Law #4 Criterion: 331;
+	Law #6 Criterion: 467;
+	Law #7 Criterion: 1559;
+	Law #8 Criterion: 251;
+	Law #9 Criterion: 397;
+	Law #12 Criterion: 919;
+	Law #13 Criterion: 1777;
+	Law #16 Criterion: 569;
+	Law #18 Criterion: 557;
+	Law #25 Criterion: 1871;
+	Law #26 Criterion: 733;
+	Law #27 Criterion: 1427;
+	Law #28 Criterion: 967;
+	Law #30 Criterion: 971;
+	Law #31 Criterion: 151;
+	Law #32 Criterion: 487;
+	Law #33 Criterion: 1381;
+	Law #34 Criterion: 1213;
+	Law #35 Criterion: 641;
+	Law #36 Criterion: 1531;
+	Law #40 Criterion: 59;
+	Law #41 Criterion: 1867;
+	Law #42 Criterion: 619;
+	Law #48 Criterion: 103;
+	Law #53 Criterion: 293;
+	Law #54 Criterion: 1021;
+	Law #56 Criterion: 7;
+	Law #58 Criterion: 911;
+	Law #59 Criterion: 1213;
+	Law #62 Criterion: 53;
+	Law #64 Criterion: 1613;
+	Law #66 Criterion: 73;
+Person #9
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #0 Criterion: 751;
+	Law #3 Criterion: 1249;
+	Law #4 Criterion: 521;
+	Law #5 Criterion: 5;
+	Law #7 Criterion: 1637;
+	Law #11 Criterion: 547;
+	Law #13 Criterion: 73;
+	Law #18 Criterion: 757;
+	Law #19 Criterion: 823;
+	Law #20 Criterion: 1483;
+	Law #22 Criterion: 1223;
+	Law #24 Criterion: 647;
+	Law #25 Criterion: 739;
+	Law #27 Criterion: 1213;
+	Law #33 Criterion: 1931;
+	Law #36 Criterion: 373;
+	Law #43 Criterion: 317;
+	Law #45 Criterion: 373;
+	Law #47 Criterion: 1163;
+	Law #48 Criterion: 503;
+	Law #53 Criterion: 401;
+	Law #55 Criterion: 631;
+	Law #56 Criterion: 1381;
+	Law #58 Criterion: 457;
+	Law #63 Criterion: 2;
+	Law #64 Criterion: 587;
+	Law #65 Criterion: 769;
+	Law #66 Criterion: 19;
+Person #10
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #0 Criterion: 599;
+	Law #1 Criterion: 853;
+	Law #2 Criterion: 1747;
+	Law #3 Criterion: 167;
+	Law #5 Criterion: 547;
+	Law #8 Criterion: 97;
+	Law #20 Criterion: 1013;
+	Law #27 Criterion: 647;
+	Law #31 Criterion: 1871;
+	Law #33 Criterion: 1489;
+	Law #34 Criterion: 499;
+	Law #38 Criterion: 151;
+	Law #39 Criterion: 463;
+	Law #41 Criterion: 1307;
+	Law #45 Criterion: 1283;
+	Law #47 Criterion: 503;
+	Law #50 Criterion: 179;
+	Law #52 Criterion: 1669;
+	Law #55 Criterion: 823;
+	Law #57 Criterion: 929;
+	Law #58 Criterion: 1171;
+	Law #59 Criterion: 491;
+	Law #61 Criterion: 1423;
+	Law #63 Criterion: 809;
+	Law #64 Criterion: 1621;
+Person #11
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #1 Criterion: 1163;
+	Law #2 Criterion: 797;
+	Law #3 Criterion: 983;
+	Law #7 Criterion: 727;
+	Law #11 Criterion: 457;
+	Law #14 Criterion: 1669;
+	Law #16 Criterion: 607;
+	Law #20 Criterion: 947;
+	Law #23 Criterion: 829;
+	Law #26 Criterion: 1613;
+	Law #28 Criterion: 787;
+	Law #36 Criterion: 617;
+	Law #37 Criterion: 883;
+	Law #39 Criterion: 1697;
+	Law #40 Criterion: 401;
+	Law #42 Criterion: 1543;
+	Law #43 Criterion: 229;
+	Law #54 Criterion: 1097;
+	Law #55 Criterion: 1733;
+	Law #56 Criterion: 1153;
+	Law #57 Criterion: 563;
+	Law #58 Criterion: 1613;
+	Law #59 Criterion: 1181;
+	Law #60 Criterion: 79;
+	Law #64 Criterion: 769;
+	Law #65 Criterion: 313;
+Person #12
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 269;
+	Law #1 Criterion: 859;
+	Law #2 Criterion: 1493;
+	Law #4 Criterion: 101;
+	Law #6 Criterion: 73;
+	Law #7 Criterion: 1021;
+	Law #8 Criterion: 79;
+	Law #9 Criterion: 1231;
+	Law #11 Criterion: 1583;
+	Law #12 Criterion: 1873;
+	Law #14 Criterion: 839;
+	Law #16 Criterion: 283;
+	Law #17 Criterion: 701;
+	Law #20 Criterion: 1783;
+	Law #21 Criterion: 751;
+	Law #26 Criterion: 947;
+	Law #27 Criterion: 1033;
+	Law #29 Criterion: 1279;
+	Law #31 Criterion: 1747;
+	Law #33 Criterion: 1033;
+	Law #34 Criterion: 23;
+	Law #35 Criterion: 11;
+	Law #36 Criterion: 349;
+	Law #37 Criterion: 1453;
+	Law #39 Criterion: 277;
+	Law #42 Criterion: 1201;
+	Law #43 Criterion: 1553;
+	Law #44 Criterion: 1213;
+	Law #45 Criterion: 79;
+	Law #46 Criterion: 1753;
+	Law #47 Criterion: 1693;
+	Law #48 Criterion: 433;
+	Law #52 Criterion: 883;
+	Law #54 Criterion: 61;
+	Law #55 Criterion: 1063;
+	Law #56 Criterion: 59;
+	Law #58 Criterion: 1459;
+	Law #61 Criterion: 1973;
+Person #13
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #0 Criterion: 571;
+	Law #1 Criterion: 997;
+	Law #2 Criterion: 1097;
+	Law #3 Criterion: 757;
+	Law #4 Criterion: 1109;
+	Law #6 Criterion: 1489;
+	Law #10 Criterion: 1291;
+	Law #13 Criterion: 491;
+	Law #14 Criterion: 1931;
+	Law #15 Criterion: 1559;
+	Law #17 Criterion: 1753;
+	Law #18 Criterion: 1699;
+	Law #19 Criterion: 239;
+	Law #21 Criterion: 673;
+	Law #26 Criterion: 389;
+	Law #28 Criterion: 853;
+	Law #30 Criterion: 719;
+	Law #32 Criterion: 1993;
+	Law #33 Criterion: 1901;
+	Law #34 Criterion: 283;
+	Law #35 Criterion: 733;
+	Law #36 Criterion: 491;
+	Law #38 Criterion: 13;
+	Law #39 Criterion: 829;
+	Law #41 Criterion: 293;
+	Law #45 Criterion: 197;
+	Law #48 Criterion: 71;
+	Law #50 Criterion: 347;
+	Law #53 Criterion: 1201;
+	Law #55 Criterion: 577;
+	Law #56 Criterion: 1933;
+	Law #57 Criterion: 347;
+	Law #58 Criterion: 877;
+	Law #60 Criterion: 1249;
+	Law #63 Criterion: 941;
+	Law #65 Criterion: 1129;
+	Law #66 Criterion: 37;
+Person #14
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #2 Criterion: 17;
+	Law #3 Criterion: 53;
+	Law #4 Criterion: 109;
+	Law #5 Criterion: 1789;
+	Law #6 Criterion: 1487;
+	Law #10 Criterion: 197;
+	Law #11 Criterion: 349;
+	Law #17 Criterion: 1087;
+	Law #18 Criterion: 223;
+	Law #19 Criterion: 1051;
+	Law #20 Criterion: 691;
+	Law #21 Criterion: 1987;
+	Law #23 Criterion: 1871;
+	Law #26 Criterion: 1811;
+	Law #28 Criterion: 1801;
+	Law #33 Criterion: 479;
+	Law #34 Criterion: 757;
+	Law #35 Criterion: 167;
+	Law #38 Criterion: 181;
+	Law #39 Criterion: 1511;
+	Law #40 Criterion: 397;
+	Law #41 Criterion: 1997;
+	Law #42 Criterion: 577;
+	Law #43 Criterion: 331;
+	Law #44 Criterion: 11;
+	Law #50 Criterion: 239;
+	Law #55 Criterion: 911;
+	Law #56 Criterion: 1613;
+	Law #59 Criterion: 263;
+	Law #60 Criterion: 1063;
+	Law #65 Criterion: 397;
+	Law #66 Criterion: 1607;
+Person #15
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #4 Criterion: 1453;
+	Law #5 Criterion: 1459;
+	Law #6 Criterion: 1051;
+	Law #7 Criterion: 1669;
+	Law #9 Criterion: 1087;
+	Law #10 Criterion: 383;
+	Law #13 Criterion: 947;
+	Law #18 Criterion: 647;
+	Law #19 Criterion: 311;
+	Law #20 Criterion: 383;
+	Law #22 Criterion: 1433;
+	Law #25 Criterion: 283;
+	Law #26 Criterion: 683;
+	Law #30 Criterion: 1901;
+	Law #31 Criterion: 421;
+	Law #32 Criterion: 617;
+	Law #33 Criterion: 1201;
+	Law #38 Criterion: 907;
+	Law #41 Criterion: 523;
+	Law #42 Criterion: 193;
+	Law #43 Criterion: 463;
+	Law #44 Criterion: 359;
+	Law #45 Criterion: 761;
+	Law #47 Criterion: 919;
+	Law #48 Criterion: 643;
+	Law #49 Criterion: 109;
+	Law #50 Criterion: 1489;
+	Law #53 Criterion: 1277;
+	Law #54 Criterion: 311;
+	Law #55 Criterion: 1487;
+	Law #57 Criterion: 997;
+	Law #58 Criterion: 1109;
+	Law #60 Criterion: 199;
+	Law #61 Criterion: 857;
+Person #16
+Wants to be in party: 0
+Strategy of voting: party_voting
+Votes for:
+	Law #1 Criterion: 1289;
+	Law #8 Criterion: 1789;
+	Law #9 Criterion: 617;
+	Law #10 Criterion: 107;
+	Law #13 Criterion: 1291;
+	Law #14 Criterion: 1531;
+	Law #17 Criterion: 1049;
+	Law #19 Criterion: 199;
+	Law #21 Criterion: 61;
+	Law #22 Criterion: 1439;
+	Law #23 Criterion: 1997;
+	Law #26 Criterion: 929;
+	Law #27 Criterion: 743;
+	Law #30 Criterion: 631;
+	Law #32 Criterion: 503;
+	Law #33 Criterion: 1709;
+	Law #40 Criterion: 479;
+	Law #42 Criterion: 761;
+	Law #45 Criterion: 281;
+	Law #46 Criterion: 1279;
+	Law #52 Criterion: 1877;
+	Law #56 Criterion: 1949;
+	Law #57 Criterion: 1301;
+	Law #59 Criterion: 223;
+	Law #60 Criterion: 197;
+	Law #63 Criterion: 1949;
+Person #17
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #3 Criterion: 1093;
+	Law #6 Criterion: 349;
+	Law #7 Criterion: 1039;
+	Law #12 Criterion: 1063;
+	Law #14 Criterion: 1297;
+	Law #15 Criterion: 1607;
+	Law #16 Criterion: 163;
+	Law #17 Criterion: 311;
+	Law #18 Criterion: 1489;
+	Law #20 Criterion: 1861;
+	Law #23 Criterion: 239;
+	Law #24 Criterion: 1039;
+	Law #30 Criterion: 31;
+	Law #33 Criterion: 1699;
+	Law #34 Criterion: 107;
+	Law #39 Criterion: 1237;
+	Law #40 Criterion: 857;
+	Law #41 Criterion: 167;
+	Law #43 Criterion: 1481;
+	Law #45 Criterion: 293;
+	Law #46 Criterion: 1609;
+	Law #52 Criterion: 1583;
+	Law #56 Criterion: 1289;
+	Law #57 Criterion: 1459;
+	Law #60 Criterion: 277;
+	Law #63 Criterion: 1723;
+Person #18
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #0 Criterion: 547;
+	Law #2 Criterion: 971;
+	Law #3 Criterion: 571;
+	Law #4 Criterion: 599;
+	Law #7 Criterion: 181;
+	Law #10 Criterion: 1559;
+	Law #12 Criterion: 389;
+	Law #13 Criterion: 983;
+	Law #14 Criterion: 907;
+	Law #15 Criterion: 947;
+	Law #16 Criterion: 233;
+	Law #18 Criterion: 487;
+	Law #19 Criterion: 1627;
+	Law #20 Criterion: 29;
+	Law #23 Criterion: 31;
+	Law #27 Criterion: 53;
+	Law #29 Criterion: 1531;
+	Law #33 Criterion: 47;
+	Law #34 Criterion: 1459;
+	Law #37 Criterion: 47;
+	Law #39 Criterion: 1013;
+	Law #42 Criterion: 1723;
+	Law #44 Criterion: 1217;
+	Law #47 Criterion: 757;
+	Law #49 Criterion: 593;
+	Law #50 Criterion: 457;
+	Law #51 Criterion: 809;
+	Law #52 Criterion: 331;
+	Law #53 Criterion: 431;
+	Law #56 Criterion: 191;
+	Law #57 Criterion: 557;
+	Law #59 Criterion: 149;
+	Law #60 Criterion: 1061;
+	Law #63 Criterion: 823;
+Person #19
+Wants to be in party: 0
+Strategy of voting: party_voting
+Votes for:
+	Law #0 Criterion: 1907;
+	Law #3 Criterion: 691;
+	Law #7 Criterion: 701;
+	Law #8 Criterion: 1451;
+	Law #9 Criterion: 53;
+	Law #10 Criterion: 13;
+	Law #12 Criterion: 389;
+	Law #15 Criterion: 367;
+	Law #17 Criterion: 79;
+	Law #18 Criterion: 701;
+	Law #21 Criterion: 1609;
+	Law #22 Criterion: 1847;
+	Law #26 Criterion: 1877;
+	Law #28 Criterion: 1847;
+	Law #31 Criterion: 1049;
+	Law #32 Criterion: 191;
+	Law #36 Criterion: 59;
+	Law #38 Criterion: 367;
+	Law #40 Criterion: 379;
+	Law #41 Criterion: 97;
+	Law #43 Criterion: 103;
+	Law #45 Criterion: 1237;
+	Law #46 Criterion: 937;
+	Law #48 Criterion: 997;
+	Law #50 Criterion: 677;
+	Law #51 Criterion: 1481;
+	Law #54 Criterion: 293;
+	Law #56 Criterion: 1181;
+	Law #57 Criterion: 97;
+	Law #58 Criterion: 151;
+	Law #61 Criterion: 1423;
+Person #20
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #2 Criterion: 1201;
+	Law #5 Criterion: 59;
+	Law #10 Criterion: 1069;
+	Law #11 Criterion: 281;
+	Law #13 Criterion: 571;
+	Law #15 Criterion: 317;
+	Law #16 Criterion: 1483;
+	Law #19 Criterion: 733;
+	Law #20 Criterion: 239;
+	Law #22 Criterion: 179;
+	Law #24 Criterion: 271;
+	Law #25 Criterion: 181;
+	Law #27 Criterion: 1237;
+	Law #29 Criterion: 179;
+	Law #30 Criterion: 151;
+	Law #31 Criterion: 467;
+	Law #37 Criterion: 317;
+	Law #39 Criterion: 1523;
+	Law #44 Criterion: 563;
+	Law #45 Criterion: 1493;
+	Law #47 Criterion: 1013;
+	Law #49 Criterion: 127;
+	Law #50 Criterion: 11;
+	Law #51 Criterion: 79;
+	Law #52 Criterion: 1087;
+	Law #53 Criterion: 769;
+	Law #55 Criterion: 443;
+	Law #57 Criterion: 29;
+	Law #60 Criterion: 1973;
+	Law #62 Criterion: 1201;
+	Law #63 Criterion: 1499;
+	Law #64 Criterion: 797;
+Person #21
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #2 Criterion: 3;
+	Law #4 Criterion: 1663;
+	Law #6 Criterion: 1747;
+	Law #7 Criterion: 241;
+	Law #9 Criterion: 3;
+	Law #13 Criterion: 827;
+	Law #14 Criterion: 1399;
+	Law #15 Criterion: 191;
+	Law #16 Criterion: 107;
+	Law #17 Criterion: 839;
+	Law #19 Criterion: 1847;
+	Law #23 Criterion: 1367;
+	Law #24 Criterion: 293;
+	Law #25 Criterion: 1823;
+	Law #26 Criterion: 1097;
+	Law #29 Criterion: 1709;
+	Law #30 Criterion: 107;
+	Law #31 Criterion: 379;
+	Law #32 Criterion: 1259;
+	Law #33 Criterion: 199;
+	Law #34 Criterion: 887;
+	Law #35 Criterion: 883;
+	Law #36 Criterion: 1327;
+	Law #39 Criterion: 821;
+	Law #40 Criterion: 1609;
+	Law #41 Criterion: 1087;
+	Law #44 Criterion: 971;
+	Law #45 Criterion: 229;
+	Law #46 Criterion: 97;
+	Law #48 Criterion: 1931;
+	Law #50 Criterion: 1427;
+	Law #54 Criterion: 1697;
+	Law #56 Criterion: 1307;
+	Law #57 Criterion: 523;
+	Law #58 Criterion: 1069;
+	Law #60 Criterion: 1459;
+	Law #61 Criterion: 797;
+	Law #62 Criterion: 2;
+	Law #64 Criterion: 1277;
+	Law #65 Criterion: 1069;
+	Law #66 Criterion: 733;
+Person #22
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #0 Criterion: 1697;
+	Law #1 Criterion: 457;
+	Law #5 Criterion: 911;
+	Law #6 Criterion: 1709;
+	Law #11 Criterion: 751;
+	Law #15 Criterion: 457;
+	Law #16 Criterion: 97;
+	Law #18 Criterion: 283;
+	Law #19 Criterion: 1747;
+	Law #21 Criterion: 911;
+	Law #23 Criterion: 1193;
+	Law #24 Criterion: 1117;
+	Law #25 Criterion: 1873;
+	Law #27 Criterion: 967;
+	Law #28 Criterion: 257;
+	Law #29 Criterion: 433;
+	Law #30 Criterion: 929;
+	Law #31 Criterion: 3;
+	Law #32 Criterion: 1747;
+	Law #33 Criterion: 1439;
+	Law #36 Criterion: 179;
+	Law #39 Criterion: 373;
+	Law #41 Criterion: 1367;
+	Law #43 Criterion: 1151;
+	Law #45 Criterion: 1511;
+	Law #47 Criterion: 1109;
+	Law #49 Criterion: 991;
+	Law #54 Criterion: 1151;
+	Law #55 Criterion: 151;
+	Law #57 Criterion: 857;
+	Law #58 Criterion: 383;
+	Law #63 Criterion: 1399;
+	Law #64 Criterion: 1993;
+	Law #65 Criterion: 443;
+	Law #66 Criterion: 1493;
+Person #23
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #1 Criterion: 509;
+	Law #2 Criterion: 1187;
+	Law #4 Criterion: 1301;
+	Law #7 Criterion: 503;
+	Law #8 Criterion: 191;
+	Law #10 Criterion: 1783;
+	Law #14 Criterion: 11;
+	Law #15 Criterion: 149;
+	Law #16 Criterion: 1667;
+	Law #18 Criterion: 683;
+	Law #20 Criterion: 1913;
+	Law #23 Criterion: 5;
+	Law #24 Criterion: 1511;
+	Law #25 Criterion: 1409;
+	Law #26 Criterion: 859;
+	Law #29 Criterion: 1951;
+	Law #33 Criterion: 1231;
+	Law #34 Criterion: 89;
+	Law #35 Criterion: 1913;
+	Law #36 Criterion: 509;
+	Law #37 Criterion: 1609;
+	Law #39 Criterion: 239;
+	Law #43 Criterion: 389;
+	Law #44 Criterion: 661;
+	Law #45 Criterion: 1531;
+	Law #51 Criterion: 569;
+	Law #54 Criterion: 61;
+	Law #63 Criterion: 421;
+	Law #65 Criterion: 461;
+Person #24
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #0 Criterion: 751;
+	Law #4 Criterion: 839;
+	Law #5 Criterion: 283;
+	Law #6 Criterion: 1021;
+	Law #8 Criterion: 1579;
+	Law #9 Criterion: 599;
+	Law #12 Criterion: 863;
+	Law #14 Criterion: 1579;
+	Law #16 Criterion: 863;
+	Law #18 Criterion: 1889;
+	Law #19 Criterion: 1723;
+	Law #20 Criterion: 593;
+	Law #22 Criterion: 991;
+	Law #23 Criterion: 149;
+	Law #26 Criterion: 811;
+	Law #28 Criterion: 997;
+	Law #31 Criterion: 1171;
+	Law #36 Criterion: 757;
+	Law #38 Criterion: 521;
+	Law #39 Criterion: 521;
+	Law #40 Criterion: 167;
+	Law #41 Criterion: 1979;
+	Law #43 Criterion: 269;
+	Law #48 Criterion: 79;
+	Law #49 Criterion: 887;
+	Law #50 Criterion: 857;
+	Law #51 Criterion: 1051;
+	Law #52 Criterion: 199;
+	Law #53 Criterion: 977;
+	Law #55 Criterion: 971;
+	Law #56 Criterion: 709;
+	Law #58 Criterion: 691;
+	Law #60 Criterion: 7;
+	Law #62 Criterion: 761;
+	Law #63 Criterion: 797;
+Person #25
+Wants to be in party: 0
+Strategy of voting: random
+Votes for:
+	Law #1 Criterion: 523;
+	Law #2 Criterion: 271;
+	Law #4 Criterion: 743;
+	Law #5 Criterion: 1187;
+	Law #8 Criterion: 337;
+	Law #11 Criterion: 1741;
+	Law #12 Criterion: 1759;
+	Law #15 Criterion: 1409;
+	Law #17 Criterion: 1231;
+	Law #20 Criterion: 229;
+	Law #21 Criterion: 1091;
+	Law #27 Criterion: 1009;
+	Law #28 Criterion: 317;
+	Law #29 Criterion: 983;
+	Law #30 Criterion: 311;
+	Law #34 Criterion: 1861;
+	Law #38 Criterion: 601;
+	Law #41 Criterion: 643;
+	Law #43 Criterion: 449;
+	Law #45 Criterion: 13;
+	Law #46 Criterion: 263;
+	Law #47 Criterion: 1847;
+	Law #49 Criterion: 1487;
+	Law #51 Criterion: 613;
+	Law #52 Criterion: 389;
+	Law #53 Criterion: 1049;
+	Law #57 Criterion: 1123;
+	Law #59 Criterion: 241;
+	Law #60 Criterion: 1277;
+	Law #61 Criterion: 89;
+	Law #62 Criterion: 1787;
+	Law #63 Criterion: 941;
+	Law #65 Criterion: 1753;
+	Law #66 Criterion: 787;
+Person #26
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #1 Criterion: 1657;
+	Law #3 Criterion: 751;
+	Law #4 Criterion: 1571;
+	Law #6 Criterion: 307;
+	Law #8 Criterion: 1699;
+	Law #9 Criterion: 743;
+	Law #10 Criterion: 1511;
+	Law #12 Criterion: 211;
+	Law #13 Criterion: 853;
+	Law #15 Criterion: 139;
+	Law #17 Criterion: 433;
+	Law #18 Criterion: 607;
+	Law #19 Criterion: 1483;
+	Law #21 Criterion: 829;
+	Law #27 Criterion: 1523;
+	Law #29 Criterion: 1667;
+	Law #32 Criterion: 1361;
+	Law #35 Criterion: 739;
+	Law #39 Criterion: 277;
+	Law #43 Criterion: 1237;
+	Law #45 Criterion: 269;
+	Law #47 Criterion: 863;
+	Law #48 Criterion: 367;
+	Law #49 Criterion: 1223;
+	Law #52 Criterion: 1423;
+	Law #53 Criterion: 619;
+	Law #54 Criterion: 1091;
+	Law #55 Criterion: 1213;
+	Law #60 Criterion: 947;
+	Law #62 Criterion: 1907;
+	Law #64 Criterion: 1427;
+	Law #65 Criterion: 1031;
+Person #27
+Wants to be in party: 0
+Strategy of voting: party_voting
+Votes for:
+	Law #2 Criterion: 1303;
+	Law #3 Criterion: 571;
+	Law #7 Criterion: 409;
+	Law #11 Criterion: 1567;
+	Law #13 Criterion: 1301;
+	Law #14 Criterion: 389;
+	Law #15 Criterion: 179;
+	Law #17 Criterion: 827;
+	Law #18 Criterion: 1201;
+	Law #19 Criterion: 1831;
+	Law #20 Criterion: 1289;
+	Law #21 Criterion: 1627;
+	Law #26 Criterion: 1571;
+	Law #27 Criterion: 457;
+	Law #28 Criterion: 113;
+	Law #29 Criterion: 1907;
+	Law #33 Criterion: 1993;
+	Law #35 Criterion: 1567;
+	Law #36 Criterion: 281;
+	Law #37 Criterion: 1951;
+	Law #38 Criterion: 229;
+	Law #40 Criterion: 229;
+	Law #43 Criterion: 419;
+	Law #46 Criterion: 1109;
+	Law #47 Criterion: 277;
+	Law #49 Criterion: 1567;
+	Law #53 Criterion: 569;
+	Law #58 Criterion: 811;
+	Law #59 Criterion: 1237;
+	Law #60 Criterion: 17;
+	Law #61 Criterion: 947;
+	Law #62 Criterion: 409;
+	Law #65 Criterion: 1559;
+Person #28
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 571;
+	Law #1 Criterion: 1823;
+	Law #3 Criterion: 367;
+	Law #5 Criterion: 809;
+	Law #10 Criterion: 569;
+	Law #12 Criterion: 1453;
+	Law #14 Criterion: 1699;
+	Law #16 Criterion: 457;
+	Law #17 Criterion: 739;
+	Law #19 Criterion: 991;
+	Law #20 Criterion: 809;
+	Law #25 Criterion: 1297;
+	Law #26 Criterion: 1579;
+	Law #27 Criterion: 739;
+	Law #32 Criterion: 1223;
+	Law #34 Criterion: 107;
+	Law #35 Criterion: 1423;
+	Law #37 Criterion: 1933;
+	Law #40 Criterion: 211;
+	Law #43 Criterion: 1933;
+	Law #45 Criterion: 617;
+	Law #46 Criterion: 61;
+	Law #47 Criterion: 401;
+	Law #49 Criterion: 241;
+	Law #50 Criterion: 1193;
+	Law #51 Criterion: 479;
+	Law #53 Criterion: 1399;
+	Law #54 Criterion: 313;
+	Law #57 Criterion: 251;
+	Law #60 Criterion: 1231;
+	Law #61 Criterion: 599;
+	Law #65 Criterion: 929;
+Person #29
+Wants to be in party: 0
+Strategy of voting: party_voting
+Votes for:
+	Law #1 Criterion: 733;
+	Law #2 Criterion: 1201;
+	Law #4 Criterion: 1811;
+	Law #8 Criterion: 773;
+	Law #13 Criterion: 163;
+	Law #14 Criterion: 1291;
+	Law #16 Criterion: 1693;
+	Law #17 Criterion: 881;
+	Law #18 Criterion: 827;
+	Law #19 Criterion: 1201;
+	Law #20 Criterion: 479;
+	Law #21 Criterion: 37;
+	Law #24 Criterion: 593;
+	Law #26 Criterion: 1223;
+	Law #28 Criterion: 1499;
+	Law #29 Criterion: 1439;
+	Law #32 Criterion: 1229;
+	Law #33 Criterion: 1301;
+	Law #34 Criterion: 563;
+	Law #37 Criterion: 577;
+	Law #39 Criterion: 1699;
+	Law #41 Criterion: 331;
+	Law #42 Criterion: 1831;
+	Law #43 Criterion: 1051;
+	Law #44 Criterion: 1613;
+	Law #45 Criterion: 827;
+	Law #49 Criterion: 1619;
+	Law #50 Criterion: 307;
+	Law #52 Criterion: 1399;
+	Law #56 Criterion: 1231;
+	Law #60 Criterion: 379;
+	Law #61 Criterion: 1999;
+	Law #62 Criterion: 41;
+	Law #66 Criterion: 1747;
+Person #30
+Wants to be in party: 0
+Strategy of voting: random
+Votes for:
+	Law #5 Criterion: 317;
+	Law #6 Criterion: 197;
+	Law #11 Criterion: 727;
+	Law #12 Criterion: 1151;
+	Law #13 Criterion: 1877;
+	Law #14 Criterion: 571;
+	Law #17 Criterion: 157;
+	Law #19 Criterion: 773;
+	Law #20 Criterion: 571;
+	Law #21 Criterion: 1741;
+	Law #22 Criterion: 103;
+	Law #23 Criterion: 89;
+	Law #24 Criterion: 1229;
+	Law #25 Criterion: 1361;
+	Law #26 Criterion: 59;
+	Law #27 Criterion: 1231;
+	Law #30 Criterion: 1499;
+	Law #31 Criterion: 677;
+	Law #35 Criterion: 1249;
+	Law #36 Criterion: 1051;
+	Law #37 Criterion: 677;
+	Law #38 Criterion: 859;
+	Law #39 Criterion: 1571;
+	Law #44 Criterion: 751;
+	Law #45 Criterion: 509;
+	Law #53 Criterion: 233;
+	Law #54 Criterion: 947;
+	Law #55 Criterion: 659;
+	Law #56 Criterion: 457;
+	Law #57 Criterion: 859;
+	Law #59 Criterion: 1481;
+	Law #60 Criterion: 1913;
+	Law #61 Criterion: 229;
+	Law #64 Criterion: 157;
+	Law #66 Criterion: 1987;
+Person #31
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #6 Criterion: 379;
+	Law #7 Criterion: 1873;
+	Law #8 Criterion: 5;
+	Law #15 Criterion: 1667;
+	Law #16 Criterion: 353;
+	Law #19 Criterion: 1831;
+	Law #20 Criterion: 599;
+	Law #22 Criterion: 1187;
+	Law #24 Criterion: 991;
+	Law #25 Criterion: 887;
+	Law #31 Criterion: 1103;
+	Law #32 Criterion: 929;
+	Law #33 Criterion: 1153;
+	Law #34 Criterion: 1973;
+	Law #36 Criterion: 1021;
+	Law #37 Criterion: 613;
+	Law #38 Criterion: 787;
+	Law #41 Criterion: 677;
+	Law #43 Criterion: 1087;
+	Law #44 Criterion: 1667;
+	Law #46 Criterion: 587;
+	Law #48 Criterion: 227;
+	Law #49 Criterion: 769;
+	Law #60 Criterion: 239;
+	Law #62 Criterion: 1571;
+	Law #63 Criterion: 157;
+	Law #65 Criterion: 347;
+	Law #66 Criterion: 107;
+Person #32
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 1609;
+	Law #1 Criterion: 1997;
+	Law #7 Criterion: 1777;
+	Law #9 Criterion: 71;
+	Law #16 Criterion: 937;
+	Law #18 Criterion: 1667;
+	Law #19 Criterion: 137;
+	Law #21 Criterion: 317;
+	Law #22 Criterion: 1867;
+	Law #25 Criterion: 317;
+	Law #27 Criterion: 1913;
+	Law #31 Criterion: 1399;
+	Law #33 Criterion: 1549;
+	Law #34 Criterion: 1823;
+	Law #37 Criterion: 1733;
+	Law #38 Criterion: 1447;
+	Law #41 Criterion: 269;
+	Law #44 Criterion: 1187;
+	Law #48 Criterion: 1097;
+	Law #50 Criterion: 1871;
+	Law #51 Criterion: 1237;
+	Law #52 Criterion: 113;
+	Law #53 Criterion: 239;
+	Law #54 Criterion: 167;
+	Law #56 Criterion: 557;
+	Law #58 Criterion: 479;
+	Law #59 Criterion: 1117;
+	Law #60 Criterion: 887;
+	Law #61 Criterion: 479;
+	Law #62 Criterion: 263;
+Person #33
+Wants to be in party: 0
+Strategy of voting: random
+Votes for:
+	Law #1 Criterion: 419;
+	Law #3 Criterion: 263;
+	Law #6 Criterion: 197;
+	Law #7 Criterion: 617;
+	Law #10 Criterion: 1439;
+	Law #13 Criterion: 13;
+	Law #16 Criterion: 787;
+	Law #18 Criterion: 1399;
+	Law #19 Criterion: 1451;
+	Law #20 Criterion: 1913;
+	Law #22 Criterion: 449;
+	Law #28 Criterion: 67;
+	Law #32 Criterion: 1237;
+	Law #35 Criterion: 1753;
+	Law #40 Criterion: 1213;
+	Law #42 Criterion: 1657;
+	Law #44 Criterion: 1103;
+	Law #47 Criterion: 313;
+	Law #48 Criterion: 1471;
+	Law #49 Criterion: 487;
+	Law #50 Criterion: 821;
+	Law #51 Criterion: 577;
+	Law #53 Criterion: 881;
+	Law #58 Criterion: 1559;
+	Law #59 Criterion: 421;
+	Law #62 Criterion: 1097;
+	Law #65 Criterion: 1237;
+Person #34
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #0 Criterion: 1021;
+	Law #2 Criterion: 1427;
+	Law #3 Criterion: 1567;
+	Law #4 Criterion: 1049;
+	Law #5 Criterion: 1423;
+	Law #7 Criterion: 83;
+	Law #8 Criterion: 1741;
+	Law #9 Criterion: 461;
+	Law #13 Criterion: 503;
+	Law #14 Criterion: 809;
+	Law #15 Criterion: 631;
+	Law #16 Criterion: 1223;
+	Law #17 Criterion: 797;
+	Law #20 Criterion: 1181;
+	Law #22 Criterion: 1307;
+	Law #25 Criterion: 1913;
+	Law #28 Criterion: 1949;
+	Law #35 Criterion: 547;
+	Law #36 Criterion: 1867;
+	Law #39 Criterion: 61;
+	Law #43 Criterion: 1171;
+	Law #44 Criterion: 1823;
+	Law #49 Criterion: 367;
+	Law #51 Criterion: 1543;
+	Law #52 Criterion: 643;
+	Law #53 Criterion: 1847;
+	Law #54 Criterion: 1699;
+	Law #55 Criterion: 43;
+	Law #56 Criterion: 43;
+	Law #59 Criterion: 251;
+	Law #60 Criterion: 31;
+	Law #64 Criterion: 1993;
+Person #35
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #1 Criterion: 1931;
+	Law #2 Criterion: 1103;
+	Law #5 Criterion: 577;
+	Law #6 Criterion: 337;
+	Law #7 Criterion: 887;
+	Law #10 Criterion: 1931;
+	Law #12 Criterion: 1723;
+	Law #13 Criterion: 857;
+	Law #15 Criterion: 197;
+	Law #16 Criterion: 367;
+	Law #17 Criterion: 199;
+	Law #22 Criterion: 29;
+	Law #23 Criterion: 641;
+	Law #27 Criterion: 991;
+	Law #29 Criterion: 1879;
+	Law #33 Criterion: 1901;
+	Law #34 Criterion: 1019;
+	Law #36 Criterion: 1583;
+	Law #39 Criterion: 929;
+	Law #45 Criterion: 1907;
+	Law #50 Criterion: 1093;
+	Law #51 Criterion: 293;
+	Law #55 Criterion: 1753;
+	Law #59 Criterion: 1433;
+Person #36
+Wants to be in party: 0
+Strategy of voting: party_voting
+Votes for:
+	Law #0 Criterion: 1693;
+	Law #1 Criterion: 307;
+	Law #2 Criterion: 509;
+	Law #5 Criterion: 947;
+	Law #9 Criterion: 1559;
+	Law #10 Criterion: 1039;
+	Law #11 Criterion: 827;
+	Law #13 Criterion: 1543;
+	Law #16 Criterion: 1543;
+	Law #18 Criterion: 157;
+	Law #19 Criterion: 521;
+	Law #20 Criterion: 191;
+	Law #21 Criterion: 113;
+	Law #22 Criterion: 1483;
+	Law #24 Criterion: 811;
+	Law #25 Criterion: 449;
+	Law #26 Criterion: 283;
+	Law #27 Criterion: 1433;
+	Law #28 Criterion: 137;
+	Law #30 Criterion: 191;
+	Law #31 Criterion: 709;
+	Law #33 Criterion: 1181;
+	Law #34 Criterion: 41;
+	Law #36 Criterion: 1867;
+	Law #39 Criterion: 997;
+	Law #41 Criterion: 353;
+	Law #47 Criterion: 491;
+	Law #48 Criterion: 1627;
+	Law #50 Criterion: 601;
+	Law #51 Criterion: 653;
+	Law #53 Criterion: 229;
+	Law #54 Criterion: 479;
+	Law #55 Criterion: 601;
+	Law #56 Criterion: 491;
+	Law #58 Criterion: 1433;
+	Law #60 Criterion: 757;
+	Law #63 Criterion: 223;
+	Law #65 Criterion: 173;
+	Law #66 Criterion: 263;
+Person #37
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #1 Criterion: 727;
+	Law #2 Criterion: 691;
+	Law #3 Criterion: 271;
+	Law #4 Criterion: 239;
+	Law #5 Criterion: 233;
+	Law #8 Criterion: 1847;
+	Law #9 Criterion: 631;
+	Law #11 Criterion: 461;
+	Law #12 Criterion: 139;
+	Law #13 Criterion: 1039;
+	Law #16 Criterion: 1303;
+	Law #17 Criterion: 929;
+	Law #19 Criterion: 197;
+	Law #21 Criterion: 461;
+	Law #23 Criterion: 103;
+	Law #24 Criterion: 599;
+	Law #27 Criterion: 967;
+	Law #29 Criterion: 1409;
+	Law #31 Criterion: 467;
+	Law #32 Criterion: 269;
+	Law #36 Criterion: 1123;
+	Law #37 Criterion: 1213;
+	Law #39 Criterion: 1783;
+	Law #40 Criterion: 947;
+	Law #44 Criterion: 313;
+	Law #47 Criterion: 1789;
+	Law #49 Criterion: 953;
+	Law #50 Criterion: 313;
+	Law #54 Criterion: 647;
+	Law #57 Criterion: 1367;
+	Law #59 Criterion: 1399;
+	Law #64 Criterion: 839;
+Person #38
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #2 Criterion: 113;
+	Law #4 Criterion: 1429;
+	Law #6 Criterion: 1543;
+	Law #7 Criterion: 31;
+	Law #13 Criterion: 1871;
+	Law #15 Criterion: 149;
+	Law #16 Criterion: 307;
+	Law #19 Criterion: 113;
+	Law #20 Criterion: 661;
+	Law #21 Criterion: 1301;
+	Law #22 Criterion: 839;
+	Law #24 Criterion: 1613;
+	Law #26 Criterion: 103;
+	Law #27 Criterion: 23;
+	Law #29 Criterion: 317;
+	Law #30 Criterion: 1289;
+	Law #35 Criterion: 587;
+	Law #36 Criterion: 1399;
+	Law #37 Criterion: 337;
+	Law #39 Criterion: 239;
+	Law #40 Criterion: 827;
+	Law #42 Criterion: 1789;
+	Law #45 Criterion: 1297;
+	Law #47 Criterion: 1723;
+	Law #50 Criterion: 127;
+	Law #55 Criterion: 661;
+	Law #57 Criterion: 211;
+	Law #60 Criterion: 971;
+	Law #62 Criterion: 1481;
+	Law #64 Criterion: 619;
+Person #39
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #0 Criterion: 673;
+	Law #1 Criterion: 1279;
+	Law #2 Criterion: 433;
+	Law #3 Criterion: 271;
+	Law #4 Criterion: 1097;
+	Law #7 Criterion: 151;
+	Law #14 Criterion: 1217;
+	Law #16 Criterion: 1129;
+	Law #19 Criterion: 811;
+	Law #22 Criterion: 283;
+	Law #24 Criterion: 67;
+	Law #26 Criterion: 1471;
+	Law #27 Criterion: 1733;
+	Law #29 Criterion: 223;
+	Law #31 Criterion: 661;
+	Law #33 Criterion: 137;
+	Law #34 Criterion: 1879;
+	Law #37 Criterion: 1697;
+	Law #40 Criterion: 1181;
+	Law #42 Criterion: 1627;
+	Law #43 Criterion: 1669;
+	Law #45 Criterion: 433;
+	Law #46 Criterion: 431;
+	Law #54 Criterion: 797;
+	Law #55 Criterion: 1583;
+	Law #56 Criterion: 197;
+	Law #58 Criterion: 1669;
+	Law #59 Criterion: 557;
+	Law #60 Criterion: 967;
+	Law #61 Criterion: 571;
+	Law #64 Criterion: 3;
+	Law #65 Criterion: 197;
+Person #40
+Wants to be in party: 0
+Strategy of voting: party_voting
+Votes for:
+	Law #0 Criterion: 1613;
+	Law #2 Criterion: 509;
+	Law #3 Criterion: 251;
+	Law #8 Criterion: 1999;
+	Law #9 Criterion: 953;
+	Law #10 Criterion: 233;
+	Law #11 Criterion: 1747;
+	Law #12 Criterion: 1409;
+	Law #14 Criterion: 1621;
+	Law #20 Criterion: 467;
+	Law #21 Criterion: 1979;
+	Law #23 Criterion: 1579;
+	Law #25 Criterion: 1933;
+	Law #26 Criterion: 157;
+	Law #31 Criterion: 1483;
+	Law #34 Criterion: 229;
+	Law #35 Criterion: 1061;
+	Law #36 Criterion: 1471;
+	Law #37 Criterion: 1193;
+	Law #40 Criterion: 1123;
+	Law #41 Criterion: 857;
+	Law #44 Criterion: 947;
+	Law #45 Criterion: 983;
+	Law #48 Criterion: 317;
+	Law #52 Criterion: 1087;
+	Law #53 Criterion: 283;
+	Law #54 Criterion: 193;
+	Law #55 Criterion: 1171;
+	Law #56 Criterion: 829;
+	Law #58 Criterion: 1129;
+	Law #60 Criterion: 389;
+	Law #63 Criterion: 1607;
+	Law #64 Criterion: 1201;
+	Law #65 Criterion: 151;
+Person #41
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #1 Criterion: 1429;
+	Law #2 Criterion: 643;
+	Law #5 Criterion: 1453;
+	Law #7 Criterion: 811;
+	Law #11 Criterion: 1879;
+	Law #12 Criterion: 491;
+	Law #15 Criterion: 743;
+	Law #16 Criterion: 887;
+	Law #19 Criterion: 1231;
+	Law #20 Criterion: 347;
+	Law #21 Criterion: 317;
+	Law #24 Criterion: 1741;
+	Law #25 Criterion: 1613;
+	Law #29 Criterion: 977;
+	Law #33 Criterion: 1033;
+	Law #36 Criterion: 211;
+	Law #38 Criterion: 1787;
+	Law #40 Criterion: 509;
+	Law #42 Criterion: 3;
+	Law #43 Criterion: 857;
+	Law #44 Criterion: 163;
+	Law #48 Criterion: 163;
+	Law #50 Criterion: 1907;
+	Law #51 Criterion: 431;
+	Law #53 Criterion: 883;
+	Law #54 Criterion: 373;
+	Law #55 Criterion: 313;
+	Law #57 Criterion: 5;
+	Law #59 Criterion: 653;
+	Law #60 Criterion: 1307;
+	Law #61 Criterion: 97;
+	Law #64 Criterion: 1723;
+	Law #66 Criterion: 1741;
+Person #42
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 1579;
+	Law #2 Criterion: 1481;
+	Law #4 Criterion: 1033;
+	Law #6 Criterion: 1901;
+	Law #7 Criterion: 1613;
+	Law #9 Criterion: 347;
+	Law #14 Criterion: 1409;
+	Law #15 Criterion: 19;
+	Law #16 Criterion: 1663;
+	Law #19 Criterion: 317;
+	Law #21 Criterion: 11;
+	Law #23 Criterion: 1787;
+	Law #24 Criterion: 1091;
+	Law #28 Criterion: 1499;
+	Law #29 Criterion: 883;
+	Law #31 Criterion: 313;
+	Law #34 Criterion: 293;
+	Law #35 Criterion: 367;
+	Law #36 Criterion: 1093;
+	Law #37 Criterion: 151;
+	Law #39 Criterion: 1567;
+	Law #40 Criterion: 1493;
+	Law #42 Criterion: 839;
+	Law #44 Criterion: 443;
+	Law #49 Criterion: 397;
+	Law #51 Criterion: 113;
+	Law #54 Criterion: 587;
+	Law #59 Criterion: 1381;
+	Law #63 Criterion: 373;
+Person #43
+Wants to be in party: 0
+Strategy of voting: party_voting
+Votes for:
+	Law #2 Criterion: 509;
+	Law #7 Criterion: 29;
+	Law #9 Criterion: 113;
+	Law #10 Criterion: 1721;
+	Law #12 Criterion: 1291;
+	Law #13 Criterion: 1429;
+	Law #15 Criterion: 1669;
+	Law #18 Criterion: 1217;
+	Law #22 Criterion: 1583;
+	Law #24 Criterion: 151;
+	Law #26 Criterion: 23;
+	Law #28 Criterion: 67;
+	Law #30 Criterion: 1741;
+	Law #35 Criterion: 1777;
+	Law #36 Criterion: 1471;
+	Law #40 Criterion: 1789;
+	Law #45 Criterion: 613;
+	Law #46 Criterion: 131;
+	Law #47 Criterion: 821;
+	Law #52 Criterion: 1249;
+	Law #53 Criterion: 1619;
+	Law #55 Criterion: 1693;
+	Law #59 Criterion: 1699;
+	Law #62 Criterion: 983;
+	Law #65 Criterion: 727;
+Person #44
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #2 Criterion: 1171;
+	Law #4 Criterion: 31;
+	Law #5 Criterion: 1721;
+	Law #9 Criterion: 857;
+	Law #11 Criterion: 347;
+	Law #13 Criterion: 1889;
+	Law #14 Criterion: 1709;
+	Law #16 Criterion: 37;
+	Law #19 Criterion: 163;
+	Law #20 Criterion: 1319;
+	Law #24 Criterion: 1069;
+	Law #25 Criterion: 1637;
+	Law #26 Criterion: 1213;
+	Law #27 Criterion: 79;
+	Law #28 Criterion: 1861;
+	Law #31 Criterion: 983;
+	Law #32 Criterion: 883;
+	Law #34 Criterion: 13;
+	Law #36 Criterion: 1613;
+	Law #40 Criterion: 173;
+	Law #41 Criterion: 1499;
+	Law #43 Criterion: 211;
+	Law #45 Criterion: 1871;
+	Law #46 Criterion: 761;
+	Law #49 Criterion: 1721;
+	Law #51 Criterion: 127;
+	Law #52 Criterion: 1669;
+	Law #54 Criterion: 601;
+	Law #55 Criterion: 491;
+	Law #56 Criterion: 1619;
+	Law #59 Criterion: 59;
+	Law #63 Criterion: 941;
+	Law #64 Criterion: 349;
+	Law #65 Criterion: 389;
+Person #45
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #1 Criterion: 263;
+	Law #2 Criterion: 743;
+	Law #3 Criterion: 1889;
+	Law #6 Criterion: 1231;
+	Law #8 Criterion: 503;
+	Law #10 Criterion: 5;
+	Law #11 Criterion: 71;
+	Law #12 Criterion: 197;
+	Law #13 Criterion: 1213;
+	Law #14 Criterion: 191;
+	Law #15 Criterion: 631;
+	Law #16 Criterion: 1949;
+	Law #18 Criterion: 199;
+	Law #19 Criterion: 1663;
+	Law #20 Criterion: 1997;
+	Law #21 Criterion: 1481;
+	Law #23 Criterion: 1747;
+	Law #24 Criterion: 491;
+	Law #25 Criterion: 1231;
+	Law #27 Criterion: 1031;
+	Law #28 Criterion: 151;
+	Law #32 Criterion: 1873;
+	Law #34 Criterion: 1697;
+	Law #35 Criterion: 443;
+	Law #40 Criterion: 797;
+	Law #41 Criterion: 271;
+	Law #42 Criterion: 151;
+	Law #44 Criterion: 883;
+	Law #45 Criterion: 509;
+	Law #51 Criterion: 1621;
+	Law #52 Criterion: 7;
+	Law #53 Criterion: 709;
+	Law #54 Criterion: 17;
+	Law #56 Criterion: 1031;
+	Law #57 Criterion: 887;
+	Law #60 Criterion: 1697;
+	Law #62 Criterion: 1459;
+	Law #63 Criterion: 509;
+	Law #64 Criterion: 73;
+	Law #65 Criterion: 733;
+Person #46
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #1 Criterion: 1163;
+	Law #3 Criterion: 967;
+	Law #4 Criterion: 349;
+	Law #5 Criterion: 1483;
+	Law #9 Criterion: 1831;
+	Law #10 Criterion: 509;
+	Law #11 Criterion: 1009;
+	Law #12 Criterion: 1201;
+	Law #14 Criterion: 317;
+	Law #16 Criterion: 1543;
+	Law #18 Criterion: 617;
+	Law #25 Criterion: 1201;
+	Law #29 Criterion: 43;
+	Law #30 Criterion: 827;
+	Law #34 Criterion: 1553;
+	Law #35 Criterion: 101;
+	Law #36 Criterion: 797;
+	Law #38 Criterion: 739;
+	Law #40 Criterion: 463;
+	Law #43 Criterion: 1123;
+	Law #44 Criterion: 1567;
+	Law #46 Criterion: 521;
+	Law #48 Criterion: 307;
+	Law #51 Criterion: 953;
+	Law #52 Criterion: 787;
+	Law #53 Criterion: 977;
+	Law #54 Criterion: 163;
+	Law #56 Criterion: 911;
+	Law #57 Criterion: 967;
+	Law #58 Criterion: 97;
+	Law #59 Criterion: 1301;
+	Law #60 Criterion: 89;
+Person #47
+Wants to be in party: 0
+Strategy of voting: party_voting
+Votes for:
+	Law #0 Criterion: 349;
+	Law #2 Criterion: 277;
+	Law #3 Criterion: 61;
+	Law #6 Criterion: 1543;
+	Law #7 Criterion: 1777;
+	Law #9 Criterion: 1381;
+	Law #13 Criterion: 1181;
+	Law #18 Criterion: 1091;
+	Law #19 Criterion: 457;
+	Law #21 Criterion: 1307;
+	Law #22 Criterion: 13;
+	Law #26 Criterion: 149;
+	Law #27 Criterion: 479;
+	Law #28 Criterion: 929;
+	Law #34 Criterion: 809;
+	Law #36 Criterion: 541;
+	Law #38 Criterion: 97;
+	Law #39 Criterion: 701;
+	Law #40 Criterion: 1741;
+	Law #43 Criterion: 433;
+	Law #45 Criterion: 491;
+	Law #46 Criterion: 2;
+	Law #47 Criterion: 457;
+	Law #50 Criterion: 631;
+	Law #52 Criterion: 997;
+	Law #54 Criterion: 107;
+	Law #55 Criterion: 761;
+	Law #56 Criterion: 1213;
+	Law #57 Criterion: 1117;
+	Law #58 Criterion: 1259;
+	Law #59 Criterion: 401;
+	Law #60 Criterion: 1741;
+	Law #61 Criterion: 313;
+	Law #62 Criterion: 821;
+	Law #63 Criterion: 787;
+	Law #64 Criterion: 587;
+Person #48
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #4 Criterion: 1087;
+	Law #5 Criterion: 43;
+	Law #7 Criterion: 613;
+	Law #8 Criterion: 1951;
+	Law #9 Criterion: 1087;
+	Law #10 Criterion: 659;
+	Law #13 Criterion: 1301;
+	Law #14 Criterion: 1499;
+	Law #16 Criterion: 1873;
+	Law #19 Criterion: 1123;
+	Law #22 Criterion: 79;
+	Law #24 Criterion: 1069;
+	Law #25 Criterion: 1723;
+	Law #26 Criterion: 983;
+	Law #28 Criterion: 797;
+	Law #29 Criterion: 131;
+	Law #32 Criterion: 523;
+	Law #34 Criterion: 967;
+	Law #36 Criterion: 1933;
+	Law #39 Criterion: 823;
+	Law #42 Criterion: 31;
+	Law #43 Criterion: 1931;
+	Law #44 Criterion: 1747;
+	Law #45 Criterion: 1021;
+	Law #46 Criterion: 31;
+	Law #47 Criterion: 751;
+	Law #48 Criterion: 1571;
+	Law #49 Criterion: 1433;
+	Law #50 Criterion: 1009;
+	Law #54 Criterion: 1451;
+	Law #56 Criterion: 1489;
+	Law #59 Criterion: 1291;
+	Law #60 Criterion: 947;
+	Law #62 Criterion: 1607;
+	Law #65 Criterion: 1721;
+Person #49
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #2 Criterion: 769;
+	Law #3 Criterion: 941;
+	Law #8 Criterion: 53;
+	Law #10 Criterion: 379;
+	Law #12 Criterion: 1999;
+	Law #14 Criterion: 977;
+	Law #15 Criterion: 487;
+	Law #16 Criterion: 1873;
+	Law #17 Criterion: 1663;
+	Law #20 Criterion: 607;
+	Law #26 Criterion: 521;
+	Law #28 Criterion: 1667;
+	Law #31 Criterion: 691;
+	Law #32 Criterion: 397;
+	Law #37 Criterion: 3;
+	Law #42 Criterion: 1877;
+	Law #43 Criterion: 61;
+	Law #44 Criterion: 827;
+	Law #45 Criterion: 1061;
+	Law #46 Criterion: 1571;
+	Law #48 Criterion: 1481;
+	Law #49 Criterion: 673;
+	Law #51 Criterion: 919;
+	Law #54 Criterion: 89;
+	Law #57 Criterion: 443;
+	Law #58 Criterion: 1699;
+	Law #63 Criterion: 647;
+	Law #65 Criterion: 563;
+	Law #66 Criterion: 1433;
+Person #50
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #1 Criterion: 47;
+	Law #2 Criterion: 251;
+	Law #5 Criterion: 467;
+	Law #6 Criterion: 1583;
+	Law #8 Criterion: 643;
+	Law #9 Criterion: 1471;
+	Law #10 Criterion: 1009;
+	Law #12 Criterion: 1801;
+	Law #13 Criterion: 1069;
+	Law #16 Criterion: 347;
+	Law #18 Criterion: 1259;
+	Law #21 Criterion: 1979;
+	Law #22 Criterion: 211;
+	Law #25 Criterion: 1109;
+	Law #26 Criterion: 487;
+	Law #27 Criterion: 1499;
+	Law #30 Criterion: 1499;
+	Law #31 Criterion: 1301;
+	Law #32 Criterion: 631;
+	Law #34 Criterion: 1823;
+	Law #35 Criterion: 479;
+	Law #37 Criterion: 1009;
+	Law #41 Criterion: 1549;
+	Law #42 Criterion: 643;
+	Law #43 Criterion: 37;
+	Law #46 Criterion: 997;
+	Law #50 Criterion: 421;
+	Law #51 Criterion: 137;
+	Law #54 Criterion: 257;
+	Law #56 Criterion: 47;
+	Law #57 Criterion: 1627;
+	Law #58 Criterion: 1051;
+	Law #60 Criterion: 3;
+	Law #64 Criterion: 31;
+	Law #66 Criterion: 1879;
+Person #51
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 829;
+	Law #1 Criterion: 11;
+	Law #4 Criterion: 1949;
+	Law #6 Criterion: 1063;
+	Law #8 Criterion: 683;
+	Law #9 Criterion: 653;
+	Law #10 Criterion: 1427;
+	Law #12 Criterion: 3;
+	Law #13 Criterion: 1907;
+	Law #15 Criterion: 1063;
+	Law #18 Criterion: 1697;
+	Law #21 Criterion: 1031;
+	Law #23 Criterion: 1753;
+	Law #24 Criterion: 1867;
+	Law #25 Criterion: 2;
+	Law #26 Criterion: 479;
+	Law #28 Criterion: 137;
+	Law #29 Criterion: 563;
+	Law #30 Criterion: 227;
+	Law #31 Criterion: 1399;
+	Law #32 Criterion: 241;
+	Law #35 Criterion: 353;
+	Law #36 Criterion: 1297;
+	Law #37 Criterion: 439;
+	Law #38 Criterion: 1987;
+	Law #39 Criterion: 1889;
+	Law #41 Criterion: 29;
+	Law #45 Criterion: 1373;
+	Law #49 Criterion: 1129;
+	Law #52 Criterion: 827;
+	Law #53 Criterion: 1583;
+	Law #55 Criterion: 1759;
+	Law #59 Criterion: 641;
+	Law #61 Criterion: 1553;
+	Law #62 Criterion: 499;
+	Law #64 Criterion: 661;
+	Law #66 Criterion: 157;
+Person #52
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #3 Criterion: 991;
+	Law #5 Criterion: 109;
+	Law #7 Criterion: 907;
+	Law #12 Criterion: 73;
+	Law #14 Criterion: 1367;
+	Law #15 Criterion: 967;
+	Law #16 Criterion: 1301;
+	Law #18 Criterion: 197;
+	Law #20 Criterion: 1289;
+	Law #21 Criterion: 1931;
+	Law #23 Criterion: 683;
+	Law #24 Criterion: 1049;
+	Law #26 Criterion: 919;
+	Law #27 Criterion: 701;
+	Law #28 Criterion: 71;
+	Law #32 Criterion: 1621;
+	Law #40 Criterion: 1619;
+	Law #42 Criterion: 1931;
+	Law #46 Criterion: 151;
+	Law #48 Criterion: 811;
+	Law #51 Criterion: 811;
+	Law #52 Criterion: 929;
+	Law #53 Criterion: 211;
+	Law #59 Criterion: 1583;
+	Law #60 Criterion: 467;
+	Law #61 Criterion: 43;
+	Law #62 Criterion: 823;
+	Law #63 Criterion: 149;
+	Law #66 Criterion: 1009;
+Person #53
+Wants to be in party: 0
+Strategy of voting: random
+Votes for:
+	Law #0 Criterion: 1031;
+	Law #2 Criterion: 1607;
+	Law #5 Criterion: 1123;
+	Law #6 Criterion: 1117;
+	Law #7 Criterion: 401;
+	Law #11 Criterion: 1117;
+	Law #14 Criterion: 1319;
+	Law #15 Criterion: 1613;
+	Law #16 Criterion: 587;
+	Law #17 Criterion: 1097;
+	Law #19 Criterion: 1663;
+	Law #21 Criterion: 1193;
+	Law #22 Criterion: 1741;
+	Law #23 Criterion: 107;
+	Law #24 Criterion: 379;
+	Law #25 Criterion: 269;
+	Law #26 Criterion: 1223;
+	Law #27 Criterion: 2;
+	Law #28 Criterion: 1987;
+	Law #29 Criterion: 757;
+	Law #30 Criterion: 449;
+	Law #32 Criterion: 367;
+	Law #34 Criterion: 257;
+	Law #36 Criterion: 1033;
+	Law #40 Criterion: 1787;
+	Law #43 Criterion: 1021;
+	Law #44 Criterion: 1553;
+	Law #45 Criterion: 881;
+	Law #47 Criterion: 1667;
+	Law #49 Criterion: 1223;
+	Law #50 Criterion: 839;
+	Law #52 Criterion: 3;
+	Law #53 Criterion: 113;
+	Law #54 Criterion: 619;
+	Law #55 Criterion: 1879;
+	Law #57 Criterion: 97;
+	Law #59 Criterion: 853;
+	Law #60 Criterion: 199;
+	Law #61 Criterion: 983;
+	Law #64 Criterion: 967;
+Person #54
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #0 Criterion: 1069;
+	Law #3 Criterion: 227;
+	Law #4 Criterion: 1831;
+	Law #5 Criterion: 827;
+	Law #7 Criterion: 1297;
+	Law #8 Criterion: 1229;
+	Law #10 Criterion: 1399;
+	Law #11 Criterion: 1901;
+	Law #15 Criterion: 367;
+	Law #17 Criterion: 631;
+	Law #18 Criterion: 1117;
+	Law #21 Criterion: 139;
+	Law #24 Criterion: 1433;
+	Law #28 Criterion: 1931;
+	Law #30 Criterion: 1481;
+	Law #35 Criterion: 1951;
+	Law #37 Criterion: 67;
+	Law #38 Criterion: 569;
+	Law #40 Criterion: 1283;
+	Law #41 Criterion: 1583;
+	Law #42 Criterion: 919;
+	Law #45 Criterion: 29;
+	Law #46 Criterion: 349;
+	Law #47 Criterion: 139;
+	Law #48 Criterion: 673;
+	Law #49 Criterion: 1553;
+	Law #51 Criterion: 2;
+	Law #52 Criterion: 1613;
+	Law #53 Criterion: 829;
+	Law #55 Criterion: 1249;
+	Law #58 Criterion: 457;
+	Law #62 Criterion: 1571;
+	Law #63 Criterion: 1291;
+	Law #65 Criterion: 1879;
+Person #55
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #2 Criterion: 127;
+	Law #7 Criterion: 937;
+	Law #12 Criterion: 853;
+	Law #14 Criterion: 1249;
+	Law #15 Criterion: 1279;
+	Law #16 Criterion: 347;
+	Law #17 Criterion: 569;
+	Law #19 Criterion: 619;
+	Law #21 Criterion: 571;
+	Law #22 Criterion: 1409;
+	Law #23 Criterion: 257;
+	Law #24 Criterion: 1409;
+	Law #25 Criterion: 191;
+	Law #26 Criterion: 173;
+	Law #27 Criterion: 149;
+	Law #30 Criterion: 1699;
+	Law #32 Criterion: 1429;
+	Law #33 Criterion: 181;
+	Law #35 Criterion: 1187;
+	Law #39 Criterion: 1787;
+	Law #45 Criterion: 113;
+	Law #46 Criterion: 569;
+	Law #47 Criterion: 1489;
+	Law #48 Criterion: 149;
+	Law #52 Criterion: 1483;
+	Law #53 Criterion: 1069;
+	Law #56 Criterion: 1117;
+	Law #57 Criterion: 877;
+	Law #58 Criterion: 997;
+	Law #59 Criterion: 647;
+	Law #60 Criterion: 1801;
+	Law #61 Criterion: 647;
+	Law #64 Criterion: 97;
+	Law #65 Criterion: 1721;
+Person #56
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #0 Criterion: 739;
+	Law #2 Criterion: 37;
+	Law #3 Criterion: 1997;
+	Law #4 Criterion: 179;
+	Law #5 Criterion: 829;
+	Law #6 Criterion: 419;
+	Law #7 Criterion: 149;
+	Law #8 Criterion: 733;
+	Law #10 Criterion: 1559;
+	Law #11 Criterion: 1291;
+	Law #12 Criterion: 1531;
+	Law #13 Criterion: 673;
+	Law #16 Criterion: 71;
+	Law #19 Criterion: 1471;
+	Law #20 Criterion: 1327;
+	Law #22 Criterion: 593;
+	Law #26 Criterion: 179;
+	Law #27 Criterion: 1979;
+	Law #28 Criterion: 1697;
+	Law #29 Criterion: 1613;
+	Law #31 Criterion: 859;
+	Law #32 Criterion: 1399;
+	Law #33 Criterion: 1571;
+	Law #37 Criterion: 1759;
+	Law #39 Criterion: 1523;
+	Law #41 Criterion: 1871;
+	Law #43 Criterion: 1381;
+	Law #44 Criterion: 1783;
+	Law #46 Criterion: 643;
+	Law #47 Criterion: 991;
+	Law #50 Criterion: 1613;
+	Law #51 Criterion: 139;
+	Law #52 Criterion: 1987;
+	Law #53 Criterion: 757;
+	Law #57 Criterion: 1303;
+	Law #58 Criterion: 1487;
+	Law #59 Criterion: 1933;
+	Law #60 Criterion: 787;
+	Law #61 Criterion: 877;
+	Law #64 Criterion: 1217;
+	Law #65 Criterion: 149;
+Person #57
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #2 Criterion: 1093;
+	Law #3 Criterion: 173;
+	Law #5 Criterion: 349;
+	Law #6 Criterion: 1787;
+	Law #7 Criterion: 1249;
+	Law #8 Criterion: 677;
+	Law #9 Criterion: 439;
+	Law #10 Criterion: 523;
+	Law #11 Criterion: 521;
+	Law #12 Criterion: 239;
+	Law #18 Criterion: 829;
+	Law #19 Criterion: 1523;
+	Law #20 Criterion: 1487;
+	Law #22 Criterion: 1471;
+	Law #25 Criterion: 1999;
+	Law #26 Criterion: 1979;
+	Law #27 Criterion: 1019;
+	Law #28 Criterion: 719;
+	Law #31 Criterion: 1669;
+	Law #34 Criterion: 1381;
+	Law #35 Criterion: 1097;
+	Law #37 Criterion: 1721;
+	Law #38 Criterion: 227;
+	Law #43 Criterion: 659;
+	Law #44 Criterion: 1297;
+	Law #45 Criterion: 1583;
+	Law #47 Criterion: 1511;
+	Law #49 Criterion: 1217;
+	Law #50 Criterion: 1951;
+	Law #51 Criterion: 1277;
+	Law #52 Criterion: 521;
+	Law #54 Criterion: 19;
+	Law #55 Criterion: 1319;
+	Law #56 Criterion: 1847;
+	Law #59 Criterion: 773;
+	Law #60 Criterion: 239;
+	Law #61 Criterion: 853;
+	Law #63 Criterion: 79;
+	Law #65 Criterion: 1409;
+Person #58
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #1 Criterion: 7;
+	Law #3 Criterion: 29;
+	Law #4 Criterion: 1747;
+	Law #5 Criterion: 617;
+	Law #6 Criterion: 401;
+	Law #8 Criterion: 1787;
+	Law #13 Criterion: 433;
+	Law #15 Criterion: 359;
+	Law #17 Criterion: 853;
+	Law #22 Criterion: 653;
+	Law #26 Criterion: 149;
+	Law #27 Criterion: 137;
+	Law #28 Criterion: 241;
+	Law #31 Criterion: 353;
+	Law #35 Criterion: 613;
+	Law #36 Criterion: 257;
+	Law #37 Criterion: 1609;
+	Law #39 Criterion: 1201;
+	Law #41 Criterion: 1423;
+	Law #42 Criterion: 1913;
+	Law #44 Criterion: 1187;
+	Law #45 Criterion: 479;
+	Law #46 Criterion: 1181;
+	Law #53 Criterion: 1553;
+	Law #54 Criterion: 1559;
+	Law #56 Criterion: 1439;
+	Law #57 Criterion: 37;
+	Law #59 Criterion: 1753;
+	Law #61 Criterion: 1151;
+	Law #64 Criterion: 881;
+	Law #66 Criterion: 1213;
+Person #59
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #1 Criterion: 467;
+	Law #2 Criterion: 1163;
+	Law #8 Criterion: 313;
+	Law #11 Criterion: 283;
+	Law #12 Criterion: 151;
+	Law #14 Criterion: 617;
+	Law #16 Criterion: 1237;
+	Law #18 Criterion: 1693;
+	Law #19 Criterion: 1993;
+	Law #20 Criterion: 1777;
+	Law #21 Criterion: 1901;
+	Law #22 Criterion: 163;
+	Law #24 Criterion: 197;
+	Law #27 Criterion: 43;
+	Law #28 Criterion: 347;
+	Law #29 Criterion: 1777;
+	Law #30 Criterion: 29;
+	Law #31 Criterion: 199;
+	Law #32 Criterion: 1061;
+	Law #34 Criterion: 761;
+	Law #35 Criterion: 1901;
+	Law #39 Criterion: 1453;
+	Law #41 Criterion: 1987;
+	Law #42 Criterion: 223;
+	Law #43 Criterion: 1901;
+	Law #44 Criterion: 967;
+	Law #45 Criterion: 1559;
+	Law #46 Criterion: 1801;
+	Law #47 Criterion: 571;
+	Law #52 Criterion: 1049;
+	Law #55 Criterion: 457;
+	Law #57 Criterion: 53;
+	Law #63 Criterion: 659;
+	Law #65 Criterion: 733;
+	Law #66 Criterion: 397;
+Person #60
+Wants to be in party: 0
+Strategy of voting: party_voting
+Votes for:
+	Law #1 Criterion: 541;
+	Law #6 Criterion: 647;
+	Law #7 Criterion: 73;
+	Law #10 Criterion: 1613;
+	Law #11 Criterion: 641;
+	Law #12 Criterion: 487;
+	Law #13 Criterion: 17;
+	Law #15 Criterion: 941;
+	Law #16 Criterion: 1747;
+	Law #20 Criterion: 293;
+	Law #22 Criterion: 1427;
+	Law #23 Criterion: 367;
+	Law #25 Criterion: 1979;
+	Law #26 Criterion: 859;
+	Law #30 Criterion: 773;
+	Law #32 Criterion: 419;
+	Law #34 Criterion: 397;
+	Law #35 Criterion: 881;
+	Law #36 Criterion: 211;
+	Law #41 Criterion: 1163;
+	Law #42 Criterion: 991;
+	Law #47 Criterion: 1987;
+	Law #49 Criterion: 1489;
+	Law #50 Criterion: 643;
+	Law #51 Criterion: 331;
+	Law #54 Criterion: 1663;
+	Law #55 Criterion: 1399;
+	Law #56 Criterion: 1229;
+	Law #58 Criterion: 1123;
+	Law #59 Criterion: 887;
+	Law #60 Criterion: 1847;
+	Law #61 Criterion: 1487;
+	Law #62 Criterion: 1109;
+	Law #63 Criterion: 61;
+Person #61
+Wants to be in party: 0
+Strategy of voting: party_voting
+Votes for:
+	Law #1 Criterion: 1621;
+	Law #2 Criterion: 503;
+	Law #5 Criterion: 1607;
+	Law #6 Criterion: 787;
+	Law #8 Criterion: 1223;
+	Law #10 Criterion: 2;
+	Law #12 Criterion: 47;
+	Law #15 Criterion: 1831;
+	Law #16 Criterion: 617;
+	Law #19 Criterion: 1663;
+	Law #22 Criterion: 1567;
+	Law #24 Criterion: 271;
+	Law #25 Criterion: 1213;
+	Law #26 Criterion: 1279;
+	Law #27 Criterion: 1229;
+	Law #29 Criterion: 347;
+	Law #35 Criterion: 709;
+	Law #36 Criterion: 887;
+	Law #37 Criterion: 1931;
+	Law #42 Criterion: 1567;
+	Law #43 Criterion: 1307;
+	Law #45 Criterion: 769;
+	Law #46 Criterion: 421;
+	Law #47 Criterion: 1451;
+	Law #49 Criterion: 1109;
+	Law #50 Criterion: 337;
+	Law #52 Criterion: 1237;
+	Law #53 Criterion: 1051;
+	Law #54 Criterion: 433;
+	Law #55 Criterion: 1873;
+	Law #57 Criterion: 947;
+	Law #59 Criterion: 127;
+	Law #61 Criterion: 359;
+	Law #63 Criterion: 373;
+	Law #64 Criterion: 1223;
+	Law #66 Criterion: 409;
+Person #62
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 13;
+	Law #2 Criterion: 997;
+	Law #3 Criterion: 1061;
+	Law #5 Criterion: 1069;
+	Law #8 Criterion: 1231;
+	Law #10 Criterion: 809;
+	Law #13 Criterion: 1279;
+	Law #14 Criterion: 601;
+	Law #15 Criterion: 941;
+	Law #16 Criterion: 1609;
+	Law #17 Criterion: 1249;
+	Law #18 Criterion: 233;
+	Law #19 Criterion: 757;
+	Law #21 Criterion: 173;
+	Law #22 Criterion: 409;
+	Law #26 Criterion: 1723;
+	Law #27 Criterion: 1747;
+	Law #28 Criterion: 1601;
+	Law #29 Criterion: 1511;
+	Law #30 Criterion: 1481;
+	Law #31 Criterion: 419;
+	Law #33 Criterion: 439;
+	Law #36 Criterion: 211;
+	Law #40 Criterion: 1663;
+	Law #41 Criterion: 1097;
+	Law #46 Criterion: 317;
+	Law #47 Criterion: 431;
+	Law #52 Criterion: 853;
+	Law #53 Criterion: 467;
+	Law #54 Criterion: 1933;
+	Law #55 Criterion: 1013;
+	Law #58 Criterion: 1277;
+	Law #61 Criterion: 1423;
+	Law #63 Criterion: 1279;
+	Law #64 Criterion: 863;
+Person #63
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 173;
+	Law #2 Criterion: 521;
+	Law #4 Criterion: 1759;
+	Law #6 Criterion: 911;
+	Law #7 Criterion: 569;
+	Law #8 Criterion: 859;
+	Law #10 Criterion: 1021;
+	Law #11 Criterion: 257;
+	Law #12 Criterion: 173;
+	Law #13 Criterion: 1499;
+	Law #16 Criterion: 1973;
+	Law #23 Criterion: 467;
+	Law #26 Criterion: 1187;
+	Law #29 Criterion: 773;
+	Law #34 Criterion: 109;
+	Law #36 Criterion: 1619;
+	Law #38 Criterion: 563;
+	Law #39 Criterion: 1951;
+	Law #40 Criterion: 199;
+	Law #44 Criterion: 653;
+	Law #48 Criterion: 19;
+	Law #51 Criterion: 1997;
+	Law #54 Criterion: 1987;
+	Law #55 Criterion: 1709;
+	Law #56 Criterion: 743;
+	Law #58 Criterion: 859;
+	Law #61 Criterion: 109;
+	Law #62 Criterion: 1471;
+	Law #63 Criterion: 1493;
+	Law #64 Criterion: 773;
+Person #64
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #1 Criterion: 433;
+	Law #2 Criterion: 557;
+	Law #3 Criterion: 1523;
+	Law #4 Criterion: 1709;
+	Law #5 Criterion: 887;
+	Law #7 Criterion: 131;
+	Law #9 Criterion: 1307;
+	Law #11 Criterion: 1831;
+	Law #13 Criterion: 467;
+	Law #14 Criterion: 457;
+	Law #16 Criterion: 1213;
+	Law #17 Criterion: 1931;
+	Law #23 Criterion: 383;
+	Law #27 Criterion: 1217;
+	Law #30 Criterion: 193;
+	Law #36 Criterion: 1951;
+	Law #39 Criterion: 1607;
+	Law #40 Criterion: 139;
+	Law #42 Criterion: 1097;
+	Law #45 Criterion: 1229;
+	Law #47 Criterion: 491;
+	Law #48 Criterion: 151;
+	Law #52 Criterion: 1433;
+	Law #54 Criterion: 463;
+	Law #55 Criterion: 1583;
+	Law #58 Criterion: 103;
+	Law #60 Criterion: 991;
+	Law #64 Criterion: 1823;
+	Law #66 Criterion: 907;
+Person #65
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #0 Criterion: 337;
+	Law #2 Criterion: 307;
+	Law #4 Criterion: 1399;
+	Law #5 Criterion: 1489;
+	Law #6 Criterion: 1229;
+	Law #7 Criterion: 1511;
+	Law #11 Criterion: 1487;
+	Law #12 Criterion: 1373;
+	Law #13 Criterion: 251;
+	Law #14 Criterion: 599;
+	Law #15 Criterion: 1223;
+	Law #17 Criterion: 829;
+	Law #18 Criterion: 947;
+	Law #20 Criterion: 1399;
+	Law #21 Criterion: 431;
+	Law #22 Criterion: 19;
+	Law #24 Criterion: 269;
+	Law #26 Criterion: 857;
+	Law #32 Criterion: 661;
+	Law #34 Criterion: 593;
+	Law #35 Criterion: 353;
+	Law #36 Criterion: 773;
+	Law #40 Criterion: 47;
+	Law #43 Criterion: 661;
+	Law #47 Criterion: 1117;
+	Law #48 Criterion: 887;
+	Law #50 Criterion: 647;
+	Law #51 Criterion: 5;
+	Law #54 Criterion: 1453;
+	Law #57 Criterion: 227;
+	Law #59 Criterion: 227;
+	Law #60 Criterion: 1087;
+	Law #63 Criterion: 1013;
+	Law #64 Criterion: 761;
+Person #66
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #3 Criterion: 313;
+	Law #6 Criterion: 1259;
+	Law #9 Criterion: 619;
+	Law #10 Criterion: 149;
+	Law #11 Criterion: 677;
+	Law #19 Criterion: 571;
+	Law #21 Criterion: 719;
+	Law #22 Criterion: 953;
+	Law #28 Criterion: 1279;
+	Law #30 Criterion: 1289;
+	Law #31 Criterion: 919;
+	Law #32 Criterion: 863;
+	Law #34 Criterion: 953;
+	Law #36 Criterion: 1237;
+	Law #42 Criterion: 719;
+	Law #44 Criterion: 1103;
+	Law #45 Criterion: 1063;
+	Law #46 Criterion: 107;
+	Law #49 Criterion: 173;
+	Law #50 Criterion: 131;
+	Law #51 Criterion: 1327;
+	Law #53 Criterion: 1693;
+	Law #54 Criterion: 233;
+	Law #55 Criterion: 809;
+	Law #59 Criterion: 1091;
+	Law #60 Criterion: 773;
+	Law #61 Criterion: 691;
+	Law #64 Criterion: 673;
+Person #67
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #4 Criterion: 1091;
+	Law #8 Criterion: 1129;
+	Law #14 Criterion: 1933;
+	Law #15 Criterion: 457;
+	Law #19 Criterion: 1571;
+	Law #20 Criterion: 367;
+	Law #23 Criterion: 251;
+	Law #24 Criterion: 1931;
+	Law #25 Criterion: 1753;
+	Law #27 Criterion: 829;
+	Law #32 Criterion: 1499;
+	Law #34 Criterion: 1171;
+	Law #35 Criterion: 1103;
+	Law #36 Criterion: 1867;
+	Law #37 Criterion: 1229;
+	Law #38 Criterion: 167;
+	Law #39 Criterion: 1123;
+	Law #43 Criterion: 641;
+	Law #46 Criterion: 829;
+	Law #48 Criterion: 233;
+	Law #49 Criterion: 1831;
+	Law #50 Criterion: 1667;
+	Law #51 Criterion: 1999;
+	Law #52 Criterion: 653;
+	Law #53 Criterion: 79;
+	Law #55 Criterion: 127;
+	Law #56 Criterion: 1733;
+	Law #58 Criterion: 1583;
+	Law #59 Criterion: 1471;
+	Law #60 Criterion: 523;
+	Law #61 Criterion: 563;
+	Law #63 Criterion: 101;
+	Law #64 Criterion: 673;
+	Law #65 Criterion: 1117;
+	Law #66 Criterion: 223;
+Person #68
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #2 Criterion: 661;
+	Law #4 Criterion: 1877;
+	Law #5 Criterion: 1447;
+	Law #7 Criterion: 593;
+	Law #8 Criterion: 1321;
+	Law #9 Criterion: 101;
+	Law #10 Criterion: 311;
+	Law #11 Criterion: 1423;
+	Law #12 Criterion: 491;
+	Law #13 Criterion: 461;
+	Law #16 Criterion: 1117;
+	Law #18 Criterion: 971;
+	Law #23 Criterion: 409;
+	Law #29 Criterion: 431;
+	Law #32 Criterion: 673;
+	Law #33 Criterion: 991;
+	Law #36 Criterion: 541;
+	Law #37 Criterion: 1367;
+	Law #38 Criterion: 1543;
+	Law #42 Criterion: 1381;
+	Law #43 Criterion: 829;
+	Law #44 Criterion: 1409;
+	Law #48 Criterion: 1093;
+	Law #49 Criterion: 71;
+	Law #52 Criterion: 241;
+	Law #56 Criterion: 251;
+	Law #58 Criterion: 59;
+	Law #59 Criterion: 1297;
+	Law #60 Criterion: 1847;
+	Law #61 Criterion: 1571;
+	Law #62 Criterion: 97;
+	Law #63 Criterion: 1993;
+	Law #64 Criterion: 727;
+	Law #65 Criterion: 1213;
+	Law #66 Criterion: 1613;
+Person #69
+Wants to be in party: 0
+Strategy of voting: party_voting
+Votes for:
+	Law #3 Criterion: 1223;
+	Law #6 Criterion: 883;
+	Law #7 Criterion: 883;
+	Law #9 Criterion: 523;
+	Law #12 Criterion: 79;
+	Law #15 Criterion: 1609;
+	Law #17 Criterion: 1237;
+	Law #18 Criterion: 1601;
+	Law #20 Criterion: 131;
+	Law #22 Criterion: 509;
+	Law #23 Criterion: 1031;
+	Law #24 Criterion: 1609;
+	Law #26 Criterion: 491;
+	Law #27 Criterion: 1627;
+	Law #31 Criterion: 1447;
+	Law #32 Criterion: 47;
+	Law #33 Criterion: 311;
+	Law #34 Criterion: 919;
+	Law #42 Criterion: 1471;
+	Law #45 Criterion: 1109;
+	Law #48 Criterion: 3;
+	Law #51 Criterion: 1069;
+	Law #53 Criterion: 401;
+	Law #55 Criterion: 1637;
+	Law #58 Criterion: 1289;
+	Law #59 Criterion: 1697;
+	Law #62 Criterion: 1423;
+	Law #64 Criterion: 541;
+	Law #65 Criterion: 821;
+	Law #66 Criterion: 251;
+Person #70
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #1 Criterion: 1823;
+	Law #4 Criterion: 269;
+	Law #6 Criterion: 1259;
+	Law #7 Criterion: 1151;
+	Law #9 Criterion: 367;
+	Law #11 Criterion: 1213;
+	Law #14 Criterion: 1777;
+	Law #15 Criterion: 1709;
+	Law #20 Criterion: 1451;
+	Law #21 Criterion: 1367;
+	Law #22 Criterion: 71;
+	Law #24 Criterion: 173;
+	Law #26 Criterion: 1553;
+	Law #27 Criterion: 1609;
+	Law #29 Criterion: 1447;
+	Law #30 Criterion: 307;
+	Law #32 Criterion: 1531;
+	Law #33 Criterion: 557;
+	Law #35 Criterion: 337;
+	Law #36 Criterion: 1733;
+	Law #37 Criterion: 1433;
+	Law #38 Criterion: 967;
+	Law #39 Criterion: 443;
+	Law #41 Criterion: 433;
+	Law #42 Criterion: 37;
+	Law #45 Criterion: 1433;
+	Law #49 Criterion: 353;
+	Law #57 Criterion: 1009;
+	Law #59 Criterion: 449;
+	Law #66 Criterion: 1459;
+Person #71
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 1319;
+	Law #1 Criterion: 1753;
+	Law #3 Criterion: 179;
+	Law #4 Criterion: 1543;
+	Law #9 Criterion: 1559;
+	Law #15 Criterion: 1039;
+	Law #16 Criterion: 1381;
+	Law #19 Criterion: 29;
+	Law #20 Criterion: 967;
+	Law #21 Criterion: 829;
+	Law #23 Criterion: 1303;
+	Law #24 Criterion: 2;
+	Law #25 Criterion: 503;
+	Law #28 Criterion: 149;
+	Law #29 Criterion: 241;
+	Law #31 Criterion: 1381;
+	Law #33 Criterion: 317;
+	Law #36 Criterion: 479;
+	Law #38 Criterion: 643;
+	Law #39 Criterion: 1117;
+	Law #40 Criterion: 197;
+	Law #42 Criterion: 149;
+	Law #44 Criterion: 1637;
+	Law #45 Criterion: 1753;
+	Law #50 Criterion: 1933;
+	Law #51 Criterion: 1301;
+	Law #54 Criterion: 1447;
+	Law #55 Criterion: 929;
+	Law #58 Criterion: 1361;
+	Law #60 Criterion: 1187;
+	Law #62 Criterion: 43;
+	Law #63 Criterion: 1297;
+	Law #64 Criterion: 1933;
+Person #72
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #2 Criterion: 353;
+	Law #4 Criterion: 503;
+	Law #6 Criterion: 881;
+	Law #7 Criterion: 619;
+	Law #9 Criterion: 1187;
+	Law #10 Criterion: 1693;
+	Law #11 Criterion: 229;
+	Law #12 Criterion: 73;
+	Law #13 Criterion: 67;
+	Law #15 Criterion: 1013;
+	Law #16 Criterion: 43;
+	Law #17 Criterion: 673;
+	Law #18 Criterion: 167;
+	Law #20 Criterion: 1861;
+	Law #21 Criterion: 967;
+	Law #22 Criterion: 107;
+	Law #24 Criterion: 1811;
+	Law #26 Criterion: 1973;
+	Law #27 Criterion: 1409;
+	Law #32 Criterion: 1523;
+	Law #33 Criterion: 1913;
+	Law #35 Criterion: 1627;
+	Law #37 Criterion: 1933;
+	Law #39 Criterion: 467;
+	Law #40 Criterion: 1063;
+	Law #41 Criterion: 1301;
+	Law #42 Criterion: 1487;
+	Law #43 Criterion: 811;
+	Law #47 Criterion: 449;
+	Law #51 Criterion: 131;
+	Law #52 Criterion: 163;
+	Law #60 Criterion: 73;
+	Law #63 Criterion: 47;
+	Law #65 Criterion: 1489;
+	Law #66 Criterion: 41;
+Person #73
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #0 Criterion: 1307;
+	Law #2 Criterion: 73;
+	Law #4 Criterion: 1429;
+	Law #5 Criterion: 1901;
+	Law #6 Criterion: 1367;
+	Law #7 Criterion: 167;
+	Law #8 Criterion: 353;
+	Law #10 Criterion: 1601;
+	Law #11 Criterion: 1511;
+	Law #12 Criterion: 1153;
+	Law #17 Criterion: 487;
+	Law #18 Criterion: 547;
+	Law #19 Criterion: 1597;
+	Law #21 Criterion: 139;
+	Law #22 Criterion: 419;
+	Law #26 Criterion: 1783;
+	Law #27 Criterion: 239;
+	Law #33 Criterion: 521;
+	Law #37 Criterion: 1451;
+	Law #38 Criterion: 1399;
+	Law #39 Criterion: 571;
+	Law #43 Criterion: 1303;
+	Law #44 Criterion: 1297;
+	Law #45 Criterion: 367;
+	Law #49 Criterion: 1277;
+	Law #51 Criterion: 1667;
+	Law #52 Criterion: 911;
+	Law #53 Criterion: 71;
+	Law #58 Criterion: 1949;
+	Law #59 Criterion: 307;
+	Law #60 Criterion: 953;
+	Law #61 Criterion: 1873;
+	Law #63 Criterion: 1543;
+	Law #66 Criterion: 97;
+Person #74
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #4 Criterion: 67;
+	Law #7 Criterion: 1847;
+	Law #8 Criterion: 1777;
+	Law #11 Criterion: 103;
+	Law #12 Criterion: 167;
+	Law #13 Criterion: 3;
+	Law #14 Criterion: 1373;
+	Law #16 Criterion: 191;
+	Law #18 Criterion: 197;
+	Law #23 Criterion: 241;
+	Law #26 Criterion: 47;
+	Law #28 Criterion: 907;
+	Law #30 Criterion: 1283;
+	Law #31 Criterion: 1093;
+	Law #34 Criterion: 113;
+	Law #36 Criterion: 229;
+	Law #37 Criterion: 1607;
+	Law #38 Criterion: 353;
+	Law #45 Criterion: 647;
+	Law #46 Criterion: 1997;
+	Law #48 Criterion: 193;
+	Law #49 Criterion: 1303;
+	Law #54 Criterion: 577;
+	Law #59 Criterion: 1481;
+	Law #62 Criterion: 797;
+	Law #63 Criterion: 557;
+	Law #66 Criterion: 673;
+Person #75
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 251;
+	Law #5 Criterion: 1453;
+	Law #6 Criterion: 293;
+	Law #7 Criterion: 1543;
+	Law #9 Criterion: 47;
+	Law #10 Criterion: 1039;
+	Law #13 Criterion: 13;
+	Law #14 Criterion: 1061;
+	Law #15 Criterion: 941;
+	Law #16 Criterion: 557;
+	Law #17 Criterion: 1733;
+	Law #18 Criterion: 131;
+	Law #22 Criterion: 887;
+	Law #23 Criterion: 137;
+	Law #25 Criterion: 1213;
+	Law #26 Criterion: 311;
+	Law #27 Criterion: 1451;
+	Law #30 Criterion: 757;
+	Law #31 Criterion: 1567;
+	Law #34 Criterion: 1237;
+	Law #35 Criterion: 1657;
+	Law #38 Criterion: 1879;
+	Law #41 Criterion: 1753;
+	Law #45 Criterion: 5;
+	Law #47 Criterion: 307;
+	Law #48 Criterion: 107;
+	Law #49 Criterion: 1759;
+	Law #51 Criterion: 1697;
+	Law #52 Criterion: 1867;
+	Law #53 Criterion: 239;
+	Law #56 Criterion: 151;
+	Law #57 Criterion: 263;
+	Law #58 Criterion: 439;
+	Law #60 Criterion: 1307;
+	Law #62 Criterion: 647;
+	Law #64 Criterion: 1163;
+	Law #66 Criterion: 1223;
+Person #76
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #0 Criterion: 1471;
+	Law #1 Criterion: 823;
+	Law #3 Criterion: 1327;
+	Law #5 Criterion: 1153;
+	Law #7 Criterion: 739;
+	Law #8 Criterion: 1657;
+	Law #9 Criterion: 1109;
+	Law #11 Criterion: 577;
+	Law #15 Criterion: 1787;
+	Law #16 Criterion: 1039;
+	Law #17 Criterion: 541;
+	Law #20 Criterion: 809;
+	Law #26 Criterion: 1021;
+	Law #29 Criterion: 1187;
+	Law #31 Criterion: 1279;
+	Law #34 Criterion: 743;
+	Law #35 Criterion: 1493;
+	Law #40 Criterion: 1867;
+	Law #41 Criterion: 1619;
+	Law #42 Criterion: 563;
+	Law #44 Criterion: 2;
+	Law #46 Criterion: 367;
+	Law #47 Criterion: 491;
+	Law #49 Criterion: 1307;
+	Law #51 Criterion: 617;
+	Law #54 Criterion: 1609;
+	Law #56 Criterion: 1091;
+	Law #58 Criterion: 31;
+	Law #60 Criterion: 149;
+	Law #61 Criterion: 1277;
+	Law #62 Criterion: 281;
+	Law #65 Criterion: 821;
+Person #77
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #2 Criterion: 1409;
+	Law #3 Criterion: 1033;
+	Law #4 Criterion: 433;
+	Law #6 Criterion: 641;
+	Law #8 Criterion: 839;
+	Law #9 Criterion: 823;
+	Law #12 Criterion: 439;
+	Law #13 Criterion: 1861;
+	Law #16 Criterion: 1667;
+	Law #17 Criterion: 281;
+	Law #18 Criterion: 883;
+	Law #22 Criterion: 1693;
+	Law #23 Criterion: 1453;
+	Law #25 Criterion: 257;
+	Law #28 Criterion: 487;
+	Law #32 Criterion: 1523;
+	Law #33 Criterion: 499;
+	Law #35 Criterion: 443;
+	Law #38 Criterion: 1811;
+	Law #40 Criterion: 487;
+	Law #41 Criterion: 953;
+	Law #44 Criterion: 1867;
+	Law #45 Criterion: 1571;
+	Law #46 Criterion: 1319;
+	Law #47 Criterion: 331;
+	Law #49 Criterion: 271;
+	Law #53 Criterion: 673;
+	Law #54 Criterion: 1471;
+	Law #55 Criterion: 1823;
+	Law #58 Criterion: 1427;
+	Law #62 Criterion: 1723;
+	Law #63 Criterion: 47;
+	Law #64 Criterion: 1109;
+	Law #65 Criterion: 719;
+Person #78
+Wants to be in party: 0
+Strategy of voting: random
+Votes for:
+	Law #2 Criterion: 563;
+	Law #4 Criterion: 499;
+	Law #8 Criterion: 1217;
+	Law #9 Criterion: 1301;
+	Law #11 Criterion: 599;
+	Law #12 Criterion: 7;
+	Law #13 Criterion: 1033;
+	Law #14 Criterion: 1723;
+	Law #17 Criterion: 1093;
+	Law #18 Criterion: 1103;
+	Law #21 Criterion: 971;
+	Law #22 Criterion: 347;
+	Law #23 Criterion: 1721;
+	Law #24 Criterion: 263;
+	Law #25 Criterion: 1721;
+	Law #26 Criterion: 571;
+	Law #27 Criterion: 337;
+	Law #29 Criterion: 83;
+	Law #30 Criterion: 967;
+	Law #32 Criterion: 31;
+	Law #34 Criterion: 617;
+	Law #35 Criterion: 1307;
+	Law #38 Criterion: 1039;
+	Law #40 Criterion: 317;
+	Law #42 Criterion: 1531;
+	Law #46 Criterion: 631;
+	Law #48 Criterion: 563;
+	Law #49 Criterion: 1279;
+	Law #56 Criterion: 2;
+	Law #57 Criterion: 241;
+	Law #59 Criterion: 1307;
+	Law #65 Criterion: 181;
+	Law #66 Criterion: 1973;
+Person #79
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #2 Criterion: 1429;
+	Law #3 Criterion: 827;
+	Law #7 Criterion: 1069;
+	Law #8 Criterion: 1237;
+	Law #13 Criterion: 479;
+	Law #17 Criterion: 647;
+	Law #20 Criterion: 1709;
+	Law #22 Criterion: 1499;
+	Law #24 Criterion: 1847;
+	Law #26 Criterion: 941;
+	Law #27 Criterion: 103;
+	Law #31 Criterion: 757;
+	Law #32 Criterion: 41;
+	Law #33 Criterion: 1123;
+	Law #35 Criterion: 1777;
+	Law #36 Criterion: 937;
+	Law #37 Criterion: 683;
+	Law #38 Criterion: 1747;
+	Law #42 Criterion: 941;
+	Law #43 Criterion: 109;
+	Law #45 Criterion: 941;
+	Law #47 Criterion: 1171;
+	Law #48 Criterion: 1429;
+	Law #53 Criterion: 1093;
+	Law #54 Criterion: 419;
+	Law #60 Criterion: 641;
+	Law #62 Criterion: 149;
+	Law #64 Criterion: 461;
+	Law #65 Criterion: 761;
+	Law #66 Criterion: 1321;
+Person #80
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #0 Criterion: 1601;
+	Law #1 Criterion: 131;
+	Law #2 Criterion: 673;
+	Law #5 Criterion: 617;
+	Law #7 Criterion: 1327;
+	Law #8 Criterion: 1973;
+	Law #9 Criterion: 1993;
+	Law #10 Criterion: 43;
+	Law #11 Criterion: 827;
+	Law #12 Criterion: 29;
+	Law #15 Criterion: 53;
+	Law #16 Criterion: 653;
+	Law #19 Criterion: 1847;
+	Law #24 Criterion: 421;
+	Law #26 Criterion: 673;
+	Law #27 Criterion: 1213;
+	Law #28 Criterion: 167;
+	Law #31 Criterion: 359;
+	Law #33 Criterion: 1741;
+	Law #34 Criterion: 1709;
+	Law #36 Criterion: 149;
+	Law #38 Criterion: 1117;
+	Law #39 Criterion: 1399;
+	Law #40 Criterion: 1061;
+	Law #41 Criterion: 281;
+	Law #43 Criterion: 1151;
+	Law #45 Criterion: 1621;
+	Law #46 Criterion: 1433;
+	Law #47 Criterion: 1259;
+	Law #50 Criterion: 787;
+	Law #52 Criterion: 443;
+	Law #53 Criterion: 569;
+	Law #55 Criterion: 683;
+	Law #57 Criterion: 1307;
+	Law #58 Criterion: 271;
+	Law #59 Criterion: 547;
+	Law #63 Criterion: 1033;
+	Law #64 Criterion: 1433;
+	Law #65 Criterion: 1549;
+	Law #66 Criterion: 811;
+Person #81
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #0 Criterion: 313;
+	Law #1 Criterion: 1327;
+	Law #4 Criterion: 947;
+	Law #5 Criterion: 197;
+	Law #6 Criterion: 757;
+	Law #8 Criterion: 1193;
+	Law #10 Criterion: 479;
+	Law #12 Criterion: 919;
+	Law #15 Criterion: 1279;
+	Law #18 Criterion: 101;
+	Law #21 Criterion: 1949;
+	Law #22 Criterion: 1117;
+	Law #27 Criterion: 431;
+	Law #28 Criterion: 1429;
+	Law #29 Criterion: 1319;
+	Law #30 Criterion: 683;
+	Law #31 Criterion: 1153;
+	Law #35 Criterion: 829;
+	Law #37 Criterion: 73;
+	Law #39 Criterion: 1201;
+	Law #40 Criterion: 359;
+	Law #45 Criterion: 1423;
+	Law #51 Criterion: 1051;
+	Law #52 Criterion: 983;
+	Law #54 Criterion: 1033;
+	Law #55 Criterion: 139;
+	Law #59 Criterion: 809;
+	Law #60 Criterion: 1607;
+	Law #61 Criterion: 1879;
+	Law #62 Criterion: 547;
+	Law #63 Criterion: 431;
+	Law #66 Criterion: 1361;
+Person #82
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #3 Criterion: 1109;
+	Law #5 Criterion: 127;
+	Law #7 Criterion: 431;
+	Law #8 Criterion: 373;
+	Law #10 Criterion: 1831;
+	Law #11 Criterion: 1471;
+	Law #16 Criterion: 557;
+	Law #19 Criterion: 1439;
+	Law #21 Criterion: 1867;
+	Law #23 Criterion: 971;
+	Law #24 Criterion: 43;
+	Law #27 Criterion: 1459;
+	Law #29 Criterion: 59;
+	Law #38 Criterion: 1987;
+	Law #40 Criterion: 1117;
+	Law #41 Criterion: 563;
+	Law #45 Criterion: 1019;
+	Law #47 Criterion: 761;
+	Law #48 Criterion: 67;
+	Law #49 Criterion: 1013;
+	Law #51 Criterion: 1933;
+	Law #52 Criterion: 509;
+	Law #54 Criterion: 673;
+	Law #55 Criterion: 1979;
+	Law #56 Criterion: 263;
+	Law #62 Criterion: 1307;
+	Law #65 Criterion: 1283;
+	Law #66 Criterion: 1889;
+Person #83
+Wants to be in party: 0
+Strategy of voting: party_voting
+Votes for:
+	Law #3 Criterion: 103;
+	Law #5 Criterion: 1297;
+	Law #7 Criterion: 1123;
+	Law #8 Criterion: 787;
+	Law #9 Criterion: 89;
+	Law #12 Criterion: 101;
+	Law #14 Criterion: 757;
+	Law #15 Criterion: 509;
+	Law #16 Criterion: 491;
+	Law #21 Criterion: 1307;
+	Law #25 Criterion: 199;
+	Law #26 Criterion: 1451;
+	Law #29 Criterion: 1999;
+	Law #33 Criterion: 1873;
+	Law #37 Criterion: 547;
+	Law #38 Criterion: 499;
+	Law #39 Criterion: 67;
+	Law #40 Criterion: 83;
+	Law #43 Criterion: 1051;
+	Law #48 Criterion: 1171;
+	Law #49 Criterion: 1303;
+	Law #52 Criterion: 541;
+	Law #54 Criterion: 1871;
+	Law #56 Criterion: 173;
+	Law #57 Criterion: 131;
+	Law #59 Criterion: 37;
+	Law #61 Criterion: 827;
+	Law #62 Criterion: 1931;
+	Law #63 Criterion: 283;
+	Law #66 Criterion: 997;
+Person #84
+Wants to be in party: 0
+Strategy of voting: party_voting
+Votes for:
+	Law #0 Criterion: 827;
+	Law #2 Criterion: 409;
+	Law #7 Criterion: 149;
+	Law #12 Criterion: 1663;
+	Law #13 Criterion: 181;
+	Law #14 Criterion: 353;
+	Law #16 Criterion: 1277;
+	Law #17 Criterion: 443;
+	Law #18 Criterion: 1031;
+	Law #25 Criterion: 367;
+	Law #26 Criterion: 409;
+	Law #27 Criterion: 379;
+	Law #28 Criterion: 139;
+	Law #31 Criterion: 1051;
+	Law #32 Criterion: 1381;
+	Law #34 Criterion: 1123;
+	Law #35 Criterion: 431;
+	Law #37 Criterion: 211;
+	Law #38 Criterion: 379;
+	Law #39 Criterion: 1913;
+	Law #43 Criterion: 499;
+	Law #47 Criterion: 359;
+	Law #48 Criterion: 191;
+	Law #52 Criterion: 797;
+	Law #53 Criterion: 2;
+	Law #54 Criterion: 457;
+	Law #55 Criterion: 1213;
+	Law #56 Criterion: 617;
+	Law #59 Criterion: 1999;
+	Law #60 Criterion: 1279;
+	Law #63 Criterion: 61;
+	Law #65 Criterion: 3;
+Person #85
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #3 Criterion: 71;
+	Law #5 Criterion: 947;
+	Law #6 Criterion: 809;
+	Law #8 Criterion: 383;
+	Law #10 Criterion: 911;
+	Law #12 Criterion: 1087;
+	Law #15 Criterion: 311;
+	Law #17 Criterion: 971;
+	Law #18 Criterion: 107;
+	Law #19 Criterion: 1429;
+	Law #28 Criterion: 1097;
+	Law #32 Criterion: 173;
+	Law #38 Criterion: 523;
+	Law #39 Criterion: 1811;
+	Law #40 Criterion: 1699;
+	Law #44 Criterion: 1747;
+	Law #46 Criterion: 523;
+	Law #47 Criterion: 37;
+	Law #52 Criterion: 61;
+	Law #53 Criterion: 523;
+	Law #54 Criterion: 277;
+	Law #56 Criterion: 887;
+	Law #59 Criterion: 1109;
+	Law #64 Criterion: 827;
+	Law #65 Criterion: 1493;
+Person #86
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #2 Criterion: 241;
+	Law #4 Criterion: 1907;
+	Law #6 Criterion: 971;
+	Law #7 Criterion: 757;
+	Law #9 Criterion: 743;
+	Law #10 Criterion: 1373;
+	Law #12 Criterion: 353;
+	Law #15 Criterion: 1559;
+	Law #17 Criterion: 599;
+	Law #18 Criterion: 1471;
+	Law #24 Criterion: 107;
+	Law #26 Criterion: 251;
+	Law #28 Criterion: 421;
+	Law #30 Criterion: 1907;
+	Law #31 Criterion: 271;
+	Law #32 Criterion: 1831;
+	Law #36 Criterion: 947;
+	Law #37 Criterion: 233;
+	Law #38 Criterion: 1823;
+	Law #39 Criterion: 1171;
+	Law #40 Criterion: 103;
+	Law #41 Criterion: 1607;
+	Law #42 Criterion: 1301;
+	Law #46 Criterion: 739;
+	Law #47 Criterion: 463;
+	Law #48 Criterion: 1033;
+	Law #49 Criterion: 503;
+	Law #50 Criterion: 593;
+	Law #52 Criterion: 383;
+	Law #53 Criterion: 1303;
+	Law #54 Criterion: 113;
+	Law #55 Criterion: 863;
+	Law #57 Criterion: 1483;
+	Law #59 Criterion: 317;
+	Law #60 Criterion: 97;
+	Law #64 Criterion: 1373;
+Person #87
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 631;
+	Law #1 Criterion: 1301;
+	Law #2 Criterion: 389;
+	Law #3 Criterion: 1069;
+	Law #4 Criterion: 1609;
+	Law #6 Criterion: 1093;
+	Law #7 Criterion: 1109;
+	Law #8 Criterion: 1451;
+	Law #9 Criterion: 661;
+	Law #11 Criterion: 1847;
+	Law #12 Criterion: 1907;
+	Law #13 Criterion: 1567;
+	Law #16 Criterion: 157;
+	Law #17 Criterion: 1601;
+	Law #18 Criterion: 19;
+	Law #19 Criterion: 577;
+	Law #21 Criterion: 1613;
+	Law #24 Criterion: 727;
+	Law #27 Criterion: 11;
+	Law #28 Criterion: 971;
+	Law #29 Criterion: 1831;
+	Law #32 Criterion: 1361;
+	Law #34 Criterion: 1627;
+	Law #36 Criterion: 1579;
+	Law #37 Criterion: 2;
+	Law #40 Criterion: 439;
+	Law #42 Criterion: 383;
+	Law #44 Criterion: 421;
+	Law #45 Criterion: 1381;
+	Law #46 Criterion: 1217;
+	Law #47 Criterion: 569;
+	Law #48 Criterion: 1237;
+	Law #49 Criterion: 733;
+	Law #50 Criterion: 163;
+	Law #59 Criterion: 1019;
+	Law #60 Criterion: 1181;
+	Law #61 Criterion: 677;
+Person #88
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 983;
+	Law #1 Criterion: 1493;
+	Law #2 Criterion: 191;
+	Law #4 Criterion: 647;
+	Law #5 Criterion: 1861;
+	Law #6 Criterion: 859;
+	Law #7 Criterion: 181;
+	Law #8 Criterion: 1453;
+	Law #9 Criterion: 1483;
+	Law #10 Criterion: 1171;
+	Law #13 Criterion: 491;
+	Law #14 Criterion: 1013;
+	Law #15 Criterion: 1289;
+	Law #16 Criterion: 1259;
+	Law #17 Criterion: 1607;
+	Law #18 Criterion: 1193;
+	Law #19 Criterion: 1553;
+	Law #22 Criterion: 67;
+	Law #23 Criterion: 1973;
+	Law #26 Criterion: 277;
+	Law #27 Criterion: 281;
+	Law #30 Criterion: 1129;
+	Law #32 Criterion: 1873;
+	Law #33 Criterion: 809;
+	Law #39 Criterion: 953;
+	Law #45 Criterion: 241;
+	Law #46 Criterion: 1511;
+	Law #47 Criterion: 1777;
+	Law #48 Criterion: 823;
+	Law #52 Criterion: 1789;
+	Law #55 Criterion: 1373;
+	Law #57 Criterion: 1559;
+	Law #58 Criterion: 859;
+	Law #59 Criterion: 1367;
+	Law #62 Criterion: 233;
+	Law #64 Criterion: 421;
+Person #89
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #3 Criterion: 1721;
+	Law #7 Criterion: 1637;
+	Law #11 Criterion: 137;
+	Law #13 Criterion: 1103;
+	Law #14 Criterion: 1783;
+	Law #20 Criterion: 859;
+	Law #22 Criterion: 197;
+	Law #23 Criterion: 1627;
+	Law #27 Criterion: 1549;
+	Law #28 Criterion: 1733;
+	Law #30 Criterion: 1471;
+	Law #33 Criterion: 1877;
+	Law #34 Criterion: 7;
+	Law #36 Criterion: 331;
+	Law #37 Criterion: 983;
+	Law #41 Criterion: 197;
+	Law #42 Criterion: 673;
+	Law #43 Criterion: 1481;
+	Law #44 Criterion: 1901;
+	Law #51 Criterion: 313;
+	Law #53 Criterion: 409;
+	Law #55 Criterion: 1373;
+	Law #56 Criterion: 43;
+	Law #57 Criterion: 79;
+	Law #58 Criterion: 1277;
+	Law #59 Criterion: 829;
+	Law #63 Criterion: 229;
+	Law #64 Criterion: 191;
+	Law #65 Criterion: 1171;
+	Law #66 Criterion: 1901;
+Person #90
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #0 Criterion: 1607;
+	Law #1 Criterion: 179;
+	Law #2 Criterion: 223;
+	Law #3 Criterion: 617;
+	Law #4 Criterion: 983;
+	Law #5 Criterion: 1049;
+	Law #6 Criterion: 719;
+	Law #8 Criterion: 1733;
+	Law #9 Criterion: 719;
+	Law #10 Criterion: 1667;
+	Law #13 Criterion: 563;
+	Law #19 Criterion: 757;
+	Law #21 Criterion: 1987;
+	Law #22 Criterion: 1031;
+	Law #23 Criterion: 839;
+	Law #24 Criterion: 857;
+	Law #28 Criterion: 829;
+	Law #29 Criterion: 241;
+	Law #30 Criterion: 1783;
+	Law #33 Criterion: 733;
+	Law #34 Criterion: 1579;
+	Law #35 Criterion: 1019;
+	Law #36 Criterion: 1489;
+	Law #38 Criterion: 349;
+	Law #41 Criterion: 1307;
+	Law #44 Criterion: 157;
+	Law #48 Criterion: 353;
+	Law #50 Criterion: 1627;
+	Law #52 Criterion: 1993;
+	Law #54 Criterion: 487;
+	Law #55 Criterion: 19;
+	Law #56 Criterion: 239;
+	Law #58 Criterion: 89;
+	Law #59 Criterion: 5;
+	Law #61 Criterion: 1987;
+	Law #62 Criterion: 587;
+	Law #63 Criterion: 269;
+	Law #66 Criterion: 241;
+Person #91
+Wants to be in party: 0
+Strategy of voting: random
+Votes for:
+	Law #4 Criterion: 1723;
+	Law #5 Criterion: 1423;
+	Law #7 Criterion: 149;
+	Law #8 Criterion: 569;
+	Law #10 Criterion: 263;
+	Law #12 Criterion: 1543;
+	Law #13 Criterion: 1663;
+	Law #14 Criterion: 1871;
+	Law #17 Criterion: 1249;
+	Law #19 Criterion: 743;
+	Law #22 Criterion: 239;
+	Law #23 Criterion: 557;
+	Law #26 Criterion: 7;
+	Law #30 Criterion: 593;
+	Law #35 Criterion: 1913;
+	Law #41 Criterion: 1583;
+	Law #43 Criterion: 1373;
+	Law #44 Criterion: 367;
+	Law #45 Criterion: 353;
+	Law #46 Criterion: 631;
+	Law #48 Criterion: 1289;
+	Law #50 Criterion: 1627;
+	Law #51 Criterion: 443;
+	Law #52 Criterion: 47;
+	Law #53 Criterion: 739;
+	Law #54 Criterion: 1511;
+	Law #55 Criterion: 1051;
+	Law #58 Criterion: 2;
+	Law #60 Criterion: 797;
+	Law #62 Criterion: 311;
+	Law #65 Criterion: 1823;
+Person #92
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 1733;
+	Law #2 Criterion: 1669;
+	Law #4 Criterion: 241;
+	Law #6 Criterion: 1213;
+	Law #9 Criterion: 683;
+	Law #10 Criterion: 1153;
+	Law #11 Criterion: 17;
+	Law #13 Criterion: 53;
+	Law #14 Criterion: 1867;
+	Law #16 Criterion: 509;
+	Law #21 Criterion: 17;
+	Law #24 Criterion: 1567;
+	Law #26 Criterion: 197;
+	Law #27 Criterion: 1327;
+	Law #28 Criterion: 233;
+	Law #30 Criterion: 787;
+	Law #32 Criterion: 1049;
+	Law #35 Criterion: 757;
+	Law #36 Criterion: 43;
+	Law #38 Criterion: 1451;
+	Law #40 Criterion: 1867;
+	Law #44 Criterion: 1213;
+	Law #45 Criterion: 1291;
+	Law #47 Criterion: 1877;
+	Law #50 Criterion: 83;
+	Law #51 Criterion: 1201;
+	Law #52 Criterion: 1723;
+	Law #54 Criterion: 773;
+	Law #58 Criterion: 877;
+	Law #60 Criterion: 967;
+	Law #61 Criterion: 359;
+	Law #63 Criterion: 1381;
+	Law #64 Criterion: 359;
+	Law #65 Criterion: 23;
+	Law #66 Criterion: 1213;
+Person #93
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #2 Criterion: 283;
+	Law #4 Criterion: 701;
+	Law #5 Criterion: 769;
+	Law #8 Criterion: 563;
+	Law #9 Criterion: 1097;
+	Law #11 Criterion: 997;
+	Law #13 Criterion: 1301;
+	Law #14 Criterion: 997;
+	Law #15 Criterion: 257;
+	Law #16 Criterion: 677;
+	Law #17 Criterion: 1553;
+	Law #19 Criterion: 1973;
+	Law #20 Criterion: 1453;
+	Law #23 Criterion: 1801;
+	Law #25 Criterion: 337;
+	Law #26 Criterion: 1789;
+	Law #28 Criterion: 1123;
+	Law #30 Criterion: 1399;
+	Law #32 Criterion: 1877;
+	Law #34 Criterion: 677;
+	Law #36 Criterion: 439;
+	Law #39 Criterion: 1063;
+	Law #41 Criterion: 1301;
+	Law #42 Criterion: 701;
+	Law #43 Criterion: 1621;
+	Law #44 Criterion: 1009;
+	Law #45 Criterion: 1997;
+	Law #47 Criterion: 1217;
+	Law #48 Criterion: 743;
+	Law #50 Criterion: 1087;
+	Law #51 Criterion: 439;
+	Law #53 Criterion: 433;
+	Law #56 Criterion: 1787;
+	Law #57 Criterion: 1823;
+	Law #58 Criterion: 563;
+	Law #64 Criterion: 1483;
+Person #94
+Wants to be in party: 0
+Strategy of voting: own_voting
+Votes for:
+	Law #0 Criterion: 1621;
+	Law #2 Criterion: 523;
+	Law #3 Criterion: 983;
+	Law #7 Criterion: 317;
+	Law #11 Criterion: 1579;
+	Law #13 Criterion: 1031;
+	Law #18 Criterion: 1223;
+	Law #22 Criterion: 113;
+	Law #23 Criterion: 719;
+	Law #24 Criterion: 1223;
+	Law #25 Criterion: 617;
+	Law #26 Criterion: 167;
+	Law #28 Criterion: 1051;
+	Law #30 Criterion: 211;
+	Law #32 Criterion: 1697;
+	Law #33 Criterion: 643;
+	Law #36 Criterion: 293;
+	Law #37 Criterion: 433;
+	Law #39 Criterion: 1987;
+	Law #40 Criterion: 1409;
+	Law #41 Criterion: 197;
+	Law #44 Criterion: 1097;
+	Law #45 Criterion: 311;
+	Law #46 Criterion: 593;
+	Law #47 Criterion: 503;
+	Law #48 Criterion: 733;
+	Law #51 Criterion: 1039;
+	Law #52 Criterion: 1873;
+	Law #53 Criterion: 1553;
+	Law #55 Criterion: 1489;
+	Law #56 Criterion: 1381;
+	Law #59 Criterion: 1489;
+	Law #62 Criterion: 1453;
+	Law #64 Criterion: 337;
+	Law #65 Criterion: 1439;
+Person #95
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #4 Criterion: 971;
+	Law #6 Criterion: 1789;
+	Law #8 Criterion: 883;
+	Law #9 Criterion: 157;
+	Law #10 Criterion: 1259;
+	Law #11 Criterion: 1873;
+	Law #13 Criterion: 1559;
+	Law #15 Criterion: 709;
+	Law #16 Criterion: 293;
+	Law #17 Criterion: 1361;
+	Law #18 Criterion: 1031;
+	Law #21 Criterion: 419;
+	Law #22 Criterion: 1301;
+	Law #24 Criterion: 71;
+	Law #25 Criterion: 89;
+	Law #27 Criterion: 383;
+	Law #29 Criterion: 1231;
+	Law #30 Criterion: 953;
+	Law #33 Criterion: 1861;
+	Law #36 Criterion: 1367;
+	Law #38 Criterion: 461;
+	Law #39 Criterion: 1879;
+	Law #40 Criterion: 1811;
+	Law #41 Criterion: 523;
+	Law #42 Criterion: 1033;
+	Law #43 Criterion: 61;
+	Law #45 Criterion: 211;
+	Law #46 Criterion: 1699;
+	Law #47 Criterion: 1093;
+	Law #48 Criterion: 1279;
+	Law #49 Criterion: 131;
+	Law #53 Criterion: 383;
+	Law #55 Criterion: 1531;
+	Law #59 Criterion: 941;
+	Law #65 Criterion: 151;
+	Law #66 Criterion: 587;
+Person #96
+Wants to be in party: 1
+Strategy of voting: own_voting
+Votes for:
+	Law #1 Criterion: 587;
+	Law #2 Criterion: 1013;
+	Law #5 Criterion: 797;
+	Law #10 Criterion: 827;
+	Law #16 Criterion: 1723;
+	Law #17 Criterion: 349;
+	Law #22 Criterion: 1931;
+	Law #24 Criterion: 331;
+	Law #26 Criterion: 1531;
+	Law #27 Criterion: 1249;
+	Law #29 Criterion: 227;
+	Law #30 Criterion: 307;
+	Law #31 Criterion: 3;
+	Law #32 Criterion: 563;
+	Law #34 Criterion: 1447;
+	Law #35 Criterion: 431;
+	Law #37 Criterion: 1987;
+	Law #38 Criterion: 401;
+	Law #39 Criterion: 383;
+	Law #40 Criterion: 1607;
+	Law #42 Criterion: 1823;
+	Law #43 Criterion: 1511;
+	Law #51 Criterion: 1699;
+	Law #52 Criterion: 1283;
+	Law #53 Criterion: 67;
+	Law #58 Criterion: 61;
+	Law #63 Criterion: 149;
+Person #97
+Wants to be in party: 0
+Strategy of voting: random
+Votes for:
+	Law #0 Criterion: 1109;
+	Law #2 Criterion: 479;
+	Law #4 Criterion: 431;
+	Law #6 Criterion: 1483;
+	Law #9 Criterion: 719;
+	Law #10 Criterion: 11;
+	Law #11 Criterion: 1973;
+	Law #15 Criterion: 1091;
+	Law #17 Criterion: 1607;
+	Law #19 Criterion: 1811;
+	Law #20 Criterion: 937;
+	Law #24 Criterion: 293;
+	Law #25 Criterion: 449;
+	Law #27 Criterion: 829;
+	Law #28 Criterion: 109;
+	Law #31 Criterion: 293;
+	Law #32 Criterion: 181;
+	Law #35 Criterion: 1783;
+	Law #36 Criterion: 457;
+	Law #38 Criterion: 1279;
+	Law #43 Criterion: 1453;
+	Law #49 Criterion: 1429;
+	Law #54 Criterion: 1109;
+	Law #55 Criterion: 1069;
+	Law #57 Criterion: 883;
+	Law #58 Criterion: 827;
+	Law #59 Criterion: 521;
+	Law #64 Criterion: 7;
+	Law #65 Criterion: 1283;
+Person #98
+Wants to be in party: 1
+Strategy of voting: random
+Votes for:
+	Law #4 Criterion: 557;
+	Law #8 Criterion: 307;
+	Law #9 Criterion: 307;
+	Law #11 Criterion: 1093;
+	Law #13 Criterion: 211;
+	Law #15 Criterion: 233;
+	Law #16 Criterion: 1627;
+	Law #18 Criterion: 199;
+	Law #19 Criterion: 109;
+	Law #21 Criterion: 1409;
+	Law #23 Criterion: 421;
+	Law #25 Criterion: 1543;
+	Law #26 Criterion: 941;
+	Law #28 Criterion: 331;
+	Law #30 Criterion: 347;
+	Law #31 Criterion: 1321;
+	Law #32 Criterion: 953;
+	Law #35 Criterion: 3;
+	Law #36 Criterion: 1637;
+	Law #37 Criterion: 593;
+	Law #38 Criterion: 1753;
+	Law #39 Criterion: 19;
+	Law #41 Criterion: 557;
+	Law #42 Criterion: 547;
+	Law #43 Criterion: 719;
+	Law #44 Criterion: 199;
+	Law #45 Criterion: 1301;
+	Law #46 Criterion: 823;
+	Law #47 Criterion: 1367;
+	Law #50 Criterion: 967;
+	Law #51 Criterion: 89;
+	Law #55 Criterion: 97;
+	Law #56 Criterion: 269;
+	Law #58 Criterion: 3;
+	Law #59 Criterion: 107;
+	Law #62 Criterion: 1553;
+	Law #63 Criterion: 1249;
+	Law #64 Criterion: 1951;
+	Law #65 Criterion: 1997;
+	Law #66 Criterion: 1873;
+Person #99
+Wants to be in party: 1
+Strategy of voting: party_voting
+Votes for:
+	Law #1 Criterion: 1049;
+	Law #2 Criterion: 769;
+	Law #5 Criterion: 151;
+	Law #7 Criterion: 179;
+	Law #8 Criterion: 1907;
+	Law #11 Criterion: 1259;
+	Law #12 Criterion: 1327;
+	Law #13 Criterion: 1759;
+	Law #17 Criterion: 1871;
+	Law #18 Criterion: 599;
+	Law #19 Criterion: 1097;
+	Law #22 Criterion: 991;
+	Law #24 Criterion: 1933;
+	Law #25 Criterion: 593;
+	Law #28 Criterion: 1327;
+	Law #29 Criterion: 1109;
+	Law #30 Criterion: 59;
+	Law #31 Criterion: 409;
+	Law #36 Criterion: 787;
+	Law #37 Criterion: 13;
+	Law #39 Criterion: 503;
+	Law #40 Criterion: 263;
+	Law #42 Criterion: 47;
+	Law #44 Criterion: 1693;
+	Law #46 Criterion: 337;
+	Law #47 Criterion: 983;
+	Law #50 Criterion: 1949;
+	Law #51 Criterion: 41;
+	Law #52 Criterion: 997;
+	Law #53 Criterion: 1423;
+	Law #55 Criterion: 1069;
+	Law #57 Criterion: 53;
+	Law #59 Criterion: 311;
+	Law #60 Criterion: 569;
+	Law #65 Criterion: 863;
+--------------------------------PARTIES--------------------------------
+Party #0
+Members:
+	Person#90
+	Person#54
+	Person#80
+	Person#86
+	Person#51
+	Person#4
+	Person#95
+	Person#81
+	Person#77
+	Person#73
+Vote for:
+	Law #0, Criterion: 1097;
+	Law #2, Criterion: 1783;
+	Law #7, Criterion: 239;
+	Law #8, Criterion: 1579;
+	Law #9, Criterion: 487;
+	Law #10, Criterion: 367;
+	Law #17, Criterion: 409;
+	Law #21, Criterion: 383;
+	Law #22, Criterion: 461;
+	Law #26, Criterion: 97;
+	Law #28, Criterion: 1777;
+	Law #29, Criterion: 569;
+	Law #33, Criterion: 1933;
+	Law #35, Criterion: 1549;
+	Law #36, Criterion: 1699;
+	Law #37, Criterion: 11;
+	Law #38, Criterion: 1327;
+	Law #40, Criterion: 19;
+	Law #41, Criterion: 929;
+	Law #45, Criterion: 1471;
+	Law #46, Criterion: 1951;
+	Law #48, Criterion: 1193;
+	Law #49, Criterion: 1151;
+	Law #51, Criterion: 691;
+	Law #52, Criterion: 1559;
+	Law #54, Criterion: 109;
+	Law #55, Criterion: 647;
+	Law #57, Criterion: 23;
+	Law #62, Criterion: 467;
+	Law #63, Criterion: 613;
+	Law #66, Criterion: 1559;
+Party #1
+Members:
+	Person#98
+	Person#50
+	Person#57
+	Person#21
+	Person#45
+	Person#26
+	Person#15
+	Person#13
+	Person#59
+	Person#56
+Vote for:
+	Law #1, Criterion: 827;
+	Law #5, Criterion: 1571;
+	Law #6, Criterion: 97;
+	Law #8, Criterion: 353;
+	Law #9, Criterion: 1861;
+	Law #10, Criterion: 1093;
+	Law #12, Criterion: 599;
+	Law #15, Criterion: 433;
+	Law #18, Criterion: 1579;
+	Law #19, Criterion: 1867;
+	Law #21, Criterion: 37;
+	Law #30, Criterion: 1163;
+	Law #32, Criterion: 251;
+	Law #33, Criterion: 43;
+	Law #34, Criterion: 1019;
+	Law #35, Criterion: 1669;
+	Law #37, Criterion: 1987;
+	Law #41, Criterion: 263;
+	Law #43, Criterion: 1103;
+	Law #44, Criterion: 379;
+	Law #45, Criterion: 97;
+	Law #46, Criterion: 379;
+	Law #47, Criterion: 1109;
+	Law #48, Criterion: 293;
+	Law #50, Criterion: 2;
+	Law #54, Criterion: 523;
+	Law #55, Criterion: 2;
+	Law #57, Criterion: 641;
+	Law #59, Criterion: 131;
+	Law #60, Criterion: 683;
+	Law #61, Criterion: 1867;
+	Law #62, Criterion: 1489;
+	Law #63, Crite

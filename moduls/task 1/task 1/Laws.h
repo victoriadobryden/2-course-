@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -15,9 +16,9 @@ private:
 public:
 	Laws();
 	void fill_laws();
-	void fill_vote_for_and_against(vector<int> &vote_for, vector<int> &vote_against, vector<int> &criterion);
+	void fill_vote_for_and_against(vector<int> &vote_for, vector<int> &criterion);
 	int get_n();
-	void output();
+	void output(ofstream &fout);
 	~Laws();
 };
 

@@ -40,10 +40,11 @@ void All_parties::add(Party temp)
 	parties.push_back(temp);
 }
 
-void All_parties::output()
+void All_parties::output(ofstream &fout)
 {
+	fout << "--------------------------------PARTIES--------------------------------\n";
 	for (size_t i = 0; i < parties.size(); ++i)
-		parties[i].output();
+		parties[i].output(fout);
 }
 
 

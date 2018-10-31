@@ -1,11 +1,14 @@
 #pragma once
 #include "Laws.h"
+#include <iostream>
+#include <fstream>
+
+using namespace std;
 
 class Person
 {
 protected:
 	vector<int> vote_for;
-	vector<int> vote_against;
 	vector<int> criterion;
 
 	int own_value;
@@ -21,7 +24,7 @@ public:
 	int get_strategy_of_voting();
 	int get_own_value();
 	vector<int> get_vote_for();
-	void output();
+	void output(ofstream &fout);
 	~Person();
 };
 

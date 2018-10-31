@@ -15,10 +15,15 @@ Crowd::Crowd(int n, Laws &law)
 	}
 }
 
-void Crowd::output()
+void Crowd::output(ofstream &fout)
 {
-	for (int i = 0; i < people.size(); ++i)
-		cout << "\tPerson #" << people[i].get_own_value() << '\n';
+
+	fout << "--------------------------------PEOPLE--------------------------------\n";
+	for (int i = 0; i < people.size(); ++i) 
+	{
+		fout << "Person #" << people[i].get_own_value() << '\n';
+		people[i].output(fout);
+	}
 }
 
 Crowd Crowd::who_want_to_be_in_party()

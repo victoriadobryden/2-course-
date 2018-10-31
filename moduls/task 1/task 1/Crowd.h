@@ -1,6 +1,10 @@
 #pragma once
 #include "Person.h"
 #include "Laws.h"
+#include <iostream>
+#include <fstream>
+
+using namespace std;
 
 class Crowd
 {
@@ -8,7 +12,7 @@ class Crowd
 public:
 	Crowd();
 	Crowd(int n, Laws &law);
-	void output();
+	void output(ofstream &fout);
 	Crowd who_want_to_be_in_party();
 	void add(Person p);
 	int msize();

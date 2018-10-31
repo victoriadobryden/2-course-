@@ -7,14 +7,13 @@ Person::Person()
 	own_value = -1;
 	mood = strategy_of_voting = want_to_be_in_party = number_of_party = 0;
 	vote_for.clear();
-	vote_against.clear();
 	criterion.clear();
 }
 
 Person::Person(Laws law,int x)
 {
 	own_value = x;
-	law.fill_vote_for_and_against(vote_for,vote_against,criterion);
+	law.fill_vote_for_and_against(vote_for,criterion);
 	mood = 0;
 	int index = rand() % primes.size();
 	strategy_of_voting = rand() % primes[index] % 3;
@@ -43,16 +42,13 @@ vector<int> Person::get_vote_for()
 	return vote_for;
 }
 
-void Person::output()
+void Person::output(ofstream &fout)
 {
-	cout << '#' << own_value << ' ' << mood << ' ' << (bool)want_to_be_in_party << ' ' << strategy_of_voting << '\n';
-	cout << "Laws for:\n";
+	fout << "Wants to be in party: " << want_to_be_in_party << '\n';
+	fout << "Strategy of voting: " << (strategy_of_voting == 2 ? "random" : (strategy_of_voting == 1 ? "own_voting" : "party_voting")) << '\n';
+	fout << "Votes for:\n";
 	for (size_t i = 0; i < vote_for.size(); ++i)
-		cout << "\tLaw #" << vote_for[i] << " " << criterion[vote_for[i]] << ";\n";
-
-	cout << "Laws against:\n";
-	for (size_t i = 0; i < vote_against.size(); ++i)
-		cout << "\tLaw #" << vote_against[i] << " " << criterion[vote_against[i]] << ";\n";
+		fout << "\tLaw #" << vote_for[i] << " Criterion: " <<  criterion[vote_for[i]] << ";\n";
 }
 
 

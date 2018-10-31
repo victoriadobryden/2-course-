@@ -11,7 +11,7 @@ Laws::Laws()
 void Laws::fill_laws()
 {
 	resheto();
-	int number = 13;
+	int number = 67;
 	for (int i = 0; i < number; ++i)
 	{
 		time_need_to_adopt.push_back(rand() % 37 + i % 53 + 2);
@@ -19,10 +19,9 @@ void Laws::fill_laws()
 	}
 }
 
-void Laws::fill_vote_for_and_against(vector<int> &vote_for, vector<int> &vote_against, vector<int> &criterion)
+void Laws::fill_vote_for_and_against(vector<int> &vote_for, vector<int> &criterion)
 {
 	vote_for.clear();
-	vote_against.clear();
 	criterion.clear();
 	for (size_t i = 0; i < laws.size(); ++i)
 	{
@@ -30,8 +29,6 @@ void Laws::fill_vote_for_and_against(vector<int> &vote_for, vector<int> &vote_ag
 		int temp = laws[i] % criterion[i];
 		if (temp % 2 == rand() % 2)
 			vote_for.push_back((int)i);
-		else
-			vote_against.push_back((int)i);
 	}
 }
 
@@ -40,12 +37,13 @@ int Laws::get_n()
 	return laws.size();
 }
 
-void Laws::output()
+void Laws::output(ofstream &fout)
 {
+	fout << "----------------------------------LAWS----------------------------------\n";
 	for (size_t i = 0; i < laws.size(); ++i)
 	{
-		cout << "Law #" << i << ": ";
-		cout << laws[i] << ", " << time_need_to_adopt[i] << ";\n";
+		fout << "Law #" << i << ": ";
+		fout << laws[i] << ", complexity: " << time_need_to_adopt[i] << ";\n";
 	}
 }
 

@@ -132,6 +132,7 @@
     <ClInclude Include="Party.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Prime_numbers.h" />
+    <ClInclude Include="Work_of_democracy_system.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

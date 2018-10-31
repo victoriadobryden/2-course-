@@ -7,7 +7,7 @@ Parlament::Parlament(int n, Laws law)
 	for (int i = 0; i < law.get_n(); ++i)
 		if (rand() % primes[rand() % primes.size()] % 3 == 1)
 			adopted.push_back(i);
-
+	period = 400;
 	number_of_members = (int) cbrt(n)*cbrt(n);
 	part_of_votes = 3;
 	how_to_choose_law = rand() % primes[rand() % primes.size()] % 3;
@@ -114,6 +114,11 @@ bool Parlament::adopt_law(int cur_law)
 		return true;
 	}
 	return false;
+}
+
+int Parlament::get_period()
+{
+	return period;
 }
 
 void Parlament::output()
