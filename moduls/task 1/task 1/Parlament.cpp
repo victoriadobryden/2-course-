@@ -2,8 +2,12 @@
 
 
 
-Parlament::Parlament(int n)
+Parlament::Parlament(int n, Laws law)
 {
+	for (int i = 0; i < law.get_n(); ++i)
+		if (rand() % primes[rand() % primes.size()] % 3 == 1)
+			adopted.push_back(i);
+
 	number_of_members = (int) cbrt(n)*cbrt(n);
 	part_of_votes = 3;
 	how_to_choose_law = rand() % primes[rand() % primes.size()] % 3;
@@ -14,6 +18,7 @@ void Parlament::election_to_Parlament(All_parties & all_parties, Crowd & people)
 	vector<pair<int, int> > number_of_votes;
 	for (int i = 0; i < all_parties.msize(); ++i)
 		number_of_votes.push_back({ 0,all_parties.get_party_in_arr(i).get_own_value() });
+
 	for (int i = 0; i < people.msize(); ++i)
 	{
 		Person temp_person = people.get_person_in_arr(i);
@@ -31,33 +36,84 @@ void Parlament::election_to_Parlament(All_parties & all_parties, Crowd & people)
 		++number_of_votes[max_index].first;
 	}
 	sort(number_of_votes.begin(), number_of_votes.end());
+	vector<int> count_members;
+	for (int i = 0; i < all_parties.msize(); ++i) {
+		count_members.push_back(number_of_votes[i].first*number_of_members / people.msize());
+		cout << count_members[i] << '\n';
+	}
 	int counter = 0;
-	int index = number_of_votes[number_of_votes.size() - 1].second;
-
-
-
-	int winer_number = min(all_parties.get_party_number_N(index).get_number_of_members(), number_of_members / part_of_votes);
-	int winer_votes = number_of_votes[number_of_votes.size() - 1].first;
-	main_party = all_parties.get_party_number_N(index);
-	for (int i = number_of_votes.size() - 1; i >= 0 && counter < number_of_members; --i)
+	bool flag = false;
+	for (int i = count_members.size()-1;i >= 0; --i)
 	{
-		cout << number_of_votes[i].first << ' ' << number_of_votes[i].second << '\n';
-		index = number_of_votes[i].second;
-		int temp_number = all_parties.get_party_number_N(index).get_number_of_members();
-		int temp_votes = number_of_votes[i].first;
-		int will_add = min(temp_votes*winer_number / winer_votes, number_of_members / 2);
-		if (counter + will_add > number_of_members)
-			will_add = counter - number_of_members;
-		//if (will_add == 0)
-			
-		parties.add(all_parties.get_party_number_N(index));
-		number_of_members_for_each_party.push_back({ index, will_add });
-		counter += will_add;
+		int k = i - 1;
+		while (count_members[i] > number_of_members / part_of_votes && k >= 0)
+		{
+			++count_members[k];
+			--count_members[i];
+			--k;
+			if (k == -1)
+				k = i - 1;
+		}
+		if (counter + count_members[i] > number_of_members)
+		{
+			count_members[i] = number_of_members - counter;
+			flag = true;
+		}
+		parties.add(all_parties.get_party_number_N(number_of_votes[i].second));
+		number_of_members_for_each_party.push_back({ number_of_votes[i].second,count_members[i] });
+		counter += count_members[i];
+		if (flag)
+			break;
 	}
 	if (counter < number_of_members)
 	{
-		//while (counter)
+		int i = 0;
+		while (counter < number_of_members)
+		{
+			++number_of_members_for_each_party[i].second;
+			++i;
+			++counter;
+		}
 	}
+	main_party = parties.get_party_in_arr(0);
+}
+
+bool Parlament::adopt_law(int cur_law)
+{
+	int cur_vote_for = 0;
+	for (int k = 0; k < parties.msize(); ++k)
+	{
+		Party cur_party = parties.get_party_in_arr(k);
+		Crowd people = cur_party.get_members();
+		for (int i = 0; i < number_of_members_for_each_party[k].second; ++i)
+		{
+			if (people.get_person_in_arr(i).get_strategy_of_voting() == 2)
+			{
+				if (rand() % primes[rand() % primes.size()] % 2 == rand() % primes[rand() % primes.size()] % 2)
+					++cur_vote_for;
+			}
+			else 
+			{
+				vector<int> temp;
+				if (people.get_person_in_arr(i).get_strategy_of_voting() == 0)
+					temp = people.get_person_in_arr(i).get_vote_for();
+				else 
+					temp = cur_party.get_vote_for();
+				for (int j = 0; j < temp.size(); ++j)
+					if (temp[j] == cur_law)
+					{
+						++cur_vote_for;
+						break;
+					}
+			}
+		}
+	}
+	if (cur_vote_for >= part_of_votes)
+	{
+		adopted.push_back(cur_law);
+		return true;
+	}
+	return false;
 }
 
 void Parlament::output()
@@ -70,6 +126,11 @@ void Parlament::output()
 	}
 	cout << "Main party:\n";
 	cout << "\tParty #" << main_party.get_own_value() << '\n';
+	cout << "Adopted laws:\n";
+	for (int i = 0; i < adopted.size(); ++i)
+		cout << adopted[i] << ", ";
+	cout << '\n';
+
 }
 
 

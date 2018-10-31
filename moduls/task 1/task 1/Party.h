@@ -25,6 +25,7 @@ public:
 	int get_own_value();
 	int get_number_of_members();
 	vector<int> get_vote_for();
+	Crowd get_members();
 	void output();
 	~Party();
 };

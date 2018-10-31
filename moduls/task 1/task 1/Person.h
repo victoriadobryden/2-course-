@@ -18,6 +18,7 @@ public:
 	Person();
 	Person(Laws law, int x);
 	bool get_want_to_be();
+	int get_strategy_of_voting();
 	int get_own_value();
 	vector<int> get_vote_for();
 	void output();

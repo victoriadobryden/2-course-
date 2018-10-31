@@ -35,6 +35,11 @@ void Laws::fill_vote_for_and_against(vector<int> &vote_for, vector<int> &vote_ag
 	}
 }
 
+int Laws::get_n()
+{
+	return laws.size();
+}
+
 void Laws::output()
 {
 	for (size_t i = 0; i < laws.size(); ++i)

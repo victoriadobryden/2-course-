@@ -37,6 +37,11 @@ vector<int> Party::get_vote_for()
 	return vote_for;
 }
 
+Crowd Party::get_members()
+{
+	return members;
+}
+
 Party::Party()
 {
 	own_value = -1;

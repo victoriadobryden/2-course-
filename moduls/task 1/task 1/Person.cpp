@@ -28,6 +28,11 @@ bool Person::get_want_to_be()
 	return want_to_be_in_party;
 }
 
+int Person::get_strategy_of_voting()
+{
+	return strategy_of_voting;
+}
+
 int Person::get_own_value()
 {
 	return own_value;

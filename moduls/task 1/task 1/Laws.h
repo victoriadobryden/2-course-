@@ -16,6 +16,7 @@ public:
 	Laws();
 	void fill_laws();
 	void fill_vote_for_and_against(vector<int> &vote_for, vector<int> &vote_against, vector<int> &criterion);
+	int get_n();
 	void output();
 	~Laws();
 };
