@@ -165,65 +165,7 @@ int dfs_to_delete(shared_ptr<T> &cur, int counter)
 		counter = counter / 2 - cur.get()->get_n();
 	return counter;
 }
-/* it have to be for prediction
-//struct Thelp {
-//	int color, from, path;
-//};
-//
-//int global__counter = 0;
-//
-//int predict_s(Thelp mas[4], bool used[4][3], int k, int &counter)
-//{
-//
-//	for (int i = 0; i < 3; ++i)
-//		if (used[k][i])
-//		{
-//					
-//		}
-//}
-//
-////
-//void count_res_of_rec(Thelp mas[4], bool used[4][3], int n)
-//{
-//	++global__counter;
-//
-//	int counter = 0;
-//	counter = predict_s(mas, used, n, counter);	
-//	//cout << "----------------------------\n";
-//	//for (int i = 0; i < n; ++i)
-//	//	cout << mas[i].color << ' ' << mas[i].from << ' ' << mas[i].path << '\n'; 
-//}
-//
-//void counter_rec(Thelp mas[4], bool used[4][3], int n,int cur)
-//{
-//	if (cur == n) {
-//		count_res_of_rec(mas, used, n);
-//		return;
-//	}
-//	for (int i = 1; i <= 4; ++i) 
-//	{
-//		mas[cur].color = i;
-//		mas[cur].from = mas[cur].path = 0;
-//		if (cur > 0 && mas[cur-1].from == 0 || cur == 0)
-//			counter_rec(mas, used, n, cur + 1);	
-//		for (int j = cur-1; j >= 0; --j)
-//		{	
-//			for (int k = 2; k >= 0; --k)
-//			{
-//				if (!used[j][k]) 
-//				{
-//					used[j][k] = true;
-//					mas[cur].path = k + 1;
-//					mas[cur].from = j + 1;
-//					counter_rec(mas, used, n, cur + 1);
-//					used[j][k] = false;
-//				}
-//				else break;
-//			}
-//		}
-//	}
-//}
-*/
+
 void checker()
 {
 	int inp, n = 1;
@@ -381,21 +323,6 @@ void checker()
 			}
 			cout << "Future count of S = " << counter << '\n';
 		}
-	/*	else if (inp == 6)
-		{
-			cout << "Input the number of elements\n";
-			do {
-				cout << "Value have to be from 1 to 4\n";
-				cin >> inp;
-			} while (inp > 5 || inp < 0);
-			Thelp mas[4];
-			bool used[4][3];
-			for (int i = 0; i < 4; ++i)
-				for (int j = 0; j < 3; ++j)
-					used[i][j] = 0;
-			counter_rec(mas, used, inp, 0);
-			cout << global__counter << '\n';
-		}*/
 	}
 
 	for (size_t i = 0; i < temp_base1.size(); ++i)
