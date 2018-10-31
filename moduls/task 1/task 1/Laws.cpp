@@ -11,7 +11,7 @@ Laws::Laws()
 void Laws::fill_laws()
 {
 	resheto();
-	int number = 67;
+	int number = 177;
 	for (int i = 0; i < number; ++i)
 	{
 		time_need_to_adopt.push_back(rand() % 37 + i % 53 + 2);
@@ -35,6 +35,11 @@ void Laws::fill_vote_for_and_against(vector<int> &vote_for, vector<int> &criteri
 int Laws::get_n()
 {
 	return laws.size();
+}
+
+int Laws::get_time(int index)
+{
+	return time_need_to_adopt[index];
 }
 
 void Laws::output(ofstream &fout)

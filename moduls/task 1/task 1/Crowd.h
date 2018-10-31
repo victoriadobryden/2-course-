@@ -21,6 +21,7 @@ public:
 	Person get_person_number_N(int index);
 	int get_own_value(int index);
 	void del(int index);
+	vector<pair<int,int> > mood(vector<int> cur_laws, Laws law);
 	~Crowd();
 };
 

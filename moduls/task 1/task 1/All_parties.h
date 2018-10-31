@@ -19,6 +19,7 @@ public:
 	Party get_party_number_N(int index);
 	void add(Party temp);
 	void output(ofstream &fout);
+	void clear();
 	~All_parties();
 };
 

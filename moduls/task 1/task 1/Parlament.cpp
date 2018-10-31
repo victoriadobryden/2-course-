@@ -7,7 +7,7 @@ Parlament::Parlament(int n, Laws law)
 	for (int i = 0; i < law.get_n(); ++i)
 		if (rand() % primes[rand() % primes.size()] % 3 == 1)
 			adopted.push_back(i);
-	period = 400;
+	period = 200;
 	number_of_members = (int) cbrt(n)*cbrt(n);
 	part_of_votes = 3;
 	how_to_choose_law = rand() % primes[rand() % primes.size()] % 3;
@@ -37,12 +37,12 @@ void Parlament::election_to_Parlament(All_parties & all_parties, Crowd & people)
 	}
 	sort(number_of_votes.begin(), number_of_votes.end());
 	vector<int> count_members;
-	for (int i = 0; i < all_parties.msize(); ++i) {
+	for (int i = 0; i < all_parties.msize(); ++i) 
 		count_members.push_back(number_of_votes[i].first*number_of_members / people.msize());
-		cout << count_members[i] << '\n';
-	}
 	int counter = 0;
 	bool flag = false;
+	parties.clear();
+	number_of_members_for_each_party.clear();	
 	for (int i = count_members.size()-1;i >= 0; --i)
 	{
 		int k = i - 1;
@@ -70,15 +70,27 @@ void Parlament::election_to_Parlament(All_parties & all_parties, Crowd & people)
 		int i = 0;
 		while (counter < number_of_members)
 		{
-			++number_of_members_for_each_party[i].second;
+			if (number_of_members_for_each_party[i].second == number_of_members / part_of_votes) 
+			{
+				if (i < number_of_members%part_of_votes)
+				{
+					++number_of_members_for_each_party[i].second;
+					++counter;
+				}
+			}
+			else
+			{
+				++number_of_members_for_each_party[i].second;
+				++counter;
+			}
 			++i;
-			++counter;
 		}
 	}
 	main_party = parties.get_party_in_arr(0);
+	sort(adopted.begin(), adopted.end());
 }
 
-bool Parlament::adopt_law(int cur_law)
+bool Parlament::adopt_law(int cur_law, bool what_do)
 {
 	int cur_vote_for = 0;
 	for (int k = 0; k < parties.msize(); ++k)
@@ -108,17 +120,54 @@ bool Parlament::adopt_law(int cur_law)
 			}
 		}
 	}
-	if (cur_vote_for >= part_of_votes)
+	if (cur_vote_for >= part_of_votes && !what_do)
 	{
 		adopted.push_back(cur_law);
+		sort(adopted.begin(), adopted.end());
 		return true;
 	}
-	return false;
+	else if (number_of_members - cur_vote_for >= part_of_votes && what_do)
+	{
+		int x = 0;
+		for (int i = 0; i < adopted.size() - 1; ++i)
+		{
+			if (adopted[i] == cur_law)
+				++x;
+			adopted[i] = adopted[i + x];
+		}
+		if (adopted.size() > 0)
+			adopted.pop_back();
+		if (adopted.size() > 0)
+			sort(adopted.begin(), adopted.end());
+		return true;
+	}
+	else
+		return false;
 }
 
 int Parlament::get_period()
 {
 	return period;
+}
+
+int Parlament::get_how_to_choose_law()
+{
+	return how_to_choose_law;
+}
+
+Party Parlament::get_main_party()
+{
+	return main_party;
+}
+
+vector<int> Parlament::get_adopted()
+{
+	return adopted;
+}
+
+All_parties Parlament::get_parties()
+{
+	return parties;
 }
 
 void Parlament::output()

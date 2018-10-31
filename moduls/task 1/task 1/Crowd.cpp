@@ -81,6 +81,29 @@ void Crowd::del(int index)
 		}
 }
 
+vector<pair<int,int> > Crowd::mood(vector<int> cur_laws, Laws law)
+{
+	vector<pair<int,int> > ans;
+	for (int i = 0; i < people.size(); ++i)
+	{
+		int counter = 0;
+		vector<int> temp = people[i].get_vote_for();
+		for (int j = 0; j < temp.size(); ++j)
+		{
+			for (int k = 0; k < cur_laws.size(); ++k)
+			{
+				if (cur_laws[k] == temp[j]) {
+					++counter;
+					break;
+				}
+			}
+		}
+		int res = (2 * counter - temp.size() + 2 * (law.get_n() - temp.size() - (cur_laws.size() - counter)) - (law.get_n() - temp.size()));
+		ans.push_back({ res,people[i].get_own_value() });
+	}
+	return ans;
+}
+
 
 Crowd::~Crowd()
 {

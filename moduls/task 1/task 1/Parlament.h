@@ -11,9 +11,8 @@ protected:
 	vector<pair<int,int> > number_of_members_for_each_party;
 	Party main_party;
 
-	vector<int> need_to_adopt;
+	vector<pair<int, int> > need_to_adopt;
 	vector<int> adopted;
-	vector<int> regulate_work_of_parlament;
 	vector<int> need_to_change;
 
 	int period;
@@ -25,8 +24,12 @@ protected:
 public:
 	Parlament(int n, Laws law);
 	void election_to_Parlament(All_parties &all_parties, Crowd &people);
-	bool adopt_law(int cur_law);
+	bool adopt_law(int cur_law, bool what_do);
 	int get_period();
+	int get_how_to_choose_law();
+	Party get_main_party();
+	vector<int> get_adopted();
+	All_parties get_parties();
 	void output();
 	~Parlament();
 };

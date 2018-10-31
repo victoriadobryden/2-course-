@@ -47,6 +47,11 @@ void All_parties::output(ofstream &fout)
 		parties[i].output(fout);
 }
 
+void All_parties::clear()
+{
+	parties.clear();
+}
+
 
 All_parties::~All_parties()
 {
