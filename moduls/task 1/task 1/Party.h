@@ -22,6 +22,9 @@ public:
 	Party(Laws law,int x);
 	void add_the_most(Crowd &people, int n);
 	int compare(vector<int> a, vector<int> b);
+	int get_own_value();
+	int get_number_of_members();
+	vector<int> get_vote_for();
 	void output();
 	~Party();
 };

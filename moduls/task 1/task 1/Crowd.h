@@ -13,7 +13,8 @@ public:
 	void add(Person p);
 	int msize();
 	vector<int> elem_vote_for(int index);
-	Person get_person(int index);
+	Person get_person_in_arr(int index);
+	Person get_person_number_N(int index);
 	int get_own_value(int index);
 	void del(int index);
 	~Crowd();

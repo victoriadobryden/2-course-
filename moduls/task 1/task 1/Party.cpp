@@ -22,6 +22,21 @@ int Party::compare(vector<int> a, vector<int> b)
 	return counter;
 }
 
+int Party::get_own_value()
+{
+	return own_value;
+}
+
+int Party::get_number_of_members()
+{
+	return members.msize();
+}
+
+vector<int> Party::get_vote_for()
+{
+	return vote_for;
+}
+
 Party::Party()
 {
 	own_value = -1;
@@ -47,7 +62,7 @@ void Party::add_the_most(Crowd &people, int n)
 	}
 	sort(most_usefull.begin(), most_usefull.end());
 	for (int i = most_usefull.size() - 1; i >= max((int)0, (int)most_usefull.size() - n); --i) {
-		members.add(people.get_person(most_usefull[i].second));
+		members.add(people.get_person_number_N(most_usefull[i].second));
 		people.del(most_usefull[i].second);
 	}
 	

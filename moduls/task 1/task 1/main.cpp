@@ -22,6 +22,9 @@ int main()
 	cout << will_be_in_party.msize() << '\n';
 	All_parties parties((int)cbrt(ALL_NUM), law, will_be_in_party, ALL_NUM);
 	parties.output();
+	Parlament parlament(ALL_NUM);
+	parlament.election_to_Parlament(parties, people);
+	parlament.output();
 
-	system("pause");
+	return 0;
 }

@@ -21,6 +21,25 @@ int All_parties::msize()
 	return parties.size();
 }
 
+Party All_parties::get_party_in_arr(int index)
+{
+	return parties[index];
+}
+
+Party All_parties::get_party_number_N(int index)
+{
+	for (int i = 0; i < parties.size(); ++i)
+		if (parties[i].get_own_value() == index)
+			return parties[i];
+	Party temp;
+	return temp;
+}
+
+void All_parties::add(Party temp)
+{
+	parties.push_back(temp);
+}
+
 void All_parties::output()
 {
 	for (size_t i = 0; i < parties.size(); ++i)

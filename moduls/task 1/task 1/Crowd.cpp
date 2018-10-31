@@ -45,7 +45,12 @@ vector<int> Crowd::elem_vote_for(int index)
 	return people[index].get_vote_for();
 }
 
-Person Crowd::get_person(int index)
+Person Crowd::get_person_in_arr(int index)
+{
+	return people[index];
+}
+
+Person Crowd::get_person_number_N(int index)
 {
 	for (int i = 0; i < people.size(); ++i)
 		if (people[i].get_own_value() == index)
