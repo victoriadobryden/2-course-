@@ -115,7 +115,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Laws.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Parlament.cpp" />
+    <ClCompile Include="Party.cpp" />
+    <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Prime_numbers.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Laws.h" />
+    <ClInclude Include="Parlament.h" />
+    <ClInclude Include="Party.h" />
+    <ClInclude Include="Person.h" />
+    <ClInclude Include="Prime_numbers.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
