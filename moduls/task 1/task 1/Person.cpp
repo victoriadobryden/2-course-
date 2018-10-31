@@ -2,18 +2,31 @@
 
 
 
-Person::Person(Laws law)
+Person::Person(Laws law,int x)
 {
+	own_value = x;
 	law.fill_vote_for_and_against(vote_for,vote_against,criterion);
 	mood = 0;
-	strategy_of_voting = rand() % 3;
 	int index = rand() % primes.size();
+	strategy_of_voting = rand() % primes[index] % 3;
+	index = rand() % primes.size();
 	want_to_be_in_party = rand() % primes[index] % 2;
+	number_of_party = -1;
+}
+
+bool Person::get_want_to_be()
+{
+	return want_to_be_in_party;
+}
+
+int Person::get_own_value()
+{
+	return own_value;
 }
 
 void Person::output()
 {
-	cout << ' ' << mood << ' ' << (bool)want_to_be_in_party << ' ' << strategy_of_voting << '\n';
+	cout << '#' << own_value << ' ' << mood << ' ' << (bool)want_to_be_in_party << ' ' << strategy_of_voting << '\n';
 	cout << "Laws for:\n";
 	for (size_t i = 0; i < vote_for.size(); ++i)
 		cout << "\tLaw #" << vote_for[i] << " " << criterion[vote_for[i]] << ";\n";

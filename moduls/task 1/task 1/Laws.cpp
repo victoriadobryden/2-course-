@@ -11,7 +11,7 @@ Laws::Laws()
 void Laws::fill_laws()
 {
 	resheto();
-	int number = rand() % 13 + 5;
+	int number = 31;
 	for (int i = 0; i < number; ++i)
 	{
 		time_need_to_adopt.push_back(rand() % 37 + i % 53 + 2);
@@ -26,7 +26,7 @@ void Laws::fill_vote_for_and_against(vector<int> &vote_for, vector<int> &vote_ag
 	criterion.clear();
 	for (size_t i = 0; i < laws.size(); ++i)
 	{
-		criterion.push_back(primes[(rand() + primes.size()) % primes.size()]);
+		criterion.push_back(primes[rand() % primes.size()]);
 		int temp = laws[i] % criterion[i];
 		if (temp % 2 == rand() % 2)
 			vote_for.push_back((int)i);
