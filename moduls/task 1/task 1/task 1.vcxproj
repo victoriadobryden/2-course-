@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="All_parties.cpp" />
     <ClCompile Include="Crowd.cpp" />
     <ClCompile Include="Laws.cpp" />
     <ClCompile Include="main.cpp" />
@@ -124,6 +125,7 @@
     <ClCompile Include="Prime_numbers.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="All_parties.h" />
     <ClInclude Include="Crowd.h" />
     <ClInclude Include="Laws.h" />
     <ClInclude Include="Parlament.h" />

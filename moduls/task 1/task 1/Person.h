@@ -15,9 +15,11 @@ protected:
 	int number_of_party;
 	
 public:
+	Person();
 	Person(Laws law, int x);
 	bool get_want_to_be();
 	int get_own_value();
+	vector<int> get_vote_for();
 	void output();
 	~Person();
 };

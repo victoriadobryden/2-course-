@@ -11,7 +11,7 @@ Laws::Laws()
 void Laws::fill_laws()
 {
 	resheto();
-	int number = 31;
+	int number = 13;
 	for (int i = 0; i < number; ++i)
 	{
 		time_need_to_adopt.push_back(rand() % 37 + i % 53 + 2);

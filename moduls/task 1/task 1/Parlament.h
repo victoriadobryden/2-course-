@@ -1,11 +1,13 @@
 #pragma once
 #include "Party.h"
+#include "All_parties.h"
+#include "Crowd.h"
 #include "Laws.h"
 
 class Parlament 
 {
 protected:
-	vector<Party> parties;
+	All_parties parties;
 	Party main_party;
 	vector<int> need_to_adopt;
 	vector<int> adopted;
@@ -17,6 +19,7 @@ protected:
 
 public:
 	Parlament();
+	void election_to_Parlament(All_parties &all_parties, Crowd &people);
 	~Parlament();
 };
 

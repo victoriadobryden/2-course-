@@ -2,6 +2,15 @@
 
 
 
+Person::Person()
+{
+	own_value = -1;
+	mood = strategy_of_voting = want_to_be_in_party = number_of_party = 0;
+	vote_for.clear();
+	vote_against.clear();
+	criterion.clear();
+}
+
 Person::Person(Laws law,int x)
 {
 	own_value = x;
@@ -22,6 +31,11 @@ bool Person::get_want_to_be()
 int Person::get_own_value()
 {
 	return own_value;
+}
+
+vector<int> Person::get_vote_for()
+{
+	return vote_for;
 }
 
 void Person::output()
