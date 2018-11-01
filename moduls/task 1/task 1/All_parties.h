@@ -20,6 +20,7 @@ public:
 	void add(Party temp);
 	void output(ofstream &fout);
 	void clear();
+	void give_value(int x,Party &party);
 	~All_parties();
 };
 

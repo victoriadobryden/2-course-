@@ -11,9 +11,28 @@
 #include <time.h>;
 using namespace std;
 
-void change_mind_of_people(Crowd &people, All_parties &parties)
+void change_mind_of_people(Crowd &people, All_parties &parties, Laws &law)
 {
-	
+	for (int i = 0; i < people.msize(); ++i)
+	{
+		if (rand() % primes[rand() % primes.size()] % 10 < 3)
+		{
+			Person temp(law,people.get_person_in_arr(i).get_own_value());
+			people.give_value(i, temp);
+		}
+	}
+
+	Crowd want_to_vote = people.who_want_to_be_in_party();
+
+	for (int i = 0; i < parties.msize(); ++i)
+	{
+		if (rand() % primes[rand() % primes.size()] % 100 < 20)
+		{
+			Party temp(law, parties.get_party_in_arr(i).get_own_value());
+			temp.add_the_most(want_to_vote, (int)sqrt(people.msize()));
+			parties.give_value(i, temp);
+		}
+	}
 }
 
 void work()
@@ -21,7 +40,7 @@ void work()
 	srand(time(NULL));
 	Laws law;
 	law.fill_laws();
-	int ALL_NUM = 500;
+	int ALL_NUM = 200;
 	Crowd people(ALL_NUM, law);
 	Crowd will_be_in_party = people.who_want_to_be_in_party();
 	cout << "Current values are in file \"All_current_data.txt\"\n";
@@ -31,10 +50,10 @@ void work()
 	All_parties parties((int)cbrt(ALL_NUM), law, will_be_in_party, ALL_NUM);
 	parties.output(fout);
 	Parlament parlament(ALL_NUM, law);
-	int start_time = 0, end_time = 1000;
+	int start_time = 0, end_time = 2000;
 	cout << "There are " << ALL_NUM << " people.\n";
 	cout << "There are " << law.get_n() << " laws.\n";
-	cout << "There are " << parties.msize() << " laws.\n";
+	cout << "There are " << parties.msize() << " parties.\n";
 
 	vector<pair<int, int>> mood = people.mood(parlament.get_adopted(),law);
 	cout << "----------------------Over all mood of people----------------------\n";
@@ -49,11 +68,11 @@ void work()
 		parlament.output();
 		int time_left = parlament.get_period();
 		vector<int> adopted_laws = parlament.get_adopted();
-		int how_vote = parlament.get_how_to_choose_law();
 		vector<int> main_party_vote_for = parlament.get_main_party().get_vote_for();
 		All_parties cur_parl = parlament.get_parties();
 		while (time_left > 0)
 		{
+			int how_vote = rand() % 3;
 			adopted_laws = parlament.get_adopted();
 			if (how_vote == 0)
 			{
@@ -168,6 +187,7 @@ void work()
 				//bool need_reg_law = true;
 				if (need_to_adopt == -1)
 					break;
+				//cout << "qweqwewe\fqwefweq";
 				cout << "Party #" << parlament.get_main_party().get_own_value() << " offered to cancel the law #" << need_to_adopt << '\n';
 
 				if (parlament.adopt_law(need_to_adopt, 1))
@@ -178,7 +198,7 @@ void work()
 			}
 		}
 		start_time += parlament.get_period();
-		//change_mind_of_people(people, parties);
+		change_mind_of_people(people, parties, law);
 	}
 	mood = people.mood(parlament.get_adopted(),law);
 	cout << "---------------------Over all mood of people-------------------\n";

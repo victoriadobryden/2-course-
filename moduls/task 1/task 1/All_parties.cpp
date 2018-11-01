@@ -52,6 +52,11 @@ void All_parties::clear()
 	parties.clear();
 }
 
+void All_parties::give_value(int x, Party & party)
+{
+	parties[x] = party;
+}
+
 
 All_parties::~All_parties()
 {

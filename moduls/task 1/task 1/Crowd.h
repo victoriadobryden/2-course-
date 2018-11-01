@@ -22,6 +22,7 @@ public:
 	int get_own_value(int index);
 	void del(int index);
 	vector<pair<int,int> > mood(vector<int> cur_laws, Laws law);
+	void give_value(int x, Person &person);
 	~Crowd();
 };
 

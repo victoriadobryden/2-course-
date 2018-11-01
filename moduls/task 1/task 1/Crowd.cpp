@@ -104,6 +104,11 @@ vector<pair<int,int> > Crowd::mood(vector<int> cur_laws, Laws law)
 	return ans;
 }
 
+void Crowd::give_value(int x, Person & person)
+{
+	people[x] = person;
+}
+
 
 Crowd::~Crowd()
 {
