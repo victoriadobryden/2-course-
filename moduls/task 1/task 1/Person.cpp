@@ -5,7 +5,7 @@
 Person::Person()
 {
 	own_value = -1;
-	mood = strategy_of_voting = want_to_be_in_party = number_of_party = 0;
+	strategy_of_voting = want_to_be_in_party = number_of_party = 0;
 	vote_for.clear();
 	criterion.clear();
 }
@@ -14,7 +14,6 @@ Person::Person(Laws law,int x)
 {
 	own_value = x;
 	law.fill_vote_for_and_against(vote_for,criterion);
-	mood = 0;
 	int index = rand() % primes.size();
 	strategy_of_voting = rand() % primes[index] % 3;
 	index = rand() % primes.size();
@@ -35,6 +34,14 @@ int Person::get_strategy_of_voting()
 int Person::get_own_value()
 {
 	return own_value;
+}
+
+int Person::get_sum_criterion()
+{
+	int ans = 0;
+	for (int i = 0; i < (int)criterion.size(); ++i)
+		ans += criterion[i];
+	return ans;
 }
 
 vector<int> Person::get_vote_for()

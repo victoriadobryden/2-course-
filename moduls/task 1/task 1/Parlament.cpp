@@ -8,7 +8,7 @@ Parlament::Parlament(int n, Laws law)
 		if (rand() % primes[rand() % primes.size()] % 3 == 1)
 			adopted.push_back(i);
 	period = 200;
-	number_of_members = (int) cbrt(n)*cbrt(n);
+	number_of_members = (int) (cbrt(n)*cbrt(n));
 	part_of_votes = 3;
 	how_to_choose_law = rand() % primes[rand() % primes.size()] % 3;
 }
@@ -43,7 +43,7 @@ void Parlament::election_to_Parlament(All_parties & all_parties, Crowd & people)
 	bool flag = false;
 	parties.clear();
 	number_of_members_for_each_party.clear();	
-	for (int i = count_members.size()-1;i >= 0; --i)
+	for (int i = (int) count_members.size()-1;i >= 0; --i)
 	{
 		int k = i - 1;
 		while (count_members[i] > number_of_members / part_of_votes && k >= 0)
@@ -150,9 +150,84 @@ int Parlament::get_period()
 	return period;
 }
 
+int Parlament::get_number_of_members()
+{
+	return number_of_members;
+}
+
+int Parlament::get_part_of_votes()
+{
+	return part_of_votes;
+}
+
 int Parlament::get_how_to_choose_law()
 {
 	return how_to_choose_law;
+}
+
+bool Parlament::change_period()
+{
+	int counter = 0;
+	int new_val = 80 + rand() % 300;
+	for (int i = 0; i < parties.msize(); ++i)
+	{
+		Party temp_party = parties.get_party_in_arr(i);
+		Crowd temp_crowd = temp_party.get_members();
+		int sum = 0;
+		for (int j = 0;j < number_of_members_for_each_party[i].first; ++j) 
+			sum += temp_crowd.get_person_in_arr(j).get_sum_criterion();
+		if (sum % 2 == temp_party.get_sum_criterion() / new_val % 2)
+			++counter;
+	}
+	if (counter > parties.msize() / 3) {
+		period = new_val;
+		return true;
+	}
+	else
+		return false;
+}
+
+bool Parlament::change_part_of_votes()
+{
+	int counter = 0;
+	int new_val = 2 + rand()%(parties.msize()-2);
+	for (int i = 0; i < parties.msize(); ++i)
+	{
+		Party temp_party = parties.get_party_in_arr(i);
+		Crowd temp_crowd = temp_party.get_members();
+		int sum = 0;
+		for (int j = 0; j < number_of_members_for_each_party[i].first; ++j)
+			sum += temp_crowd.get_person_in_arr(j).get_sum_criterion();
+		if ((sum / temp_party.get_sum_criterion() + new_val)  % 2)
+			++counter;
+	}
+	if (counter > parties.msize() / 3) {
+		part_of_votes = new_val;
+		return true;
+	}
+	else return false;
+}
+
+bool Parlament::change_number_of_members(int num)
+{
+	int counter = 0;
+	int new_val = (int)min(cbrt(num)*sqrt(cbrt(num)) + rand()%10,sqrt(num)*sqrt(cbrt(num)));
+	for (int i = 0; i < parties.msize(); ++i)
+	{
+		Party temp_party = parties.get_party_in_arr(i);
+		Crowd temp_crowd = temp_party.get_members();
+		int sum = 0;
+		for (int j = 0; j < number_of_members_for_each_party[i].first; ++j)
+			sum += temp_crowd.get_person_in_arr(j).get_sum_criterion();
+		if ((sum + temp_party.get_sum_criterion()) / new_val % 2)
+			++counter;
+	}
+	if (counter > parties.msize() / 3) {
+		number_of_members = new_val;
+		return true;
+	}
+	else
+		return false;
 }
 
 Party Parlament::get_main_party()

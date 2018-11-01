@@ -18,7 +18,7 @@ All_parties::All_parties(int n, Laws &law, Crowd people, int number_of_all_peopl
 
 int All_parties::msize()
 {
-	return parties.size();
+	return (int)parties.size();
 }
 
 Party All_parties::get_party_in_arr(int index)

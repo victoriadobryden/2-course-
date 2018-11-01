@@ -27,6 +27,14 @@ int Party::get_own_value()
 	return own_value;
 }
 
+int Party::get_sum_criterion()
+{
+	int ans = 0;
+	for (int i = 0; i < (int)criterion.size(); ++i)
+		ans += criterion[i];
+	return ans;
+}
+
 int Party::get_number_of_members()
 {
 	return members.msize();
@@ -65,7 +73,7 @@ void Party::add_the_most(Crowd &people, int n)
 		most_usefull.push_back({ res,people.get_own_value(i) });
 	}
 	sort(most_usefull.begin(), most_usefull.end());
-	for (int i = most_usefull.size() - 1; i >= max((int)0, (int)most_usefull.size() - n); --i) {
+	for (int i = (int)most_usefull.size() - 1; i >= max((int)0, (int)most_usefull.size() - n); --i) {
 		members.add(people.get_person_number_N(most_usefull[i].second));
 		people.del(most_usefull[i].second);
 	}

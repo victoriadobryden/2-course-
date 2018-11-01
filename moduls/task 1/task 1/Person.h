@@ -12,7 +12,6 @@ protected:
 	vector<int> criterion;
 
 	int own_value;
-	int mood;
 	int strategy_of_voting;
 	bool want_to_be_in_party;
 	int number_of_party;
@@ -23,6 +22,7 @@ public:
 	bool get_want_to_be();
 	int get_strategy_of_voting();
 	int get_own_value();
+	int get_sum_criterion();
 	vector<int> get_vote_for();
 	void output(ofstream &fout);
 	~Person();

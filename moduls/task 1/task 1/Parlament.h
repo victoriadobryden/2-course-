@@ -26,7 +26,12 @@ public:
 	void election_to_Parlament(All_parties &all_parties, Crowd &people);
 	bool adopt_law(int cur_law, bool what_do);
 	int get_period();
+	int get_number_of_members();
+	int get_part_of_votes();
 	int get_how_to_choose_law();
+	bool change_period();
+	bool change_part_of_votes();
+	bool change_number_of_members(int num);
 	Party get_main_party();
 	vector<int> get_adopted();
 	All_parties get_parties();

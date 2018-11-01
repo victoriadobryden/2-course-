@@ -8,7 +8,8 @@
 
 #include <iostream>
 #include <fstream>
-#include <time.h>;
+#include <time.h>
+
 using namespace std;
 
 void change_mind_of_people(Crowd &people, All_parties &parties, Laws &law)
@@ -37,7 +38,7 @@ void change_mind_of_people(Crowd &people, All_parties &parties, Laws &law)
 
 void work()
 {
-	srand(time(NULL));
+	srand((unsigned int) time(NULL));
 	Laws law;
 	law.fill_laws();
 	int ALL_NUM = 200;
@@ -70,8 +71,38 @@ void work()
 		vector<int> adopted_laws = parlament.get_adopted();
 		vector<int> main_party_vote_for = parlament.get_main_party().get_vote_for();
 		All_parties cur_parl = parlament.get_parties();
+		cout << "\nIt's time to cancel or adopt some laws))))\n";
 		while (time_left > 0)
 		{
+			if (rand() % primes[rand() % primes.size()] % 100 < 6)
+			{
+				cout << "We are going to change a PERIOD of work.\n";
+				if (parlament.change_period())
+					cout << "Now it is" << parlament.get_period() << '\n';
+				else
+					cout << "It haven't been accepted";
+				time_left -= law.get_time(rand() % law.get_n());
+			}
+			if (rand() % primes[rand() % primes.size()] % 100 < 6)
+			{
+				cout << "We are going to change the PART OF VOTES that can accept a law\n";
+				if (parlament.change_part_of_votes())
+					cout << "Now it have to be" << parlament.get_part_of_votes() << " to accept a law.\n";
+				else
+					cout << "It haven't been accepted";
+				time_left -= law.get_time(rand() % law.get_n());
+			}
+			if (rand() % primes[rand() % primes.size()] % 100 < 6)
+			{
+				cout << "We are going to change the NUMBER OF MEMBERS in parlament.\n";
+				if (parlament.change_number_of_members(ALL_NUM)) {
+					cout << "Now there are " << parlament.get_number_of_members() << " members in government.\n";
+					break;
+				}
+				else
+					cout << "It haven't been accepted";
+				time_left -= law.get_time(rand()%law.get_n());
+			}
 			int how_vote = rand() % 3;
 			adopted_laws = parlament.get_adopted();
 			if (how_vote == 0)
@@ -114,14 +145,14 @@ void work()
 					break;
 				time_left -= law.get_time(rand_law);
 				if (help)
-					cout << "Party #" << parlament.get_main_party().get_own_value() << " offered to cancel the law #" << rand_law << '\n';
+					cout << "Party #" << parlament.get_main_party().get_own_value() << " offered to CANCEL the law #" << rand_law << '\n';
 				else
-					cout << "Party #" << parlament.get_main_party().get_own_value() << " offered to adopt the law #" << rand_law << '\n';
+					cout << "Party #" << parlament.get_main_party().get_own_value() << " offered to ADOPT the law #" << rand_law << '\n';
 
 				if (parlament.adopt_law(rand_law, help))
-					cout << "YEAH! THIS DECISION IS ACCECPTED\n";
+					cout << "YEAH! This decision is ACCECPTED\n";
 				else
-					cout << "Sorry but most are against this decision\n";
+					cout << "Sorry but most are AGAINST this decision\n";
 			}
 			else if (how_vote == 1)
 			{
@@ -132,7 +163,7 @@ void work()
 					vector<int> temp = cur_parl.get_party_in_arr(i).get_vote_for();
 					for (int j = 0; j < temp.size(); ++j)
 					{
-						int l = 0, r = adopted_laws.size();
+						int l = 0, r = (int) adopted_laws.size();
 						while (r - l > 1)
 						{
 							int mid = (r + l) >> 1;
@@ -151,12 +182,12 @@ void work()
 				}
 				if (need_to_adopt == -1)
 					break;
-				cout << "Party #" << parlament.get_main_party().get_own_value() << " offered to adopt the law #" << need_to_adopt << '\n';
+				cout << "Party #" << parlament.get_main_party().get_own_value() << " offered to ADOPT the law #" << need_to_adopt << '\n';
 
 				if (parlament.adopt_law(need_to_adopt, 0))
-					cout << "YEAH! THIS DECISION IS ACCECPTED\n";
+					cout << "YEAH! This decision is ACCECPTED\n";
 				else
-					cout << "Sorry but most are against this decision\n";
+					cout << "Sorry but most are AGAINST this decision\n";
 				time_left = law.get_time(need_to_adopt);
 			}
 			else
@@ -184,16 +215,14 @@ void work()
 						}
 					}
 				}
-				//bool need_reg_law = true;
 				if (need_to_adopt == -1)
 					break;
-				//cout << "qweqwewe\fqwefweq";
-				cout << "Party #" << parlament.get_main_party().get_own_value() << " offered to cancel the law #" << need_to_adopt << '\n';
+				cout << "Party #" << parlament.get_main_party().get_own_value() << " offered to CANCEL the law #" << need_to_adopt << '\n';
 
 				if (parlament.adopt_law(need_to_adopt, 1))
-					cout << "YEAH! THIS DECISION IS ACCECPTED\n";
+					cout << "YEAH! This decision is ACCECPTED\n";
 				else
-					cout << "Sorry but most are against this decision\n";
+					cout << "Sorry but most are AGAINST this decision\n";
 				time_left = law.get_time(need_to_adopt);
 			}
 		}

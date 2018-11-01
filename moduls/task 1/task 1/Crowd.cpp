@@ -98,7 +98,8 @@ vector<pair<int,int> > Crowd::mood(vector<int> cur_laws, Laws law)
 				}
 			}
 		}
-		int res = (2 * counter - temp.size() + 2 * (law.get_n() - temp.size() - (cur_laws.size() - counter)) - (law.get_n() - temp.size()));
+		int res = (2 * counter - (int)temp.size() + 2 * (law.get_n() - (int)temp.size() - 
+			((int)cur_laws.size() - counter)) - (law.get_n() - (int)temp.size()));
 		ans.push_back({ res,people[i].get_own_value() });
 	}
 	return ans;
