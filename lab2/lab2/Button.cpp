@@ -10,15 +10,6 @@ Button::Button()
 {
 }
 
-void Button::set_values(int w, int h, int pos_w, int pos_h)
-{
-	button.height = h;
-	button.width = w;
-	button.position_height = pos_h;
-	button.position_width = pos_w;
-}
-
-
 Button::~Button()
 {
 }

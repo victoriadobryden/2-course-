@@ -124,12 +124,15 @@
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonDraw.cpp" />
+    <ClCompile Include="Center_of_work.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Work_with_window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonDraw.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="Center_of_work.h" />
+    <ClInclude Include="Work_with_window.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

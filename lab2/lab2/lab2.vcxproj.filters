@@ -24,15 +24,24 @@
     <ClCompile Include="ButtonDraw.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Work_with_window.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Center_of_work.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Window.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ButtonDraw.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Work_with_window.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Center_of_work.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

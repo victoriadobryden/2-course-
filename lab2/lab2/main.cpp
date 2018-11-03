@@ -1,4 +1,7 @@
-#include "Window.h"
+#include "Center_of_work.h"
+#include <fstream>
+
+using namespace std;
 
 int main()
 {

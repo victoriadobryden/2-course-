@@ -1,7 +1,12 @@
 #pragma once
+#include <string>
+
+using namespace std;
 
 struct characteristic_of_button
 {
+	string button_name;
+
 	int position_width, position_height;
 	int width, height;
 
@@ -18,7 +23,6 @@ protected:
 
 public:
 	Button();
-	void set_values(int w, int h, int pos_w, int pos_h);
 	~Button();
 };
 
