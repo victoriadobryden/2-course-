@@ -12,30 +12,15 @@ Work_with_window::Work_with_window(string &file)
 	ifstream fin(file);
 	string name, file_picture_name = "";
 	getline(fin,name);
-	int height, width, number_of_buttons, size_x, size_y;
-	bool flag_for_picture, flag_for_text;
+	int height, width, number_of_buttons;
 	fin >> width >> height;
-	window = shared_ptr<RenderWindow>(new RenderWindow(VideoMode(width,height),name,Style::None));
+	window = shared_ptr<RenderWindow>(new RenderWindow(VideoMode(height,width),name,Style::None));
 
 	fin >> number_of_buttons;
 	for (int i = 0; i < number_of_buttons; ++i)
 	{
-		getline(fin,name);
-		getline(fin,name);
-		getline(fin,name);
-		fin >> width >> height >> size_x >> size_y;
-		fin >> flag_for_picture;
-		if (flag_for_picture) {
-			getline(fin, file_picture_name);
-			getline(fin, file_picture_name);
-		}
-		else
-			file_picture_name = "";
-		fin >> flag_for_text;
-		cout << name << ' ' << width << ' ' << height << ' ' << size_x << ' ' << size_y << ' ' << flag_for_picture << ' ';
-		cout << file_picture_name << ' ' << flag_for_text << '\n';
 		shared_ptr<ButtonDraw> temp = shared_ptr<ButtonDraw>(
-			new ButtonDraw(name, width, height, size_x, size_y, flag_for_picture, file_picture_name, flag_for_text));
+			new ButtonDraw(fin));
 		buttons.push_back(temp);
 	}
 	fin.close();
@@ -52,7 +37,7 @@ void Work_with_window::work()
 				window.get()->close();
 		}
 	}
-	window.get()->clear(Color(30, 30, 30));
+	window.get()->clear(Color(40, 40, 40));
 	draw();
 	window.get()->display();
 }

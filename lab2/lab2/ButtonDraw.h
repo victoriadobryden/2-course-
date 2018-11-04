@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <iostream>
+#include <fstream>
 
 using namespace sf;
 using namespace std;
@@ -23,7 +24,7 @@ class ButtonDraw :
 
 public:
 
-	ButtonDraw(string button_name, int w, int h, int s_w, int s_t, bool for_picture, string picture_name, bool for_text);
+	ButtonDraw(ifstream &fin);
 
 	void draw(shared_ptr<RenderWindow> window);
 
