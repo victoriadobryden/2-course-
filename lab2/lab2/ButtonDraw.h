@@ -14,18 +14,18 @@ class ButtonDraw :
 	using Button::button;
 
 	bool is_picture;
-	Texture texture;
-	Sprite sprite;
+	shared_ptr<Texture> texture;
+	shared_ptr<Sprite> sprite;
 
 	bool is_text;
-	Font font;
-	Text text;
+	shared_ptr<Font> font;
+	shared_ptr<Text> text;
 
 public:
 
 	ButtonDraw(string button_name, int w, int h, int s_w, int s_t, bool for_picture, string picture_name, bool for_text);
 
-	void draw(RenderWindow &window);
+	void draw(shared_ptr<RenderWindow> window);
 
 	~ButtonDraw();
 };

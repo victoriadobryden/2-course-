@@ -9,8 +9,8 @@ using namespace std;
 
 class Work_with_window
 {
-	RenderWindow window;
-	vector<ButtonDraw> buttons;
+	shared_ptr<RenderWindow> window;
+	vector<shared_ptr<ButtonDraw> > buttons;
 	string information;
 
 public:

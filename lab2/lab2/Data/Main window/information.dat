@@ -1,6 +1,8 @@
-Probability 350 350
+Probability
+350 350
 
 3
+
 Title
 0 0 30 100
 0 
@@ -9,10 +11,10 @@ Title
 Cross
 0 326 24 24
 1 
-\Data\Main Window\cross.png 
+Data/Main window/cross.png
 0
 
 Simple Probability
-40 0 30 200
+20 0 30 200
 0
 1
