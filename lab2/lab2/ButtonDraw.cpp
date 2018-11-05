@@ -37,6 +37,11 @@ ButtonDraw::ButtonDraw(ifstream &fin)
 	}
 }
 
+void ButtonDraw::unpress()
+{
+	button.is_pressed = false;
+}
+
 void ButtonDraw::draw(shared_ptr<RenderWindow> window)
 {
 	if (is_picture)
@@ -62,17 +67,41 @@ void ButtonDraw::mouse_is_there(int pos_w, int pos_h, shared_ptr<RenderWindow> w
 		button.is_under_cursor = false;
 }
 
-void ButtonDraw::mouse_is_pressed(int pos_w, int pos_h, shared_ptr<RenderWindow> window)
+void ButtonDraw::mouse_is_pressed(int pos_w, int pos_h, shared_ptr<RenderWindow> window, bool is_pressed)
 {
-	if (in_it(pos_w,pos_h))
+	cout << is_pressed << ' ' << button.is_pressed << '\n';
+	if (is_pressed || button.is_pressed) 
+	{
+		//cout << pos_w << ' ' << pos_h << '\n';
+		if (in_it(pos_w, pos_h))
+		{
+		//	cout << "Qwe qw QW\n";
+			if (button.button_name == "Probability" || button.button_name == "Simple probability")
+			{
+				if (!button.is_pressed) {
+					button.prev_pos_mouse_h = pos_h;
+					button.prev_pos_mouse_w = pos_w;
+				}
+				button.is_pressed = true;
+	//			cout << "qweqwe \n";
+	//			Mouse::setPosition(Vector2i(200, 10), *window);
+				window.get()->setPosition(Vector2i(Mouse::getPosition().x-button.prev_pos_mouse_h,Mouse::getPosition().y-button.prev_pos_mouse_w));
+				button.prev_pos_mouse_h = Mouse::getPosition(*window).x;
+				button.prev_pos_mouse_w = Mouse::getPosition(*window).y;
+			}
+		}
+	}
+}
+
+void ButtonDraw::mouse_is_released(int pos_w, int pos_h, shared_ptr<RenderWindow> window, int & need_to_create_window)
+{
+	if (in_it(pos_w, pos_h)) 
 	{
 		if (button.button_name == "Cross")
 			window.get()->close();
-		else if (button.button_name == "Probability") {
-
-		}
+		else if (button.button_name == "Simple Probability")
+			need_to_create_window = 1;
 	}
-	else button.is_pressed = false;
 }
 
 ButtonDraw::~ButtonDraw()

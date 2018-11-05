@@ -13,6 +13,7 @@ struct characteristic_of_button
 	int color_undcur_r, color_undcur_g, color_undcur_b;
 
 	bool is_released, is_pressed, is_under_cursor;
+	int prev_pos_mouse_w, prev_pos_mouse_h;
 	characteristic_of_button();
 };
 

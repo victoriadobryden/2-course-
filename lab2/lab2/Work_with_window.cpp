@@ -42,9 +42,21 @@ void Work_with_window::work()
 			}
 			if (event.type == Event::MouseButtonPressed)
 			{
-				cout << "pressed\n";
-				check_buttons_is_pressed(event.mouseButton.y, event.mouseButton.x);
-				cout << event.mouseButton.x << ' ' << event.mouseButton.y << '\n';		
+				//cout << "\n";
+				check_buttons_is_pressed(event.mouseButton.y, event.mouseButton.x, true);
+				cout << "pressed " << event.mouseButton.x << ' ' << event.mouseButton.y << '\n';
+			}
+			else {
+				check_buttons_is_pressed(event.mouseMove.y, event.mouseMove.x, false);
+				cout << "WOWO\n";
+			}
+
+			if (event.type == Event::MouseButtonReleased)
+			{
+				check_buttons_is_released(event.mouseButton.y, event.mouseButton.x);
+				cout << "Released " << event.mouseButton.x << ' ' << event.mouseButton.y << '\n';
+				for (int i = 0; i < buttons.size(); ++i)
+					buttons[i].get()->unpress();
 			}
 		}
 	}
@@ -59,11 +71,19 @@ void Work_with_window::check_buttons_under_cursor(int pos_w, int pos_h)
 		buttons[i].get()->mouse_is_there(pos_w, pos_h,window);
 }
 
-void Work_with_window::check_buttons_is_pressed(int pos_w, int pos_h)
+void Work_with_window::check_buttons_is_pressed(int pos_w, int pos_h, bool is_pressed)
 {
 	for (int i = 0; i < buttons.size(); ++i)
 	{
-		buttons[i].get()->mouse_is_pressed(pos_w,pos_h,window);
+		buttons[i].get()->mouse_is_pressed(pos_w,pos_h,window,is_pressed);
+	}
+}
+
+void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
+{
+	for (int i = 0; i < buttons.size(); ++i)
+	{
+		buttons[i].get()->mouse_is_released(pos_w, pos_h, window, need_to_create_window);
 	}
 }
 
@@ -73,6 +93,13 @@ void Work_with_window::draw()
 	{
 		buttons[i].get()->draw(window);
 	}
+}
+
+int Work_with_window::need_new_window()
+{
+	bool temp = need_to_create_window;
+	need_to_create_window = 0;
+	return temp;
 }
 
 bool Work_with_window::is_open()
