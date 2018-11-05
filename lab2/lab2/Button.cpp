@@ -12,6 +12,15 @@ Button::Button()
 {
 }
 
+bool Button::in_it(int pos_w, int pos_h)
+{
+	if (button.position_width <= pos_w && pos_w <= button.position_width + button.width &&
+		button.position_height <= pos_h && pos_h <= button.position_height + button.height)
+		return true;
+	else
+		return false;
+}
+
 Button::~Button()
 {
 }

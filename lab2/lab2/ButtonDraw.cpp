@@ -52,6 +52,29 @@ void ButtonDraw::draw(shared_ptr<RenderWindow> window)
 	//window.reset();
 }
 
+void ButtonDraw::mouse_is_there(int pos_w, int pos_h, shared_ptr<RenderWindow> window)
+{
+	if (in_it(pos_w, pos_h))
+	{
+		button.is_under_cursor = true;
+	}
+	else
+		button.is_under_cursor = false;
+}
+
+void ButtonDraw::mouse_is_pressed(int pos_w, int pos_h, shared_ptr<RenderWindow> window)
+{
+	if (in_it(pos_w,pos_h))
+	{
+		if (button.button_name == "Cross")
+			window.get()->close();
+		else if (button.button_name == "Probability") {
+
+		}
+	}
+	else button.is_pressed = false;
+}
+
 ButtonDraw::~ButtonDraw()
 {
 	text.reset();

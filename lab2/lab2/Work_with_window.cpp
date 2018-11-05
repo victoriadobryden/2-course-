@@ -35,11 +35,36 @@ void Work_with_window::work()
 		{
 			if (event.type == Event::Closed || event.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::Escape))
 				window.get()->close();
+			if (event.type == Event::MouseMoved)
+			{
+				check_buttons_under_cursor(event.mouseMove.y, event.mouseMove.x);
+				cout << event.mouseMove.x << ' ' << event.mouseMove.y << '\n';
+			}
+			if (event.type == Event::MouseButtonPressed)
+			{
+				cout << "pressed\n";
+				check_buttons_is_pressed(event.mouseButton.y, event.mouseButton.x);
+				cout << event.mouseButton.x << ' ' << event.mouseButton.y << '\n';		
+			}
 		}
 	}
 	window.get()->clear(Color(40, 40, 40));
 	draw();
 	window.get()->display();
+}
+
+void Work_with_window::check_buttons_under_cursor(int pos_w, int pos_h)
+{
+	for (int i = 0; i < buttons.size(); ++i)
+		buttons[i].get()->mouse_is_there(pos_w, pos_h,window);
+}
+
+void Work_with_window::check_buttons_is_pressed(int pos_w, int pos_h)
+{
+	for (int i = 0; i < buttons.size(); ++i)
+	{
+		buttons[i].get()->mouse_is_pressed(pos_w,pos_h,window);
+	}
 }
 
 void Work_with_window::draw()

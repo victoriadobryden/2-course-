@@ -22,9 +22,9 @@ class Button
 
 protected:
 	characteristic_of_button button;
-
 public:
 	Button();
+	bool in_it(int pos_w,int pos_h);
 	~Button();
 };
 
