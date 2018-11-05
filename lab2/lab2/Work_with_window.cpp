@@ -85,12 +85,26 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 	}
 }
 
+void Work_with_window::draw_frame_for_window(shared_ptr<RenderWindow> window) 
+{
+	VertexArray lines(LineStrip, 5);
+	lines[0].color = lines[1].color = lines[2].color = lines[3].color = lines[4].color = Color(0, 0, 30);
+	lines[0].position = Vector2f(0.f, 1.f);
+	lines[1].position = Vector2f((float)window.get()->getSize().x - 1.f, 1.f);
+	lines[2].position = Vector2f((float)window.get()->getSize().x - 1.f, (float)window.get()->getSize().y);
+	lines[3].position = Vector2f(0.f, (float)window.get()->getSize().y);
+	lines[4].position = Vector2f(0.f, 0.f);
+	window.get()->draw(lines);	
+}
+
 void Work_with_window::draw()
 {
 	for (int i = 0; i < buttons.size(); ++i)
 	{
 		buttons[i].get()->draw(window);
 	}
+	draw_frame_for_window(window);
+	
 }
 
 int Work_with_window::need_new_window()

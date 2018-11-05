@@ -1,7 +1,7 @@
 Simple probability
-700 500
+600 500
 
-2
+3
 
 Title
 3 170 18 165
@@ -16,3 +16,11 @@ Cross
 1 
 Data/cross.png
 0
+
+Input:
+25 3 25 70
+0
+1
+20
+128 128 128
+255 255 255

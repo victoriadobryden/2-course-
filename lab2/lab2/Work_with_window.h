@@ -21,6 +21,7 @@ public:
 	void check_buttons_under_cursor(int pos_w, int pos_h);
 	void check_buttons_is_pressed(int pos_w, int pos_h, bool is_pressed);
 	void check_buttons_is_released(int pos_w, int pos_h);
+	void draw_frame_for_window(shared_ptr<RenderWindow> window);
 	void draw();
 	int need_new_window();
 	bool is_open();
