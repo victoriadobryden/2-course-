@@ -1,10 +1,11 @@
 #include "ButtonDraw.h"
 
-ButtonDraw::ButtonDraw(ifstream &fin)
+ButtonDraw::ButtonDraw(ifstream &fin, string window_name)
 {
 	getline(fin, button.button_name);
 	getline(fin, button.button_name);
 	getline(fin, button.button_name);
+	button.window_name = window_name;
 	fin >> button.position_width >> button.position_height >> button.width >> button.height;
 	fin >> is_picture;
 	string file_picture_name;
@@ -29,7 +30,10 @@ ButtonDraw::ButtonDraw(ifstream &fin)
 		int size_font;
 		fin >> size_font;
 		text.get()->setCharacterSize(size_font);
-		text.get()->setString(button.button_name);
+		if (button.button_name == "Title")	
+			text.get()->setString(button.window_name);
+		else 
+			text.get()->setString(button.button_name);
 		text.get()->setStyle(Text::Regular);
 		text.get()->setPosition(Vector2f((float)button.position_height, (float)button.position_width));
 		fin >> button.color_r >> button.color_g >> button.color_b;
@@ -69,26 +73,18 @@ void ButtonDraw::mouse_is_there(int pos_w, int pos_h, shared_ptr<RenderWindow> w
 
 void ButtonDraw::mouse_is_pressed(int pos_w, int pos_h, shared_ptr<RenderWindow> window, bool is_pressed)
 {
-	cout << is_pressed << ' ' << button.is_pressed << '\n';
-	if (is_pressed || button.is_pressed) 
+	if (in_it(pos_w, pos_h) && is_pressed || button.is_pressed)
 	{
-		//cout << pos_w << ' ' << pos_h << '\n';
-		if (in_it(pos_w, pos_h))
+		if (button.button_name == "Title")
 		{
-		//	cout << "Qwe qw QW\n";
-			if (button.button_name == "Probability" || button.button_name == "Simple probability")
-			{
-				if (!button.is_pressed) {
-					button.prev_pos_mouse_h = pos_h;
-					button.prev_pos_mouse_w = pos_w;
-				}
-				button.is_pressed = true;
-	//			cout << "qweqwe \n";
-	//			Mouse::setPosition(Vector2i(200, 10), *window);
-				window.get()->setPosition(Vector2i(Mouse::getPosition().x-button.prev_pos_mouse_h,Mouse::getPosition().y-button.prev_pos_mouse_w));
-				button.prev_pos_mouse_h = Mouse::getPosition(*window).x;
-				button.prev_pos_mouse_w = Mouse::getPosition(*window).y;
+			if (!button.is_pressed) {
+				button.prev_pos_mouse_h = pos_h;
+				button.prev_pos_mouse_w = pos_w;
 			}
+			button.is_pressed = true;
+			window.get()->setPosition(Vector2i(Mouse::getPosition().x - button.prev_pos_mouse_h, Mouse::getPosition().y - button.prev_pos_mouse_w));
+			button.prev_pos_mouse_h = Mouse::getPosition(*window).x;
+			button.prev_pos_mouse_w = Mouse::getPosition(*window).y;
 		}
 	}
 }

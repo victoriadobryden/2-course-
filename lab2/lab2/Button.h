@@ -5,7 +5,7 @@ using namespace std;
 
 struct characteristic_of_button
 {
-	string button_name;
+	string button_name, window_name;
 
 	int position_width, position_height;
 	int width, height;

@@ -10,17 +10,16 @@ Work_with_window::Work_with_window(string &file)
 {
 	information = file;
 	ifstream fin(file);
-	string name, file_picture_name = "";
-	getline(fin,name);
+	string window_name;
+	getline(fin,window_name);
 	int height, width, number_of_buttons;
 	fin >> width >> height;
-	window = shared_ptr<RenderWindow>(new RenderWindow(VideoMode(height,width),name,Style::None));
+	window = shared_ptr<RenderWindow>(new RenderWindow(VideoMode(height, width), window_name, Style::None));
 
 	fin >> number_of_buttons;
 	for (int i = 0; i < number_of_buttons; ++i)
 	{
-		shared_ptr<ButtonDraw> temp = shared_ptr<ButtonDraw>(
-			new ButtonDraw(fin));
+		shared_ptr<ButtonDraw> temp = shared_ptr<ButtonDraw>(new ButtonDraw(fin, window_name));
 		buttons.push_back(temp);
 	}
 	fin.close();
@@ -38,23 +37,22 @@ void Work_with_window::work()
 			if (event.type == Event::MouseMoved)
 			{
 				check_buttons_under_cursor(event.mouseMove.y, event.mouseMove.x);
-				cout << event.mouseMove.x << ' ' << event.mouseMove.y << '\n';
+			//	cout << event.mouseMove.x << ' ' << event.mouseMove.y << '\n';
 			}
 			if (event.type == Event::MouseButtonPressed)
 			{
-				//cout << "\n";
 				check_buttons_is_pressed(event.mouseButton.y, event.mouseButton.x, true);
-				cout << "pressed " << event.mouseButton.x << ' ' << event.mouseButton.y << '\n';
+			//	cout << "pressed " << event.mouseButton.x << ' ' << event.mouseButton.y << '\n';
 			}
 			else {
 				check_buttons_is_pressed(event.mouseMove.y, event.mouseMove.x, false);
-				cout << "WOWO\n";
+			//	cout << "WOWO\n";
 			}
 
 			if (event.type == Event::MouseButtonReleased)
 			{
 				check_buttons_is_released(event.mouseButton.y, event.mouseButton.x);
-				cout << "Released " << event.mouseButton.x << ' ' << event.mouseButton.y << '\n';
+			//	cout << "Released " << event.mouseButton.x << ' ' << event.mouseButton.y << '\n';
 				for (int i = 0; i < buttons.size(); ++i)
 					buttons[i].get()->unpress();
 			}

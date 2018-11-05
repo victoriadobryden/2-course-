@@ -2,6 +2,7 @@
 
 characteristic_of_button::characteristic_of_button()
 {
+	window_name = button_name = "";
 	position_height = position_width = width = height = 0;
 	is_pressed = is_released = is_under_cursor = false;
 	color_r = color_g = color_b = 0;

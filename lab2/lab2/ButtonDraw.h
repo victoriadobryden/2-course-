@@ -24,7 +24,7 @@ class ButtonDraw :
 
 public:
 
-	ButtonDraw(ifstream &fin);
+	ButtonDraw(ifstream &fin, string window_name);
 	void unpress();
 	void draw(shared_ptr<RenderWindow> window);
 	void mouse_is_there(int pos_w, int pos_h, shared_ptr<RenderWindow> window);
