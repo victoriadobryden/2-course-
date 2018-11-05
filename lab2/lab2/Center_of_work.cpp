@@ -5,8 +5,8 @@ void main_part()
 {
 	vector<shared_ptr<Work_with_window> > all_windows;
 	string s[2];
-	s[0] = "Data\\Main window\\information.dat";
-	s[1] = "Data\\Simple Probability\\information.dat";
+	s[0] = "Data\\Main window information.dat";
+	s[1] = "Data\\Simple Probability information.dat";
 	shared_ptr<Work_with_window> temp_window = shared_ptr<Work_with_window>(new Work_with_window(s[0]));
 	all_windows.push_back(temp_window);
 
