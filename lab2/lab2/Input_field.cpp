@@ -201,8 +201,8 @@ void Input_field::set_position(int pos_w, int pos_h)
 	button.position_height = pos_h;
 	button.position_width = pos_w;
 	
-	sprite.get()->setPosition(Vector2f((float) pos_h,(float) pos_w));
-	text.get()->setPosition(Vector2f((float)pos_h,(float) pos_w));
+	sprite.get()->setPosition(Vector2f((float)pos_h, (float)pos_w));
+	text.get()->setPosition(Vector2f((float)pos_h + 2.f, (float)pos_w));
 }
 
 characteristic_of_button Input_field::get_button()

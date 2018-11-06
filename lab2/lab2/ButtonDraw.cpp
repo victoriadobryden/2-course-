@@ -1,5 +1,16 @@
 #include "ButtonDraw.h"
 
+ButtonDraw::ButtonDraw(shared_ptr<ButtonDraw> base)
+{
+	button = base.get()->get_button();
+	is_picture = false;
+	is_text = true;
+	text = shared_ptr<Text>(new Text);
+	text.get()->setFont(*font);
+	text.get()->setCharacterSize(base.get()->get_size_font());
+	text.get()->setStyle(Text::Regular);
+}
+
 ButtonDraw::ButtonDraw(ifstream &fin, string window_name)
 {
 	getline(fin, button.button_name);
@@ -98,6 +109,38 @@ void ButtonDraw::mouse_is_released(int pos_w, int pos_h, shared_ptr<RenderWindow
 		else if (button.button_name == "Simple Probability")
 			need_to_create_window = 1;
 	}
+}
+
+void ButtonDraw::set_position(int pos_w, int pos_h, int num)
+{
+	text.get()->setPosition(Vector2f((float)pos_h, (float)pos_w));
+	string s = "";
+	while (num > 0)
+	{
+		s += '0' + num%10;
+		num /= 10;
+	}
+	text.get()->setString(s);
+}
+
+string ButtonDraw::get_name()
+{
+	return button.button_name;
+}
+
+characteristic_of_button ButtonDraw::get_button()
+{
+	return button;
+}
+
+shared_ptr<Font> ButtonDraw::get_font()
+{
+	return font;
+}
+
+int ButtonDraw::get_size_font()
+{
+	return text.get()->getCharacterSize();
 }
 
 ButtonDraw::~ButtonDraw()

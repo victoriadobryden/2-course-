@@ -11,6 +11,7 @@ using namespace std;
 class Work_with_window
 {
 	shared_ptr<RenderWindow> window;
+	vector<shared_ptr<ButtonDraw> > base_buttons;
 	vector<shared_ptr<ButtonDraw> > buttons;
 	vector<shared_ptr<Input_field> > base_fields;
 	vector<shared_ptr<Input_field> > fields;

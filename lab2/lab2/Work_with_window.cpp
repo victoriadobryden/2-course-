@@ -10,17 +10,20 @@ void Work_with_window::create_fields(int number)
 	{
 		fields[i].reset();
 		fields.pop_back();
+		buttons.pop_back();
 	}
 	number_of_created_windows_type_2 = number;
 	int cur = 100, step = 30;
 	for (int i = 0; i < number; ++i)
 	{
 		shared_ptr<Input_field> temp_type_2 = shared_ptr<Input_field>(new Input_field(base_fields[1]));
-		//shared_ptr<ButtonDraw> temp_num = shared_ptr<ButtonDraw>(new ButtonDraw(cur, 5));
+		shared_ptr<ButtonDraw> temp_num = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[3]));
 		temp_type_2.get()->set_position(cur, 40);
+		temp_num.get()->set_position(cur, 5, i + 1);
 		cout << cur << '\n';
 		cur += step;
 		fields.push_back(temp_type_2);
+		buttons.push_back(temp_num);
 	}
 	cout << fields.size() << '\n';
 	if (temp_last != nullptr)
@@ -46,7 +49,9 @@ Work_with_window::Work_with_window(string &file)
 	for (int i = 0; i < number_of_buttons; ++i)
 	{
 		shared_ptr<ButtonDraw> temp = shared_ptr<ButtonDraw>(new ButtonDraw(fin, window_name));
-		buttons.push_back(temp);
+		base_buttons.push_back(temp);
+		if(base_buttons[i].get()->get_name() == "#")
+			buttons.push_back(base_buttons[i]);
 	}
 	int number_of_fields;
 	fin >> number_of_fields;
