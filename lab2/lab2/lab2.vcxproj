@@ -125,6 +125,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonDraw.cpp" />
     <ClCompile Include="Center_of_work.cpp" />
+    <ClCompile Include="Input_field.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Work_with_window.cpp" />
   </ItemGroup>
@@ -132,6 +133,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonDraw.h" />
     <ClInclude Include="Center_of_work.h" />
+    <ClInclude Include="Input_field.h" />
     <ClInclude Include="Work_with_window.h" />
   </ItemGroup>
   <ItemGroup>
