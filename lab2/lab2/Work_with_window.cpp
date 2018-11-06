@@ -22,6 +22,13 @@ Work_with_window::Work_with_window(string &file)
 		shared_ptr<ButtonDraw> temp = shared_ptr<ButtonDraw>(new ButtonDraw(fin, window_name));
 		buttons.push_back(temp);
 	}
+	int number_of_fields;
+	fin >> number_of_fields;
+	for (int i = 0; i < number_of_fields; ++i)
+	{
+		shared_ptr<Input_field> temp = shared_ptr<Input_field>(new Input_field(fin, window_name));
+		fields.push_back(temp);
+	}
 	fin.close();
 }
 
@@ -37,6 +44,7 @@ void Work_with_window::work()
 			if (event.type == Event::MouseMoved)
 			{
 				check_buttons_under_cursor(event.mouseMove.y, event.mouseMove.x);
+				check_fields_under_cursor(event.mouseMove.y, event.mouseMove.x);
 			//	cout << event.mouseMove.x << ' ' << event.mouseMove.y << '\n';
 			}
 			if (event.type == Event::MouseButtonPressed)
@@ -53,8 +61,16 @@ void Work_with_window::work()
 			{
 				check_buttons_is_released(event.mouseButton.y, event.mouseButton.x);
 			//	cout << "Released " << event.mouseButton.x << ' ' << event.mouseButton.y << '\n';
+				check_fields_is_released(event.mouseButton.y, event.mouseButton.x);
 				for (int i = 0; i < buttons.size(); ++i)
 					buttons[i].get()->unpress();
+			}
+			if (event.type == Event::TextEntered)
+			{
+				if (event.text.unicode >= 48 && event.text.unicode <= 57)
+				{
+					check_fields_entered_text(event.text.unicode);
+				}
 			}
 		}
 	}
@@ -85,15 +101,34 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 	}
 }
 
+void Work_with_window::check_fields_under_cursor(int pos_w, int pos_h)
+{
+	for (int i = 0; i < fields.size(); ++i)
+	{
+		fields[i].get()->is_under_cursor(pos_w, pos_h);
+	}
+}
+
+void Work_with_window::check_fields_is_released(int pos_w, int pos_h)
+{
+	for (int i = 0; i < fields.size(); ++i)
+		fields[i].get()->mouse_is_released(pos_w, pos_h);
+}
+
+void Work_with_window::check_fields_entered_text(char temp)
+{
+
+}
+
 void Work_with_window::draw_frame_for_window(shared_ptr<RenderWindow> window) 
 {
 	VertexArray lines(LineStrip, 5);
-	lines[0].color = lines[1].color = lines[2].color = lines[3].color = lines[4].color = Color(0, 0, 30);
-	lines[0].position = Vector2f(0.f, 1.f);
-	lines[1].position = Vector2f((float)window.get()->getSize().x - 1.f, 1.f);
-	lines[2].position = Vector2f((float)window.get()->getSize().x - 1.f, (float)window.get()->getSize().y);
-	lines[3].position = Vector2f(0.f, (float)window.get()->getSize().y);
-	lines[4].position = Vector2f(0.f, 0.f);
+	lines[0].color = lines[1].color = lines[2].color = lines[3].color = lines[4].color = Color(0, 0, 25);
+	lines[0].position = Vector2f(0.5f, 0.5f);
+	lines[1].position = Vector2f((float)window.get()->getSize().x-0.5f, 0.5f);
+	lines[2].position = Vector2f((float)window.get()->getSize().x-0.5f,  (float)window.get()->getSize().y);
+	lines[3].position = Vector2f(0.5f, (float)window.get()->getSize().y);
+	lines[4].position = Vector2f(0.5f, 0.5f);
 	window.get()->draw(lines);	
 }
 
@@ -103,6 +138,9 @@ void Work_with_window::draw()
 	{
 		buttons[i].get()->draw(window);
 	}
+	for (int i = 0; i < fields.size(); ++i)
+		fields[i].get()->draw(window);
+
 	draw_frame_for_window(window);
 	
 }

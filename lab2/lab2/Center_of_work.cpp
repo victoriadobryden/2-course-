@@ -19,7 +19,7 @@ void main_part()
 			if (temp)
 			{
 				temp_window.reset();
-				temp_window = shared_ptr<Work_with_window>(new Work_with_window(s[1]));
+				temp_window = shared_ptr<Work_with_window>(new Work_with_window(s[temp]));
 				all_windows.push_back(temp_window);
 			}
 			if (!all_windows[i].get()->is_open())

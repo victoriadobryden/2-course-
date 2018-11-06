@@ -1,5 +1,6 @@
 #pragma once
 #include "ButtonDraw.h"
+#include "Input_field.h"
 
 #include <SFML/Graphics.hpp>
 #include <fstream>
@@ -11,6 +12,7 @@ class Work_with_window
 {
 	shared_ptr<RenderWindow> window;
 	vector<shared_ptr<ButtonDraw> > buttons;
+	vector<shared_ptr<Input_field> > fields;
 	string information;
 	int need_to_create_window;
 
@@ -21,6 +23,9 @@ public:
 	void check_buttons_under_cursor(int pos_w, int pos_h);
 	void check_buttons_is_pressed(int pos_w, int pos_h, bool is_pressed);
 	void check_buttons_is_released(int pos_w, int pos_h);
+	void check_fields_under_cursor(int pos_w, int pos_h);
+	void check_fields_is_released(int pos_w, int pos_h);
+	void check_fields_entered_text(char temp);
 	void draw_frame_for_window(shared_ptr<RenderWindow> window);
 	void draw();
 	int need_new_window();
