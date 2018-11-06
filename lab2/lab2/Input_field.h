@@ -27,7 +27,8 @@ class Input_field :
 	shared_ptr<Font> font;
 
 	void render_texture(ifstream &fin, shared_ptr<RenderTexture> temp_render);
-
+	void convert_to_int();
+	bool convert_to_double();
 
 public:
 
@@ -39,6 +40,9 @@ public:
 	bool _has_focus();
 	int _int_value();
 	void add_text(char c);
+	void del_el_string();
+	void check_on_dot();
+
 	void set_position(int pos_w, int pos_h);
 	characteristic_of_button get_button();
 	shared_ptr<Texture> get_texture();

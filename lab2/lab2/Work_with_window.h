@@ -30,6 +30,8 @@ public:
 	void check_fields_is_released(int pos_w, int pos_h);
 	void check_fields_entered_text(char temp);
 	void check_fields_enter();
+	void check_fields_backspace();
+	void check_fields_on_last_dot();
 	void draw_frame_for_window(shared_ptr<RenderWindow> window);
 	void draw();
 	int need_new_window();

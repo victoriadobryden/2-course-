@@ -19,6 +19,35 @@ void Input_field::render_texture(ifstream &fin, shared_ptr<RenderTexture> temp_r
 	temp_render.get()->display();
 }
 
+void Input_field::convert_to_int()
+{
+	int_value = 0;
+	for (int i = 0;i < text_value.length(); ++i)
+		int_value = (int_value * 10 + text_value[i] - '0');
+}
+
+bool Input_field::convert_to_double()
+{
+	int dots = 0;
+	double step = 1;
+	double_value = 0;
+	for (int i = 0; i < text_value.length(); ++i) {
+		if (text_value[i] == '.') {
+			++dots;
+			if (dots > 1)
+				return false;
+		}
+		else
+		{
+			double_value = (double_value * 10 + text_value[i] - '0');
+			if (dots)
+				step *= 10;
+		}
+	}
+	double_value = double_value / step;
+	return true;
+}
+
 Input_field::Input_field(shared_ptr<Input_field> base)
 {
 	button = base.get()->get_button();
@@ -116,10 +145,15 @@ int Input_field::_int_value()
 
 void Input_field::add_text(char c)
 {
-	if (c != '.' && int_value * 10 + c - '0' <= 15 && int_value * 10 + c -'0' > 0 && button.button_name == "Number of events") 
+	if (c != '.' && button.button_name == "Number of events")
 	{
 		text_value += c;
-		int_value = (int_value * 10 + c - '0');
+		convert_to_int();
+		if (int_value == 0 || int_value > 15)
+		{
+			text_value.pop_back();
+			convert_to_int();
+		}
 		text.get()->setString(text_value);
 	}
 	else if (button.button_name == "Events" && text_value.length() < 6)
@@ -129,26 +163,36 @@ void Input_field::add_text(char c)
 		if (text_value.length() == 1 && text_value[0] == '0' && c != '.')
 			return;
 		text_value += c;
-		int dots = 0;
-		double step = 1;
-		double_value = 0;
-		for (int i = 0; i < text_value.length(); ++i) {
-			if (text_value[i] == '.') {
-				++dots;
-				if (dots > 1)
-					break;
-			}
-			else
-			{
-				double_value = (double_value * 10 + text_value[i] - '0');
-				if (dots)
-					step *= 10;
-			}
-		}
-		if (dots > 1)
+		if (!convert_to_double() || double_value > 100)
+		{
 			text_value.pop_back();
-		double_value /= step;
+			convert_to_double();
+		}
 		text.get()->setString(text_value);
+	}
+}
+
+void Input_field::del_el_string()
+{
+	if (text_value.length() > 0) {
+		text_value.pop_back();
+		if (button.button_name == "Events")
+			convert_to_double();
+		else
+			convert_to_int();
+		cout << "lololo\n";
+		text.get()->setString(text_value);
+	}
+}
+
+void Input_field::check_on_dot()
+{
+	if (text_value.size() > 0)
+	{
+		if (text_value[text_value.size() - 1] == '.') {
+			cout << "qweqw qwe \n";
+			del_el_string();
+		}
 	}
 }
 

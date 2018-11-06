@@ -89,16 +89,20 @@ void Work_with_window::work()
 
 			if (event.type == Event::TextEntered)
 			{
-				if (event.text.unicode >= 48 && event.text.unicode <= 57)
+				if (event.text.unicode >= 48 && event.text.unicode <= 57 || event.text.unicode == '.')
 				{
 					check_fields_entered_text(event.text.unicode);
 				}
 			}
 			if (event.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::Enter))
 			{
-				cout << "Qweqwe\n";
 				check_fields_enter();
 			}
+			if (event.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::BackSpace))
+			{
+				check_fields_backspace();
+			}
+			check_fields_on_last_dot();
 		}
 	}
 	window.get()->clear(Color(40, 40, 40));
@@ -161,6 +165,28 @@ void Work_with_window::check_fields_enter()
 			{
 				create_fields(fields[0].get()->_int_value());
 			}
+		}
+	}
+}
+
+void Work_with_window::check_fields_backspace()
+{
+	for (int i = 0; i < fields.size(); ++i)
+	{
+		if (fields[i].get()->_has_focus())
+		{
+			fields[i].get()->del_el_string();
+		}
+	}
+}
+
+void Work_with_window::check_fields_on_last_dot()
+{
+	for (int i = 0; i < fields.size(); ++i)
+	{
+		if (!fields[i].get()->_has_focus())
+		{
+			fields[i].get()->check_on_dot();
 		}
 	}
 }
