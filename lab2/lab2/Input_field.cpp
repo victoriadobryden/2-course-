@@ -154,7 +154,6 @@ void Input_field::add_text(char c)
 			text_value.pop_back();
 			convert_to_int();
 		}
-		text.get()->setString(text_value);
 	}
 	else if (button.button_name == "Events" && text_value.length() < 6)
 	{
@@ -168,8 +167,9 @@ void Input_field::add_text(char c)
 			text_value.pop_back();
 			convert_to_double();
 		}
-		text.get()->setString(text_value);
 	}
+	text.get()->setString(text_value);
+	text.get()->setOrigin(-button.height + (float)text_value.size() * 13.f, 0);
 }
 
 void Input_field::del_el_string()
@@ -182,6 +182,7 @@ void Input_field::del_el_string()
 			convert_to_int();
 		cout << "lololo\n";
 		text.get()->setString(text_value);
+		text.get()->setOrigin(-button.height + (float)text_value.size() * 13.f, 0);
 	}
 }
 
@@ -193,6 +194,20 @@ void Input_field::check_on_dot()
 			cout << "qweqw qwe \n";
 			del_el_string();
 		}
+		if (button.button_name == "Events") 
+		{
+			if (text_value.length() == 1)
+				text_value += ".0000";
+			else if (text_value.length() == 2)
+				text_value += ".000";
+			else if (text_value == "100")
+				text_value += ".00";
+			else
+				while (text_value.length() < 6)
+					text_value += '0';
+			text.get()->setString(text_value);
+			text.get()->setOrigin(-button.height + (float)text_value.size() * 13.f, 0);
+		}
 	}
 }
 
@@ -202,7 +217,7 @@ void Input_field::set_position(int pos_w, int pos_h)
 	button.position_width = pos_w;
 	
 	sprite.get()->setPosition(Vector2f((float)pos_h, (float)pos_w));
-	text.get()->setPosition(Vector2f((float)pos_h + 2.f, (float)pos_w));
+	text.get()->setPosition(Vector2f((float)pos_h, (float)pos_w));
 }
 
 characteristic_of_button Input_field::get_button()

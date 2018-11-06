@@ -13,14 +13,14 @@ void Work_with_window::create_fields(int number)
 		buttons.pop_back();
 	}
 	number_of_created_windows_type_2 = number;
-	int cur = 100, step = 30;
+	int cur = 140, step = 30;
 	for (int i = 0; i < number; ++i)
 	{
 		shared_ptr<Input_field> temp_type_2 = shared_ptr<Input_field>(new Input_field(base_fields[1]));
-		shared_ptr<ButtonDraw> temp_num = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[3]));
-		temp_type_2.get()->set_position(cur, 40);
+		shared_ptr<ButtonDraw> temp_num = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[base_buttons.size()-1]));
+		temp_type_2.get()->set_position(cur, 35);
 		temp_num.get()->set_position(cur, 5, i + 1);
-		cout << cur << '\n';
+		cout << cur << ' ' << i << '\n';
 		cur += step;
 		fields.push_back(temp_type_2);
 		buttons.push_back(temp_num);
@@ -50,7 +50,7 @@ Work_with_window::Work_with_window(string &file)
 	{
 		shared_ptr<ButtonDraw> temp = shared_ptr<ButtonDraw>(new ButtonDraw(fin, window_name));
 		base_buttons.push_back(temp);
-		if(base_buttons[i].get()->get_name() == "#")
+		if(base_buttons[i].get()->get_name() != "#")
 			buttons.push_back(base_buttons[i]);
 	}
 	int number_of_fields;
@@ -76,6 +76,7 @@ void Work_with_window::work()
 				window.get()->close();
 			if (event.type == Event::MouseMoved)
 			{
+				cout << event.mouseMove.y << ' ' << event.mouseMove.x << '\n';
 				check_buttons_under_cursor(event.mouseMove.y, event.mouseMove.x);
 				check_fields_under_cursor(event.mouseMove.y, event.mouseMove.x);
 			}

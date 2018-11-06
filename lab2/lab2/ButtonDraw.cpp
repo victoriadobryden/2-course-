@@ -3,8 +3,10 @@
 ButtonDraw::ButtonDraw(shared_ptr<ButtonDraw> base)
 {
 	button = base.get()->get_button();
+	cout << button.button_name << ' ' << button.height << ' ' << button.width << '\n';
 	is_picture = false;
 	is_text = true;
+	font = base.get()->get_font();
 	text = shared_ptr<Text>(new Text);
 	text.get()->setFont(*font);
 	text.get()->setCharacterSize(base.get()->get_size_font());
@@ -120,7 +122,11 @@ void ButtonDraw::set_position(int pos_w, int pos_h, int num)
 		s += '0' + num%10;
 		num /= 10;
 	}
+	cout << s << ' ' << pos_w << ' ' << pos_h << '\n';
+	reverse(s.begin(), s.end());
+	s += '.';
 	text.get()->setString(s);
+	text.get()->setOrigin(Vector2f((float) (s.length() == 2 ? -2.f : 0)*5.f, 0.f));
 }
 
 string ButtonDraw::get_name()
