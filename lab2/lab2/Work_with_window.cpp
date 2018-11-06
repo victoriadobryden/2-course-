@@ -1,6 +1,32 @@
 #include "Work_with_window.h"
 
 
+void Work_with_window::create_fields(int number)
+{
+	shared_ptr<Input_field> temp_last;
+	if (number_of_created_windows_type_2 + 1 > fields.size())
+		temp_last = fields[(int)fields.size() - 1];
+	for (int i = (int)fields.size() - 1; i > 0; --i)
+	{
+		fields[i].reset();
+		fields.pop_back();
+	}
+	number_of_created_windows_type_2 = number;
+	int cur = 100, step = 30;
+	for (int i = 0; i < number; ++i)
+	{
+		shared_ptr<Input_field> temp_type_2 = shared_ptr<Input_field>(new Input_field(base_fields[1]));
+		//shared_ptr<ButtonDraw> temp_num = shared_ptr<ButtonDraw>(new ButtonDraw(cur, 5));
+		temp_type_2.get()->set_position(cur, 40);
+		cout << cur << '\n';
+		cur += step;
+		fields.push_back(temp_type_2);
+	}
+	cout << fields.size() << '\n';
+	if (temp_last != nullptr)
+		fields.push_back(temp_last);
+}
+
 Work_with_window::Work_with_window()
 {
 
@@ -27,8 +53,10 @@ Work_with_window::Work_with_window(string &file)
 	for (int i = 0; i < number_of_fields; ++i)
 	{
 		shared_ptr<Input_field> temp = shared_ptr<Input_field>(new Input_field(fin, window_name));
-		fields.push_back(temp);
+		base_fields.push_back(temp);
 	}
+	if (number_of_fields != 0)
+		fields.push_back(base_fields[0]);
 	fin.close();
 }
 
@@ -45,32 +73,31 @@ void Work_with_window::work()
 			{
 				check_buttons_under_cursor(event.mouseMove.y, event.mouseMove.x);
 				check_fields_under_cursor(event.mouseMove.y, event.mouseMove.x);
-			//	cout << event.mouseMove.x << ' ' << event.mouseMove.y << '\n';
 			}
 			if (event.type == Event::MouseButtonPressed)
-			{
 				check_buttons_is_pressed(event.mouseButton.y, event.mouseButton.x, true);
-			//	cout << "pressed " << event.mouseButton.x << ' ' << event.mouseButton.y << '\n';
-			}
-			else {
+			else 
 				check_buttons_is_pressed(event.mouseMove.y, event.mouseMove.x, false);
-			//	cout << "WOWO\n";
-			}
 
 			if (event.type == Event::MouseButtonReleased)
 			{
 				check_buttons_is_released(event.mouseButton.y, event.mouseButton.x);
-			//	cout << "Released " << event.mouseButton.x << ' ' << event.mouseButton.y << '\n';
 				check_fields_is_released(event.mouseButton.y, event.mouseButton.x);
 				for (int i = 0; i < buttons.size(); ++i)
 					buttons[i].get()->unpress();
 			}
+
 			if (event.type == Event::TextEntered)
 			{
 				if (event.text.unicode >= 48 && event.text.unicode <= 57)
 				{
 					check_fields_entered_text(event.text.unicode);
 				}
+			}
+			if (event.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::Enter))
+			{
+				cout << "Qweqwe\n";
+				check_fields_enter();
 			}
 		}
 	}
@@ -122,6 +149,20 @@ void Work_with_window::check_fields_entered_text(char temp)
 		{
 			fields[i].get()->add_text(temp);
 		}
+}
+
+void Work_with_window::check_fields_enter()
+{
+	if (fields.size() > 0) 
+	{
+		if (fields[0].get()->_has_focus())
+		{
+			if (fields[0].get()->_int_value() != 0)
+			{
+				create_fields(fields[0].get()->_int_value());
+			}
+		}
+	}
 }
 
 void Work_with_window::draw_frame_for_window(shared_ptr<RenderWindow> window) 

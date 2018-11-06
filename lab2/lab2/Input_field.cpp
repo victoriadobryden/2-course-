@@ -19,6 +19,21 @@ void Input_field::render_texture(ifstream &fin, shared_ptr<RenderTexture> temp_r
 	temp_render.get()->display();
 }
 
+Input_field::Input_field(shared_ptr<Input_field> base)
+{
+	button = base.get()->get_button();
+	font = base.get()->get_font();
+	texture = base.get()->get_texture();
+	texture_in_action = base.get()->get_texture_in_action();
+
+	sprite = shared_ptr<Sprite>(new Sprite);
+	text = shared_ptr<Text>(new Text);
+	text.get()->setFont(*font);
+	text.get()->setCharacterSize(base.get()->get_text_size());
+	text.get()->setStyle(Text::Regular);
+}
+
+
 Input_field::Input_field(ifstream &fin, string window_name)
 {
 	getline(fin, button.button_name);
@@ -94,14 +109,81 @@ bool Input_field::_has_focus()
 	return has_focus;
 }
 
+int Input_field::_int_value()
+{
+	return int_value;
+}
+
 void Input_field::add_text(char c)
 {
-	if (int_value * 10 + c - '0' <= 15 && int_value * 10 + c -'0' > 0) 
+	if (c != '.' && int_value * 10 + c - '0' <= 15 && int_value * 10 + c -'0' > 0 && button.button_name == "Number of events") 
 	{
 		text_value += c;
 		int_value = (int_value * 10 + c - '0');
 		text.get()->setString(text_value);
 	}
+	else if (button.button_name == "Events" && text_value.length() < 6)
+	{
+		if (text_value.length() == 0 && c == '.')
+			return;
+		if (text_value.length() == 1 && text_value[0] == '0' && c != '.')
+			return;
+		text_value += c;
+		int dots = 0;
+		double step = 1;
+		double_value = 0;
+		for (int i = 0; i < text_value.length(); ++i) {
+			if (text_value[i] == '.') {
+				++dots;
+				if (dots > 1)
+					break;
+			}
+			else
+			{
+				double_value = (double_value * 10 + text_value[i] - '0');
+				if (dots)
+					step *= 10;
+			}
+		}
+		if (dots > 1)
+			text_value.pop_back();
+		double_value /= step;
+		text.get()->setString(text_value);
+	}
+}
+
+void Input_field::set_position(int pos_w, int pos_h)
+{
+	button.position_height = pos_h;
+	button.position_width = pos_w;
+	
+	sprite.get()->setPosition(Vector2f((float) pos_h,(float) pos_w));
+	text.get()->setPosition(Vector2f((float)pos_h,(float) pos_w));
+}
+
+characteristic_of_button Input_field::get_button()
+{
+	return button;
+}
+
+shared_ptr<Texture> Input_field::get_texture()
+{
+	return texture;
+}
+
+shared_ptr<Texture> Input_field::get_texture_in_action()
+{
+	return texture_in_action;
+}
+
+shared_ptr<Font> Input_field::get_font()
+{
+	return font;
+}
+
+int Input_field::get_text_size()
+{
+	return text.get()->getCharacterSize();
 }
 
 
