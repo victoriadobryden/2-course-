@@ -19,6 +19,9 @@ class Input_field :
 	
 	bool has_focus;
 	bool is_text;
+
+	string text_value;
+	int int_value;
 	shared_ptr<Text> text;
 	shared_ptr<Font> font;
 
@@ -30,6 +33,8 @@ public:
 	void draw(shared_ptr<RenderWindow> window);
 	void is_under_cursor(int pos_w, int pos_h);
 	void mouse_is_released(int pos_w, int pos_h);
+	bool _has_focus();
+	void add_text(char c);
 	~Input_field();
 };
 

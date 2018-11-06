@@ -117,7 +117,11 @@ void Work_with_window::check_fields_is_released(int pos_w, int pos_h)
 
 void Work_with_window::check_fields_entered_text(char temp)
 {
-
+	for (int i = 0;i < fields.size(); ++i)
+		if (fields[i].get()->_has_focus())
+		{
+			fields[i].get()->add_text(temp);
+		}
 }
 
 void Work_with_window::draw_frame_for_window(shared_ptr<RenderWindow> window) 

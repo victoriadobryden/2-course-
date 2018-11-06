@@ -25,6 +25,7 @@ Input_field::Input_field(ifstream &fin, string window_name)
 	getline(fin, button.button_name);
 	getline(fin, button.button_name);
 	button.window_name = window_name;
+	text_value = "";
 	fin >> button.position_width >> button.position_height >> button.width >> button.height;
 
 	shared_ptr<RenderTexture> frame = shared_ptr<RenderTexture>(new RenderTexture);
@@ -85,7 +86,22 @@ void Input_field::mouse_is_released(int pos_w, int pos_h)
 	if (in_it(pos_w, pos_h))
 		is_text = has_focus = true;
 	else
-		is_text = has_focus = false;
+		has_focus = false;
+}
+
+bool Input_field::_has_focus()
+{
+	return has_focus;
+}
+
+void Input_field::add_text(char c)
+{
+	if (int_value * 10 + c - '0' <= 15 && int_value * 10 + c -'0' > 0) 
+	{
+		text_value += c;
+		int_value = (int_value * 10 + c - '0');
+		text.get()->setString(text_value);
+	}
 }
 
 
