@@ -23,21 +23,25 @@ class Work_with_window
 	int need_to_create_window;
 	int number_of_created_windows_type_2;
 
-	void create_fields(int number);
 	void check_buttons_under_cursor(int pos_w, int pos_h);
 	void check_buttons_is_pressed(int pos_w, int pos_h, bool is_pressed);
 	void check_buttons_is_released(int pos_w, int pos_h);
+
 	void check_fields_under_cursor(int pos_w, int pos_h);
 	void check_fields_is_released(int pos_w, int pos_h);
+
 	void check_fields_entered_text(char temp);
 	void check_fields_save_open(char temp);
 	void check_fields_enter();
 	void check_fields_backspace();
 	void check_fields_tab();
 	void check_fields_on_last_dot();
+
+	void create_fields(int number);
+	void create_tests(int number);
+
 	bool button_enter_values();
 	int get_pos_base_button(string val);
-	void create_tests(int number);
 	void delete_buttons(int i);
 public:
 	Work_with_window();

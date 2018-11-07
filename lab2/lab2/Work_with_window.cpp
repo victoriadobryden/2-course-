@@ -195,7 +195,7 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 					ifstream fin(fields[j].get()->get_text_value() + ".dat");
 					if (fin)
 					{
-
+						
 					}
 					break;
 				}
