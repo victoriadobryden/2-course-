@@ -1,7 +1,7 @@
 Simple probability
 650 550
 
-8
+9
 
 Title
 3 195 18 165
@@ -47,7 +47,7 @@ Enter values
 0
 
 Expected value:
-100 200 25 123
+50 250 25 123
 0
 1
 20
@@ -56,12 +56,21 @@ Expected value:
 0
 
 Variance:
-135 200 25 97
+75 250 25 97
 0
 1
 20
 125 205 155
 0 200 200
+0
+
+Number of tests:
+135 250 25 168
+0
+1
+20
+128 128 128
+255 255 255
 0
 
 #
@@ -73,8 +82,7 @@ Variance:
 0 200 200
 0
 
-
-2
+3
 
 Number of events
 60 20 25 70
@@ -89,6 +97,17 @@ Number of events
 
 Events
 0 0 25 95
+
+0 200 155
+37 37 37
+0 200 255
+34 34 34
+
+20
+240 240 240
+
+Number of tests
+170 253 25 70
 
 0 200 155
 37 37 37

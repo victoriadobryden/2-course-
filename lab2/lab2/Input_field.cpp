@@ -153,11 +153,12 @@ int Input_field::_int_value()
 
 void Input_field::add_text(char c)
 {
-	if (c != '.' && button.button_name == "Number of events")
+	if (c != '.' && (button.button_name == "Number of events" || button.button_name == "Number of tests"))
 	{
 		text_value += c;
 		convert_to_int();
-		if (int_value == 0 || int_value > 15)
+		if (int_value == 0 || button.button_name == "Number of events" && int_value > 15 ||
+			button.button_name == "Number of tests" && int_value > 10)
 		{
 			text_value.pop_back();
 			convert_to_int();
@@ -257,6 +258,11 @@ int Input_field::get_text_size()
 int Input_field::get_text_value_length()
 {
 	return text_value.length();
+}
+
+string Input_field::get_field_name()
+{
+	return button.button_name;
 }
 
 double Input_field::get_double_value()

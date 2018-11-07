@@ -163,6 +163,11 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 						buttons.push_back(base_buttons[j]);
 						buttons[buttons.size() - 1].get()->add_value(algo_simple.get()->get_variance());
 					}
+					else if (base_buttons[j].get()->get_name() == "Number of tests:")
+					{
+						buttons.push_back(base_buttons[j]);
+						fields.push_back(base_fields[2]);
+					}
 			}
 		}
 		else
@@ -214,8 +219,9 @@ void Work_with_window::check_fields_backspace()
 		if (fields[i].get()->_has_focus())
 		{
 			fields[i].get()->del_el_string();
-			if (algo_simple != nullptr)
+			if (algo_simple != nullptr && fields[i].get()->get_field_name() != "Number of tests" && fields[i].get()->get_field_name() != "Save")
 			{
+				cout << "UFFFFFFFFFFFFFFFFFFF\n";
 				algo_simple.reset();
 				for (int j = buttons.size() - 1; j > 0; --j)
 				{
@@ -230,6 +236,11 @@ void Work_with_window::check_fields_backspace()
 						buttons.pop_back();
 					else if (buttons[j].get()->get_name() == "Expected value:")
 						buttons.pop_back();
+					else if (buttons[j].get()->get_name() == "Number of tests:")
+					{
+						buttons.pop_back();
+						fields.pop_back();
+					}
 				}
 			}
 		}

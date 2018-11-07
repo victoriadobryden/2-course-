@@ -53,6 +53,7 @@ public:
 	shared_ptr<Font> get_font();
 	int get_text_size();
 	int get_text_value_length();
+	string get_field_name();
 	double get_double_value();
 
 	~Input_field();
