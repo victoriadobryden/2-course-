@@ -18,7 +18,6 @@ class Input_field :
 	shared_ptr<Sprite> sprite;
 	
 	bool has_focus;
-	bool is_text;
 
 	string text_value;
 	int int_value;
@@ -37,7 +36,11 @@ public:
 	void draw(shared_ptr<RenderWindow> window);
 	void is_under_cursor(int pos_w, int pos_h);
 	void mouse_is_released(int pos_w, int pos_h);
+	
 	bool _has_focus();
+	void unfocus();
+	void gain_focus();
+
 	int _int_value();
 	void add_text(char c);
 	void del_el_string();

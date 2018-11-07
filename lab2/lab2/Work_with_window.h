@@ -20,10 +20,6 @@ class Work_with_window
 	int number_of_created_windows_type_2;
 
 	void create_fields(int number);
-public:
-	Work_with_window();
-	Work_with_window(string &file);
-	void work();
 	void check_buttons_under_cursor(int pos_w, int pos_h);
 	void check_buttons_is_pressed(int pos_w, int pos_h, bool is_pressed);
 	void check_buttons_is_released(int pos_w, int pos_h);
@@ -32,7 +28,12 @@ public:
 	void check_fields_entered_text(char temp);
 	void check_fields_enter();
 	void check_fields_backspace();
+	void check_fields_tab();
 	void check_fields_on_last_dot();
+public:
+	Work_with_window();
+	Work_with_window(string &file);
+	void work();
 	void draw_frame_for_window(shared_ptr<RenderWindow> window);
 	void draw();
 	int need_new_window();

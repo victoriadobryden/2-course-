@@ -3,12 +3,9 @@
 
 void Work_with_window::create_fields(int number)
 {
-	shared_ptr<Input_field> temp_last;
-	if (number_of_created_windows_type_2 + 1 > fields.size())
-		temp_last = fields[(int)fields.size() - 1];
+	int temp_number_buttons = buttons.size();
 	for (int i = (int)fields.size() - 1; i > 0; --i)
 	{
-		fields[i].reset();
 		fields.pop_back();
 		buttons.pop_back();
 	}
@@ -26,8 +23,6 @@ void Work_with_window::create_fields(int number)
 		buttons.push_back(temp_num);
 	}
 	cout << fields.size() << '\n';
-	if (temp_last != nullptr)
-		fields.push_back(temp_last);
 }
 
 Work_with_window::Work_with_window()
@@ -72,19 +67,25 @@ void Work_with_window::work()
 		Event event;
 		if (window->pollEvent(event)) 
 		{
-			if (event.type == Event::Closed || event.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::Escape))
-				window.get()->close();
+
+			if (event.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::Enter))
+				check_fields_enter();
+			if (event.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::BackSpace))
+				check_fields_backspace();
+			if (event.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::Tab))
+				check_fields_tab();
+			
 			if (event.type == Event::MouseMoved)
 			{
 				cout << event.mouseMove.y << ' ' << event.mouseMove.x << '\n';
 				check_buttons_under_cursor(event.mouseMove.y, event.mouseMove.x);
 				check_fields_under_cursor(event.mouseMove.y, event.mouseMove.x);
 			}
+
 			if (event.type == Event::MouseButtonPressed)
 				check_buttons_is_pressed(event.mouseButton.y, event.mouseButton.x, true);
 			else 
 				check_buttons_is_pressed(event.mouseMove.y, event.mouseMove.x, false);
-
 			if (event.type == Event::MouseButtonReleased)
 			{
 				check_buttons_is_released(event.mouseButton.y, event.mouseButton.x);
@@ -100,14 +101,7 @@ void Work_with_window::work()
 					check_fields_entered_text(event.text.unicode);
 				}
 			}
-			if (event.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::Enter))
-			{
-				check_fields_enter();
-			}
-			if (event.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::BackSpace))
-			{
-				check_fields_backspace();
-			}
+			
 			check_fields_on_last_dot();
 		}
 	}
@@ -182,6 +176,19 @@ void Work_with_window::check_fields_backspace()
 		if (fields[i].get()->_has_focus())
 		{
 			fields[i].get()->del_el_string();
+		}
+	}
+}
+
+void Work_with_window::check_fields_tab()
+{
+	for (int i = 0; i < fields.size(); ++i)
+	{
+		if (fields[i].get()->_has_focus())
+		{
+			fields[i].get()->unfocus();
+			fields[(i+1)%fields.size()].get()->gain_focus();
+			break;
 		}
 	}
 }

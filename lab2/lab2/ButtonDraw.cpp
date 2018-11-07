@@ -5,12 +5,17 @@ ButtonDraw::ButtonDraw(shared_ptr<ButtonDraw> base)
 	button = base.get()->get_button();
 	cout << button.button_name << ' ' << button.height << ' ' << button.width << '\n';
 	is_picture = false;
+	texture.reset();
+	sprite.reset();
 	is_text = true;
-	font = base.get()->get_font();
+	font = shared_ptr<Font>(new Font);
 	text = shared_ptr<Text>(new Text);
+	font.get()->loadFromFile("arial.ttf");
 	text.get()->setFont(*font);
 	text.get()->setCharacterSize(base.get()->get_size_font());
+	text.get()->setString("");
 	text.get()->setStyle(Text::Regular);
+	//text.get()->setPosition(Vector2f((float)button.position_height, (float)button.position_width));
 }
 
 ButtonDraw::ButtonDraw(ifstream &fin, string window_name)
@@ -65,8 +70,8 @@ void ButtonDraw::draw(shared_ptr<RenderWindow> window)
 		window.get()->draw(*sprite);
 	if (is_text)
 	{
-		if (button.is_under_cursor)
-			text.get()->setFillColor(Color(button.color_undcur_r,button.color_undcur_g,button.color_undcur_b));
+		if (button.is_under_cursor) 
+			text.get()->setFillColor(Color(button.color_undcur_r, button.color_undcur_g, button.color_undcur_b));
 		else
 			text.get()->setFillColor(Color(button.color_r,button.color_g,button.color_b));
 		window.get()->draw(*text);
@@ -115,6 +120,9 @@ void ButtonDraw::mouse_is_released(int pos_w, int pos_h, shared_ptr<RenderWindow
 
 void ButtonDraw::set_position(int pos_w, int pos_h, int num)
 {
+	button.position_height = pos_h;
+	button.position_width = pos_w;
+
 	text.get()->setPosition(Vector2f((float)pos_h, (float)pos_w));
 	string s = "";
 	while (num > 0)

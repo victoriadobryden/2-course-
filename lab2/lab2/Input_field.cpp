@@ -60,6 +60,7 @@ Input_field::Input_field(shared_ptr<Input_field> base)
 	text.get()->setFont(*font);
 	text.get()->setCharacterSize(base.get()->get_text_size());
 	text.get()->setStyle(Text::Regular);
+	text.get()->setString("");
 }
 
 
@@ -94,7 +95,7 @@ Input_field::Input_field(ifstream &fin, string window_name)
 	text.get()->setCharacterSize(size_font);
 	text.get()->setStyle(Text::Regular);
 	text.get()->setPosition(Vector2f((float)button.position_height, (float)button.position_width));
-
+	text.get()->setString("");
 	fin >> button.color_r >> button.color_g >> button.color_b;
 }
 
@@ -110,11 +111,8 @@ void Input_field::draw(shared_ptr<RenderWindow> window)
 		sprite.get()->setTexture(*texture);
 		window.get()->draw(*sprite);
 	}
-	if (is_text)
-	{
-		text.get()->setFillColor(Color(button.color_r, button.color_g, button.color_b));
-		window.get()->draw(*text);
-	}
+	text.get()->setFillColor(Color(button.color_r, button.color_g, button.color_b));
+	window.get()->draw(*text);
 }
 
 void Input_field::is_under_cursor(int pos_w, int pos_h)
@@ -128,7 +126,7 @@ void Input_field::is_under_cursor(int pos_w, int pos_h)
 void Input_field::mouse_is_released(int pos_w, int pos_h)
 {
 	if (in_it(pos_w, pos_h))
-		is_text = has_focus = true;
+		has_focus = true;
 	else
 		has_focus = false;
 }
@@ -136,6 +134,16 @@ void Input_field::mouse_is_released(int pos_w, int pos_h)
 bool Input_field::_has_focus()
 {
 	return has_focus;
+}
+
+void Input_field::unfocus()
+{
+	has_focus = false;
+}
+
+void Input_field::gain_focus()
+{
+	has_focus = true;
 }
 
 int Input_field::_int_value()
@@ -168,6 +176,7 @@ void Input_field::add_text(char c)
 			convert_to_double();
 		}
 	}
+	cout << ' ' << text_value << '\n';
 	text.get()->setString(text_value);
 	text.get()->setOrigin(-button.height + (float)text_value.size() * 13.f, 0);
 }
