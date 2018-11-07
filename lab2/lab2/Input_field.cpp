@@ -164,14 +164,14 @@ void Input_field::add_text(char c)
 			convert_to_int();
 		}
 	}
-	else if (button.button_name == "Events" && text_value.length() < 6)
+	else if ((button.button_name == "Prob." || button.button_name == "Event") && text_value.length() < 6)
 	{
 		if (text_value.length() == 0 && c == '.')
 			return;
 		if (text_value.length() == 1 && text_value[0] == '0' && c != '.')
 			return;
 		text_value += c;
-		if (!convert_to_double() || double_value > 100)
+		if (!convert_to_double() || button.button_name == "Prob." && double_value > 100)
 		{
 			text_value.pop_back();
 			convert_to_double();
@@ -186,7 +186,7 @@ void Input_field::del_el_string()
 {
 	if (text_value.length() > 0) {
 		text_value.pop_back();
-		if (button.button_name == "Events")
+		if (button.button_name == "Event" || button.button_name == "Prob.")
 			convert_to_double();
 		else
 			convert_to_int();
@@ -201,10 +201,9 @@ void Input_field::check_on_dot()
 	if (text_value.size() > 0)
 	{
 		if (text_value[text_value.size() - 1] == '.') {
-			cout << "qweqw qwe \n";
 			del_el_string();
 		}
-		if (button.button_name == "Events") 
+		if (button.button_name == "Event" || button.button_name == "Prob.") 
 		{
 			if (text_value.length() == 1)
 				text_value += ".0000";
@@ -212,9 +211,27 @@ void Input_field::check_on_dot()
 				text_value += ".000";
 			else if (text_value == "100")
 				text_value += ".00";
-			else
-				while (text_value.length() < 6)
-					text_value += '0';
+			else 
+			{
+				if (button.button_name == "Prob.") 
+				{
+					while (text_value.length() < 6)
+						text_value += '0';
+				}
+				else
+				{
+					bool dot = false;
+					for (int i = 0; i < text_value.size(); ++i)
+						if (text_value[i] == '.')
+							dot = true;
+					if (!dot)
+						text_value += '.';
+					while (text_value.length() < 6)
+						text_value += '0';
+					if (text_value[text_value.size()-1] == '.')
+						text_value.pop_back();
+				}
+			}
 			text.get()->setString(text_value);
 			text.get()->setOrigin(-button.height + (float)text_value.size() * 13.f, 0);
 		}
@@ -268,6 +285,14 @@ string Input_field::get_field_name()
 double Input_field::get_double_value()
 {
 	return double_value;
+}
+
+void Input_field::clear_text()
+{
+	text_value = "";
+	text.get()->setString("");
+	double_value = 0;
+	int_value = 0;
 }
 
 

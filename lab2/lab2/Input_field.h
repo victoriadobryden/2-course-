@@ -56,6 +56,8 @@ public:
 	string get_field_name();
 	double get_double_value();
 
+	void clear_text();
+
 	~Input_field();
 };
 

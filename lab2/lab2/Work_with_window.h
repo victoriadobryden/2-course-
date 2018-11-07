@@ -37,6 +37,7 @@ class Work_with_window
 	bool button_enter_values();
 	int get_pos_base_button(string val);
 	void create_tests(int number);
+	void delete_buttons(int i);
 public:
 	Work_with_window();
 	Work_with_window(string &file);

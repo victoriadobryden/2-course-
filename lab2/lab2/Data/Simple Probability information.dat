@@ -20,7 +20,7 @@ Data/cross.png
 1
 
 Number of events:
-25 5 25 168
+35 35 25 168
 0
 1
 20
@@ -28,8 +28,8 @@ Number of events:
 255 255 255
 1
 
-Events:
-100 5 25 67
+Prob.           Event
+100 40 25 150
 0
 1
 20
@@ -47,7 +47,7 @@ Enter values
 0
 
 Expected value:
-50 250 25 123
+50 280 25 123
 0
 1
 20
@@ -56,7 +56,7 @@ Expected value:
 0
 
 Variance:
-75 250 25 97
+75 280 25 97
 0
 1
 20
@@ -65,7 +65,7 @@ Variance:
 0
 
 Number of tests:
-135 250 25 168
+135 280 25 168
 0
 1
 20
@@ -100,10 +100,10 @@ Values
 0 200 200
 0
 
-3
+4
 
 Number of events
-60 20 25 70
+65 35 25 70
 
 0 200 155
 37 37 37
@@ -113,7 +113,7 @@ Number of events
 20
 240 240 240
 
-Events
+Prob.
 0 0 25 95
 
 0 200 155
@@ -125,7 +125,7 @@ Events
 240 240 240
 
 Number of tests
-170 253 25 70
+170 283 25 70
 
 0 200 155
 37 37 37
@@ -134,3 +134,15 @@ Number of tests
 
 20
 240 240 240
+
+Event
+0 0 25 95
+
+0 200 155
+37 37 37
+0 200 255
+34 34 34
+
+20
+240 240 240
+

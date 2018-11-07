@@ -2,7 +2,7 @@
 
 
 
-Algorithm_simple_probability::Algorithm_simple_probability(int n, vector<double> values) :number_of_probabilities(n), probabilities(values)
+Algorithm_simple_probability::Algorithm_simple_probability(int n, vector<double> probs, vector<double> values) :number_of_probabilities(n), probabilities(probs), events(values)
 {
 	double counter = 0;
 	for (int i = 0; i < probabilities.size(); ++i)
@@ -10,13 +10,6 @@ Algorithm_simple_probability::Algorithm_simple_probability(int n, vector<double>
 		probabilities[i] /= 100.0;
 		counter += probabilities[i];
 	}
-	if (!(abs(counter - 1.0) < 0.001))
-	{
-		probabilities.push_back(1.0 - counter);
-		other = true;
-	}
-	else
-		other = false;
 	count_expected_value();
 	count_variance();
 }
@@ -49,7 +42,7 @@ void Algorithm_simple_probability::generate_tests(int number)
 			cur_sum += probabilities[j];
 			if (cur_sum > temp - 0.0001)
 			{
-				tests.push_back(j);
+				tests.push_back(events[j]);
 				break;
 			}
 		}
@@ -60,7 +53,7 @@ void Algorithm_simple_probability::count_expected_value()
 {
 	expected_value = 0;
 	for (int i = 0; i < probabilities.size(); ++i)
-		expected_value += probabilities[i] * (i + 1);
+		expected_value += probabilities[i] * events[i];
 }
 
 void Algorithm_simple_probability::count_variance()
@@ -68,7 +61,7 @@ void Algorithm_simple_probability::count_variance()
 	variance = 0;
 	variance = -expected_value;
 	for (int i = 0; i < probabilities.size(); ++i)
-		variance += (i + 1)*(i + 1)*probabilities[i];
+		variance += events[i]*events[i]*probabilities[i];
 }
 
 
