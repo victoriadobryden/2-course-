@@ -11,11 +11,6 @@ void Work_with_window::create_fields(int number)
 	}
 	if (number_of_created_windows_type_2 > 0)
 		buttons.pop_back();
-	if (algo_simple != nullptr) 
-	{
-		buttons.pop_back();
-		buttons.pop_back();
-	}
 	number_of_created_windows_type_2 = number;
 	int cur = 140, step = 30, hash_pos = get_pos_base_button("#");
 	for (int i = 0; i < number; ++i)
@@ -209,6 +204,14 @@ void Work_with_window::check_fields_enter()
 				create_fields(fields[0].get()->_int_value());
 			}
 		}
+		for (int i = 1;i < fields.size(); ++i)
+			if (fields[i].get()->_has_focus())
+			{
+				if (fields[i].get()->get_field_name() == "Number of tests")
+				{
+					create_tests(fields[i].get()->_int_value());
+				}
+			}
 	}
 }
 
@@ -225,22 +228,27 @@ void Work_with_window::check_fields_backspace()
 				algo_simple.reset();
 				for (int j = buttons.size() - 1; j > 0; --j)
 				{
-					if (buttons[j].get()->get_name() == "#")
+					string temp = buttons[j].get()->get_name();
+					if (temp == "#")
 						break;
-					else if (buttons[j].get()->get_name() == "Save")
+					else if (temp == "Save" || temp == "Number of tests:")
 					{
 						buttons.pop_back();
 						fields.pop_back();
 					}
-					else if (buttons[j].get()->get_name() == "Variance:")
-						buttons.pop_back();
-					else if (buttons[j].get()->get_name() == "Expected value:")
-						buttons.pop_back();
-					else if (buttons[j].get()->get_name() == "Number of tests:")
-					{
-						buttons.pop_back();
-						fields.pop_back();
-					}
+					else if (temp == "Variance:" || temp == "Expected value:" || temp == "Test#" || temp == "Values")
+						buttons.pop_back();		
+				}
+			}
+			else if (fields[i].get()->get_field_name() == "Number of tests")
+			{
+				for (int j = buttons.size() - 1; j > 0; --j)
+				{
+					string temp = buttons[j].get()->get_name();
+					if (temp == "Number of tests:")
+						break;
+					if (temp == "Test#" || temp == "Values")
+						buttons.pop_back(); 
 				}
 			}
 		}
@@ -295,6 +303,26 @@ int Work_with_window::get_pos_base_button(string val)
 		if (base_buttons[i].get()->get_name() == val)
 			return i;
 	return -1;
+}
+
+void Work_with_window::create_tests(int number)
+{
+	algo_simple.get()->generate_tests(number);
+	vector<int> temp = algo_simple.get()->get_tests();
+	int hash_test = get_pos_base_button("Test#"), hash_val = get_pos_base_button("Values"), cur = 210, step = 35;
+	for (int i = 0; i < (int)temp.size(); ++i)
+	{
+		cout << "RRRRRRRRRRr " << temp[i] << ' ';
+		shared_ptr<ButtonDraw> temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_test]));
+		temp_button.get()->set_position(cur, 250, -i-2);
+		buttons.push_back(temp_button);
+		temp_button.reset();
+		temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_val]));
+		temp_button.get()->set_position(cur, 250 + 160, temp[i]+1);
+		buttons.push_back(temp_button);
+		cur += step;
+	}
+	cout << '\n';
 }
 
 void Work_with_window::draw_frame_for_window(shared_ptr<RenderWindow> window) 

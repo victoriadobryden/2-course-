@@ -31,6 +31,31 @@ double Algorithm_simple_probability::get_variance()
 	return variance;
 }
 
+vector<int> Algorithm_simple_probability::get_tests()
+{
+	return tests;
+}
+
+void Algorithm_simple_probability::generate_tests(int number)
+{
+	tests.clear();
+	double temp;
+	for (int i = 0; i < number; ++i)
+	{
+		temp = (double)rand() / (double)RAND_MAX;
+		double cur_sum = 0;
+		for (int j = 0; j < probabilities.size(); ++j)
+		{
+			cur_sum += probabilities[j];
+			if (cur_sum > temp - 0.0001)
+			{
+				tests.push_back(j);
+				break;
+			}
+		}
+	}
+}
+
 void Algorithm_simple_probability::count_expected_value()
 {
 	expected_value = 0;

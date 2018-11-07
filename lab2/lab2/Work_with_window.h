@@ -36,6 +36,7 @@ class Work_with_window
 	void check_fields_on_last_dot();
 	bool button_enter_values();
 	int get_pos_base_button(string val);
+	void create_tests(int number);
 public:
 	Work_with_window();
 	Work_with_window(string &file);
