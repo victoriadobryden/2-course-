@@ -177,22 +177,32 @@ void Input_field::add_text(char c)
 			convert_to_double();
 		}
 	}
-	cout << ' ' << text_value << '\n';
 	text.get()->setString(text_value);
 	text.get()->setOrigin(-button.height + (float)text_value.size() * 13.f, 0);
+}
+
+void Input_field::add_char_text(char c)
+{
+	if (text_value.size() < 9) {
+		text_value += c;
+		text.get()->setString(text_value);
+	}
 }
 
 void Input_field::del_el_string()
 {
 	if (text_value.length() > 0) {
 		text_value.pop_back();
-		if (button.button_name == "Event" || button.button_name == "Prob.")
-			convert_to_double();
-		else
-			convert_to_int();
-		cout << "lololo\n";
+		if (!(button.button_name == "Save" || button.button_name == "Open"))
+		{
+			if (button.button_name == "Event" || button.button_name == "Prob.")
+				convert_to_double();
+			else
+				convert_to_int();
+		}
 		text.get()->setString(text_value);
-		text.get()->setOrigin(-button.height + (float)text_value.size() * 13.f, 0);
+		if (!(button.button_name == "Save" || button.button_name == "Open"))
+			text.get()->setOrigin(-button.height + (float)text_value.size() * 13.f, 0);
 	}
 }
 
@@ -240,6 +250,11 @@ void Input_field::check_on_dot()
 
 void Input_field::set_position(int pos_w, int pos_h)
 {
+	if (pos_w == -1)
+	{
+		text.get()->setPosition(Vector2f((float)button.position_height + pos_h, (float)button.position_width));
+		return;
+	}
 	button.position_height = pos_h;
 	button.position_width = pos_w;
 	
@@ -280,6 +295,11 @@ int Input_field::get_text_value_length()
 string Input_field::get_field_name()
 {
 	return button.button_name;
+}
+
+string Input_field::get_text_value()
+{
+	return text_value;
 }
 
 double Input_field::get_double_value()

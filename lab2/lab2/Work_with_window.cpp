@@ -4,9 +4,9 @@
 void Work_with_window::create_fields(int number)
 {
 	int temp_number_buttons = buttons.size();
-	for (int i = (int)fields.size() - 1; i > 0; --i)
+	for (int i = (int)fields.size() - 1; i > 1; --i)
 		fields.pop_back();
-	for (int i = (int)buttons.size() - 1; i > 3; --i)
+	for (int i = (int)buttons.size() - 1; i > 4; --i)
 		buttons.pop_back();
 	number_of_created_windows_type_2 = number;
 	int cur = 130, step = 30, hash_pos = get_pos_base_button("#");
@@ -16,7 +16,6 @@ void Work_with_window::create_fields(int number)
 		shared_ptr<ButtonDraw> temp_num = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos]));
 		temp_type_2.get()->set_position(cur, 35);
 		temp_num.get()->set_position(cur, 5, i + 1);
-		cout << cur << ' ' << i << '\n';
 		fields.push_back(temp_type_2);
 		temp_type_2.reset();
 		temp_type_2 = shared_ptr<Input_field>(new Input_field(base_fields[3]));
@@ -29,7 +28,6 @@ void Work_with_window::create_fields(int number)
 	shared_ptr<ButtonDraw> temp_num = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos]));
 	temp_num.get()->set_position(cur, 35, -1);
 	buttons.push_back(temp_num);
-	cout << fields.size() << '\n';
 }
 
 Work_with_window::Work_with_window()
@@ -54,8 +52,9 @@ Work_with_window::Work_with_window(string &file)
 		shared_ptr<ButtonDraw> temp = shared_ptr<ButtonDraw>(new ButtonDraw(fin, window_name));
 		base_buttons.push_back(temp);
 		fin >> need_to_add;
-		if(need_to_add)
+		if (need_to_add) {
 			buttons.push_back(base_buttons[i]);
+		}
 	}
 	int number_of_fields;
 	fin >> number_of_fields;
@@ -63,9 +62,13 @@ Work_with_window::Work_with_window(string &file)
 	{
 		shared_ptr<Input_field> temp = shared_ptr<Input_field>(new Input_field(fin, window_name));
 		base_fields.push_back(temp);
+		if (base_fields[i].get()->get_field_name() == "Save" || base_fields[i].get()->get_field_name() == "Open")
+			base_fields[i].get()->set_position(-1, 2);
 	}
-	if (number_of_fields != 0)
+	if (number_of_fields != 0) {
 		fields.push_back(base_fields[0]);
+		fields.push_back(base_fields[5]);
+	}
 	fin.close();
 }
 
@@ -107,6 +110,10 @@ void Work_with_window::work()
 				if (event.text.unicode >= 48 && event.text.unicode <= 57 || event.text.unicode == '.')
 				{
 					check_fields_entered_text(event.text.unicode);
+				}
+				if (event.text.unicode >= 48 && event.text.unicode <= 57 || event.text.unicode >= 97 && event.text.unicode <= 122)
+				{
+					check_fields_save_open(event.text.unicode);
 				}
 			}
 			
@@ -170,6 +177,30 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 					}
 			}
 		}
+		else if (buttons[i].get()->get_name() == "Save" && buttons[i].get()->in_it(pos_w, pos_h))
+		{
+			for (int j = 0; j < fields.size(); ++j)
+				if (fields[j].get()->get_field_name() == "Save")
+				{
+					ofstream fout(fields[j].get()->get_text_value() + ".dat");
+					algo_simple.get()->output(fout);
+					break;
+				}
+		}
+		else if (buttons[i].get()->get_name() == "Open" && buttons[i].get()->in_it(pos_w, pos_h))
+		{
+			for (int j = 0; j < fields.size(); ++j)
+				if (fields[j].get()->get_field_name() == "Save")
+				{
+					ifstream fin(fields[j].get()->get_text_value() + ".dat");
+					if (fin)
+					{
+
+					}
+					break;
+				}
+
+		}
 		else
 			buttons[i].get()->mouse_is_released(pos_w, pos_h, window, need_to_create_window);
 	}
@@ -192,9 +223,19 @@ void Work_with_window::check_fields_is_released(int pos_w, int pos_h)
 void Work_with_window::check_fields_entered_text(char temp)
 {
 	for (int i = 0;i < fields.size(); ++i)
-		if (fields[i].get()->_has_focus())
+		if (fields[i].get()->_has_focus() && fields[i].get()->get_field_name() != "Save" && fields[i].get()->get_field_name() != "Open")
 		{
 			fields[i].get()->add_text(temp);
+		}
+}
+
+void Work_with_window::check_fields_save_open(char temp)
+{
+	for (int i = 0; i < fields.size(); ++i)
+		if ((fields[i].get()->get_field_name() == "Open" || fields[i].get()->get_field_name() == "Save") && 
+			fields[i].get()->_has_focus())
+		{
+			fields[i].get()->add_char_text(temp);
 		}
 }
 
@@ -260,36 +301,27 @@ void Work_with_window::check_fields_on_last_dot()
 
 bool Work_with_window::button_enter_values()
 {
-	cout << "##############################################3\n";
 	double counter = 0;
 	vector<double> values;
 	vector<double> probs;
-	cout << number_of_created_windows_type_2 << '\n' << fields.size() << '\n';
-	for (int i = 1; i <= 2*number_of_created_windows_type_2; ++i)
+	for (int i = 2; i <= 1 + 2*number_of_created_windows_type_2; ++i)
 	{
 		if (fields[i].get()->get_text_value_length() == 0)
 			return false;
-		cout << i << ' ';
 		if (fields[i].get()->get_field_name() == "Prob.")
 		{
-			cout << "counter << " << counter << '\n';
 			counter += fields[i].get()->get_double_value();
 			probs.push_back(fields[i].get()->get_double_value());
 		}
 		else {
-			cout << "qweqwe ";
 			values.push_back(fields[i].get()->get_double_value());
-			cout << values[values.size()-1] << '\n';
 		}
 	}
 	
-	cout << "UUH\n";
 	if (abs(counter - 100) > 0.0001)
 		return false;
 	algo_simple = shared_ptr<Algorithm_simple_probability>(new Algorithm_simple_probability(number_of_created_windows_type_2, probs, values));
-	cout << "UUUUUUUUUUU" << algo_simple.get()->get_expected_value() << ' ' << algo_simple.get()->get_variance() << '\n';
-
-	cout << "##############################################3\n"; return true;
+	return true;
 }
 
 int Work_with_window::get_pos_base_button(string val)
@@ -303,11 +335,10 @@ int Work_with_window::get_pos_base_button(string val)
 void Work_with_window::create_tests(int number)
 {
 	algo_simple.get()->generate_tests(number);
-	vector<int> temp = algo_simple.get()->get_tests();
+	vector<double> temp = algo_simple.get()->get_tests();
 	int hash_test = get_pos_base_button("Test#"), hash_val = get_pos_base_button("Values"), cur = 210, step = 35;
 	for (int i = 0; i < (int)temp.size(); ++i)
 	{
-		cout << "RRRRRRRRRRr " << temp[i] << ' ';
 		shared_ptr<ButtonDraw> temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_test]));
 		temp_button.get()->set_position(cur, 280, -i-2);
 		buttons.push_back(temp_button);
@@ -317,20 +348,19 @@ void Work_with_window::create_tests(int number)
 		buttons.push_back(temp_button);
 		cur += step;
 	}
-	cout << '\n';
+	hash_test = get_pos_base_button("Save");
+	buttons.push_back(base_buttons[hash_test]);
+	fields.push_back(base_fields[4]);
 }
 
 void Work_with_window::delete_buttons(int i)
 {
-	cout << "UHHHHH\n";
 	if (algo_simple != nullptr && fields[i].get()->get_field_name() != "Number of tests" && fields[i].get()->get_field_name() != "Save")
 	{
-		cout << "UFFFFFFFFFFFFFFFFFFF\n";
 		algo_simple.reset();
 		for (int j = buttons.size() - 1; j > 0; --j)
 		{
 			string temp = buttons[j].get()->get_name();
-			cout << temp << '\n';
 			if (temp == "#")
 				break;
 			else if (temp == "Save" || temp == "Number of tests:")
@@ -352,6 +382,12 @@ void Work_with_window::delete_buttons(int i)
 				break;
 			if (temp == "Test#" || temp == "Values")
 				buttons.pop_back();
+			else if (temp == "Save")
+			{
+				buttons.pop_back();
+				fields[fields.size() - 1].get()->clear_text();
+				fields.pop_back();
+			}
 		}
 	}
 }

@@ -24,7 +24,7 @@ double Algorithm_simple_probability::get_variance()
 	return variance;
 }
 
-vector<int> Algorithm_simple_probability::get_tests()
+vector<double> Algorithm_simple_probability::get_tests()
 {
 	return tests;
 }
@@ -49,6 +49,16 @@ void Algorithm_simple_probability::generate_tests(int number)
 	}
 }
 
+void Algorithm_simple_probability::output(ofstream & fout)
+{
+	fout << number_of_probabilities << '\n';
+	for (int i = 0; i < probabilities.size(); ++i)
+		fout << probabilities[i] << ' ' << events[i] << '\n';
+	fout << tests.size() << '\n';
+	for (int j = 0; j < tests.size(); ++j)
+		fout << tests[j] << ' ';
+}
+
 void Algorithm_simple_probability::count_expected_value()
 {
 	expected_value = 0;
@@ -59,7 +69,7 @@ void Algorithm_simple_probability::count_expected_value()
 void Algorithm_simple_probability::count_variance()
 {
 	variance = 0;
-	variance = -expected_value;
+	variance = -expected_value*expected_value;
 	for (int i = 0; i < probabilities.size(); ++i)
 		variance += events[i]*events[i]*probabilities[i];
 }

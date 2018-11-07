@@ -31,7 +31,7 @@ public:
 	void mouse_is_there(int pos_w, int pos_h, shared_ptr<RenderWindow> window);
 	void mouse_is_pressed(int pos_w, int pos_h, shared_ptr<RenderWindow> window, bool is_pressed);
 	void mouse_is_released(int pos_w, int pos_h, shared_ptr<RenderWindow> window, int &need_to_create_window);
-	void set_position(int pos_w, int pos_h, int num);
+	void set_position(int pos_w, int pos_h, double num);
 	void add_value(double value);
 
 	string get_name();

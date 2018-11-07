@@ -30,6 +30,7 @@ class Work_with_window
 	void check_fields_under_cursor(int pos_w, int pos_h);
 	void check_fields_is_released(int pos_w, int pos_h);
 	void check_fields_entered_text(char temp);
+	void check_fields_save_open(char temp);
 	void check_fields_enter();
 	void check_fields_backspace();
 	void check_fields_tab();

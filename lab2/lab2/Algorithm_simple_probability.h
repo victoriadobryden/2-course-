@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -10,7 +11,7 @@ class Algorithm_simple_probability
 	double expected_value, variance;
 	vector<double> probabilities;
 	vector<double> events;
-	vector<int> tests;
+	vector<double> tests;
 
 	void count_expected_value();
 	void count_variance();
@@ -18,8 +19,9 @@ public:
 	Algorithm_simple_probability(int n, vector<double> probs, vector<double> values);
 	double get_expected_value();
 	double get_variance();
-	vector<int> get_tests();
+	vector<double> get_tests();
 	void generate_tests(int number);
+	void output(ofstream &fout);
 	~Algorithm_simple_probability();
 };
 

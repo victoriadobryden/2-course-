@@ -42,7 +42,8 @@ public:
 	void gain_focus();
 
 	int _int_value();
-	void add_text(char c);
+	void add_text(char c); 
+	void add_char_text(char c);
 	void del_el_string();
 	void check_on_dot();
 
@@ -53,7 +54,8 @@ public:
 	shared_ptr<Font> get_font();
 	int get_text_size();
 	int get_text_value_length();
-	string get_field_name();
+	string get_field_name(); 
+	string get_text_value();
 	double get_double_value();
 
 	void clear_text();

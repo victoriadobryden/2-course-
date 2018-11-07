@@ -3,7 +3,6 @@
 ButtonDraw::ButtonDraw(shared_ptr<ButtonDraw> base)
 {
 	button = base.get()->get_button();
-	cout << button.button_name << ' ' << button.height << ' ' << button.width << '\n';
 	is_picture = false;
 	texture.reset();
 	sprite.reset();
@@ -118,7 +117,7 @@ void ButtonDraw::mouse_is_released(int pos_w, int pos_h, shared_ptr<RenderWindow
 	}
 }
 
-void ButtonDraw::set_position(int pos_w, int pos_h, int num)
+void ButtonDraw::set_position(int pos_w, int pos_h, double num)
 {
 	button.position_height = pos_h;
 	button.position_width = pos_w;
@@ -130,27 +129,36 @@ void ButtonDraw::set_position(int pos_w, int pos_h, int num)
 	{
 		if (num > 0) 
 		{
-			while (num > 0)
+			if (abs(num - temp) < 0.0001) 
 			{
-				s += '0' + num % 10;
-				num /= 10;
+				while (temp > 0)
+				{
+					s += '0' + temp % 10;
+					temp /= 10;
+				}
+				reverse(s.begin(), s.end());
+				s += '.';
 			}
-			reverse(s.begin(), s.end());
-			s += '.';
+			else {
+				s = to_string(num);
+				s.pop_back();
+				s.pop_back();
+				s.pop_back();
+			}
 		}
 		else {
-			++num;
-			num = -num;
-			while (num > 0)
+			++temp;
+			temp = -temp;
+			while (temp > 0)
 			{
-				s += '0' + num % 10;
-				num /= 10;
+				s += '0' + temp % 10;
+				temp /= 10;
 			}
 			reverse(s.begin(), s.end());
 		}
 	}
 	else s = button.button_name;
-	if (temp < -1)
+	if (num < -1)
 		s = button.button_name + s + " result is ";
 	text.get()->setString(s);
 	text.get()->setOrigin(Vector2f((float) (s.length() == 2 ? -2.f : 0)*5.f, 0.f));
