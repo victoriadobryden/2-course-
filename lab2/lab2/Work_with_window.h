@@ -1,6 +1,7 @@
 #pragma once
 #include "ButtonDraw.h"
 #include "Input_field.h"
+#include "Algorithm_simple_probability.h"
 
 #include <SFML/Graphics.hpp>
 #include <fstream>
@@ -15,6 +16,9 @@ class Work_with_window
 	vector<shared_ptr<ButtonDraw> > buttons;
 	vector<shared_ptr<Input_field> > base_fields;
 	vector<shared_ptr<Input_field> > fields;
+	
+	shared_ptr<Algorithm_simple_probability> algo_simple;
+
 	string information;
 	int need_to_create_window;
 	int number_of_created_windows_type_2;
@@ -30,6 +34,8 @@ class Work_with_window
 	void check_fields_backspace();
 	void check_fields_tab();
 	void check_fields_on_last_dot();
+	bool button_enter_values();
+	int get_pos_base_button(string val);
 public:
 	Work_with_window();
 	Work_with_window(string &file);

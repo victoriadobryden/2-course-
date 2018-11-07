@@ -254,6 +254,16 @@ int Input_field::get_text_size()
 	return text.get()->getCharacterSize();
 }
 
+int Input_field::get_text_value_length()
+{
+	return text_value.length();
+}
+
+double Input_field::get_double_value()
+{
+	return double_value;
+}
+
 
 
 Input_field::~Input_field()

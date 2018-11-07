@@ -52,6 +52,8 @@ public:
 	shared_ptr<Texture> get_texture_in_action();
 	shared_ptr<Font> get_font();
 	int get_text_size();
+	int get_text_value_length();
+	double get_double_value();
 
 	~Input_field();
 };

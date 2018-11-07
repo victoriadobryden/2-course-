@@ -125,16 +125,31 @@ void ButtonDraw::set_position(int pos_w, int pos_h, int num)
 
 	text.get()->setPosition(Vector2f((float)pos_h, (float)pos_w));
 	string s = "";
-	while (num > 0)
+	if (num != -1) 
 	{
-		s += '0' + num%10;
-		num /= 10;
+		while (num > 0)
+		{
+			s += '0' + num % 10;
+			num /= 10;
+		}
+		cout << s << ' ' << pos_w << ' ' << pos_h << '\n';
+		reverse(s.begin(), s.end());
+		s += '.';
 	}
-	cout << s << ' ' << pos_w << ' ' << pos_h << '\n';
-	reverse(s.begin(), s.end());
-	s += '.';
+	else s = button.button_name;
 	text.get()->setString(s);
 	text.get()->setOrigin(Vector2f((float) (s.length() == 2 ? -2.f : 0)*5.f, 0.f));
+}
+
+void ButtonDraw::add_value(double value)
+{
+	string s = to_string(value);
+	s.pop_back();
+	s.pop_back();
+	s.pop_back();
+	s = " " + s;
+	s = button.button_name + s;
+	text.get()->setString(s);
 }
 
 string ButtonDraw::get_name()
