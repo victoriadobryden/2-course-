@@ -354,7 +354,7 @@ void Work_with_window::help_enter_values()
 	for (int j = buttons.size() - 1; j > 0; --j)
 		if (buttons[j].get()->get_name() == "Enter values")
 			break;
-		else if (buttons[j].get()->get_name() == "Number of tests:" || buttons[j].get()->get_name() == "Save")
+		else if (buttons[j].get()->get_name() == "Number of tests:")
 		{
 			buttons.pop_back();
 			fields[fields.size() - 1].get()->clear_text();
@@ -383,6 +383,11 @@ void Work_with_window::help_enter_values()
 		{
 			buttons.push_back(base_buttons[j]);
 			buttons[buttons.size() - 1].get()->set_position(172, 360);
+		}
+		else if (base_buttons[j].get()->get_name() == "Save")
+		{
+			buttons.push_back(base_buttons[j]);
+			fields.push_back(base_fields[4]);
 		}
 }
 
@@ -418,9 +423,6 @@ void Work_with_window::help_create_tests()
 		buttons.push_back(temp_button);
 		cur += step;
 	}
-	hash_test = get_pos_base_button("Save");
-	buttons.push_back(base_buttons[hash_test]);
-	fields.push_back(base_fields[4]);
 }
 
 void Work_with_window::delete_buttons(int i)
@@ -454,12 +456,6 @@ void Work_with_window::delete_buttons(int i)
 				break;
 			if (temp == "Test#" || temp == "Values")
 				buttons.pop_back();
-			else if (temp == "Save")
-			{
-				buttons.pop_back();
-				fields[fields.size() - 1].get()->clear_text();
-				fields.pop_back();
-			}
 		}
 	}
 }
@@ -498,14 +494,17 @@ void Work_with_window::render_opened_file(ifstream &fin)
 	{
 		help_enter_values();
 		fin >> n;
-		for (int i = 0;i < fields.size(); ++i)
-			if (fields[i].get()->get_field_name() == "Number of tests")
-			{
-				fields[i].get()->set_text(to_string(n));
-				break;
-			}
-		algo_simple.get()->set_tests(fin, n); 
-		help_create_tests();
+		if (n != 0) 
+		{
+			for (int i = 0; i < fields.size(); ++i)
+				if (fields[i].get()->get_field_name() == "Number of tests")
+				{
+					fields[i].get()->set_text(to_string(n));
+					break;
+				}
+			algo_simple.get()->set_tests(fin, n);
+			help_create_tests();
+		}
 	}
 
 }
