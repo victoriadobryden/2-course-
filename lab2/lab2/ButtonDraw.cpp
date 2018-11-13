@@ -14,7 +14,7 @@ ButtonDraw::ButtonDraw(shared_ptr<ButtonDraw> base)
 	text.get()->setCharacterSize(base.get()->get_size_font());
 	text.get()->setString("");
 	text.get()->setStyle(Text::Regular);
-	//text.get()->setPosition(Vector2f((float)button.position_height, (float)button.position_width));
+	text.get()->setPosition(button.position_height, button.position_width);
 }
 
 ButtonDraw::ButtonDraw(ifstream &fin, string window_name)
@@ -78,12 +78,10 @@ void ButtonDraw::draw(shared_ptr<RenderWindow> window)
 	//window.reset();
 }
 
-void ButtonDraw::mouse_is_there(int pos_w, int pos_h, shared_ptr<RenderWindow> window)
+void ButtonDraw::mouse_is_there(int pos_w, int pos_h)
 {
 	if (in_it(pos_w, pos_h))
-	{
 		button.is_under_cursor = true;
-	}
 	else
 		button.is_under_cursor = false;
 }
@@ -117,51 +115,43 @@ void ButtonDraw::mouse_is_released(int pos_w, int pos_h, shared_ptr<RenderWindow
 	}
 }
 
-void ButtonDraw::set_position(int pos_w, int pos_h, double num)
+void ButtonDraw::set_text(double num, bool add_to_name) 
+{
+	string s = "";
+	int temp = num;
+	if (abs(num - temp) < 0.00001)
+	{
+		while (temp > 0)
+		{
+			s += '0' + temp % 10;
+			temp /= 10;
+		}
+		reverse(s.begin(), s.end());
+		s += '.';
+	}
+	else {
+		s = to_string(num);
+	}
+
+	if (add_to_name)
+		s = button.button_name + s + " result is ";
+
+	text.get()->setString(s);
+	text.get()->setOrigin(Vector2f((float)(s.length() == 2 ? -2.f : 0)*5.f, 0.f));
+}
+
+void ButtonDraw::set_text(string s)
+{
+	text.get()->setString(s);
+}
+
+void ButtonDraw::set_position(int pos_w, int pos_h)
 {
 	button.position_height = pos_h;
 	button.position_width = pos_w;
 
 	text.get()->setPosition(Vector2f((float)pos_h, (float)pos_w));
-	string s = "";
-	int temp = num;
-	if (num != -1) 
-	{
-		if (num > 0) 
-		{
-			if (abs(num - temp) < 0.0001) 
-			{
-				while (temp > 0)
-				{
-					s += '0' + temp % 10;
-					temp /= 10;
-				}
-				reverse(s.begin(), s.end());
-				s += '.';
-			}
-			else {
-				s = to_string(num);
-				s.pop_back();
-				s.pop_back();
-				s.pop_back();
-			}
-		}
-		else {
-			++temp;
-			temp = -temp;
-			while (temp > 0)
-			{
-				s += '0' + temp % 10;
-				temp /= 10;
-			}
-			reverse(s.begin(), s.end());
-		}
-	}
-	else s = button.button_name;
-	if (num < -1)
-		s = button.button_name + s + " result is ";
-	text.get()->setString(s);
-	text.get()->setOrigin(Vector2f((float) (s.length() == 2 ? -2.f : 0)*5.f, 0.f));
+	text.get()->setString(button.button_name);
 }
 
 void ButtonDraw::add_value(double value)

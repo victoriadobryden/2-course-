@@ -46,6 +46,7 @@ public:
 	void add_char_text(char c);
 	void del_el_string();
 	void check_on_dot();
+	void last_field_counter(double counter, bool all_filled);
 
 	void set_position(int pos_w, int pos_h);
 	characteristic_of_button get_button();

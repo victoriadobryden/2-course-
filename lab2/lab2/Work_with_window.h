@@ -26,16 +26,19 @@ class Work_with_window
 	void check_buttons_under_cursor(int pos_w, int pos_h);
 	void check_buttons_is_pressed(int pos_w, int pos_h, bool is_pressed);
 	void check_buttons_is_released(int pos_w, int pos_h);
+	void check_button_go(bool what); 
+	void check_last_on_neg(int index);
 
 	void check_fields_under_cursor(int pos_w, int pos_h);
 	void check_fields_is_released(int pos_w, int pos_h);
 
 	void check_fields_entered_text(char temp);
 	void check_fields_save_open(char temp);
-	void check_fields_enter();
 	void check_fields_backspace();
+	void check_fields_enter();
 	void check_fields_tab();
-	void check_fields_on_last_dot();
+	void check_fields_on_last_dot(); 
+	void check_last_prob_field();
 
 	void create_fields(int number);
 	void create_tests(int number);

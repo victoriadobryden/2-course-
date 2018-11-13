@@ -183,7 +183,8 @@ void Input_field::add_text(char c)
 
 void Input_field::add_char_text(char c)
 {
-	if (text_value.size() < 9) {
+	if (text_value.size() < 9)
+	{
 		text_value += c;
 		text.get()->setString(text_value);
 	}
@@ -215,36 +216,42 @@ void Input_field::check_on_dot()
 		}
 		if (button.button_name == "Event" || button.button_name == "Prob.") 
 		{
-			if (text_value.length() == 1)
-				text_value += ".0000";
-			else if (text_value.length() == 2)
-				text_value += ".000";
-			else if (text_value == "100")
+			if (text_value == "100")
 				text_value += ".00";
 			else 
 			{
-				if (button.button_name == "Prob.") 
-				{
-					while (text_value.length() < 6)
-						text_value += '0';
-				}
-				else
-				{
-					bool dot = false;
-					for (int i = 0; i < text_value.size(); ++i)
-						if (text_value[i] == '.')
-							dot = true;
-					if (!dot)
-						text_value += '.';
-					while (text_value.length() < 6)
-						text_value += '0';
-					if (text_value[text_value.size()-1] == '.')
-						text_value.pop_back();
-				}
+				bool dot = false;
+				for (int i = 0; i < text_value.size(); ++i)
+					if (text_value[i] == '.')
+						dot = true;
+				if (!dot)
+					text_value += '.';
+				while (text_value.length() < 6)
+					text_value += '0';
+				if (text_value[text_value.size()-1] == '.')
+					text_value.pop_back();
 			}
 			text.get()->setString(text_value);
-			text.get()->setOrigin(-button.height + (float)text_value.size() * 13.f, 0);
+			if (text_value.size() == 6)
+				text.get()->setOrigin(-button.height + (float)text_value.size() * 13.f, 0);
+			else
+				text.get()->setOrigin(-button.height + (float)text_value.size() * 15.f, 0);
 		}
+	}
+}
+
+void Input_field::last_field_counter(double counter, bool all_filled)
+{
+	if (!all_filled)
+		text.get()->setString("");
+	else 
+	{
+		double_value = 100.0 - counter;
+		text_value = to_string(double_value);
+		while (text_value.size() > 6)
+			text_value.pop_back();
+		text.get()->setString(text_value);
+		text.get()->setOrigin(-button.height + (float)text_value.size() * 13.f, 0);
 	}
 }
 

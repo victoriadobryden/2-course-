@@ -6,7 +6,7 @@ void Work_with_window::create_fields(int number)
 	int temp_number_buttons = buttons.size();
 	for (int i = (int)fields.size() - 1; i > 1; --i)
 		fields.pop_back();
-	for (int i = (int)buttons.size() - 1; i > 4; --i)
+	for (int i = (int)buttons.size() - 1; i > 5; --i)
 		buttons.pop_back();
 	number_of_created_windows_type_2 = number;
 	int cur = 130, step = 30, hash_pos = get_pos_base_button("#");
@@ -15,7 +15,8 @@ void Work_with_window::create_fields(int number)
 		shared_ptr<Input_field> temp_type_2 = shared_ptr<Input_field>(new Input_field(base_fields[1]));
 		shared_ptr<ButtonDraw> temp_num = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos]));
 		temp_type_2.get()->set_position(cur, 35);
-		temp_num.get()->set_position(cur, 5, i + 1);
+		temp_num.get()->set_position(cur, 5);
+		temp_num.get()->set_text(i + 1, false);
 		fields.push_back(temp_type_2);
 		temp_type_2.reset();
 		temp_type_2 = shared_ptr<Input_field>(new Input_field(base_fields[3]));
@@ -26,7 +27,7 @@ void Work_with_window::create_fields(int number)
 	}
 	hash_pos = get_pos_base_button("Enter values");
 	shared_ptr<ButtonDraw> temp_num = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos]));
-	temp_num.get()->set_position(cur, 35, -1);
+	temp_num.get()->set_position(cur, 35);
 	buttons.push_back(temp_num);
 }
 
@@ -52,10 +53,18 @@ Work_with_window::Work_with_window(string &file)
 		shared_ptr<ButtonDraw> temp = shared_ptr<ButtonDraw>(new ButtonDraw(fin, window_name));
 		base_buttons.push_back(temp);
 		fin >> need_to_add;
-		if (need_to_add) {
+		if (need_to_add)
 			buttons.push_back(base_buttons[i]);
-		}
 	}
+	int hash_pos = get_pos_base_button("Go!");
+	if (hash_pos != -1) 
+	{
+		cout << "qw3eq2we";
+		shared_ptr<ButtonDraw> temp_num = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos]));
+		temp_num.get()->set_text("Go!");
+		buttons.push_back(temp_num);
+	}
+
 	int number_of_fields;
 	fin >> number_of_fields;
 	for (int i = 0; i < number_of_fields; ++i)
@@ -80,8 +89,6 @@ void Work_with_window::work()
 		if (window->pollEvent(event)) 
 		{
 
-			if (event.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::Enter))
-				check_fields_enter();
 			if (event.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::BackSpace))
 				check_fields_backspace();
 			if (event.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::Tab))
@@ -118,6 +125,7 @@ void Work_with_window::work()
 			}
 			
 			check_fields_on_last_dot();
+			check_last_prob_field();
 		}
 	}
 	window.get()->clear(Color(40, 40, 40));
@@ -128,7 +136,7 @@ void Work_with_window::work()
 void Work_with_window::check_buttons_under_cursor(int pos_w, int pos_h)
 {
 	for (int i = 0; i < buttons.size(); ++i)
-		buttons[i].get()->mouse_is_there(pos_w, pos_h,window);
+		buttons[i].get()->mouse_is_there(pos_w, pos_h);
 }
 
 void Work_with_window::check_buttons_is_pressed(int pos_w, int pos_h, bool is_pressed)
@@ -160,12 +168,12 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 						buttons.pop_back();
 
 				for (int j = 0; j < base_buttons.size(); ++j)
-					if (base_buttons[j].get()->get_name() == "Expected value:") 
+					if (base_buttons[j].get()->get_name() == "Expected value:")
 					{
 						buttons.push_back(base_buttons[j]);
 						buttons[buttons.size() - 1].get()->add_value(algo_simple.get()->get_expected_value());
 					}
-					else if (base_buttons[j].get()->get_name() == "Variance:") 
+					else if (base_buttons[j].get()->get_name() == "Variance:")
 					{
 						buttons.push_back(base_buttons[j]);
 						buttons[buttons.size() - 1].get()->add_value(algo_simple.get()->get_variance());
@@ -174,6 +182,11 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 					{
 						buttons.push_back(base_buttons[j]);
 						fields.push_back(base_fields[2]);
+					}
+					else if (base_buttons[j].get()->get_name() == "Go!")
+					{
+						buttons.push_back(base_buttons[j]);
+						buttons[buttons.size() - 1].get()->set_position(170, 360);
 					}
 			}
 		}
@@ -195,15 +208,48 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 					ifstream fin(fields[j].get()->get_text_value() + ".dat");
 					if (fin)
 					{
-						
+
 					}
 					break;
 				}
 
 		}
-		else
+		else if (buttons[i].get()->get_name() == "Go!" && buttons[i].get()->in_it(pos_w, pos_h))
+			check_button_go(i > 5);
+		else			
 			buttons[i].get()->mouse_is_released(pos_w, pos_h, window, need_to_create_window);
 	}
+}
+
+void Work_with_window::check_button_go(bool what)
+{
+	if (fields.size() > 0)
+	{
+		if (what == 0) 
+		{
+			if (fields[0].get()->_int_value() != 0)
+				create_fields(fields[0].get()->_int_value());
+		}
+		else {
+			for (int i = 1; i < fields.size(); ++i)
+				if ((fields[i].get()->get_field_name() == "Number of tests")
+					&& fields[i].get()->_int_value() != 0)
+				{
+					delete_buttons(i);
+					create_tests(fields[i].get()->_int_value());
+				}
+		}
+	}
+}
+
+void Work_with_window::check_last_on_neg(int index)
+{
+	double counter = 0;
+	for (int i = 2; i <= 1 + 2 * number_of_created_windows_type_2 - 2; i += 2)
+		if (fields[i].get()->get_text_value_length() != 0)
+			counter += fields[i].get()->get_double_value();
+	if (100.0 - counter < -0.000001)
+		fields[index].get()->del_el_string();
 }
 
 void Work_with_window::check_fields_under_cursor(int pos_w, int pos_h)
@@ -226,6 +272,7 @@ void Work_with_window::check_fields_entered_text(char temp)
 		if (fields[i].get()->_has_focus() && fields[i].get()->get_field_name() != "Save" && fields[i].get()->get_field_name() != "Open")
 		{
 			fields[i].get()->add_text(temp);
+			check_last_on_neg(i);
 		}
 }
 
@@ -241,26 +288,7 @@ void Work_with_window::check_fields_save_open(char temp)
 
 void Work_with_window::check_fields_enter()
 {
-	if (fields.size() > 0) 
-	{
-
-		if (fields[0].get()->_has_focus())
-		{
-			if (fields[0].get()->_int_value() != 0)
-			{
-				create_fields(fields[0].get()->_int_value());
-			}
-		}
-		for (int i = 1;i < fields.size(); ++i)
-			if (fields[i].get()->_has_focus())
-			{
-				if (fields[i].get()->get_field_name() == "Number of tests" || fields[i].get()->get_field_name() == "Number of events")
-				{
-					delete_buttons(i);
-					create_tests(fields[i].get()->_int_value());
-				}
-			}
-	}
+	
 }
 
 void Work_with_window::check_fields_backspace()
@@ -297,6 +325,19 @@ void Work_with_window::check_fields_on_last_dot()
 			fields[i].get()->check_on_dot();
 		}
 	}
+}
+
+void Work_with_window::check_last_prob_field()
+{
+	bool all_filled = true;
+	double counter = 0;
+	for (int i = 2; i <= 1 + 2 * number_of_created_windows_type_2 - 2; i += 2)
+		if (fields[i].get()->get_text_value_length() == 0)
+			all_filled = false;
+		else
+			counter += fields[i].get()->get_double_value();
+	if (number_of_created_windows_type_2 > 0)
+		fields[2 * number_of_created_windows_type_2].get()->last_field_counter(counter, all_filled);
 }
 
 bool Work_with_window::button_enter_values()
@@ -340,11 +381,13 @@ void Work_with_window::create_tests(int number)
 	for (int i = 0; i < (int)temp.size(); ++i)
 	{
 		shared_ptr<ButtonDraw> temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_test]));
-		temp_button.get()->set_position(cur, 280, -i-2);
+		temp_button.get()->set_position(cur, 280);
+		temp_button.get()->set_text(i + 1, true);
 		buttons.push_back(temp_button);
 		temp_button.reset();
 		temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_val]));
-		temp_button.get()->set_position(cur, 280 + 180, temp[i]);
+		temp_button.get()->set_position(cur, 280 + 180);
+		temp_button.get()->set_text(temp[i], false);
 		buttons.push_back(temp_button);
 		cur += step;
 	}
@@ -357,6 +400,7 @@ void Work_with_window::delete_buttons(int i)
 {
 	if (algo_simple != nullptr && fields[i].get()->get_field_name() != "Number of tests" && fields[i].get()->get_field_name() != "Save")
 	{
+		cout << i << '\n';
 		algo_simple.reset();
 		for (int j = buttons.size() - 1; j > 0; --j)
 		{
@@ -369,7 +413,7 @@ void Work_with_window::delete_buttons(int i)
 				fields[fields.size() - 1].get()->clear_text();
 				fields.pop_back();
 			}
-			else if (temp == "Variance:" || temp == "Expected value:" || temp == "Test#" || temp == "Values")
+			else if (temp == "Variance:" || temp == "Expected value:" || temp == "Test#" || temp == "Values" || temp == "Go!")
 				buttons.pop_back();
 		}
 	}
@@ -378,7 +422,8 @@ void Work_with_window::delete_buttons(int i)
 		for (int j = buttons.size() - 1; j > 0; --j)
 		{
 			string temp = buttons[j].get()->get_name();
-			if (temp == "Number of tests:")
+			cout << '\n' << temp << '\n';
+			if (temp == "Go!")
 				break;
 			if (temp == "Test#" || temp == "Values")
 				buttons.pop_back();
