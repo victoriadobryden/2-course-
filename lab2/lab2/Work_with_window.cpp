@@ -84,6 +84,7 @@ Work_with_window::Work_with_window(string &file)
 void Work_with_window::work()
 {
 	Event event;
+	//if (information == )
 	if (window->pollEvent(event))
 	{
 		if (window.get()->hasFocus())
@@ -536,7 +537,7 @@ void Work_with_window::draw()
 
 int Work_with_window::need_new_window()
 {
-	bool temp = need_to_create_window;
+	int temp = need_to_create_window;
 	need_to_create_window = 0;
 	return temp;
 }

@@ -113,10 +113,13 @@ void ButtonDraw::mouse_is_released(int pos_w, int pos_h, shared_ptr<RenderWindow
 {
 	if (in_it(pos_w, pos_h)) 
 	{
-		if (button.button_name == "Cross")
+		cout << button.button_name << '\n' << pos_w << ' ' << pos_h << '\n';
+		if (button.button_name == "Cross") 
 			window.get()->close();
 		else if (button.button_name == "Simple Probability")
 			need_to_create_window = 1;
+		else if (button.button_name == "Walk on the graph")
+			need_to_create_window = 2;
 	}
 }
 
