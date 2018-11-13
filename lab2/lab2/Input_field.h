@@ -49,6 +49,8 @@ public:
 	void last_field_counter(double counter, bool all_filled);
 
 	void set_position(int pos_w, int pos_h);
+	void set_text(string s, bool is_int = true);
+
 	characteristic_of_button get_button();
 	shared_ptr<Texture> get_texture();
 	shared_ptr<Texture> get_texture_in_action();

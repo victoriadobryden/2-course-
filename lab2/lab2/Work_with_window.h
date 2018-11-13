@@ -43,10 +43,13 @@ class Work_with_window
 
 	void create_fields(int number);
 	void create_tests(int number);
+	void help_create_tests();
 
 	bool button_enter_values();
+	void help_enter_values();
 	int get_pos_base_button(string val);
 	void delete_buttons(int i);
+	void render_opened_file(ifstream &fin);
 public:
 	Work_with_window();
 	Work_with_window(string &file);

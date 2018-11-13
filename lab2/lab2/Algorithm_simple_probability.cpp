@@ -49,6 +49,15 @@ void Algorithm_simple_probability::generate_tests(int number)
 	}
 }
 
+void Algorithm_simple_probability::set_tests(ifstream & fin, int n)
+{
+	double x;
+	for (int i = 0; i < n; ++i) {
+		fin >> x;
+		tests.push_back(x);
+	}
+}
+
 void Algorithm_simple_probability::output(ofstream & fout)
 {
 	fout << number_of_probabilities << '\n';

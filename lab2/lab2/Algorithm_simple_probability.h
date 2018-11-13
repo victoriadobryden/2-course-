@@ -21,6 +21,7 @@ public:
 	double get_variance();
 	vector<double> get_tests();
 	void generate_tests(int number);
+	void set_tests(ifstream &fin, int n);
 	void output(ofstream &fout);
 	~Algorithm_simple_probability();
 };

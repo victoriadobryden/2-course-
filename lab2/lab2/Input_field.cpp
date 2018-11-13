@@ -269,6 +269,21 @@ void Input_field::set_position(int pos_w, int pos_h)
 	text.get()->setPosition(Vector2f((float)pos_h, (float)pos_w));
 }
 
+void Input_field::set_text(string s, bool is_int)
+{
+	text_value = s;
+	if (is_int)
+		convert_to_int();
+	else
+		convert_to_double();
+
+	text.get()->setString(s);
+	if (s.length() == 6 && !is_int || is_int)
+		text.get()->setOrigin(-button.height + (float)text_value.size() * 13.f, 0);
+	else
+		text.get()->setOrigin(-button.height + (float)text_value.size() * 15.5f, 0);
+}
+
 characteristic_of_button Input_field::get_button()
 {
 	return button;
