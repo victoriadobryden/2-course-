@@ -63,6 +63,11 @@ void ButtonDraw::unpress()
 	button.is_pressed = false;
 }
 
+void ButtonDraw::unfocus()
+{
+	button.is_under_cursor = false;
+}
+
 void ButtonDraw::draw(shared_ptr<RenderWindow> window)
 {
 	if (is_picture)

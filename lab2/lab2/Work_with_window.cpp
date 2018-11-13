@@ -83,10 +83,10 @@ Work_with_window::Work_with_window(string &file)
 
 void Work_with_window::work()
 {
-	if (window.get()->hasFocus())
+	Event event;
+	if (window->pollEvent(event))
 	{
-		Event event;
-		if (window->pollEvent(event)) 
+		if (window.get()->hasFocus())
 		{
 
 			if (event.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::BackSpace))
@@ -126,6 +126,15 @@ void Work_with_window::work()
 			
 			check_fields_on_last_dot();
 			check_last_prob_field();
+		}
+		else {
+			for (int i = 0; i < (int)buttons.size(); ++i)
+			{
+				buttons[i].get()->unpress();
+				buttons[i].get()->unfocus();
+			}
+			for (int i = 0; i < (int)fields.size(); ++i)
+				fields[i].get()->unfocus();
 		}
 	}
 	window.get()->clear(Color(40, 40, 40));
@@ -186,7 +195,7 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 					else if (base_buttons[j].get()->get_name() == "Go!")
 					{
 						buttons.push_back(base_buttons[j]);
-						buttons[buttons.size() - 1].get()->set_position(170, 360);
+						buttons[buttons.size() - 1].get()->set_position(172, 360);
 					}
 			}
 		}
@@ -195,22 +204,28 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 			for (int j = 0; j < fields.size(); ++j)
 				if (fields[j].get()->get_field_name() == "Save")
 				{
-					ofstream fout(fields[j].get()->get_text_value() + ".dat");
-					algo_simple.get()->output(fout);
+					if (fields[j].get()->get_text_value().length() != 0) 
+					{
+						ofstream fout(fields[j].get()->get_text_value() + ".dat");
+						algo_simple.get()->output(fout);
+					}
 					break;
 				}
 		}
 		else if (buttons[i].get()->get_name() == "Open" && buttons[i].get()->in_it(pos_w, pos_h))
 		{
 			for (int j = 0; j < fields.size(); ++j)
-				if (fields[j].get()->get_field_name() == "Save")
+				if (fields[j].get()->get_field_name() == "Open")
 				{
-					ifstream fin(fields[j].get()->get_text_value() + ".dat");
-					if (fin)
+					if (fields[j].get()->get_text_value().length() != 0) 
 					{
-
+						ifstream fin(fields[j].get()->get_text_value() + ".dat");
+						if (fin)
+						{
+							
+						}
+						break;
 					}
-					break;
 				}
 
 		}

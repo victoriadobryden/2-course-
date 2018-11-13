@@ -26,7 +26,8 @@ public:
 
 	ButtonDraw(shared_ptr<ButtonDraw> base);
 	ButtonDraw(ifstream &fin, string window_name);
-	void unpress();
+	void unpress(); 
+	void unfocus();
 	void draw(shared_ptr<RenderWindow> window);
 	void mouse_is_there(int pos_w, int pos_h);
 	void mouse_is_pressed(int pos_w, int pos_h, shared_ptr<RenderWindow> window, bool is_pressed);
