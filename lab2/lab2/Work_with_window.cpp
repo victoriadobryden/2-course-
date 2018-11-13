@@ -3,7 +3,7 @@
 
 void Work_with_window::create_fields(int number)
 {
-	int temp_number_buttons = buttons.size();
+	int temp_number_buttons = (int)buttons.size();
 	for (int i = (int)fields.size() - 1; i > 1; --i)
 		fields.pop_back();
 	for (int i = (int)buttons.size() - 1; i > 5; --i)
@@ -387,7 +387,7 @@ void Work_with_window::create_tests(int number)
 		temp_button.reset();
 		temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_val]));
 		temp_button.get()->set_position(cur, 280 + 180);
-		temp_button.get()->set_text(temp[i], false);
+		temp_button.get()->set_text(temp[i], false, false);
 		buttons.push_back(temp_button);
 		cur += step;
 	}

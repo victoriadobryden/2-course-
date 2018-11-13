@@ -14,7 +14,7 @@ ButtonDraw::ButtonDraw(shared_ptr<ButtonDraw> base)
 	text.get()->setCharacterSize(base.get()->get_size_font());
 	text.get()->setString("");
 	text.get()->setStyle(Text::Regular);
-	text.get()->setPosition(button.position_height, button.position_width);
+	text.get()->setPosition((float)button.position_height, (float)button.position_width);
 }
 
 ButtonDraw::ButtonDraw(ifstream &fin, string window_name)
@@ -115,12 +115,12 @@ void ButtonDraw::mouse_is_released(int pos_w, int pos_h, shared_ptr<RenderWindow
 	}
 }
 
-void ButtonDraw::set_text(double num, bool add_to_name) 
+void ButtonDraw::set_text(double num, bool add_to_name, bool is_int) 
 {
 	string s = "";
-	int temp = num;
-	if (abs(num - temp) < 0.00001)
+	if (is_int)
 	{
+		int temp = (int)num;
 		while (temp > 0)
 		{
 			s += '0' + temp % 10;
@@ -131,6 +131,10 @@ void ButtonDraw::set_text(double num, bool add_to_name)
 	}
 	else {
 		s = to_string(num);
+		while (s.length() > 6)
+			s.pop_back();
+		if (s[s.length() - 1] == '.')
+			s.pop_back();
 	}
 
 	if (add_to_name)
