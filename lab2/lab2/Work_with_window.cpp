@@ -31,6 +31,51 @@ void Work_with_window::create_fields(int number)
 	buttons.push_back(temp_num);
 }
 
+void Work_with_window::create_fields_graph(int number)
+{
+	number_of_created_windows_type_2 = number;
+	int cur = 160, step = 30, hash_pos_button = get_pos_base_button("#"), 
+		hash_pos_field_vertex = get_pos_base_fields("Vertex"),
+		hash_pos_field_prob = get_pos_base_fields("Prob.");
+
+	shared_ptr<ButtonDraw> temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos_button]));
+	temp_button.get()->set_position(cur, 35); temp_button.get()->set_text("#1"); buttons.push_back(temp_button);
+
+	temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos_button]));
+	temp_button.get()->set_position(cur, 35 + 60); temp_button.get()->set_text("#2"); buttons.push_back(temp_button);
+
+	temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos_button]));
+	temp_button.get()->set_position(cur, 35 + 140); temp_button.get()->set_text("Probability"); buttons.push_back(temp_button);
+
+	cur += step;
+
+	for (int i = 0; i < number; ++i)
+	{
+		shared_ptr<Input_field> vertex = shared_ptr<Input_field>(new Input_field(base_fields[hash_pos_field_vertex]));
+		vertex.get()->set_position(cur, 35);
+		fields.push_back(vertex); 
+		vertex = shared_ptr<Input_field>(new Input_field(base_fields[hash_pos_field_vertex]));
+		vertex.get()->set_position(cur, 35 + 60);
+		fields.push_back(vertex);
+
+		temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos_button]));
+		temp_button.get()->set_position(cur, 5);
+		temp_button.get()->set_text(i + 1, false);
+		buttons.push_back(temp_button);
+
+		vertex = shared_ptr<Input_field>(new Input_field(base_fields[hash_pos_field_prob]));
+		vertex.get()->set_position(cur, 35 + 140);
+		fields.push_back(vertex);
+
+		cur += step;
+	}
+	hash_pos_button = get_pos_base_button("Enter values");
+	shared_ptr<ButtonDraw> temp_num = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos_button]));
+	temp_num.get()->set_position(cur, 35);
+	buttons.push_back(temp_num);
+
+}
+
 Work_with_window::Work_with_window()
 {
 
@@ -126,8 +171,10 @@ void Work_with_window::work()
 				}
 			}
 			
-			check_fields_on_last_dot();
-			check_last_prob_field();
+			if (information == "Data\\Simple Probability information.dat") {
+				check_fields_on_last_dot();
+				check_last_prob_field();
+			}
 		}
 		else {
 			for (int i = 0; i < (int)buttons.size(); ++i)
@@ -256,7 +303,7 @@ void Work_with_window::check_button_go_in_graph(int index)
 	{
 		delete_buttons_in_graph(n);
 		int num = fields[1].get()->_int_value();
-		//create_fields(num, n);
+		create_fields_graph(num);
 	}
 }
 
@@ -512,12 +559,26 @@ void Work_with_window::delete_buttons_in_graph(int number)
 	if (number == 0)
 	{
 		int i = 0;
-		while (buttons[i].get()->get_name() != "Go!")
+		while (i < buttons.size() && buttons[i].get()->get_name() != "Go!")
 			++i;
 		++i;
 		while (buttons.size() > i)
 			buttons.pop_back();
 		while (fields.size() > 1)
+			fields.pop_back();
+	}
+	if (number == 1)
+	{
+		int i = 0, counter = 0;
+		while (counter < 2 && i < buttons.size())
+		{
+			if (buttons[i].get()->get_name() == "Go")
+				++counter;
+			++i;
+		}
+		while (buttons.size() > i)
+			buttons.pop_back();
+		while (fields.size() > 2)
 			fields.pop_back();
 	}
 }
@@ -567,6 +628,12 @@ void Work_with_window::render_opened_file(ifstream &fin)
 			algo_simple.get()->set_tests(fin, n);
 			help_create_tests();
 		}
+		else for (int i = 0; i < fields.size(); ++i)
+			if (fields[i].get()->get_field_name() == "Number of tests")
+			{
+				fields[i].get()->set_text("");
+				break;
+			}
 	}
 
 }

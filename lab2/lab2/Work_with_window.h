@@ -40,7 +40,8 @@ class Work_with_window
 	void check_fields_on_last_dot(); 
 	void check_last_prob_field();
 
-	void create_fields(int number);
+	void create_fields(int number); 
+	void create_fields_graph(int number);
 	void create_tests(int number);
 	void help_create_tests();
 
