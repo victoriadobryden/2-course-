@@ -76,8 +76,9 @@ Work_with_window::Work_with_window(string &file)
 	}
 	if (number_of_fields != 0) {
 		fields.push_back(base_fields[0]);
-		fields.push_back(base_fields[5]);
 	}
+	if (information == "Data\\Simple Probability information.dat")
+		fields.push_back(base_fields[5]);
 	fin.close();
 }
 
@@ -173,7 +174,7 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 			for (int j = 0; j < fields.size(); ++j)
 				if (fields[j].get()->get_field_name() == "Save")
 				{
-					if (fields[j].get()->get_text_value().length() != 0) 
+					if (fields[j].get()->get_text_value().length() != 0)
 					{
 						ofstream fout(fields[j].get()->get_text_value() + ".dat");
 						algo_simple.get()->output(fout);
@@ -186,7 +187,7 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 			for (int j = 0; j < fields.size(); ++j)
 				if (fields[j].get()->get_field_name() == "Open")
 				{
-					if (fields[j].get()->get_text_value().length() != 0) 
+					if (fields[j].get()->get_text_value().length() != 0)
 					{
 						ifstream fin(fields[j].get()->get_text_value() + ".dat");
 						if (fin)
@@ -199,13 +200,16 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 
 		}
 		else if (buttons[i].get()->get_name() == "Go!" && buttons[i].get()->in_it(pos_w, pos_h))
-			check_button_go(i > 5);
+			if (information == "Data\\Simple Probability information.dat")
+				check_button_go_simple(i > 5);
+			else
+				check_button_go_in_graph(i);
 		else			
 			buttons[i].get()->mouse_is_released(pos_w, pos_h, window, need_to_create_window);
 	}
 }
 
-void Work_with_window::check_button_go(bool what)
+void Work_with_window::check_button_go_simple(bool what)
 {
 	if (fields.size() > 0)
 	{
@@ -219,14 +223,44 @@ void Work_with_window::check_button_go(bool what)
 				if ((fields[i].get()->get_field_name() == "Number of tests")
 					&& fields[i].get()->_int_value() != 0)
 				{
-					delete_buttons(i);
+					delete_buttons_simple(i);
 					create_tests(fields[i].get()->_int_value());
 				}
 		}
 	}
 }
 
-void Work_with_window::check_last_on_neg(int index)
+void Work_with_window::check_button_go_in_graph(int index)
+{
+	int n = 0;
+	for (int i = 0; i < index; ++i)
+		if (buttons[i].get()->get_name() == "Go!")
+			++n;
+	if (n == 0)
+	{
+		delete_buttons_in_graph(n);
+		int hash_pos = get_pos_base_button("Number of edges:");
+		shared_ptr<ButtonDraw> temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos]));
+		temp_button.get()->set_text("Number of edges:");
+		buttons.push_back(temp_button);
+		hash_pos = get_pos_base_fields("Number of edges");
+		shared_ptr<Input_field> temp_field = shared_ptr<Input_field>(new Input_field(base_fields[hash_pos]));
+		fields.push_back(temp_field);
+		hash_pos = get_pos_base_button("Go!");
+		temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos]));
+		temp_button.get()->set_position(126, 110);
+		temp_button.get()->set_text("Go!");
+		buttons.push_back(temp_button);
+	}
+	else if (n == 1)
+	{
+		delete_buttons_in_graph(n);
+		int num = fields[1].get()->_int_value();
+		//create_fields(num, n);
+	}
+}
+
+void Work_with_window::check_last_on_neg_simple(int index)
 {
 	double counter = 0;
 	for (int i = 2; i <= 1 + 2 * number_of_created_windows_type_2 - 2; i += 2)
@@ -255,8 +289,17 @@ void Work_with_window::check_fields_entered_text(char temp)
 	for (int i = 0;i < fields.size(); ++i)
 		if (fields[i].get()->_has_focus() && fields[i].get()->get_field_name() != "Save" && fields[i].get()->get_field_name() != "Open")
 		{
-			fields[i].get()->add_text(temp);
-			check_last_on_neg(i);
+			if (information == "Data\\Simple Probability information.dat") {
+				fields[i].get()->add_text(temp, 0);
+				check_last_on_neg_simple(i);
+			}
+			else
+			{
+				if (i == 0)
+					fields[i].get()->add_text(temp, 1);
+				else
+					fields[i].get()->add_text(temp, 1, fields[0].get()->_int_value());
+			}
 		}
 }
 
@@ -270,11 +313,6 @@ void Work_with_window::check_fields_save_open(char temp)
 		}
 }
 
-void Work_with_window::check_fields_enter()
-{
-	
-}
-
 void Work_with_window::check_fields_backspace()
 {
 	for (int i = 0; i < fields.size(); ++i)
@@ -283,7 +321,7 @@ void Work_with_window::check_fields_backspace()
 		{
 			fields[i].get()->del_el_string();
 			if (fields[i].get()->get_field_name() != "Save" && fields[i].get()->get_field_name() != "Open")
-				delete_buttons(i);
+				delete_buttons_simple(i);
 		}
 	}
 }
@@ -400,6 +438,14 @@ int Work_with_window::get_pos_base_button(string val)
 	return -1;
 }
 
+int Work_with_window::get_pos_base_fields(string val)
+{
+	for (int i = 0; i < base_fields.size(); ++i)
+		if (base_fields[i].get()->get_field_name() == val)
+			return i;
+	return -1;
+}
+
 
 void Work_with_window::create_tests(int number)
 {
@@ -426,7 +472,7 @@ void Work_with_window::help_create_tests()
 	}
 }
 
-void Work_with_window::delete_buttons(int i)
+void Work_with_window::delete_buttons_simple(int i)
 {
 	if (algo_simple != nullptr && fields[i].get()->get_field_name() != "Number of tests" && fields[i].get()->get_field_name() != "Save")
 	{
@@ -458,6 +504,21 @@ void Work_with_window::delete_buttons(int i)
 			if (temp == "Test#" || temp == "Values")
 				buttons.pop_back();
 		}
+	}
+}
+
+void Work_with_window::delete_buttons_in_graph(int number)
+{
+	if (number == 0)
+	{
+		int i = 0;
+		while (buttons[i].get()->get_name() != "Go!")
+			++i;
+		++i;
+		while (buttons.size() > i)
+			buttons.pop_back();
+		while (fields.size() > 1)
+			fields.pop_back();
 	}
 }
 

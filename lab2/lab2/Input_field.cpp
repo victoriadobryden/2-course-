@@ -61,6 +61,8 @@ Input_field::Input_field(shared_ptr<Input_field> base)
 	text.get()->setCharacterSize(base.get()->get_text_size());
 	text.get()->setStyle(Text::Regular);
 	text.get()->setString("");
+	sprite.get()->setPosition(Vector2f((float)button.position_height, (float)button.position_width));
+	text.get()->setPosition(Vector2f((float)button.position_height, (float)button.position_width));
 }
 
 
@@ -151,14 +153,18 @@ int Input_field::_int_value()
 	return int_value;
 }
 
-void Input_field::add_text(char c)
+void Input_field::add_text(char c, bool is_graph, int value)
 {
-	if (c != '.' && (button.button_name == "Number of events" || button.button_name == "Number of tests"))
+	if (c != '.' && (button.button_name == "Number of events" || button.button_name == "Number of tests" 
+		|| button.button_name == "Number of vertexes" || button.button_name == "Number of edges"))
 	{
+		cout << c << '\n';
 		text_value += c;
 		convert_to_int();
-		if (int_value == 0 || button.button_name == "Number of events" && int_value > 15 ||
-			button.button_name == "Number of tests" && int_value > 10)
+		if ((int_value == 0 || button.button_name == "Number of events" && int_value > 15 ||
+			button.button_name == "Number of tests" && int_value > 10) && !is_graph ||
+			(!field_criterion_in_graph(1, value) ||
+			!field_criterion_in_graph(2, value)) && is_graph)
 		{
 			text_value.pop_back();
 			convert_to_int();
@@ -338,6 +344,25 @@ void Input_field::clear_text()
 }
 
 
+
+bool Input_field::field_criterion_in_graph(int value,int num)
+{
+	if (value == 1 && num == -1)
+	{
+		if (int_value > 20)
+			return false;
+		else
+			return true;
+	}
+	else if (value == 2 && num != -1)
+	{
+		if (int_value > num*(num - 1) / 2)
+			return false;
+		else
+			return true;
+	}
+	return true;
+}
 
 Input_field::~Input_field()
 {

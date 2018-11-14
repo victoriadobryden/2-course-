@@ -128,6 +128,7 @@
     <ClCompile Include="Center_of_work.cpp" />
     <ClCompile Include="Input_field.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Work_with_graph_window.cpp" />
     <ClCompile Include="Work_with_window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +137,7 @@
     <ClInclude Include="ButtonDraw.h" />
     <ClInclude Include="Center_of_work.h" />
     <ClInclude Include="Input_field.h" />
+    <ClInclude Include="Work_with_graph_window.h" />
     <ClInclude Include="Work_with_window.h" />
   </ItemGroup>
   <ItemGroup>

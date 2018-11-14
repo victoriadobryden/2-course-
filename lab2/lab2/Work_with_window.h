@@ -26,8 +26,9 @@ class Work_with_window
 	void check_buttons_under_cursor(int pos_w, int pos_h);
 	void check_buttons_is_pressed(int pos_w, int pos_h, bool is_pressed);
 	void check_buttons_is_released(int pos_w, int pos_h);
-	void check_button_go(bool what); 
-	void check_last_on_neg(int index);
+	void check_button_go_simple(bool what);
+	void check_button_go_in_graph(int index);
+	void check_last_on_neg_simple(int index);
 
 	void check_fields_under_cursor(int pos_w, int pos_h);
 	void check_fields_is_released(int pos_w, int pos_h);
@@ -35,7 +36,6 @@ class Work_with_window
 	void check_fields_entered_text(char temp);
 	void check_fields_save_open(char temp);
 	void check_fields_backspace();
-	void check_fields_enter();
 	void check_fields_tab();
 	void check_fields_on_last_dot(); 
 	void check_last_prob_field();
@@ -46,8 +46,10 @@ class Work_with_window
 
 	bool button_enter_values();
 	void help_enter_values();
-	int get_pos_base_button(string val);
-	void delete_buttons(int i);
+	int get_pos_base_button(string val); 
+	int get_pos_base_fields(string val);
+	void delete_buttons_simple(int i);
+	void delete_buttons_in_graph(int number);
 	void render_opened_file(ifstream &fin);
 public:
 	Work_with_window();

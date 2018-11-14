@@ -42,7 +42,7 @@ public:
 	void gain_focus();
 
 	int _int_value();
-	void add_text(char c); 
+	void add_text(char c, bool is_graph, int value = -1);
 	void add_char_text(char c);
 	void del_el_string();
 	void check_on_dot();
@@ -62,6 +62,9 @@ public:
 	double get_double_value();
 
 	void clear_text();
+
+
+	bool field_criterion_in_graph(int value, int num);
 
 	~Input_field();
 };
