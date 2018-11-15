@@ -129,7 +129,7 @@ void Input_field::mouse_is_released(int pos_w, int pos_h)
 {
 	if (in_it(pos_w, pos_h))
 		has_focus = true;
-	else
+	else 
 		has_focus = false;
 }
 
@@ -155,16 +155,22 @@ int Input_field::_int_value()
 
 void Input_field::add_text(char c, bool is_graph, int value)
 {
-	if (c != '.' && (button.button_name == "Number of events" || button.button_name == "Number of tests" 
-		|| button.button_name == "Number of vertexes" || button.button_name == "Number of edges"))
+	if (c != '.' && (button.button_name == "Number of events" || button.button_name == "Number of tests"
+		|| button.button_name == "Number of vertexes" || button.button_name == "Number of edges"
+		|| button.button_name == "Vertex"))
 	{
 		cout << c << '\n';
 		text_value += c;
 		convert_to_int();
-		if ((int_value == 0 || button.button_name == "Number of events" && int_value > 15 ||
+		if (button.button_name == "Vertex" && !field_criterion_in_graph(3, value))
+		{
+			text_value.pop_back();
+			convert_to_int();
+		}
+		else if ((int_value == 0 || button.button_name == "Number of events" && int_value > 15 ||
 			button.button_name == "Number of tests" && int_value > 10) && !is_graph ||
 			(!field_criterion_in_graph(1, value) ||
-			!field_criterion_in_graph(2, value)) && is_graph)
+			!field_criterion_in_graph(2, value)  && is_graph && button.button_name != "Vertex"))
 		{
 			text_value.pop_back();
 			convert_to_int();
@@ -356,7 +362,14 @@ bool Input_field::field_criterion_in_graph(int value,int num)
 	}
 	else if (value == 2 && num != -1)
 	{
-		if (int_value > num*(num - 1) / 2)
+		if (int_value > num*(num - 1))
+			return false;
+		else
+			return true;
+	}
+	else if (value == 3 && num != -1)
+	{
+		if (int_value > num || int_value <= 0)
 			return false;
 		else
 			return true;

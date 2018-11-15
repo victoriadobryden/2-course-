@@ -45,7 +45,7 @@ void Work_with_window::create_fields_graph(int number)
 	temp_button.get()->set_position(cur, 35 + 60); temp_button.get()->set_text("#2"); buttons.push_back(temp_button);
 
 	temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos_button]));
-	temp_button.get()->set_position(cur, 35 + 140); temp_button.get()->set_text("Probability"); buttons.push_back(temp_button);
+	temp_button.get()->set_position(cur, 35 + 145); temp_button.get()->set_text("Probability"); buttons.push_back(temp_button);
 
 	cur += step;
 
@@ -64,16 +64,20 @@ void Work_with_window::create_fields_graph(int number)
 		buttons.push_back(temp_button);
 
 		vertex = shared_ptr<Input_field>(new Input_field(base_fields[hash_pos_field_prob]));
-		vertex.get()->set_position(cur, 35 + 140);
+		vertex.get()->set_position(cur, 35 + 145);
 		fields.push_back(vertex);
 
 		cur += step;
 	}
-	hash_pos_button = get_pos_base_button("Enter values");
+	hash_pos_button = get_pos_base_button("Save vertexes");
 	shared_ptr<ButtonDraw> temp_num = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos_button]));
-	temp_num.get()->set_position(cur, 35);
+	temp_num.get()->set_position(cur, 15);
 	buttons.push_back(temp_num);
 
+	hash_pos_button = get_pos_base_button("Enter values");
+	temp_num = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos_button]));
+	temp_num.get()->set_position(cur, 35 + 145);
+	buttons.push_back(temp_num);
 }
 
 Work_with_window::Work_with_window()
@@ -130,7 +134,6 @@ Work_with_window::Work_with_window(string &file)
 void Work_with_window::work()
 {
 	Event event;
-	//if (information == )
 	if (window->pollEvent(event))
 	{
 		if (window.get()->hasFocus())
@@ -172,8 +175,13 @@ void Work_with_window::work()
 			}
 			
 			if (information == "Data\\Simple Probability information.dat") {
-				check_fields_on_last_dot();
+				check_fields_on_last_dot_simple();
 				check_last_prob_field();
+			}
+			else if (information == "Data\\Walk on the graph information.dat")
+			{
+				check_last_vertex_prob_field();
+				check_fields_on_last_dot_graph();
 			}
 		}
 		else {
@@ -182,8 +190,9 @@ void Work_with_window::work()
 				buttons[i].get()->unpress();
 				buttons[i].get()->unfocus();
 			}
-			for (int i = 0; i < (int)fields.size(); ++i)
+			for (int i = 0; i < (int)fields.size(); ++i) {
 				fields[i].get()->unfocus();
+			}
 		}
 	}
 	window.get()->clear(Color(40, 40, 40));
@@ -251,7 +260,9 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 				check_button_go_simple(i > 5);
 			else
 				check_button_go_in_graph(i);
-		else			
+		else if (buttons[i].get()->get_name() == "Save vertexes" && buttons[i].get()->in_it(pos_w, pos_h))
+			check_button_save_vertexes();
+		else
 			buttons[i].get()->mouse_is_released(pos_w, pos_h, window, need_to_create_window);
 	}
 }
@@ -302,9 +313,41 @@ void Work_with_window::check_button_go_in_graph(int index)
 	else if (n == 1)
 	{
 		delete_buttons_in_graph(n);
+		cout << buttons.size() << ' ' << fields.size() << '\n';
 		int num = fields[1].get()->_int_value();
 		create_fields_graph(num);
 	}
+}
+
+void Work_with_window::check_button_save_vertexes()
+{
+	saved = true;
+	vector<pair<int, int> > temp_graph;
+	for (int i = 2; i < fields.size(); i += 3) {
+		int x = fields[i].get()->_int_value(), y = fields[i + 1].get()->_int_value();
+		cout << x << ' ' << y << '\n';
+		if (x > 0 && y > 0)
+		{
+			if (x == y)
+			{
+				saved = false;
+				break;
+			}
+			for (int j = 0; j < (int)temp_graph.size(); ++j)
+			{
+				if (x == temp_graph[j].first && y == temp_graph[j].second)
+				{
+					saved = false;
+					break;
+				}
+			}
+			if (!saved)
+				break;
+			temp_graph.push_back({ x,y });
+		}
+	}
+	if (saved) 
+		algo_graph = shared_ptr<Algorithm_graph>(new Algorithm_graph(temp_graph));
 }
 
 void Work_with_window::check_last_on_neg_simple(int index)
@@ -333,6 +376,7 @@ void Work_with_window::check_fields_is_released(int pos_w, int pos_h)
 
 void Work_with_window::check_fields_entered_text(char temp)
 {
+	bool is_focus = false;
 	for (int i = 0;i < fields.size(); ++i)
 		if (fields[i].get()->_has_focus() && fields[i].get()->get_field_name() != "Save" && fields[i].get()->get_field_name() != "Open")
 		{
@@ -344,8 +388,18 @@ void Work_with_window::check_fields_entered_text(char temp)
 			{
 				if (i == 0)
 					fields[i].get()->add_text(temp, 1);
-				else
+				else if (saved && fields[i].get()->get_field_name() == "Prob.") {
 					fields[i].get()->add_text(temp, 1, fields[0].get()->_int_value());
+					if (algo_graph.get()->check_fields_non_negative(fields[i].get()->get_double_value(), i / 3 - 1))
+						algo_graph.get()->give_value(i / 3 - 1, fields[i].get()->get_double_value());
+					else
+						fields[i].get()->del_el_string();
+				}
+				else if (fields[i].get()->get_field_name() != "Prob.")
+					fields[i].get()->add_text(temp, 1, fields[0].get()->_int_value());
+				
+				
+				is_focus = true;
 			}
 		}
 }
@@ -367,8 +421,16 @@ void Work_with_window::check_fields_backspace()
 		if (fields[i].get()->_has_focus())
 		{
 			fields[i].get()->del_el_string();
-			if (fields[i].get()->get_field_name() != "Save" && fields[i].get()->get_field_name() != "Open")
+			if (information == "Data\\Simple Probability information.dat" && 
+				fields[i].get()->get_field_name() != "Save" && fields[i].get()->get_field_name() != "Open")
 				delete_buttons_simple(i);
+			else if (information == "Data\\Walk on the graph information.dat")
+			{
+				if (fields[i].get()->get_field_name() == "Vertex") {
+					saved = false;
+					algo_graph.reset();
+				}
+			}
 		}
 	}
 }
@@ -386,9 +448,20 @@ void Work_with_window::check_fields_tab()
 	}
 }
 
-void Work_with_window::check_fields_on_last_dot()
+void Work_with_window::check_fields_on_last_dot_simple()
 {
 	for (int i = 0; i < fields.size(); ++i)
+	{
+		if (!fields[i].get()->_has_focus())
+		{
+			fields[i].get()->check_on_dot();
+		}
+	}
+}
+
+void Work_with_window::check_fields_on_last_dot_graph()
+{
+	for (int i = 4; i < fields.size(); i += 3)
 	{
 		if (!fields[i].get()->_has_focus())
 		{
@@ -408,6 +481,53 @@ void Work_with_window::check_last_prob_field()
 			counter += fields[i].get()->get_double_value();
 	if (number_of_created_windows_type_2 > 0)
 		fields[2 * number_of_created_windows_type_2].get()->last_field_counter(counter, all_filled);
+}
+
+void Work_with_window::check_last_vertex_prob_field()
+{
+	if (algo_graph != nullptr) {
+		for (int i = 0; i < fields.size(); ++i) {
+			if (fields[i].get()->get_field_name() == "Prob.") {
+				if (fields[i].get()->get_text_value_length() > 0)
+					algo_graph.get()->give_value(i / 3 - 1, fields[i].get()->get_double_value());
+				else
+					algo_graph.get()->give_value(i / 3 - 1, -1);
+			}
+		}
+		vector<pair<int, double> > temp_edge = algo_graph.get()->get_last_values();
+		sort(temp_edge.begin(), temp_edge.end());
+		int k = 0;
+		cout << temp_edge.size() << '\n';
+		for (int i = 4; i < fields.size() && k < temp_edge.size(); i += 3)
+		{
+			if ((i - 4) / 3 == temp_edge[k].first)
+			{
+				string s = to_string(temp_edge[k].second);
+				while (s.length() > 6)
+					s.pop_back();
+				if (s[s.length() - 1] == '.')
+					s.pop_back();
+				fields[i].get()->set_text(s);
+				++k;
+			}
+		}
+		vector<int> need_to_clear = algo_graph.get()->need_to_clear();
+		k = 0;
+		int j = 0;
+		sort(need_to_clear.begin(), need_to_clear.end());
+		for (int i = 0; i < fields.size() && j < need_to_clear.size(); ++i)
+		{
+			if (fields[i].get()->get_field_name() == "Prob.")
+			{
+				if (need_to_clear[j] == k)
+				{
+					fields[i].get()->set_text("");
+					++j;
+				}
+				++k;
+			}
+		}
+	}
 }
 
 bool Work_with_window::button_enter_values()
@@ -572,7 +692,7 @@ void Work_with_window::delete_buttons_in_graph(int number)
 		int i = 0, counter = 0;
 		while (counter < 2 && i < buttons.size())
 		{
-			if (buttons[i].get()->get_name() == "Go")
+			if (buttons[i].get()->get_name() == "Go!")
 				++counter;
 			++i;
 		}

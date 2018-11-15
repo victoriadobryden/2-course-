@@ -122,22 +122,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Algorithm_graph.cpp" />
     <ClCompile Include="Algorithm_simple_probability.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonDraw.cpp" />
     <ClCompile Include="Center_of_work.cpp" />
     <ClCompile Include="Input_field.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Work_with_graph_window.cpp" />
     <ClCompile Include="Work_with_window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Algorithm_graph.h" />
     <ClInclude Include="Algorithm_simple_probability.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonDraw.h" />
     <ClInclude Include="Center_of_work.h" />
     <ClInclude Include="Input_field.h" />
-    <ClInclude Include="Work_with_graph_window.h" />
     <ClInclude Include="Work_with_window.h" />
   </ItemGroup>
   <ItemGroup>

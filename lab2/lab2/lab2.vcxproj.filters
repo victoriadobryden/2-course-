@@ -36,7 +36,7 @@
     <ClCompile Include="Algorithm_simple_probability.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Work_with_graph_window.cpp">
+    <ClCompile Include="Algorithm_graph.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,7 +59,7 @@
     <ClInclude Include="Algorithm_simple_probability.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Work_with_graph_window.h">
+    <ClInclude Include="Algorithm_graph.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
