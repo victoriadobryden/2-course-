@@ -182,6 +182,19 @@ void Work_with_window::work()
 			{
 				check_last_vertex_prob_field();
 				check_fields_on_last_dot_graph();
+				if (!saved)
+				{
+					for (int i = 0; i < buttons.size(); ++i)
+					{
+						if (buttons[i].get()->get_name() == "Ok!")
+						{
+							buttons[i].reset();
+							for (int j = i; j < (int)buttons.size() - 1; ++j)
+								buttons[j] = move(buttons[j + 1]);
+							buttons.pop_back();
+						}
+					}
+				}
 			}
 		}
 		else {
@@ -317,6 +330,8 @@ void Work_with_window::check_button_go_in_graph(int index)
 		int num = fields[1].get()->_int_value();
 		create_fields_graph(num);
 	}
+	algo_graph.reset();
+	saved = false;
 }
 
 void Work_with_window::check_button_save_vertexes()
@@ -345,9 +360,19 @@ void Work_with_window::check_button_save_vertexes()
 				break;
 			temp_graph.push_back({ x,y });
 		}
+		else
+		{
+			saved = false;
+			break;
+		}
 	}
-	if (saved) 
+	if (saved) {
 		algo_graph = shared_ptr<Algorithm_graph>(new Algorithm_graph(temp_graph));
+		int hash_button = get_pos_base_button("Ok!");
+		shared_ptr<ButtonDraw> temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_button]));
+		temp_button.get()->set_text("Ok!");
+		buttons.push_back(temp_button);
+	}
 }
 
 void Work_with_window::check_last_on_neg_simple(int index)

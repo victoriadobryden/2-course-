@@ -58,6 +58,7 @@ class Work_with_window
 	void delete_buttons_simple(int i);
 	void delete_buttons_in_graph(int number);
 	void render_opened_file(ifstream &fin);
+
 public:
 	Work_with_window();
 	Work_with_window(string &file);
