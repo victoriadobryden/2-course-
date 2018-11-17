@@ -3,6 +3,7 @@
 #include "Input_field.h"
 #include "Algorithm_simple_probability.h"
 #include "Algorithm_graph.h"
+#include "Visualisation_of_graph.h"
 
 #include <SFML/Graphics.hpp>
 #include <fstream>
@@ -20,6 +21,7 @@ class Work_with_window
 	
 	shared_ptr<Algorithm_simple_probability> algo_simple;
 	shared_ptr<Algorithm_graph> algo_graph;
+	shared_ptr<Visualisation_of_graph> show_graph;
 
 	string information;
 	int need_to_create_window;
@@ -51,8 +53,9 @@ class Work_with_window
 	void create_tests(int number);
 	void help_create_tests();
 
-	bool button_enter_values();
-	void help_enter_values();
+	bool button_enter_values_simple();
+	bool button_enter_values_graph();
+	void help_enter_values_simple();
 	int get_pos_base_button(string val); 
 	int get_pos_base_fields(string val);
 	void delete_buttons_simple(int i);

@@ -143,7 +143,7 @@ void Work_with_window::work()
 				check_fields_backspace();
 			if (event.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::Tab))
 				check_fields_tab();
-			
+		
 			if (event.type == Event::MouseMoved)
 			{
 				check_buttons_under_cursor(event.mouseMove.y, event.mouseMove.x);
@@ -158,6 +158,7 @@ void Work_with_window::work()
 			{
 				check_buttons_is_released(event.mouseButton.y, event.mouseButton.x);
 				check_fields_is_released(event.mouseButton.y, event.mouseButton.x);
+				cout << event.mouseButton.x << ' ' << event.mouseButton.y << '\n';
 				for (int i = 0; i < buttons.size(); ++i)
 					buttons[i].get()->unpress();
 			}
@@ -233,10 +234,13 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 	{
 		if (buttons[i].get()->get_name() == "Enter values" && buttons[i].get()->in_it(pos_w, pos_h))
 		{
-			if (button_enter_values())
+			if (information == "Data\\Simple Probability information.dat" && button_enter_values_simple())
 			{
-				help_enter_values();
+				help_enter_values_simple();
 			}
+			else if (information == "Data\\Walk on the graph information.dat")
+				button_enter_values_graph();
+
 		}
 		else if (buttons[i].get()->get_name() == "Save" && buttons[i].get()->in_it(pos_w, pos_h))
 		{
@@ -555,7 +559,7 @@ void Work_with_window::check_last_vertex_prob_field()
 	}
 }
 
-bool Work_with_window::button_enter_values()
+bool Work_with_window::button_enter_values_simple()
 {
 	double counter = 0;
 	vector<double> values;
@@ -580,9 +584,25 @@ bool Work_with_window::button_enter_values()
 	return true;
 }
 
-void Work_with_window::help_enter_values()
+bool Work_with_window::button_enter_values_graph()
 {
-	for (int j = buttons.size() - 1; j > 0; --j)
+	vector<double> probs;
+	show_graph.reset();
+	for (int i = 2; i < (int)fields.size(); ++i)
+	{
+		if (fields[i].get()->get_text_value_length() == 0) 
+			return false;
+
+		if (fields[i].get()->get_field_name() == "Prob.")
+			probs.push_back(fields[i].get()->get_double_value());
+	}
+	show_graph = shared_ptr<Visualisation_of_graph>(new Visualisation_of_graph(algo_graph));
+	return true;
+}
+
+void Work_with_window::help_enter_values_simple()
+{
+	for (int j = (int)buttons.size() - 1; j > 0; --j)
 		if (buttons[j].get()->get_name() == "Enter values")
 			break;
 		else if (buttons[j].get()->get_name() == "Number of tests:")
@@ -670,7 +690,7 @@ void Work_with_window::delete_buttons_simple(int i)
 	{
 		cout << i << '\n';
 		algo_simple.reset();
-		for (int j = buttons.size() - 1; j > 0; --j)
+		for (int j = (int)buttons.size() - 1; j > 0; --j)
 		{
 			string temp = buttons[j].get()->get_name();
 			if (temp == "#")
@@ -687,7 +707,7 @@ void Work_with_window::delete_buttons_simple(int i)
 	}
 	else if (fields[i].get()->get_field_name() == "Number of tests")
 	{
-		for (int j = buttons.size() - 1; j > 0; --j)
+		for (int j = (int)buttons.size() - 1; j > 0; --j)
 		{
 			string temp = buttons[j].get()->get_name();
 			cout << '\n' << temp << '\n';
@@ -758,9 +778,9 @@ void Work_with_window::render_opened_file(ifstream &fin)
 			s.pop_back();
 		fields[2 * i + 3].get()->set_text(s,false);
 	}
-	if (button_enter_values())
+	if (button_enter_values_simple())
 	{
-		help_enter_values();
+		help_enter_values_simple();
 		fin >> n;
 		if (n != 0) 
 		{
@@ -803,7 +823,8 @@ void Work_with_window::draw()
 	}
 	for (int i = 0; i < fields.size(); ++i)
 		fields[i].get()->draw(window);
-
+	if (show_graph != nullptr)
+		show_graph.get()->draw(window);
 	draw_frame_for_window(window);
 	
 }
