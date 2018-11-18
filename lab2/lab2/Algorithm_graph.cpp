@@ -1,12 +1,15 @@
 #include "Algorithm_graph.h"
 
-Algorithm_graph::Algorithm_graph(vector<pair<int, int> > &edges)
+Algorithm_graph::Algorithm_graph(vector<pair<int, int> > &edges, int n)
 {
+	graph_size = n;
+	for (int i = 0; i <= graph_size; ++i)
+	{
+		vertex[i].clear();
+	}
 	for (int i = 0; i < edges.size(); ++i) {
 		Tedge e(edges[i].second, i, -1.0);
 		vertex[edges[i].first].push_back(e);
-		graph_size = max(graph_size, edges[i].first);
-		graph_size = max(graph_size, edges[i].second);
 	}
 	for (int i = 1; i <= graph_size; ++i)
 	{
@@ -71,6 +74,11 @@ vector<int> Algorithm_graph::need_to_clear()
 		}
 	}
 	return ans;
+}
+
+int Algorithm_graph::get_size()
+{
+	return graph_size;
 }
 
 bool Algorithm_graph::check_fields_non_negative(double val, int edge)

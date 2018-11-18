@@ -371,7 +371,7 @@ void Work_with_window::check_button_save_vertexes()
 		}
 	}
 	if (saved) {
-		algo_graph = shared_ptr<Algorithm_graph>(new Algorithm_graph(temp_graph));
+		algo_graph = shared_ptr<Algorithm_graph>(new Algorithm_graph(temp_graph,fields[0].get()->_int_value()));
 		int hash_button = get_pos_base_button("Ok!");
 		shared_ptr<ButtonDraw> temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_button]));
 		temp_button.get()->set_text("Ok!");
@@ -455,9 +455,13 @@ void Work_with_window::check_fields_backspace()
 				delete_buttons_simple(i);
 			else if (information == "Data\\Walk on the graph information.dat")
 			{
-				if (fields[i].get()->get_field_name() == "Vertex") {
+				if (fields[i].get()->get_field_name() == "Vertex" || fields[i].get()->get_field_name() == "Number of vertexes"
+					|| fields[i].get()->get_field_name() == "Number of edges")
+				{
+					cout << "TTTT\n";
 					saved = false;
 					algo_graph.reset();
+					show_graph.reset();
 				}
 			}
 		}
