@@ -107,6 +107,7 @@ Visualisation_of_graph::Visualisation_of_graph(shared_ptr<Algorithm_graph> graph
 
 		next_values(x, y, center_x, center_y, len, rad);
 	}
+	//for (int i = 0; )
 }
 
 void Visualisation_of_graph::draw(shared_ptr<RenderWindow> window)

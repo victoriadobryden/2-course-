@@ -376,6 +376,7 @@ void Work_with_window::check_button_save_vertexes()
 		shared_ptr<ButtonDraw> temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_button]));
 		temp_button.get()->set_text("Ok!");
 		buttons.push_back(temp_button);
+		check_last_vertex_prob_field();
 	}
 }
 
@@ -463,6 +464,10 @@ void Work_with_window::check_fields_backspace()
 					algo_graph.reset();
 					show_graph.reset();
 				}
+				if (fields[i].get()->get_field_name() == "Number of vertexes")
+					delete_buttons_in_graph(0);
+				else if (fields[i].get()->get_field_name() == "Number of edges")
+					delete_buttons_in_graph(1);
 			}
 		}
 	}
@@ -821,16 +826,17 @@ void Work_with_window::draw_frame_for_window(shared_ptr<RenderWindow> window)
 
 void Work_with_window::draw()
 {
-	for (int i = 0; i < buttons.size(); ++i)
-	{
-		buttons[i].get()->draw(window);
-	}
-	for (int i = 0; i < fields.size(); ++i)
-		fields[i].get()->draw(window);
-	if (show_graph != nullptr)
-		show_graph.get()->draw(window);
-	draw_frame_for_window(window);
-	
+	if (window.get()->isOpen()) {
+		for (int i = 0; i < buttons.size(); ++i)
+		{
+			buttons[i].get()->draw(window);
+		}
+		for (int i = 0; i < fields.size(); ++i)
+			fields[i].get()->draw(window);
+		if (show_graph != nullptr)
+			show_graph.get()->draw(window);
+		draw_frame_for_window(window);
+	}	
 }
 
 int Work_with_window::need_new_window()
