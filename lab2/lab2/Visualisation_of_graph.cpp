@@ -67,6 +67,137 @@ void Visualisation_of_graph::next_values(double &x, double &y, double center_x, 
 	}
 }
 
+double Visualisation_of_graph::vertex_distance(int from, int to)
+{
+	Vector2f v_from = vertexes[from - 1].get()->getPosition();
+	Vector2f v_to = vertexes[to - 1].get()->getPosition();
+	return sqrt((v_from.x-v_to.x)*(v_from.x - v_to.x)+ (v_from.y - v_to.y)*(v_from.y - v_to.y));
+}
+
+Vector2f Visualisation_of_graph::get_edge_position(int from, int to)
+{
+	Vector2f v_from = vertexes[from - 1].get()->getPosition();
+	Vector2f v_to = vertexes[to - 1].get()->getPosition();
+	Vector2f ans;
+	ans.x = (float) ((v_from.x + v_to.x) / 2.0);
+	ans.y = (float) ((v_from.y + v_to.y) / 2.0);
+	return ans;
+}
+
+float Visualisation_of_graph::get_angle_for_edge(int from, int to)
+{
+	Vector2f v_from = vertexes[from - 1].get()->getPosition();
+	Vector2f v_to = vertexes[to - 1].get()->getPosition();
+	float x = abs(v_from.x - v_to.x);
+	float y = abs(v_from.y - v_to.y);
+	if (v_from.x - v_to.x == 0)
+		return 90;
+	else {
+		float angle = (float)atan((float)(y / x));
+		if ((v_from.x - v_to.x)*(v_from.y - v_to.y) > 0)
+			return float (angle*180.f/pi);
+		else //if ((v_from.x - v_to.x)*(v_from.y - v_to.y) < 0)
+			return float (-angle*180.f/pi);
+	}
+}
+
+float Visualisation_of_graph::get_angle_arrow(int from, int to, float angle_edge)
+{
+	Vector2f v_from = vertexes[from - 1].get()->getPosition();
+	Vector2f v_to = vertexes[to - 1].get()->getPosition();
+	if (angle_edge == 0) {
+		if (v_from.x < v_to.x)
+			return 90.f;
+		else
+			return -90.f;
+	}
+	else if (angle_edge == 90) 
+	{
+		if (v_from.y < v_to.y)
+			return 180.f;
+		else
+			return 0.f;
+	}
+	else if (angle_edge < 0)
+	{
+		if (v_from.x < v_to.x)
+			return angle_edge + 90.f;
+		else
+			return angle_edge - 90.f;
+	}
+	else
+	{
+		if (v_from.x < v_to.x)
+			return angle_edge + 90.f;
+		else
+			return angle_edge - 90.f;
+	}
+}
+
+Vector2f Visualisation_of_graph::get_position_for_arrow(float angle, float dist, int from, int to)
+{
+	Vector2f v_from = vertexes[from - 1].get()->getPosition();
+	Vector2f v_to = vertexes[to - 1].get()->getPosition();
+	Vector2f ans;
+	if (angle >= 0)
+	{
+		if (v_to.x < v_from.x)
+		{
+			ans.x = float (v_to.x + dist * cos(angle*pi / 180));
+			ans.y = float (v_to.y + dist * sin(angle*pi / 180));
+		}
+		else if (v_to.x > v_from.x)
+		{
+			ans.x = float (v_to.x - dist * cos(angle*pi / 180));
+			ans.y = float (v_to.y - dist * sin(angle*pi / 180));
+		}
+		else if (v_to.y < v_from.y)
+		{
+			ans.x = v_to.x;
+			ans.y = v_to.y + dist;
+		}	
+		else
+		{
+			ans.x = v_to.x;
+			ans.y = v_to.y - dist;
+		}
+	}
+	else {
+		angle = -angle;
+		if (v_to.x < v_from.x)
+		{
+			ans.x = float(v_to.x + dist * cos(angle*pi / 180));
+			ans.y = float(v_to.y - dist * sin(angle*pi / 180));
+		}
+		else
+		{
+			ans.x = float(v_to.x - dist * cos(angle*pi / 180));
+			ans.y = float(v_to.y + dist * sin(angle*pi / 180));
+		}
+	}
+	return ans;
+}
+
+void Visualisation_of_graph::change_pointer_position_on_edge()
+{
+	Vector2f prev_pos = pointer.get()->getPosition();
+	Vector2f next_pos;
+	if (line_b != 0) {
+		next_pos.x = prev_pos.x + move_where;
+		next_pos.y = (-line_a * next_pos.x - line_c) / line_b;
+	}
+	else {
+		next_pos.y = prev_pos.y + move_where;
+		next_pos.y = (-line_b * next_pos.y - line_c) / line_a;
+	}
+	pointer.get()->setPosition(next_pos);
+	if (next_pos == vertexes[have_to].get()->getPosition())
+	{
+		in_move_on_edge = false;
+	}
+}
+
+
 Visualisation_of_graph::Visualisation_of_graph(shared_ptr<Algorithm_graph> graph)
 {
 	image = shared_ptr<RenderTexture>(new RenderTexture);
@@ -84,10 +215,10 @@ Visualisation_of_graph::Visualisation_of_graph(shared_ptr<Algorithm_graph> graph
 		temp = shared_ptr<CircleShape>(new CircleShape);
 		temp.get()->setRadius(14.f);
 		temp.get()->setOutlineThickness(2.f);
-		temp.get()->setFillColor(Color(0, 0, 0, 0));
+		temp.get()->setFillColor(Color(40, 40, 40, 170));
 		temp.get()->setOutlineColor(Color(0,200,200));
 		temp.get()->setOrigin(14.f, 14.f);
-		temp.get()->setPosition(x, y);
+		temp.get()->setPosition((float)x, (float)y);
 		vertexes.push_back(temp);
 	
 		temp_text = shared_ptr<Text>(new Text);
@@ -102,22 +233,55 @@ Visualisation_of_graph::Visualisation_of_graph(shared_ptr<Algorithm_graph> graph
 			temp_text.get()->setOrigin(11.f, 12.f);
 
 
-		temp_text.get()->setPosition(x, y);
+		temp_text.get()->setPosition((float)x, (float)y);
 		number.push_back(temp_text);
 
 		next_values(x, y, center_x, center_y, len, rad);
 	}
-	//for (int i = 0; )
+	vector<pair<int, int> > edge = graph.get()->get_all_edges(); 
+	shared_ptr<RectangleShape> temp_edge;
+	shared_ptr<CircleShape> arrow;
+	for (int i = 0; i < edge.size(); ++i)
+	{
+		double dist = vertex_distance(edge[i].first, edge[i].second);
+		temp_edge = shared_ptr<RectangleShape>(new RectangleShape(Vector2f(float(dist - 28.f), 2.f)));
+		temp_edge.get()->setOrigin(float(dist / 2.0 - 14.f), 1.f);
+		temp_edge.get()->setPosition(get_edge_position(edge[i].first, edge[i].second));
+		temp_edge.get()->setFillColor(Color(255, 255, 255));
+		float angle = get_angle_for_edge(edge[i].first, edge[i].second);
+		temp_edge.get()->setRotation(angle);
+		arrow = shared_ptr<CircleShape>(new CircleShape(7.f, 3));
+		arrow.get()->setOrigin(7.f, 7.f);
+		arrow.get()->setRotation(get_angle_arrow(edge[i].first, edge[i].second, angle));
+		arrow.get()->setPosition(get_position_for_arrow(angle, 21, edge[i].first, edge[i].second));
+		edges.push_back({ temp_edge,arrow });
+	}
+
+	pointer = shared_ptr<CircleShape>(new CircleShape(8.f, 10));
+	pointer.get()->setOrigin(8.f, 8.f);
+	Vector2f temp_pos = vertexes[0].get()->getPosition();
+	pointer.get()->setPosition(temp_pos);
+	pointer.get()->setFillColor(Color(0, 0, 255));
+
+	start_time = high_resolution_clock::now();
+	last_time = 0.f;
+	in_move_on_edge = can_move = false;
+//	have_to = 2;
 }
 
 void Visualisation_of_graph::draw(shared_ptr<RenderWindow> window)
 {
 	image.get()->clear(Color(10,10,10,0));
+	for (int i = 0; i < (int)edges.size(); ++i)
+		image.get()->draw(*edges[i].first);
+	image.get()->draw(*pointer);
 	for (int i = 0; i < (int)vertexes.size(); ++i) 
 	{
 		image.get()->draw(*vertexes[i]);
 		image.get()->draw(*number[i]);
 	}
+	for (int i = 0; i < (int)edges.size(); ++i)
+		image.get()->draw(*edges[i].second);
 	image.get()->display();
 	Texture temp_texture;
 	temp_texture = image.get()->getTexture();
@@ -125,6 +289,24 @@ void Visualisation_of_graph::draw(shared_ptr<RenderWindow> window)
 	temp_sprite.setTexture(temp_texture);
 	temp_sprite.setPosition(340,50);
 	window.get()->draw(temp_sprite);
+}
+
+void Visualisation_of_graph::move(shared_ptr<Algorithm_graph> graph)
+{
+	if (can_move)
+	{
+		if (in_move_on_edge)
+		{
+			high_resolution_clock::time_point current = high_resolution_clock::now();
+			auto duration = duration_cast<chrono::microseconds>(current - start_time).count();
+			float dur_in_sec = duration / 1000000.f;
+			if (dur_in_sec - last_time > 0.05f)
+			{
+				last_time = dur_in_sec;
+				change_pointer_position_on_edge();
+			}
+		}
+	}
 }
 
 
@@ -139,7 +321,8 @@ Visualisation_of_graph::~Visualisation_of_graph()
 	}
 	for (int j = (int)edges.size() - 1; j >= 0; --j) 
 	{
-		edges[j].reset();
+		edges[j].first.reset();
+		edges[j].second.reset();
 		edges.pop_back();
 	}
 	image.reset();

@@ -323,7 +323,7 @@ int Input_field::get_text_size()
 
 int Input_field::get_text_value_length()
 {
-	return text_value.length();
+	return (int)text_value.length();
 }
 
 string Input_field::get_field_name()

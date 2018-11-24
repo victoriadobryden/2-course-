@@ -23,6 +23,7 @@ public:
 	vector<int> need_to_clear();
 	int get_size();
 	bool check_fields_non_negative(double val, int edge);
+	vector<pair<int,int> > get_all_edges();
 	~Algorithm_graph();
 };
 

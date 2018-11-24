@@ -53,10 +53,25 @@ void Algorithm_graph::give_value(int index, double val)
 			{
 				if (j != vertex[i].size() - 1)
 				{
-					vertex[i][j].val = val;
+					bool ok = true;
+					double counter = 0;
+					if (val != -1) {
+						for (int k = 0; k < j; ++k)
+						{
+							if (vertex[i][k].val != -1)
+								counter += vertex[i][k].val;
+						}
+						if (counter + val > 100.001f)
+							ok = false;
+					}
+					cout << index << ' ' << counter << ' ' << val << ' ' << vertex[i][j].val << '\n';
+					if (ok)
+						vertex[i][j].val = val;
+					else if (vertex[i][j].val != -1 && counter + vertex[i][j].val > 100.001f)
+						vertex[i][j].val = -1;
+
 				}
-				else
-					break;
+				break;	
 			}
 		}
 	}
@@ -112,6 +127,17 @@ bool Algorithm_graph::check_fields_non_negative(double val, int edge)
 		return false;
 	else
 		return true;
+}
+
+vector<pair<int, int> > Algorithm_graph::get_all_edges()
+{
+	vector<pair<int, int> > temp;
+	for (int i = 1;i <= graph_size; ++i)
+	{ 
+		for (int j = 0; j < vertex[i].size(); ++j)
+			temp.push_back({ i,vertex[i][j].to });
+	}
+	return temp;
 }
 
 Algorithm_graph::~Algorithm_graph()

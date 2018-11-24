@@ -208,6 +208,10 @@ void Work_with_window::work()
 				fields[i].get()->unfocus();
 			}
 		}
+		if (show_graph != nullptr)
+		{
+			show_graph.get()->move(algo_graph);
+		}
 	}
 	window.get()->clear(Color(40, 40, 40));
 	draw();
@@ -238,7 +242,7 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 			{
 				help_enter_values_simple();
 			}
-			else if (information == "Data\\Walk on the graph information.dat")
+			else if (information == "Data\\Walk on the graph information.dat" && algo_graph != nullptr)
 				button_enter_values_graph();
 
 		}
@@ -545,7 +549,7 @@ void Work_with_window::check_last_vertex_prob_field()
 					s.pop_back();
 				if (s[s.length() - 1] == '.')
 					s.pop_back();
-				fields[i].get()->set_text(s);
+				fields[i].get()->set_text(s,false);
 				++k;
 			}
 		}
