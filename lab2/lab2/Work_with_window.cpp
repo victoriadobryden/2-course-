@@ -377,7 +377,11 @@ void Work_with_window::check_button_go_in_graph(int index)
 
 void Work_with_window::check_button_save_vertexes()
 {
+	algo_graph.reset();
+	show_graph.reset();
+	check_del_play_pause();
 	saved = true;
+	showed = created = false;
 	vector<pair<int, int> > temp_graph;
 	for (int i = 2; i < fields.size(); i += 3) {
 		int x = fields[i].get()->_int_value(), y = fields[i + 1].get()->_int_value();
@@ -409,10 +413,20 @@ void Work_with_window::check_button_save_vertexes()
 	}
 	if (saved) {
 		algo_graph = shared_ptr<Algorithm_graph>(new Algorithm_graph(temp_graph,fields[0].get()->_int_value()));
-		int hash_button = get_pos_base_button("Ok!");
-		shared_ptr<ButtonDraw> temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_button]));
-		temp_button.get()->set_text("Ok!");
-		buttons.push_back(temp_button);
+		bool ok = true;
+		for (int i = 0; i < (int)buttons.size(); ++i)
+		{
+			if (buttons[i].get()->get_name() == "Ok!") {
+				ok = false;
+				break;
+			}
+		}
+		if (ok) {
+			int hash_button = get_pos_base_button("Ok!");
+			shared_ptr<ButtonDraw> temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_button]));
+			temp_button.get()->set_text("Ok!");
+			buttons.push_back(temp_button);
+		}
 		check_last_vertex_prob_field();
 	}
 }
@@ -455,6 +469,14 @@ void Work_with_window::check_fields_entered_text(char temp)
 			{
 				if (i == 0)
 					fields[i].get()->add_text(temp, 1);
+				else if (saved && fields[i].get()->get_field_name() == "Vertex")
+				{
+					fields[i].get()->add_text(temp, 1, fields[0].get()->_int_value());
+					saved = created = showed = false;
+					show_graph.reset();
+					algo_graph.reset();
+					check_del_play_pause();
+				}
 				else if (saved && fields[i].get()->get_field_name() == "Prob.") {
 					fields[i].get()->add_text(temp, 1, fields[0].get()->_int_value());
 					if (algo_graph.get()->check_fields_non_negative(fields[i].get()->get_double_value(), i / 3 - 1))
