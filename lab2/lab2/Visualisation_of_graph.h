@@ -31,6 +31,7 @@ class Visualisation_of_graph
 	Vector2f get_position_for_arrow(float angle, float dist, int from, int to);
 	void change_pointer_position_on_edge();
 	void count_line();
+	void change_color(shared_ptr<Algorithm_graph> graph);
 public:
 	Visualisation_of_graph(shared_ptr<Algorithm_graph> graph);
 	void draw(shared_ptr<RenderWindow> window);

@@ -27,6 +27,7 @@ public:
 	vector<pair<int,int> > get_all_edges();
 	int get_next_vertex();
 	void restart();
+	int find_edge(int from,int to);
 
 	~Algorithm_graph();
 };

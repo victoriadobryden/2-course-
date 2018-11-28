@@ -181,7 +181,7 @@ void Input_field::add_text(char c, bool is_graph, int value)
 	    || button.button_name == "Number of edges"
 		|| button.button_name == "Vertex"))
 	{
-		cout << c << '\n';
+	//	cout << c << '\n';
 		text_value += c;
 		convert_to_int();
 		if (button.button_name == "Vertex" && !field_criterion_in_graph(3, value))

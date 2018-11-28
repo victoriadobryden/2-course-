@@ -21,7 +21,7 @@ void main_part()
 			{
 				temp_window.reset();
 				temp_window = shared_ptr<Work_with_window>(new Work_with_window(s[temp]));
-				cout << temp << '\n';
+			//	cout << temp << '\n';
 				all_windows.push_back(temp_window);
 			}
 			if (!all_windows[i].get()->is_open())

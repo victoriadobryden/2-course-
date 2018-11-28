@@ -832,7 +832,7 @@ void Work_with_window::delete_buttons_simple(int i)
 		for (int j = (int)buttons.size() - 1; j > 0; --j)
 		{
 			string temp = buttons[j].get()->get_name();
-			cout << '\n' << temp << '\n';
+	//		cout << '\n' << temp << '\n';
 			if (temp == "Go!")
 				break;
 			if (temp == "Test#" || temp == "Values")

@@ -12,11 +12,11 @@ Algorithm_graph::Algorithm_graph(vector<pair<int, int> > &edges, int n)
 		Tedge e(edges[i].second, i, -1.0);
 		vertex[edges[i].first].push_back(e);
 	}
-	for (int i = 1; i <= graph_size; ++i)
+	/*for (int i = 1; i <= graph_size; ++i)
 	{
 		for (int j = 0; j < vertex[i].size(); ++j)
 			cout << i << "->" << vertex[i][j].to << ' ' << vertex[i][j].number << ' ' << vertex[i][j].val << '\n';
-	}
+	}*/
 }
 
 vector<pair<int, double> > Algorithm_graph::get_last_values()
@@ -65,7 +65,7 @@ void Algorithm_graph::give_value(int index, double val)
 						if (counter + val > 100.001f)
 							ok = false;
 					}
-					cout << index << ' ' << counter << ' ' << val << ' ' << vertex[i][j].val << '\n';
+					//cout << index << ' ' << counter << ' ' << val << ' ' << vertex[i][j].val << '\n';
 					if (ok)
 						vertex[i][j].val = val;
 					else if (vertex[i][j].val != -1 && counter + vertex[i][j].val > 100.001f)
@@ -165,6 +165,24 @@ int Algorithm_graph::get_next_vertex()
 void Algorithm_graph::restart()
 {
 	last_vertex = next_vertex = 1;
+}
+
+int Algorithm_graph::find_edge(int from, int to)
+{
+	int k = 0;
+	for (int i = 1; i <= graph_size; ++i)
+	{
+		if (i == from) {
+			for (int j = 0; j < vertex[i].size(); ++j)
+				if (vertex[i][j].to == to)
+					return k;
+				else
+					++k;
+		}
+		else 
+			k += (int)vertex[i].size();
+	}
+	return -1;
 }
 
 Algorithm_graph::~Algorithm_graph()

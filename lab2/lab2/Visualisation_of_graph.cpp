@@ -222,6 +222,25 @@ void Visualisation_of_graph::count_line()
 	pointer.get()->setPosition(v_from);
 }
 
+void Visualisation_of_graph::change_color(shared_ptr<Algorithm_graph> graph)
+{
+	int index = graph.get()->find_edge(current_vertex, have_to);
+	Color edge_color = edges[index].first.get()->getFillColor();
+	int sub = 15;
+	edge_color.g = (edge_color.g - sub >= 0 ? edge_color.g - sub : 0);
+	edge_color.b = (edge_color.b - sub >= 0 ? edge_color.b - sub : 0);
+	if (edge_color.g == 0)
+		edge_color.r = (edge_color.r - sub >= 0 ? edge_color.r - sub : 0);
+	edges[index].first.get()->setFillColor(edge_color);
+
+	edge_color = edges[index].second.get()->getFillColor();
+	edge_color.g = (edge_color.g - sub >= 0 ? edge_color.g - sub : 0);
+	edge_color.b = (edge_color.b - sub >= 0 ? edge_color.b - sub : 0);
+	if (edge_color.g == 0)
+		edge_color.r = (edge_color.r - sub >= 0 ? edge_color.r - sub : 0);
+	edges[index].second.get()->setFillColor(edge_color);
+}
+
 
 Visualisation_of_graph::Visualisation_of_graph(shared_ptr<Algorithm_graph> graph)
 {
@@ -298,9 +317,29 @@ Visualisation_of_graph::Visualisation_of_graph(shared_ptr<Algorithm_graph> graph
 
 void Visualisation_of_graph::draw(shared_ptr<RenderWindow> window)
 {
-	image.get()->clear(Color(10,10,10,0));
-	for (int i = 0; i < (int)edges.size(); ++i)
-		image.get()->draw(*edges[i].first);
+	image.get()->clear(Color(10, 10, 10, 0));
+	for (int i = 0; i < (int)edges.size(); ++i) 
+	{
+		Vector2f pos_1 = edges[i].first.get()->getPosition(), pos_2;
+		float angle_1 = edges[i].first.get()->getRotation(), angle_2;
+		shared_ptr<RectangleShape> temp = edges[i].first;
+		for (int j = 0;j < (int)edges.size(); ++j)
+			if (i != j)
+			{
+				pos_2 = edges[j].first.get()->getPosition();
+				angle_2 = edges[j].first.get()->getRotation();
+				if (abs(pos_2.x - pos_1.x) <= 1 && abs(pos_2.y - pos_1.y) <= 1 &&
+					(abs(angle_1 - angle_2) <= 0.1 || abs(abs(angle_1 - angle_2) - 180.0) <= 0.1))
+				{
+					Color color_1 = edges[i].first.get()->getFillColor(), color_2 = edges[j].first.get()->getFillColor();
+					if (color_1.b > color_2.b)
+						temp = edges[j].first;
+					else if (color_1.b == 0 && color_1.r > color_2.r)
+						temp = edges[j].first;
+				}
+			}
+		image.get()->draw(*temp);
+	}
 	for (int i = 0; i < (int)edges.size(); ++i)
 		image.get()->draw(*edges[i].second);
 	image.get()->draw(*pointer);
@@ -339,6 +378,8 @@ void Visualisation_of_graph::move(shared_ptr<Algorithm_graph> graph)
 			{
 				if (line_a == line_b && line_a == 0) 
 				{
+					if (current_vertex != have_to)
+						change_color(graph);
 					current_vertex = have_to;
 					have_to = graph.get()->get_next_vertex();
 					if (have_to != -1) {
