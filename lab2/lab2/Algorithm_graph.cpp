@@ -3,6 +3,7 @@
 Algorithm_graph::Algorithm_graph(vector<pair<int, int> > &edges, int n)
 {
 	graph_size = n;
+	next_vertex = last_vertex = 1;
 	for (int i = 0; i <= graph_size; ++i)
 	{
 		vertex[i].clear();
@@ -138,6 +139,32 @@ vector<pair<int, int> > Algorithm_graph::get_all_edges()
 			temp.push_back({ i,vertex[i][j].to });
 	}
 	return temp;
+}
+
+int Algorithm_graph::get_next_vertex()
+{
+	float x = (float)rand()/(float)RAND_MAX*100.f;
+	last_vertex = next_vertex;
+	float counter = 0;
+	bool ok = false;
+	for (int i = 0; i < vertex[last_vertex].size(); ++i) {
+		counter += vertex[last_vertex][i].val;
+		if (counter - x >= -0.0001) {
+			next_vertex = vertex[last_vertex][i].to;
+			ok = true;
+			break;
+		}
+	}
+	if (vertex[last_vertex].size() == 0)
+		return -1;
+	if (!ok)
+		next_vertex = vertex[last_vertex][vertex[last_vertex].size() - 1].to;
+	return next_vertex;
+}
+
+void Algorithm_graph::restart()
+{
+	last_vertex = next_vertex = 1;
 }
 
 Algorithm_graph::~Algorithm_graph()

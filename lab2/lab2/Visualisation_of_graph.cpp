@@ -188,13 +188,35 @@ void Visualisation_of_graph::change_pointer_position_on_edge()
 	}
 	else {
 		next_pos.y = prev_pos.y + move_where;
-		next_pos.y = (-line_b * next_pos.y - line_c) / line_a;
+		next_pos.x = (-line_b * next_pos.y - line_c) / line_a;
 	}
 	pointer.get()->setPosition(next_pos);
-	if (next_pos == vertexes[have_to].get()->getPosition())
+	//cout << next_pos.x << "   " << vertexes[have_to - 1].get()->getPosition().x << ' ' << line_b;
+	//cout << "\n_______ " << next_pos.y << "   " << vertexes[have_to - 1].get()->getPosition().y << ' ' << line_a << '\n';
+	if (abs(next_pos.x - vertexes[have_to - 1].get()->getPosition().x) <= 3.0 && line_b != 0 ||
+		abs(next_pos.y - vertexes[have_to - 1].get()->getPosition().y) <= 3.0 && line_a != 0)
 	{
+		line_a = line_b = line_c = 0;
 		in_move_on_edge = false;
 	}
+}
+
+void Visualisation_of_graph::count_line()
+{
+	Vector2f v_from = vertexes[current_vertex - 1].get()->getPosition();
+	Vector2f v_to = vertexes[have_to - 1].get()->getPosition();
+	line_a = (v_to.y - v_from.y);
+	line_b = -v_to.x + v_from.x;
+	line_c = (-v_from.x*v_to.y + v_from.y*v_to.x);
+	double dist = vertex_distance(current_vertex, have_to) / 3.0;
+	if (v_to.x > v_from.x)
+		move_where = abs(v_to.x - v_from.x) / dist;
+	else if (v_to.x < v_from.x)
+		move_where = abs(v_to.x - v_from.x) / (-dist);
+	else if (v_to.y > v_from.y)
+		move_where = abs(v_to.y - v_from.y) / dist;
+	else 
+		move_where = abs(v_to.y - v_from.y) / (-dist);
 }
 
 
@@ -211,7 +233,7 @@ Visualisation_of_graph::Visualisation_of_graph(shared_ptr<Algorithm_graph> graph
 	font.get()->loadFromFile("arial.ttf");
 	for (int i = 0; i < n; ++i)
 	{
-		cout << x << ' ' << y << '\n';
+	//	cout << x << ' ' << y << '\n';
 		temp = shared_ptr<CircleShape>(new CircleShape);
 		temp.get()->setRadius(14.f);
 		temp.get()->setOutlineThickness(2.f);
@@ -260,13 +282,15 @@ Visualisation_of_graph::Visualisation_of_graph(shared_ptr<Algorithm_graph> graph
 	pointer = shared_ptr<CircleShape>(new CircleShape(8.f, 10));
 	pointer.get()->setOrigin(8.f, 8.f);
 	Vector2f temp_pos = vertexes[0].get()->getPosition();
+//	temp_pos.x -= 25;
 	pointer.get()->setPosition(temp_pos);
-	pointer.get()->setFillColor(Color(0, 0, 255));
+	pointer.get()->setFillColor(Color(255, 0, 0));
 
 	start_time = high_resolution_clock::now();
 	last_time = 0.f;
 	in_move_on_edge = can_move = false;
-//	have_to = 2;
+	have_to = current_vertex = 1;
+	move_on_circle = true;
 }
 
 void Visualisation_of_graph::draw(shared_ptr<RenderWindow> window)
@@ -274,14 +298,15 @@ void Visualisation_of_graph::draw(shared_ptr<RenderWindow> window)
 	image.get()->clear(Color(10,10,10,0));
 	for (int i = 0; i < (int)edges.size(); ++i)
 		image.get()->draw(*edges[i].first);
+	for (int i = 0; i < (int)edges.size(); ++i)
+		image.get()->draw(*edges[i].second);
 	image.get()->draw(*pointer);
-	for (int i = 0; i < (int)vertexes.size(); ++i) 
+	for (int i = 0; i < (int)vertexes.size(); ++i)
 	{
 		image.get()->draw(*vertexes[i]);
 		image.get()->draw(*number[i]);
 	}
-	for (int i = 0; i < (int)edges.size(); ++i)
-		image.get()->draw(*edges[i].second);
+	image.get()->draw(*pointer);
 	image.get()->display();
 	Texture temp_texture;
 	temp_texture = image.get()->getTexture();
@@ -295,18 +320,47 @@ void Visualisation_of_graph::move(shared_ptr<Algorithm_graph> graph)
 {
 	if (can_move)
 	{
-		if (in_move_on_edge)
+		high_resolution_clock::time_point current = high_resolution_clock::now();
+		auto duration = duration_cast<chrono::microseconds>(current - start_time).count();
+		double dur_in_sec = double (duration) / 1000000.0;
+		if (dur_in_sec - last_time > 0.0001)
 		{
-			high_resolution_clock::time_point current = high_resolution_clock::now();
-			auto duration = duration_cast<chrono::microseconds>(current - start_time).count();
-			float dur_in_sec = duration / 1000000.f;
-			if (dur_in_sec - last_time > 0.05f)
+			last_time = dur_in_sec;
+			if (in_move_on_edge)
 			{
-				last_time = dur_in_sec;
 				change_pointer_position_on_edge();
+				if (!in_move_on_edge)
+					move_on_circle = true;
+			}
+			else if (move_on_circle)
+			{
+				if (line_a == line_b && line_a == 0) 
+				{
+					current_vertex = have_to;
+					have_to = graph.get()->get_next_vertex();
+					if (have_to != -1) {
+						count_line();
+						move_on_circle = false;
+						in_move_on_edge = true;
+					}
+					else {
+						move_on_circle = false;
+						in_move_on_edge = false;
+					}
+				}
 			}
 		}
 	}
+}
+
+void Visualisation_of_graph::un_move()
+{
+	can_move = false;
+}
+
+void Visualisation_of_graph::canmove()
+{
+	can_move = true;
 }
 
 

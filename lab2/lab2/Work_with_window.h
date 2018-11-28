@@ -26,7 +26,7 @@ class Work_with_window
 	string information;
 	int need_to_create_window;
 	int number_of_created_windows_type_2;
-	bool saved;
+	bool saved, created, showed;
 
 	void check_buttons_under_cursor(int pos_w, int pos_h);
 	void check_buttons_is_pressed(int pos_w, int pos_h, bool is_pressed);
@@ -46,7 +46,8 @@ class Work_with_window
 	void check_fields_on_last_dot_simple(); 
 	void check_fields_on_last_dot_graph();
 	void check_last_prob_field(); 
-	void check_last_vertex_prob_field();
+	void check_last_vertex_prob_field(); 
+	void check_del_play_pause();
 
 	void create_fields(int number); 
 	void create_fields_graph(int number);

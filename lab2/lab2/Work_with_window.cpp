@@ -108,7 +108,7 @@ Work_with_window::Work_with_window(string &file)
 	int hash_pos = get_pos_base_button("Go!");
 	if (hash_pos != -1) 
 	{
-		cout << "qw3eq2we";
+	//	cout << "qw3eq2we";
 		shared_ptr<ButtonDraw> temp_num = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos]));
 		temp_num.get()->set_text("Go!");
 		buttons.push_back(temp_num);
@@ -158,7 +158,7 @@ void Work_with_window::work()
 			{
 				check_buttons_is_released(event.mouseButton.y, event.mouseButton.x);
 				check_fields_is_released(event.mouseButton.y, event.mouseButton.x);
-				cout << event.mouseButton.x << ' ' << event.mouseButton.y << '\n';
+	//			cout << event.mouseButton.x << ' ' << event.mouseButton.y << '\n';
 				for (int i = 0; i < buttons.size(); ++i)
 					buttons[i].get()->unpress();
 			}
@@ -208,11 +208,13 @@ void Work_with_window::work()
 				fields[i].get()->unfocus();
 			}
 		}
-		if (show_graph != nullptr)
-		{
-			show_graph.get()->move(algo_graph);
-		}
 	}
+	if (show_graph != nullptr && showed)
+	{
+		show_graph.get()->move(algo_graph);
+	}
+	else if (saved && !created && !showed)
+		button_enter_values_graph();
 	window.get()->clear(Color(40, 40, 40));
 	draw();
 	window.get()->display();
@@ -283,6 +285,10 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 				check_button_go_in_graph(i);
 		else if (buttons[i].get()->get_name() == "Save vertexes" && buttons[i].get()->in_it(pos_w, pos_h))
 			check_button_save_vertexes();
+		else if (buttons[i].get()->get_name() == "Pause" && buttons[i].get()->in_it(pos_w, pos_h))
+			show_graph.get()->un_move();
+		else if (buttons[i].get()->get_name() == "Play"  && buttons[i].get()->in_it(pos_w, pos_h))
+			show_graph.get()->canmove();
 		else
 			buttons[i].get()->mouse_is_released(pos_w, pos_h, window, need_to_create_window);
 	}
@@ -318,6 +324,19 @@ void Work_with_window::check_button_go_in_graph(int index)
 	if (n == 0)
 	{
 		delete_buttons_in_graph(n);
+		bool ok = true;
+		for (int i = 0; i < (int)fields.size(); ++i)
+		{
+			if (fields[i].get()->get_field_name() == "Number of vertexes")
+			{
+				if (fields[i].get()->get_text_value_length() == 0) {
+					ok = false;
+					break;
+				}
+			}
+		}
+		if (!ok)
+			return;
 		int hash_pos = get_pos_base_button("Number of edges:");
 		shared_ptr<ButtonDraw> temp_button = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pos]));
 		temp_button.get()->set_text("Number of edges:");
@@ -334,12 +353,26 @@ void Work_with_window::check_button_go_in_graph(int index)
 	else if (n == 1)
 	{
 		delete_buttons_in_graph(n);
-		cout << buttons.size() << ' ' << fields.size() << '\n';
+		bool ok = true;
+		for (int i = 0; i < (int)fields.size(); ++i)
+		{
+			if (fields[i].get()->get_field_name() == "Number of edges")
+			{
+				if (fields[i].get()->get_text_value_length() == 0) {
+					ok = false;
+					break;
+				}
+			}
+		}
+		if (!ok)
+			return;
+		//cout << buttons.size() << ' ' << fields.size() << '\n';
 		int num = fields[1].get()->_int_value();
 		create_fields_graph(num);
 	}
 	algo_graph.reset();
-	saved = false;
+	show_graph.reset();
+	saved = created = showed = false;
 }
 
 void Work_with_window::check_button_save_vertexes()
@@ -348,7 +381,7 @@ void Work_with_window::check_button_save_vertexes()
 	vector<pair<int, int> > temp_graph;
 	for (int i = 2; i < fields.size(); i += 3) {
 		int x = fields[i].get()->_int_value(), y = fields[i + 1].get()->_int_value();
-		cout << x << ' ' << y << '\n';
+		//cout << x << ' ' << y << '\n';
 		if (x > 0 && y > 0)
 		{
 			if (x == y)
@@ -463,13 +496,21 @@ void Work_with_window::check_fields_backspace()
 				if (fields[i].get()->get_field_name() == "Vertex" || fields[i].get()->get_field_name() == "Number of vertexes"
 					|| fields[i].get()->get_field_name() == "Number of edges")
 				{
-					cout << "TTTT\n";
-					saved = false;
+				//	cout << "TTTT\n";
+					saved = showed = created = false;
+					check_del_play_pause();
 					algo_graph.reset();
 					show_graph.reset();
 				}
-				if (fields[i].get()->get_field_name() == "Number of vertexes")
+				if (fields[i].get()->get_field_name() == "Prob." && showed)
+				{
+					check_del_play_pause();
+					showed = created = false;
+					show_graph.reset();
+				}
+				if (fields[i].get()->get_field_name() == "Number of vertexes") {
 					delete_buttons_in_graph(0);
+				}
 				else if (fields[i].get()->get_field_name() == "Number of edges")
 					delete_buttons_in_graph(1);
 			}
@@ -539,7 +580,7 @@ void Work_with_window::check_last_vertex_prob_field()
 		vector<pair<int, double> > temp_edge = algo_graph.get()->get_last_values();
 		sort(temp_edge.begin(), temp_edge.end());
 		int k = 0;
-		cout << temp_edge.size() << '\n';
+	//	cout << temp_edge.size() << '\n';
 		for (int i = 4; i < fields.size() && k < temp_edge.size(); i += 3)
 		{
 			if ((i - 4) / 3 == temp_edge[k].first)
@@ -572,6 +613,20 @@ void Work_with_window::check_last_vertex_prob_field()
 	}
 }
 
+void Work_with_window::check_del_play_pause()
+{
+	for (int i = 0;i < (int)buttons.size(); ++i)
+		if (buttons[i].get()->get_name() == "Play" || buttons[i].get()->get_name() == "Pause")
+		{
+			buttons[i].reset();
+			for (int j = i; j < (int)buttons.size() - 1; ++j)
+				buttons[j] = buttons[j + 1];
+			buttons.pop_back();
+			--i;
+		}
+
+}
+
 bool Work_with_window::button_enter_values_simple()
 {
 	double counter = 0;
@@ -599,17 +654,40 @@ bool Work_with_window::button_enter_values_simple()
 
 bool Work_with_window::button_enter_values_graph()
 {
-	vector<double> probs;
-	show_graph.reset();
-	for (int i = 2; i < (int)fields.size(); ++i)
+	algo_graph.get()->restart();
+	if (created && !showed || showed)
 	{
-		if (fields[i].get()->get_text_value_length() == 0) 
-			return false;
+		showed = false;
+		for (int i = 2; i < (int)fields.size(); ++i)
+		{
+			if (fields[i].get()->get_text_value_length() == 0)
+				return false;
+		}
+		bool ok = true;
+		for (int i = (int)buttons.size() - 1; i >= 0; --i)
+			if (buttons[i].get()->get_name() == "Pause") {
+				ok = false;
+				break;
+			}
+		if (ok)
+		{
+			int hash_pause = get_pos_base_button("Pause");
+			shared_ptr<ButtonDraw> temp = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pause]));
+			temp.get()->set_text("Pause");
+			buttons.push_back(temp);
 
-		if (fields[i].get()->get_field_name() == "Prob.")
-			probs.push_back(fields[i].get()->get_double_value());
+			hash_pause = get_pos_base_button("Play");
+			temp = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pause]));
+			temp.get()->set_text("Play");
+			buttons.push_back(temp);
+		}
+		showed = true;
 	}
-	show_graph = shared_ptr<Visualisation_of_graph>(new Visualisation_of_graph(algo_graph));
+	if (!created || showed) {
+		show_graph.reset();
+		show_graph = shared_ptr<Visualisation_of_graph>(new Visualisation_of_graph(algo_graph));
+		created = true;
+	}
 	return true;
 }
 
@@ -701,7 +779,7 @@ void Work_with_window::delete_buttons_simple(int i)
 {
 	if (algo_simple != nullptr && fields[i].get()->get_field_name() != "Number of tests" && fields[i].get()->get_field_name() != "Save")
 	{
-		cout << i << '\n';
+//		cout << i << '\n';
 		algo_simple.reset();
 		for (int j = (int)buttons.size() - 1; j > 0; --j)
 		{
@@ -831,14 +909,14 @@ void Work_with_window::draw_frame_for_window(shared_ptr<RenderWindow> window)
 void Work_with_window::draw()
 {
 	if (window.get()->isOpen()) {
-		for (int i = 0; i < buttons.size(); ++i)
-		{
-			buttons[i].get()->draw(window);
-		}
 		for (int i = 0; i < fields.size(); ++i)
 			fields[i].get()->draw(window);
 		if (show_graph != nullptr)
 			show_graph.get()->draw(window);
+		for (int i = 0; i < buttons.size(); ++i)
+		{
+			buttons[i].get()->draw(window);
+		}
 		draw_frame_for_window(window);
 	}	
 }

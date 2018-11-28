@@ -155,8 +155,30 @@ int Input_field::_int_value()
 
 void Input_field::add_text(char c, bool is_graph, int value)
 {
-	if (c != '.' && (button.button_name == "Number of events" || button.button_name == "Number of tests"
-		|| button.button_name == "Number of vertexes" || button.button_name == "Number of edges"
+	if (button.button_name == "Number of vertexes")
+	{
+		if (c == '0' && text_value.size() == 0)
+			return;
+		text_value += c;
+		convert_to_int();
+		if (!field_criterion_in_graph(1, -1)) {
+			text_value.pop_back();
+			convert_to_int();
+		}
+	}
+	else if (button.button_name == "Number of edges")
+	{
+		if (c == '0' && text_value == "0")
+			return;
+		text_value += c;
+		convert_to_int();
+		if (!field_criterion_in_graph(2, value)) {
+			text_value.pop_back();
+			convert_to_int();
+		}
+	}
+	else if (c != '.' && (button.button_name == "Number of events" || button.button_name == "Number of tests"
+	    || button.button_name == "Number of edges"
 		|| button.button_name == "Vertex"))
 	{
 		cout << c << '\n';
@@ -169,8 +191,7 @@ void Input_field::add_text(char c, bool is_graph, int value)
 		}
 		else if ((int_value == 0 || button.button_name == "Number of events" && int_value > 15 ||
 			button.button_name == "Number of tests" && int_value > 10) && !is_graph ||
-			(!field_criterion_in_graph(1, value) ||
-			!field_criterion_in_graph(2, value)  && is_graph && button.button_name != "Vertex"))
+			!field_criterion_in_graph(2, value)  && is_graph && button.button_name != "Vertex")
 		{
 			text_value.pop_back();
 			convert_to_int();
