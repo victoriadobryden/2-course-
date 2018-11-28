@@ -289,6 +289,10 @@ void Work_with_window::check_buttons_is_released(int pos_w, int pos_h)
 			show_graph.get()->un_move();
 		else if (buttons[i].get()->get_name() == "Play"  && buttons[i].get()->in_it(pos_w, pos_h))
 			show_graph.get()->canmove();
+		else if (buttons[i].get()->get_name() == "Restart" && buttons[i].get()->in_it(pos_w, pos_h)) {
+			button_enter_values_graph();
+			show_graph.get()->canmove();
+		}
 		else
 			buttons[i].get()->mouse_is_released(pos_w, pos_h, window, need_to_create_window);
 	}
@@ -638,7 +642,7 @@ void Work_with_window::check_last_vertex_prob_field()
 void Work_with_window::check_del_play_pause()
 {
 	for (int i = 0;i < (int)buttons.size(); ++i)
-		if (buttons[i].get()->get_name() == "Play" || buttons[i].get()->get_name() == "Pause")
+		if (buttons[i].get()->get_name() == "Play" || buttons[i].get()->get_name() == "Pause" || buttons[i].get()->get_name() == "Restart")
 		{
 			buttons[i].reset();
 			for (int j = i; j < (int)buttons.size() - 1; ++j)
@@ -701,6 +705,11 @@ bool Work_with_window::button_enter_values_graph()
 			hash_pause = get_pos_base_button("Play");
 			temp = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pause]));
 			temp.get()->set_text("Play");
+			buttons.push_back(temp);
+
+			hash_pause = get_pos_base_button("Restart");
+			temp = shared_ptr<ButtonDraw>(new ButtonDraw(base_buttons[hash_pause]));
+			temp.get()->set_text("Restart");
 			buttons.push_back(temp);
 		}
 		showed = true;

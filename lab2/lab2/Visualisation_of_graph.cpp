@@ -191,10 +191,12 @@ void Visualisation_of_graph::change_pointer_position_on_edge()
 		next_pos.x = (-line_b * next_pos.y - line_c) / line_a;
 	}
 	pointer.get()->setPosition(next_pos);
-	//cout << next_pos.x << "   " << vertexes[have_to - 1].get()->getPosition().x << ' ' << line_b;
-	//cout << "\n_______ " << next_pos.y << "   " << vertexes[have_to - 1].get()->getPosition().y << ' ' << line_a << '\n';
-	if (abs(next_pos.x - vertexes[have_to - 1].get()->getPosition().x) <= 3.0 && line_b != 0 ||
-		abs(next_pos.y - vertexes[have_to - 1].get()->getPosition().y) <= 3.0 && line_a != 0)
+	//cout << "%%%%%%%%%%%%%%%%%%%%%%%%%%  " << current_vertex << ' ' << have_to << '\n';
+	//cout << vertexes[current_vertex - 1].get()->getPosition().x << ' ' << vertexes[current_vertex - 1].get()->getPosition().y <<  '\n';
+	//cout << next_pos.x << "   " << vertexes[have_to - 1].get()->getPosition().x << ' ' << move_where;
+	//cout << "\n_______ " << next_pos.y << "   " << vertexes[have_to - 1].get()->getPosition().y << ' ' << '\n';
+	if (abs(next_pos.x - vertexes[have_to - 1].get()->getPosition().x) <= 3.0 &&
+		abs(next_pos.y - vertexes[have_to - 1].get()->getPosition().y) <= 3.0)
 	{
 		line_a = line_b = line_c = 0;
 		in_move_on_edge = false;
@@ -217,6 +219,7 @@ void Visualisation_of_graph::count_line()
 		move_where = abs(v_to.y - v_from.y) / dist;
 	else 
 		move_where = abs(v_to.y - v_from.y) / (-dist);
+	pointer.get()->setPosition(v_from);
 }
 
 
